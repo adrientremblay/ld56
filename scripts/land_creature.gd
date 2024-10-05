@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 var movement_speed: float = 50.0
 
-var IDLE_LAND_LEFT_VECTOR: Vector2 = Vector2(68.0, 638.0);
-var IDLE_LAND_RIGHT_VECTOR: Vector2 = Vector2(1206.0, 638.0);
+var IDLE_LAND_LEFT_VECTOR: Vector2 = Vector2(112.0, 608.0);
+var IDLE_LAND_RIGHT_VECTOR: Vector2 = Vector2(1152.0, 608.0);
 var TARGET_POSITION_VECTOR = IDLE_LAND_RIGHT_VECTOR - IDLE_LAND_LEFT_VECTOR;
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -17,6 +17,10 @@ func _ready():
 
 	# Make sure to not await during _ready.
 	actor_setup.call_deferred()
+	
+	var r = randf()
+	var target_pos = (TARGET_POSITION_VECTOR * r) + IDLE_LAND_LEFT_VECTOR
+	self.position = target_pos
 
 func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.

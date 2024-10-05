@@ -8,15 +8,16 @@
 [ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
-vertices = PackedVector2Array(176, 621, 175, 620, 305, 615, 1165, 632, 1218, 602, 1221, 659, 56, 657, 444, 635, 118, 637, 56, 610)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(3, 5, 6, 7), PackedInt32Array(0, 2, 7, 6, 8), PackedInt32Array(8, 6, 9)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(47, 595, 46, 667, 1232, 670, 1228, 586, 1162, 622, 445, 625, 306, 605, 173, 611, 119, 626)])
+vertices = PackedVector2Array(91, 622, 96, 584, 141, 610, 1181, 622, 177, 610, 1131, 610, 1175, 584, 280, 586, 455, 610)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 0, 2, 4), PackedInt32Array(5, 6, 3), PackedInt32Array(4, 7, 8), PackedInt32Array(3, 4, 8), PackedInt32Array(5, 3, 8)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(88, 568, 80, 632, 1192, 632, 1184, 568, 1128, 600, 456, 600, 280, 576, 176, 600, 144, 600)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_ka8qc")
+landCreatureScene = ExtResource("2_nfyws")
 
 [node name="AquariumBackdrop" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -26,8 +27,8 @@ texture = ExtResource("1_sqbh1")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_w865j")
 
-[node name="Node2D" parent="NavigationRegion2D" instance=ExtResource("2_nfyws")]
-position = Vector2(1189, 625)
+[node name="Snail" parent="NavigationRegion2D" instance=ExtResource("2_nfyws")]
+position = Vector2(1152, 608)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -53,6 +54,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="CreatureMenu" type="PanelContainer" parent="UI"]
+visible = false
 layout_mode = 0
 offset_left = 264.0
 offset_top = 88.0
