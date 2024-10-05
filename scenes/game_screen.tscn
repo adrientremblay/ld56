@@ -60,32 +60,46 @@ offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 0.333333)
 
+[node name="WaterRect" type="ColorRect" parent="Lighting"]
+offset_left = 80.0
+offset_top = 100.0
+offset_right = 1200.0
+offset_bottom = 641.0
+color = Color(0, 0.301961, 0.439216, 0.243137)
+
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
 position = Vector2(639.139, 346.5)
 scale = Vector2(20.0269, 11.4219)
 texture = SubResource("GradientTexture2D_yk8w2")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_ivq3p")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Lighting"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Lighting"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="Lighting"]
+visible = false
 position = Vector2(287, -5)
 occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="Lighting"]
+visible = false
 position = Vector2(588, -10)
 occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D6" type="LightOccluder2D" parent="Lighting"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_fxijs")
 
 [node name="LightOccluder2D7" type="LightOccluder2D" parent="Lighting"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_5ugqd")
 
 [node name="Panel" type="Panel" parent="."]
