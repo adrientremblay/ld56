@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=9 format=3 uid="uid://bafqsokbf17by"]
 
+[ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
 [ext_resource type="PackedScene" uid="uid://bv7787vivgr0t" path="res://scenes/land_creature.tscn" id="2_nfyws"]
-[ext_resource type="FontFile" uid="uid://by24cqyfhmq4a" path="res://assets/fonts/retro_computer_personal_use.ttf" id="3_f3mg3"]
 [ext_resource type="Texture2D" uid="uid://bp5rwrmhykj1k" path="res://assets/art/button_icon.png" id="4_1hhem"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="4_gs2f0"]
+[ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(176, 621, 175, 620, 305, 615, 1165, 632, 1218, 602, 1221, 659, 56, 657, 444, 635, 118, 637, 56, 610)
@@ -11,14 +13,14 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(47, 595, 46, 667, 1232, 670, 1228, 586, 1162, 622, 445, 625, 306, 605, 173, 611, 119, 626)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="Theme" id="Theme_l0333"]
-default_font = ExtResource("3_f3mg3")
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
 
 [node name="GameScreen" type="Node2D"]
+script = ExtResource("1_ka8qc")
 
 [node name="AquariumBackdrop" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-scale = Vector2(9, 9)
+scale = Vector2(5, 5)
 texture = ExtResource("1_sqbh1")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -27,23 +29,56 @@ navigation_polygon = SubResource("NavigationPolygon_w865j")
 [node name="Node2D" parent="NavigationRegion2D" instance=ExtResource("2_nfyws")]
 position = Vector2(1189, 625)
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1206, 629)
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_sfu83")
 
-[node name="MenuButton" type="MenuButton" parent="UI"]
+[node name="CreatureButton" type="Button" parent="UI"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 184.0
-offset_bottom = 89.0
-theme = SubResource("Theme_l0333")
+offset_left = 32.0
+offset_top = 664.0
+offset_right = 248.0
+offset_bottom = 712.0
+theme = ExtResource("4_gs2f0")
+theme_override_font_sizes/font_size = 10
 text = "Creatures"
 icon = ExtResource("4_1hhem")
+flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="CreatureMenu" type="PanelContainer" parent="UI"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 88.0
+offset_right = 1032.0
+offset_bottom = 592.0
+theme = ExtResource("4_gs2f0")
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/CreatureMenu"]
+material = SubResource("CanvasItemMaterial_r6l3h")
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="UI/CreatureMenu/BoxContainer"]
+layout_mode = 2
+text = "Buy Creatures"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/CreatureMenu/BoxContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="BuySnail" type="Button" parent="UI/CreatureMenu/BoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+text = "buy snail"
+
+[connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
