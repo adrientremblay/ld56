@@ -37,3 +37,4 @@ func generateNewContract():
 	
 func contract_accepted(person_name, weight, reward):
 	should_spawn_corpse.emit(person_name, weight, reward)
+	self.visible = false

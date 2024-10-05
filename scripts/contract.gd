@@ -21,3 +21,4 @@ func construct(person_name, weight, reward):
 
 func _on_button_pressed() -> void:
 	contract_accepted.emit(self.person_name, self.weight, self.reward)
+	self.queue_free()
