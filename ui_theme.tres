@@ -5,9 +5,11 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwgg8"]
 bg_color = Color(0, 0.333333, 0.184314, 0.384314)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63r7p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idw7a"]
+bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwgit"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_likyw"]
+bg_color = Color(1, 0.337255, 0.317647, 1)
 
 [resource]
 default_font = ExtResource("2_jhybk")
@@ -34,5 +36,5 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = SubResource("StyleBoxFlat_fwgg8")
 Button/styles/pressed = null
-Panel/styles/panel = SubResource("StyleBoxEmpty_63r7p")
-PanelContainer/styles/panel = SubResource("StyleBoxTexture_fwgit")
+Panel/styles/panel = SubResource("StyleBoxFlat_idw7a")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_likyw")
