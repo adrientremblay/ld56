@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://f3722j5e8eqm"]
+[gd_scene load_steps=12 format=3 uid="uid://f3722j5e8eqm"]
 
 [ext_resource type="Texture2D" uid="uid://cvtp1gm4svyei" path="res://assets/art/dead_body-Sheet.png" id="1_6cqjt"]
 [ext_resource type="Script" path="res://scripts/corpse.gd" id="2_8vtmh"]
@@ -60,8 +60,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_280um"]
+radius = 13.8
+height = 52.8
+
 [node name="Corpse" type="AnimatedSprite2D"]
 position = Vector2(26, -165)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ul3v6")
+frame = 1
+frame_progress = 0.715555
 script = ExtResource("2_8vtmh")
+
+[node name="FeedingArea" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedingArea"]
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_280um")
