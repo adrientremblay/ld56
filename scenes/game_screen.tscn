@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=16 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://scenes/light_limit_shader.gdshader" id="4_l7kro"]
 [ext_resource type="Texture2D" uid="uid://by5yr2j6yd8xi" path="res://assets/art/light_texture.png" id="4_lrlsq"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
+[ext_resource type="PackedScene" uid="uid://f3722j5e8eqm" path="res://scenes/corpse.tscn" id="4_tr83u"]
 [ext_resource type="Texture2D" uid="uid://dpi5tefilv2my" path="res://assets/art/spokesman.png" id="7_5muyo"]
 [ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
@@ -27,6 +28,12 @@ shader = ExtResource("4_l7kro")
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_ka8qc")
 landCreatureScene = ExtResource("2_nfyws")
+corpse_scene = ExtResource("4_tr83u")
+
+[node name="AquariumBackdrop" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(5, 5)
+texture = ExtResource("1_sqbh1")
 
 [node name="Aquarium" type="Node2D" parent="."]
 
@@ -41,11 +48,6 @@ position = Vector2(782, 619)
 
 [node name="CorpseSpawn4" type="Node2D" parent="Aquarium"]
 position = Vector2(1081, 622)
-
-[node name="AquariumBackdrop" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-scale = Vector2(5, 5)
-texture = ExtResource("1_sqbh1")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_w865j")

@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var landCreatureScene: PackedScene
+@export var corpse_scene: PackedScene
+
 @onready var contract_menu = $UI/ContractMenu
 @onready var corpse_spawn1 = $Aquarium/CorpseSpawn1
 @onready var corpse_spawn2 = $Aquarium/CorpseSpawn2
@@ -28,4 +30,7 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	if (spawn_point == null):
 		return
 	
-	#asdf
+	# spawn corpse
+	var new_corpse = corpse_scene.instantiate()
+	new_corpse.construct(person_name, weight, reward)
+	spawn_point.add_child(new_corpse)

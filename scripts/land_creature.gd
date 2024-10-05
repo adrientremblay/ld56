@@ -9,6 +9,8 @@ var TARGET_POSITION_VECTOR = IDLE_LAND_RIGHT_VECTOR - IDLE_LAND_LEFT_VECTOR;
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 @onready var sprite: Sprite2D = $Sprite2D
 
+var target_corpse
+
 func _ready():
 	# These values need to be adjusted for the actor's speed
 	# and the navigation layout.
