@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var movement_speed: float = 200.0
+var movement_speed: float = 50.0
 var movement_target_position: Vector2 = Vector2(60.0,180.0)
 
 var IDLE_LAND_LEFT_VECTOR: Vector2 = Vector2(68.0, 638.0);
@@ -42,4 +42,3 @@ func _on_idle_position_timer_timeout() -> void:
 	var r = randf()
 	var target_pos = (TARGET_POSITION_VECTOR * r) + IDLE_LAND_LEFT_VECTOR
 	set_movement_target(target_pos)
-	print("asdf")

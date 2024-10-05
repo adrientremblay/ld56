@@ -4,23 +4,23 @@
 [ext_resource type="Script" path="res://scripts/land_creature.gd" id="1_x0mip"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71wsm"]
-radius = 34.0147
+radius = 15.0333
 
 [node name="LandCreature" type="CharacterBody2D"]
 script = ExtResource("1_x0mip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(-1, 6)
 shape = SubResource("CircleShape2D_71wsm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(5, 5)
+scale = Vector2(2, 2)
 texture = ExtResource("1_ovnut")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="IdlePositionTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
