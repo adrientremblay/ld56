@@ -18,3 +18,9 @@ scale = Vector2(5, 5)
 texture = ExtResource("1_ovnut")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="IdlePositionTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
