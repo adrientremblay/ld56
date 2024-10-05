@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=7 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
 [ext_resource type="PackedScene" uid="uid://bv7787vivgr0t" path="res://scenes/land_creature.tscn" id="2_nfyws"]
+[ext_resource type="FontFile" uid="uid://by24cqyfhmq4a" path="res://assets/fonts/retro_computer_personal_use.ttf" id="3_f3mg3"]
+[ext_resource type="Texture2D" uid="uid://bp5rwrmhykj1k" path="res://assets/art/button_icon.png" id="4_1hhem"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(176, 621, 175, 620, 305, 615, 1165, 632, 1218, 602, 1221, 659, 56, 657, 444, 635, 118, 637, 56, 610)
@@ -9,11 +11,14 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(47, 595, 46, 667, 1232, 670, 1228, 586, 1162, 622, 445, 625, 306, 605, 173, 611, 119, 626)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
+[sub_resource type="Theme" id="Theme_l0333"]
+default_font = ExtResource("3_f3mg3")
+
 [node name="GameScreen" type="Node2D"]
 
 [node name="AquariumBackdrop" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-scale = Vector2(10, 10)
+scale = Vector2(9, 9)
 texture = ExtResource("1_sqbh1")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
@@ -24,3 +29,21 @@ position = Vector2(1189, 625)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(1206, 629)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuButton" type="MenuButton" parent="UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 89.0
+theme = SubResource("Theme_l0333")
+text = "Creatures"
+icon = ExtResource("4_1hhem")
+icon_alignment = 1
+expand_icon = true
