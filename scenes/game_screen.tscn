@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=10 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
 [ext_resource type="PackedScene" uid="uid://bv7787vivgr0t" path="res://scenes/land_creature.tscn" id="2_nfyws"]
-[ext_resource type="Texture2D" uid="uid://bp5rwrmhykj1k" path="res://assets/art/button_icon.png" id="4_1hhem"]
 [ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="4_gs2f0"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
 [ext_resource type="Texture2D" uid="uid://dpi5tefilv2my" path="res://assets/art/spokesman.png" id="7_5muyo"]
@@ -48,10 +47,8 @@ offset_top = 664.0
 offset_right = 248.0
 offset_bottom = 712.0
 theme = ExtResource("4_gs2f0")
-theme_override_font_sizes/font_size = 10
-text = "Creatures"
-icon = ExtResource("4_1hhem")
-flat = true
+theme_override_font_sizes/font_size = 17
+text = "Buy Creatures"
 icon_alignment = 1
 expand_icon = true
 
@@ -85,6 +82,7 @@ theme = ExtResource("4_gs2f0")
 text = "buy snail"
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = 96.0
 offset_top = 120.0
 offset_right = 1176.0
