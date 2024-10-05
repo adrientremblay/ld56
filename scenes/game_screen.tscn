@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=15 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://by5yr2j6yd8xi" path="res://assets/art/light_texture.png" id="4_lrlsq"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
 [ext_resource type="Texture2D" uid="uid://dpi5tefilv2my" path="res://assets/art/spokesman.png" id="7_5muyo"]
-[ext_resource type="Texture2D" uid="uid://cl0rk16lfiknc" path="res://assets/art/corpse_icon_1.png" id="7_w30cl"]
+[ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
+[ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(91, 622, 96, 584, 141, 610, 1181, 622, 177, 610, 1131, 610, 1175, 584, 280, 586, 455, 610)
@@ -136,11 +137,14 @@ text = "buy snail"
 
 [node name="ContractMenu" type="Panel" parent="UI"]
 light_mask = 0
+layout_mode = 0
 offset_left = 96.0
-offset_top = 120.0
+offset_top = 53.0
 offset_right = 1176.0
-offset_bottom = 624.0
+offset_bottom = 630.0
 theme = ExtResource("4_gs2f0")
+script = ExtResource("8_u3xyv")
+contract_scene = ExtResource("10_j63wu")
 
 [node name="Title" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
@@ -195,101 +199,14 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer"]
+[node name="ContractVBox" type="VBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
-light_mask = 0
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-light_mask = 0
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("7_w30cl")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Name: Steve Martin"
-
-[node name="Label2" type="Label" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Weight: 156lbs"
-
-[node name="Label3" type="Label" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Reward: 50$"
-
-[node name="Button" type="Button" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Accept"
-
-[node name="PanelContainer2" type="PanelContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2"]
-light_mask = 0
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-light_mask = 0
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-texture = ExtResource("7_w30cl")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Name: Steve Martin"
-
-[node name="Label2" type="Label" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Weight: 156lbs"
-
-[node name="Label3" type="Label" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Reward: 50$"
-
-[node name="Button" type="Button" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Accept"
+[node name="NewContractTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
 
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
+[connection signal="timeout" from="NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
