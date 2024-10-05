@@ -19,6 +19,7 @@ func _on_buy_snail_pressed() -> void:
 	var creature = landCreatureScene.instantiate()
 	self.add_child(creature)
 	creatures_list.push_back(creature)
+	creatures_find_corpses()
 
 func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant) -> void:
 	# find available spawn
