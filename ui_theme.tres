@@ -1,12 +1,38 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://c2g25n7qed5wq"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c2g25n7qed5wq"]
 
-[ext_resource type="Texture2D" uid="uid://bp5rwrmhykj1k" path="res://assets/art/button_icon.png" id="1_l6u1x"]
 [ext_resource type="FontFile" uid="uid://by24cqyfhmq4a" path="res://assets/fonts/retro_computer_personal_use.ttf" id="2_jhybk"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwgg8"]
+bg_color = Color(0.529546, 0, 0.09768, 0.384314)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63r7p"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwgit"]
-texture = ExtResource("1_l6u1x")
 
 [resource]
 default_font = ExtResource("2_jhybk")
-Panel/styles/panel = null
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("2_jhybk")
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_fwgg8")
+Button/styles/pressed = null
+Panel/styles/panel = SubResource("StyleBoxEmpty_63r7p")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_fwgit")
