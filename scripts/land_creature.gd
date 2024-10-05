@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 var movement_speed: float = 50.0
-var movement_target_position: Vector2 = Vector2(60.0,180.0)
 
 var IDLE_LAND_LEFT_VECTOR: Vector2 = Vector2(68.0, 638.0);
 var IDLE_LAND_RIGHT_VECTOR: Vector2 = Vector2(1206.0, 638.0);
 var TARGET_POSITION_VECTOR = IDLE_LAND_RIGHT_VECTOR - IDLE_LAND_LEFT_VECTOR;
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _ready():
 	# These values need to be adjusted for the actor's speed
@@ -22,8 +22,7 @@ func actor_setup():
 	# Wait for the first physics frame so the NavigationServer can sync.
 	await get_tree().physics_frame
 
-	# Now that the navigation map is no longer empty, set the movement target.
-	set_movement_target(movement_target_position)
+	change_idle_position()
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
@@ -39,6 +38,17 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_idle_position_timer_timeout() -> void:
+	change_idle_position()
+
+func change_idle_position() -> void:
 	var r = randf()
 	var target_pos = (TARGET_POSITION_VECTOR * r) + IDLE_LAND_LEFT_VECTOR
+	
+	#going to do the changing of the sprite rotation and flipping here bcuz the floor is flat
+	var dir = target_pos - self.position
+	if (dir.x > 0):
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
+	
 	set_movement_target(target_pos)
