@@ -63,7 +63,6 @@ func change_idle_position() -> void:
 	set_movement_target(target_pos)
 
 func set_target(corpse):
-	print("Finding corpse!!!!")
 	self.target_corpse = corpse
 	set_movement_target(corpse.position)
 	

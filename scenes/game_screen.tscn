@@ -137,7 +137,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="CreatureMenu" type="PanelContainer" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -162,6 +161,7 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
 [node name="BuySnail" type="Button" parent="UI/CreatureMenu/BoxContainer"]
+light_mask = 0
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
 text = "buy snail"
@@ -241,5 +241,6 @@ autostart = true
 
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
+[connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_opened"]
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
