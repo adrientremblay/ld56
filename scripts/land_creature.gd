@@ -47,6 +47,9 @@ func _on_idle_position_timer_timeout() -> void:
 	change_idle_position()
 
 func change_idle_position() -> void:
+	if target_corpse != null:
+		return
+	
 	var r = randf()
 	var target_pos = (TARGET_POSITION_VECTOR * r) + IDLE_LAND_LEFT_VECTOR
 	
@@ -58,3 +61,9 @@ func change_idle_position() -> void:
 		sprite.flip_h = false
 	
 	set_movement_target(target_pos)
+
+func set_target(corpse):
+	print("Finding corpse!!!!")
+	self.target_corpse = corpse
+	set_movement_target(corpse.position)
+	
