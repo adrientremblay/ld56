@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=16 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -14,25 +14,27 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(
 outlines = Array[PackedVector2Array]([PackedVector2Array(88, 568, 80, 632, 1192, 632, 1184, 568, 1128, 600, 456, 600, 280, 576, 176, 600, 144, 600)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_cwq0e"]
-polygon = PackedVector2Array(82, -2, 86, 36, -4, 34, -8, -19)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bvean"]
-polygon = PackedVector2Array(290, -1, 309, 33, 378, 33, 394, 0)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1lwel"]
-polygon = PackedVector2Array(680, 34, 596, 35, 575, -2, 703, -2)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_monrw"]
-polygon = PackedVector2Array(880, 0, 901, 34, 973, 34, 991, -2)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ldsrr"]
-polygon = PackedVector2Array(1178, -1, 1189, 33, 1282, 37, 1283, -5)
-
 [sub_resource type="Gradient" id="Gradient_poegr"]
+offsets = PackedFloat32Array(0, 0.942675)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yk8w2"]
 gradient = SubResource("Gradient_poegr")
+fill = 1
+fill_from = Vector2(0.484163, 0)
+fill_to = Vector2(0.488688, 1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ivq3p"]
+polygon = PackedVector2Array(-11, 35, 1302, 35, 1289, -23, 1, -22)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_as35x"]
+polygon = PackedVector2Array(283, -54, 349, 131, 416, -56)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fxijs"]
+polygon = PackedVector2Array(152, -109, -18, 215, -45, -112)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5ugqd"]
+polygon = PackedVector2Array(1159, -88, 1295, 274, 1318, -88)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
 
@@ -54,31 +56,37 @@ position = Vector2(1152, 608)
 [node name="Lighting" type="Node2D" parent="."]
 
 [node name="DarknessFilter" type="ColorRect" parent="Lighting"]
-offset_left = 8.0
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 0.333333)
 
+[node name="PointLight2D" type="PointLight2D" parent="Lighting"]
+position = Vector2(639.139, 346.5)
+scale = Vector2(20.0269, 11.4219)
+texture = SubResource("GradientTexture2D_yk8w2")
+
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
-occluder = SubResource("OccluderPolygon2D_cwq0e")
+occluder = SubResource("OccluderPolygon2D_ivq3p")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Lighting"]
-occluder = SubResource("OccluderPolygon2D_bvean")
+occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Lighting"]
-occluder = SubResource("OccluderPolygon2D_1lwel")
+occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D4" type="LightOccluder2D" parent="Lighting"]
-occluder = SubResource("OccluderPolygon2D_monrw")
+position = Vector2(287, -5)
+occluder = SubResource("OccluderPolygon2D_as35x")
 
 [node name="LightOccluder2D5" type="LightOccluder2D" parent="Lighting"]
-occluder = SubResource("OccluderPolygon2D_ldsrr")
+position = Vector2(588, -10)
+occluder = SubResource("OccluderPolygon2D_as35x")
 
-[node name="PointLight2D" type="PointLight2D" parent="Lighting"]
-position = Vector2(198.458, 273.54)
-rotation = -1.5708
-scale = Vector2(7.54813, 3.46292)
-texture = SubResource("GradientTexture2D_yk8w2")
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Lighting"]
+occluder = SubResource("OccluderPolygon2D_fxijs")
+
+[node name="LightOccluder2D7" type="LightOccluder2D" parent="Lighting"]
+occluder = SubResource("OccluderPolygon2D_5ugqd")
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
