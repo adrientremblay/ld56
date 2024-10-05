@@ -12,6 +12,8 @@ var MAX_REWARD = 100.0
 
 var rng = RandomNumberGenerator.new()
 
+signal should_spawn_corpse(person_name, weight, reward)
+
 func _onready():
 	self.visible = false
 
@@ -20,6 +22,7 @@ func _on_new_contract_timer_timeout() -> void:
 	generateNewContract()
 	# make the menu visible
 	self.visible = true
+	$NewContractTimer.stop() # TODO: remove
 	
 func generateNewContract():
 	var weight = snapped(rng.randf_range(LOWER_WEIGHT_BOUND, UPPER_WEIGHT_BOUND), 0.01)
@@ -29,4 +32,8 @@ func generateNewContract():
 	
 	var new_contract: Contract = contract_scene.instantiate()
 	new_contract.construct(first_name + " " + last_name, weight, reward)
+	new_contract.connect("contract_accepted", self.contract_accepted)
 	contract_vbox.add_child(new_contract)
+	
+func contract_accepted(person_name, weight, reward):
+	should_spawn_corpse.emit(person_name, weight, reward)

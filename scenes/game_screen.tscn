@@ -203,10 +203,11 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="NewContractTimer" type="Timer" parent="."]
+[node name="NewContractTimer" type="Timer" parent="UI/ContractMenu"]
 wait_time = 3.0
 autostart = true
 
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
-[connection signal="timeout" from="NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
+[connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
+[connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
