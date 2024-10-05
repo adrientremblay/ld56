@@ -16,7 +16,7 @@ func construct(person_name, weight, reward):
 	self.reward = reward
 
 	$MarginContainer/HBoxContainer/VBoxContainer/NameLabel.text = "Name: " + person_name
-	$MarginContainer/HBoxContainer/VBoxContainer/WeightLabel.text = "Name: " + str(weight) + "lbs"
+	$MarginContainer/HBoxContainer/VBoxContainer/WeightLabel.text = "Weight: " + str(weight) + "lbs"
 	$MarginContainer/HBoxContainer/VBoxContainer/RewardLabel.text = "Reward: " + str(reward) + "$"
 
 func _on_button_pressed() -> void:

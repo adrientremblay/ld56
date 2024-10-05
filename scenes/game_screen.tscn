@@ -28,6 +28,20 @@ shader = ExtResource("4_l7kro")
 script = ExtResource("1_ka8qc")
 landCreatureScene = ExtResource("2_nfyws")
 
+[node name="Aquarium" type="Node2D" parent="."]
+
+[node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
+position = Vector2(172, 619)
+
+[node name="CorpseSpawn2" type="Node2D" parent="Aquarium"]
+position = Vector2(479, 619)
+
+[node name="CorpseSpawn3" type="Node2D" parent="Aquarium"]
+position = Vector2(782, 619)
+
+[node name="CorpseSpawn4" type="Node2D" parent="Aquarium"]
+position = Vector2(1081, 622)
+
 [node name="AquariumBackdrop" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 scale = Vector2(5, 5)
@@ -136,6 +150,7 @@ theme = ExtResource("4_gs2f0")
 text = "buy snail"
 
 [node name="ContractMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 96.0
