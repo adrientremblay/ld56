@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bafqsokbf17by"]
+
+[ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
+
+[node name="GameScreen" type="Node2D"]
+
+[node name="AquariumBackdrop" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(10, 10)
+texture = ExtResource("1_sqbh1")
