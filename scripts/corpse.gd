@@ -17,6 +17,9 @@ func _process(delta: float) -> void:
 	for creature in feeding_area.get_overlapping_bodies():
 		weight -= 0.1
 	
+	if weight <= 0:
+		self.queue_free()
+	
 	set_decomposition_frame()
 
 func set_decomposition_frame():

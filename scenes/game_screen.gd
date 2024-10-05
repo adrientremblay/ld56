@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _on_buy_snail_pressed() -> void:
 	var creature = landCreatureScene.instantiate()
-	self.add_child(creature)
+	$Aquarium/Creatures.add_child(creature)
 	creatures_list.push_back(creature)
 	creatures_find_corpses()
 
