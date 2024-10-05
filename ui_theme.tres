@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://by24cqyfhmq4a" path="res://assets/fonts/retro_computer_personal_use.ttf" id="2_jhybk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwgg8"]
-bg_color = Color(0.529546, 0, 0.09768, 0.384314)
+bg_color = Color(0, 0.333333, 0.184314, 0.384314)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63r7p"]
 
