@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv7787vivgr0t"]
+
+[ext_resource type="Texture2D" uid="uid://cxjlc3drjj8sk" path="res://assets/art/snail.png" id="1_ovnut"]
+[ext_resource type="Script" path="res://scripts/land_creature.gd" id="1_x0mip"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71wsm"]
+radius = 34.0147
+
+[node name="LandCreature" type="CharacterBody2D"]
+script = ExtResource("1_x0mip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_71wsm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_ovnut")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
