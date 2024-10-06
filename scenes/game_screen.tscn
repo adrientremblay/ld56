@@ -384,7 +384,6 @@ offset_right = 1016.0
 offset_bottom = 704.0
 theme_override_styles/background = SubResource("StyleBoxFlat_1o5xs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6tb4g")
-value = 150.0
 allow_greater = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
