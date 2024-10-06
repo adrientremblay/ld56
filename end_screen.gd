@@ -15,3 +15,5 @@ func open(corpses_disposed: int):
 	else:
 		$Label.text = "You have not let us down. No one on earth besides us know where these people are. We look forward to working with you again."
 		$SpokesmanSpeechNormal.play()
+	
+	$FinalScoreLabel.text = "Corpses Disposed: " + str(corpses_disposed)

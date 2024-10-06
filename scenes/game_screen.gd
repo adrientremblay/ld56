@@ -73,6 +73,7 @@ func corpse_was_eaten(reward):
 	$CorpseEaten.play()
 	
 	corpses_eaten_count+=1
+	$UI/CorpsesDisposedLabel.text = "Corpses Disposed: " + str(corpses_eaten_count)
 
 func compile_corpse_list():
 	var corpse_list = []

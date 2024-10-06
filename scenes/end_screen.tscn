@@ -50,7 +50,7 @@ light_mask = 0
 position = Vector2(616, 272)
 scale = Vector2(11.4375, 8.46875)
 sprite_frames = SubResource("SpriteFrames_48ib8")
-frame_progress = 0.236295
+frame_progress = 0.744001
 
 [node name="Label" type="Label" parent="."]
 light_mask = 0
@@ -70,3 +70,13 @@ stream = ExtResource("4_apmwg")
 
 [node name="SpokesmanSpeechNo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_t22vs")
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 88.0
+offset_right = 792.0
+offset_bottom = 111.0
+theme = ExtResource("3_thup0")
+text = "Corpses Disposed: 0"
+horizontal_alignment = 1
