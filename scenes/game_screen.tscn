@@ -457,6 +457,15 @@ offset_bottom = 711.0
 theme = ExtResource("4_gs2f0")
 text = "Buy Items"
 
+[node name="Retire" type="Button" parent="UI"]
+layout_mode = 0
+offset_left = 1143.0
+offset_top = 12.0
+offset_right = 1264.0
+offset_bottom = 45.0
+theme = ExtResource("4_gs2f0")
+text = "Retire"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_x36kj")
 volume_db = -15.974
@@ -494,3 +503,4 @@ stream = ExtResource("23_u3qn2")
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
+[connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]

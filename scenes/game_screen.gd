@@ -13,7 +13,7 @@ extends Node2D
 
 var game_over = false
 
-var money = 2000
+var money = 20
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
@@ -143,17 +143,13 @@ func calculate_biomass_capacity_percent(delta: float):
 	tick_aquarium_health(delta, biomass_usage)
 	
 func tick_aquarium_health(delta: float, biomass_usage: float):
-	var health_difference = (1.0 - biomass_usage) * 2 * delta
+	var health_difference = (1.0 - biomass_usage) * 0.5 * delta
 	aquarium_health += snappedf(health_difference, 0.0001)
 	aquarium_health = clamp(aquarium_health, 0.0, 1.0)
 	$UI/HealthBar.value = aquarium_health * 100
 	
 	if aquarium_health == 0.0:
-		$UI/ContractMenu/NewContractTimer.stop()
-		$UI/ContractMenu.visible = false
-		$UI/CreatureMenu.visible = false
-		$EndScreen.open(corpses_eaten_count)
-		self.game_over = true
+		set_game_over()
 
 func _on_buy_stem_plant_pressed() -> void:
 	if money < 15:
@@ -168,3 +164,13 @@ func _on_buy_stem_plant_pressed() -> void:
 	var new_plant = plantScene.instantiate()
 	new_plant.global_position = Vector2(137 + (randf() * 966), 507 - (randf()*31))
 	$Aquarium/Plants.add_child(new_plant)
+
+func _on_retire_pressed() -> void:
+	set_game_over()
+
+func set_game_over():
+	$UI/ContractMenu/NewContractTimer.stop()
+	$UI/ContractMenu.visible = false
+	$UI/CreatureMenu.visible = false
+	$EndScreen.open(corpses_eaten_count)
+	self.game_over = true
