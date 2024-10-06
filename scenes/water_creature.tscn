@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx2cxds4tduly"]
+[gd_scene load_steps=6 format=3 uid="uid://bx2cxds4tduly"]
 
 [ext_resource type="Script" path="res://scripts/water_creature.gd" id="1_rfnfv"]
 [ext_resource type="Texture2D" uid="uid://cxtbffhtgfu1u" path="res://assets/art/fish.png" id="1_ta52g"]
+[ext_resource type="AudioStream" uid="uid://bj1bvrslaqhv4" path="res://assets/audio/bite2.wav" id="3_7o33l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3b2hi"]
 radius = 3.16228
@@ -27,4 +28,11 @@ autostart = true
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_t40dd")
 
+[node name="BiteSoundTimer" type="Timer" parent="."]
+
+[node name="BiteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7o33l")
+volume_db = -10.0
+
 [connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
+[connection signal="timeout" from="BiteSoundTimer" to="." method="_on_bite_sound_timer_timeout"]

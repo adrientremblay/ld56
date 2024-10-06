@@ -42,3 +42,12 @@ func set_movement_target(target_pos: Vector2):
 		$Sprite2D.flip_h = true
 	else:
 		$Sprite2D.flip_h = false
+		
+func toggle_bite_sound_timer():
+	if $BiteSoundTimer.is_stopped():
+		$BiteSoundTimer.start()
+	else:
+		$BiteSoundTimer.stop()
+
+func _on_bite_sound_timer_timeout() -> void:
+	$BiteSound.play()
