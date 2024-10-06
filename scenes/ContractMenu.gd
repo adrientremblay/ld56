@@ -37,7 +37,7 @@ func _on_new_contract_timer_timeout() -> void:
 	self.visible = true
 	
 	$NewContractTimer.stop()
-	$NewContractTimer.wait_time = 3
+	$NewContractTimer.wait_time = 30
 	$SpokesmanSpeechNormal.play()
 	
 	if (first_time_opening):

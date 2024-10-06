@@ -25,6 +25,8 @@ func _on_buy_snail_pressed() -> void:
 	var creature = landCreatureScene.instantiate()
 	$Aquarium/Creatures.add_child(creature)
 	creatures_find_corpses()
+	
+	$SpawnCreature.play()
 
 func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant) -> void:
 	# find available spawn
@@ -45,6 +47,7 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	new_corpse.construct(person_name, weight, reward)
 	new_corpse.connect("corpse_eaten", self.corpse_was_eaten)
 	spawn_point.add_child(new_corpse)
+	$Splash.play()
 	
 	# make creatures search for target
 	creatures_find_corpses()
@@ -97,6 +100,7 @@ func _on_buy_fish_pressed() -> void:
 	$Aquarium/Creatures.add_child(creature)
 	creatures_find_corpses()
 
+	$SpawnCreature.play()
 
 func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
