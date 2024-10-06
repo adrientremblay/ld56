@@ -57,6 +57,8 @@ func corpse_was_eaten(reward):
 	set_money_label()
 	
 	creatures_find_corpses()
+	
+	$CorpseEaten.play()
 
 func compile_corpse_list():
 	var corpse_list = []

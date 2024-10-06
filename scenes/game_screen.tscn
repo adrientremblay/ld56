@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=30 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
+[ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1043, 610, 1080, 378, 1143, 582, 436, 593, 476, 369, 551, 604, 741, 607, 783, 375, 858, 609, 178, 397, 159, 404, 186, 372, 192, 388, 1175, 578, 1181, 622, 223, 393, 226, 396, 209, 414, 91, 622, 96, 577, 156, 577, 260, 586, 171, 333, 186, 324, 199, 335, 194, 362, 174, 497, 208, 444, 219, 464, 219, 541, 175, 537, 238, 570, 257, 431, 255, 432, 236, 408)
@@ -247,7 +248,7 @@ light_mask = 0
 position = Vector2(799, 216.5)
 scale = Vector2(11.4375, 8.46875)
 sprite_frames = SubResource("SpriteFrames_udfuc")
-frame_progress = 0.32093
+frame_progress = 0.865856
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
@@ -349,6 +350,9 @@ volume_db = -10.0
 
 [node name="SpawnCreature" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_d1s5n")
+
+[node name="CorpseEaten" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_oegt5")
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
