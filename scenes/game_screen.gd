@@ -9,7 +9,6 @@ extends Node2D
 @onready var corpse_spawn3 = $Aquarium/CorpseSpawn3
 @onready var corpse_spawn4 = $Aquarium/CorpseSpawn4
 
-var corpse_list = []
 var money = 15
 
 func _ready() -> void:
@@ -45,7 +44,6 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	new_corpse.construct(person_name, weight, reward)
 	new_corpse.connect("corpse_eaten", self.corpse_was_eaten)
 	spawn_point.add_child(new_corpse)
-	corpse_list.push_back(new_corpse)
 	
 	# make creatures search for target
 	creatures_find_corpses()
@@ -55,8 +53,22 @@ func corpse_was_eaten(reward):
 	set_money_label()
 	
 	creatures_find_corpses()
+
+func compile_corpse_list():
+	var corpse_list = []
+	if (corpse_spawn1.get_child_count() != 0):
+		corpse_list.push_back(corpse_spawn1.get_child(0))
+	elif (corpse_spawn2.get_child_count() != 0):
+		corpse_list.push_back(corpse_spawn2.get_child(0))
+	elif (corpse_spawn3.get_child_count() != 0):
+		corpse_list.push_back(corpse_spawn3.get_child(0))
+	elif (corpse_spawn4.get_child_count() != 0):
+		corpse_list.push_back(corpse_spawn4.get_child(0))
+	return corpse_list
 	
 func creatures_find_corpses():
+	var corpse_list = compile_corpse_list()
+	
 	for creature in $Aquarium/Creatures.get_children():
 		#find closet corpse
 		var closet_corpse = null
