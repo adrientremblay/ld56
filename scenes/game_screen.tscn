@@ -181,6 +181,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Button" type="Button" parent="UI"]
+light_mask = 0
 layout_mode = 0
 offset_left = 256.0
 offset_top = 664.0
@@ -375,7 +376,7 @@ offset_bottom = 679.0
 theme = ExtResource("4_gs2f0")
 text = "Biomass Capacity"
 
-[node name="ProgressBar" type="ProgressBar" parent="UI"]
+[node name="BiomassBar" type="ProgressBar" parent="UI"]
 layout_mode = 0
 offset_left = 776.0
 offset_top = 680.0

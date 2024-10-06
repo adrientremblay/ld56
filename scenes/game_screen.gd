@@ -12,9 +12,15 @@ extends Node2D
 
 var money = 15
 
+var biomass_capacity = 200 # pounds
+var biomass_usage = 0.0 # decimal %
+
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
+
+func _process(delta: float) -> void:
+	calculate_biomass_capacity_percent()
 
 func _on_buy_snail_pressed() -> void:
 	if money < 5:
@@ -108,3 +114,16 @@ func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
 	if corpse_list.size() == 4: # full
 		$UI/ContractMenu.no_contracts_available()
+
+func calculate_biomass_capacity_percent():
+	var actual_biomass = 0
+	
+	var corpse_list = compile_corpse_list()
+	for corpse in corpse_list:
+		actual_biomass += corpse.weight
+	
+	# TODO: Vary the creature weight
+	actual_biomass += $Aquarium/Creatures.get_child_count() * 5
+	biomass_usage = snappedf(actual_biomass / biomass_capacity, 0.001)
+	
+	$UI/BiomassBar.value = biomass_usage * 100
