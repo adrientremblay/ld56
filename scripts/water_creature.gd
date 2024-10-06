@@ -20,7 +20,11 @@ func _physics_process(delta):
 
 func change_idle_position() -> void:
 	target_position = WATER_TOP_LEFT_POS + (randf()*AQUARIUM_Y_VECTOR) + (randf()*AQUARIUM_X_VECTOR)
+	var dir = target_position - self.position
+	if (dir.x > 0):
+		$Sprite2D.flip_h = true
+	else:
+		$Sprite2D.flip_h = false
 
 func _on_idle_position_timer_timeout() -> void:
-	print("idle")
 	change_idle_position()
