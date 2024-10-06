@@ -33,7 +33,7 @@ occluder = SubResource("OccluderPolygon2D_0v3rf")
 
 [node name="BiteSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_8gn7c")
-volume_db = -10.0
+volume_db = -15.0
 
 [connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
 [connection signal="timeout" from="BiteSoundTimer" to="." method="_on_bite_sound_timer_timeout"]

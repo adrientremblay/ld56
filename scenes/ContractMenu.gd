@@ -64,9 +64,7 @@ func generateNewContract():
 	
 func contract_accepted(person_name, weight, reward):
 	should_spawn_corpse.emit(person_name, weight, reward)
-	self.visible = false
-	$NewContractTimer.start()
-	$SpokesmanSpeechNormal.stop()
+	contract_menu_opened.emit()
 	
 func no_contracts_available():
 	$X.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=37 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
+[ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1043, 610, 1080, 378, 1143, 582, 436, 593, 476, 369, 551, 604, 741, 607, 783, 375, 858, 609, 178, 397, 159, 404, 186, 372, 192, 388, 1175, 578, 1181, 622, 223, 393, 226, 396, 209, 414, 91, 622, 96, 577, 156, 577, 260, 586, 171, 333, 186, 324, 199, 335, 194, 362, 174, 497, 208, 444, 219, 464, 219, 541, 175, 537, 238, 570, 257, 431, 255, 432, 236, 408)
@@ -302,7 +303,7 @@ offset_right = 840.0
 offset_bottom = 64.0
 theme = ExtResource("4_gs2f0")
 theme_override_font_sizes/font_size = 25
-text = "Select a Contract"
+text = "Select Contracts"
 horizontal_alignment = 1
 
 [node name="Spokesman" type="AnimatedSprite2D" parent="UI/ContractMenu"]
@@ -477,6 +478,9 @@ stream = ExtResource("20_oegt5")
 [node name="EndScreen" parent="." instance=ExtResource("21_yuerb")]
 visible = false
 light_mask = 0
+
+[node name="SpawnPlant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_u3qn2")
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]

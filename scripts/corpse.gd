@@ -18,7 +18,7 @@ func construct(person_name, weight, reward):
 
 func _process(delta: float) -> void:
 	for creature in feeding_area.get_overlapping_bodies():
-		weight -= 0.05
+		weight -= 2 * delta
 	
 	if weight <= 0:
 		self.eaten = true

@@ -13,7 +13,7 @@ extends Node2D
 
 var game_over = false
 
-var money = 150
+var money = 20
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
@@ -90,6 +90,7 @@ func compile_corpse_list():
 	
 func creatures_find_corpses():
 	var corpse_list = compile_corpse_list()
+	print("creatures find corpses: " + str(corpse_list.size()))
 	
 	for creature in $Aquarium/Creatures.get_children():
 		#find closet corpse
@@ -154,8 +155,14 @@ func tick_aquarium_health(delta: float, biomass_usage: float):
 		$EndScreen.open(corpses_eaten_count)
 		self.game_over = true
 
-
 func _on_buy_stem_plant_pressed() -> void:
+	if money < 15:
+		return
+	money -= 15
+	set_money_label()
+	
+	$SpawnPlant.play()
+	
 	biomass_capacity += 20
 	
 	var new_plant = plantScene.instantiate()

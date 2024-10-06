@@ -18,7 +18,7 @@ func _on_contract_menu_contract_menu_opened() -> void:
 func _process(delta: float) -> void:
 	var time_left = floor($ContractMenu/NewContractTimer.time_left)
 
-	$NextContractLabel.text = "Next Contract: " + str(time_left)
+	$NextContractLabel.text = "New Contracts: " + str(time_left)
 
 func _on_close_creature_menu_pressed() -> void:
 	creature_menu.visible = false
@@ -28,3 +28,8 @@ func _on_close_plant_menu_pressed() -> void:
 
 func _on_plants_button_pressed() -> void:
 	$PlantMenu.visible = ! $PlantMenu.visible
+
+func close_all_windows():
+	$CreatureMenu.visible = false
+	$PlantMenu.visible = false
+	$ContractMenu.visible = false
