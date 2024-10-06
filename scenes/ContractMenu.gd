@@ -25,7 +25,6 @@ func _on_new_contract_timer_timeout() -> void:
 	self.visible = true
 	$NewContractTimer.stop()
 	$NewContractTimer.wait_time = 30
-	$NewContractTimer.start()
 	
 	contract_menu_opened.emit()
 	
@@ -43,3 +42,4 @@ func generateNewContract():
 func contract_accepted(person_name, weight, reward):
 	should_spawn_corpse.emit(person_name, weight, reward)
 	self.visible = false
+	$NewContractTimer.start()
