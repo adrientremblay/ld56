@@ -32,6 +32,12 @@ func actor_setup():
 
 func set_movement_target(movement_target: Vector2):
 	navigation_agent.target_position = movement_target
+	#going to do the changing of the sprite rotation and flipping here bcuz the floor is flat
+	var dir = movement_target - self.position
+	if (dir.x > 0):
+		sprite.flip_h = true
+	else:
+		sprite.flip_h = false
 
 func _physics_process(delta):
 	if navigation_agent.is_navigation_finished():
@@ -52,13 +58,6 @@ func change_idle_position() -> void:
 	
 	var r = randf()
 	var target_pos = (TARGET_POSITION_VECTOR * r) + IDLE_LAND_LEFT_VECTOR
-	
-	#going to do the changing of the sprite rotation and flipping here bcuz the floor is flat
-	var dir = target_pos - self.position
-	if (dir.x > 0):
-		sprite.flip_h = true
-	else:
-		sprite.flip_h = false
 	
 	set_movement_target(target_pos)
 
