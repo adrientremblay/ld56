@@ -23,7 +23,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func change_idle_position() -> void:
-	if target_corpse != null:
+	if target_corpse != null && target_corpse.eaten != true:
 		return
 	
 	set_movement_target(WATER_TOP_LEFT_POS + (randf()*AQUARIUM_Y_VECTOR) + (randf()*AQUARIUM_X_VECTOR))
