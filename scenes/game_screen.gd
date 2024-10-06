@@ -10,7 +10,6 @@ extends Node2D
 @onready var corpse_spawn4 = $Aquarium/CorpseSpawn4
 
 var corpse_list = []
-var creatures_list = []
 var money = 15
 
 func _ready() -> void:
@@ -25,7 +24,6 @@ func _on_buy_snail_pressed() -> void:
 	
 	var creature = landCreatureScene.instantiate()
 	$Aquarium/Creatures.add_child(creature)
-	creatures_list.push_back(creature)
 	creatures_find_corpses()
 
 func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant) -> void:
@@ -59,7 +57,7 @@ func corpse_was_eaten(reward):
 	creatures_find_corpses()
 	
 func creatures_find_corpses():
-	for creature in creatures_list:
+	for creature in $Aquarium/Creatures.get_children():
 		#find closet corpse
 		var closet_corpse = null
 		for corpse in corpse_list:
