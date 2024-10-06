@@ -11,11 +11,18 @@ extends Node2D
 
 var corpse_list = []
 var creatures_list = []
+var money = 15
 
 func _ready() -> void:
 	contract_menu.visible = false
+	set_money_label()
 
 func _on_buy_snail_pressed() -> void:
+	if money < 5:
+		return
+	money -= 5
+	set_money_label()
+	
 	var creature = landCreatureScene.instantiate()
 	$Aquarium/Creatures.add_child(creature)
 	creatures_list.push_back(creature)
@@ -38,11 +45,17 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	# spawn corpse
 	var new_corpse = corpse_scene.instantiate()
 	new_corpse.construct(person_name, weight, reward)
-	new_corpse.connect("corpse_eaten", self.creatures_find_corpses)
+	new_corpse.connect("corpse_eaten", self.corpse_was_eaten)
 	spawn_point.add_child(new_corpse)
 	corpse_list.push_back(new_corpse)
 	
 	# make creatures search for target
+	creatures_find_corpses()
+
+func corpse_was_eaten(reward):
+	money += reward
+	set_money_label()
+	
 	creatures_find_corpses()
 	
 func creatures_find_corpses():
@@ -59,3 +72,6 @@ func creatures_find_corpses():
 			creature.set_target(closet_corpse)
 		else:
 			creature.change_idle_position()
+
+func set_money_label():
+	$UI/MoneyLabel.text = "Money: " + str(money) + "$"
