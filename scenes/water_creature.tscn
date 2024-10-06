@@ -21,6 +21,10 @@ position = Vector2(-6, 4)
 shape = SubResource("CircleShape2D_3b2hi")
 
 [node name="IdlePositionTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_t40dd")
+
+[connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
