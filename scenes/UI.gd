@@ -13,6 +13,7 @@ func _on_creature_button_pressed() -> void:
 func _on_contract_menu_contract_menu_opened() -> void:
 	# close all other UI
 	creature_menu.visible = false
+	$PlantMenu.visible = false
 	contract_menu_opened.emit()
 
 func _process(delta: float) -> void:
