@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=27 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="13_ot42n"]
 [ext_resource type="Texture2D" uid="uid://cmo0dcfot7kj0" path="res://assets/art/x.png" id="14_6p0uj"]
+[ext_resource type="AudioStream" uid="uid://c0ydxjdbxpo7p" path="res://assets/audio/spokesman_no.mp3" id="14_n11fc"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
@@ -232,7 +233,7 @@ light_mask = 0
 position = Vector2(799, 216.5)
 scale = Vector2(11.4375, 8.46875)
 sprite_frames = SubResource("SpriteFrames_udfuc")
-frame_progress = 0.609306
+frame_progress = 0.0525825
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
@@ -277,6 +278,9 @@ autostart = true
 
 [node name="SpokesmanSpeechNormal" type="AudioStreamPlayer" parent="UI/ContractMenu"]
 stream = ExtResource("13_ot42n")
+
+[node name="SpokesmanSpeechNo" type="AudioStreamPlayer" parent="UI/ContractMenu"]
+stream = ExtResource("14_n11fc")
 
 [node name="X" type="TextureRect" parent="UI/ContractMenu"]
 visible = false

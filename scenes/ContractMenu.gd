@@ -71,8 +71,12 @@ func contract_accepted(person_name, weight, reward):
 func no_contracts_available():
 	$X.visible = true
 	$Label.text = NO_CONTRACTS_AVAILABLE_TEXT
+	
+	$SpokesmanSpeechNormal.stop()
+	$SpokesmanSpeechNo.play()
 
 func _on_close_contract_menu_pressed() -> void:
 	self.visible = false
 	$NewContractTimer.start()
 	$SpokesmanSpeechNormal.stop()
+	$SpokesmanSpeechNo.stop()
