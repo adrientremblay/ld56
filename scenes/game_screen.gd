@@ -38,6 +38,7 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	# spawn corpse
 	var new_corpse = corpse_scene.instantiate()
 	new_corpse.construct(person_name, weight, reward)
+	new_corpse.connect("corpse_eaten", self.creatures_find_corpses)
 	spawn_point.add_child(new_corpse)
 	corpse_list.push_back(new_corpse)
 	
@@ -49,8 +50,12 @@ func creatures_find_corpses():
 		#find closet corpse
 		var closet_corpse = null
 		for corpse in corpse_list:
+			if corpse.eaten:
+				continue
 			if closet_corpse == null || closet_corpse.position.distance_to(creature.position) > corpse.position.distance_to(creature.position):
 				closet_corpse = corpse
 		
 		if closet_corpse != null:
 			creature.set_target(closet_corpse)
+		else:
+			creature.change_idle_position()

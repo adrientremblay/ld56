@@ -47,7 +47,7 @@ func _on_idle_position_timer_timeout() -> void:
 	change_idle_position()
 
 func change_idle_position() -> void:
-	if target_corpse != null:
+	if target_corpse != null && target_corpse.eaten != true:
 		return
 	
 	var r = randf()

@@ -5,7 +5,10 @@ var original_weight
 var weight
 var reward
 
+var eaten = false
+
 @onready var feeding_area: Area2D = $FeedingArea
+signal corpse_eaten
 
 func construct(person_name, weight, reward):
 	self.person_name = person_name
@@ -18,7 +21,9 @@ func _process(delta: float) -> void:
 		weight -= 0.1
 	
 	if weight <= 0:
+		self.eaten = true
 		self.queue_free()
+		corpse_eaten.emit()
 	
 	set_decomposition_frame()
 
