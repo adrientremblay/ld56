@@ -63,7 +63,7 @@ func change_idle_position() -> void:
 
 func set_target(corpse):
 	self.target_corpse = corpse
-	set_movement_target(corpse.position)
+	set_movement_target(corpse.global_position)
 	
 func toggle_bite_sound_timer():
 	if $BiteSoundTimer.is_stopped():

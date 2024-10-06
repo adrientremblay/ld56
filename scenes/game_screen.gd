@@ -13,7 +13,7 @@ extends Node2D
 
 var game_over = false
 
-var money = 20
+var money = 2000
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
