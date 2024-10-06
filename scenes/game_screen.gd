@@ -157,5 +157,5 @@ func tick_aquarium_health(delta: float, biomass_usage: float):
 
 func _on_buy_stem_plant_pressed() -> void:
 	var new_plant = plantScene.instantiate()
-	new_plant.global_position = Vector2(137 + (randf() * 966), 507 + (randf()*31))
+	new_plant.global_position = Vector2(137 + (randf() * 966), 507 - (randf()*31))
 	$Aquarium/Plants.add_child(new_plant)
