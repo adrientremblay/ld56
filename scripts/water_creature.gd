@@ -16,6 +16,8 @@ func _ready() -> void:
 func _physics_process(delta):
 	if target_position == null:
 		return
+	if target_position.distance_to(self.position) < 5:
+		return
 
 	velocity = self.position.direction_to(target_position) * movement_speed
 	move_and_slide()
@@ -30,12 +32,10 @@ func _on_idle_position_timer_timeout() -> void:
 	change_idle_position()
 
 func set_target(corpse):
-	print("setting target to corpse")
 	self.target_corpse = corpse
 	set_movement_target(corpse.global_position)
 	
 func set_movement_target(target_pos: Vector2):
-	print("target: " + str(target_pos.x) + " " + str(target_pos.y))
 	self.target_position = target_pos
 	var dir = target_position - self.position
 	if (dir.x > 0):
