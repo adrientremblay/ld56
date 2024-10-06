@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=19 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="AudioStream" uid="uid://b1ff8obdl5xsk" path="res://assets/audio/theme_song.mp3" id="12_x36kj"]
-[ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1043, 610, 1080, 378, 1143, 582, 436, 593, 476, 369, 551, 604, 741, 607, 783, 375, 858, 609, 178, 397, 159, 404, 186, 372, 192, 388, 1175, 578, 1181, 622, 223, 393, 226, 396, 209, 414, 91, 622, 96, 577, 156, 577, 260, 586, 171, 333, 186, 324, 199, 335, 194, 362, 174, 497, 208, 444, 219, 464, 219, 541, 175, 537, 238, 570, 257, 431, 255, 432, 236, 408)
@@ -271,9 +270,6 @@ autoplay = true
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(1200, 577)
-
-[node name="WaterCreature" parent="." instance=ExtResource("13_kriy5")]
-position = Vector2(565, 315)
 
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
