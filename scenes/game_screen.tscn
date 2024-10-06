@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=23 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://by5yr2j6yd8xi" path="res://assets/art/light_texture.png" id="4_lrlsq"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
 [ext_resource type="PackedScene" uid="uid://f3722j5e8eqm" path="res://scenes/corpse.tscn" id="4_tr83u"]
-[ext_resource type="Texture2D" uid="uid://dpi5tefilv2my" path="res://assets/art/spokesman.png" id="7_5muyo"]
 [ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
+[ext_resource type="Texture2D" uid="uid://d1q7qualbgshl" path="res://assets/art/spokesman-Sheet.png" id="12_u5qvl"]
 [ext_resource type="AudioStream" uid="uid://b1ff8obdl5xsk" path="res://assets/audio/theme_song.mp3" id="12_x36kj"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 
@@ -31,6 +31,28 @@ fill_from = Vector2(0.579909, 1)
 fill_to = Vector2(0.570776, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eslt3"]
+atlas = ExtResource("12_u5qvl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1qic"]
+atlas = ExtResource("12_u5qvl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udfuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eslt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1qic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnyj0"]
 
@@ -142,6 +164,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="CreatureMenu" type="PanelContainer" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -179,7 +202,6 @@ theme = ExtResource("4_gs2f0")
 text = "Buy Fish"
 
 [node name="ContractMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 96.0
@@ -202,14 +224,12 @@ theme_override_font_sizes/font_size = 25
 text = "Select a Contract"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="UI/ContractMenu"]
+[node name="Spokesman" type="AnimatedSprite2D" parent="UI/ContractMenu"]
 light_mask = 0
-layout_mode = 0
-offset_left = 648.0
-offset_top = 88.0
-offset_right = 944.0
-offset_bottom = 320.0
-texture = ExtResource("7_5muyo")
+position = Vector2(790.25, 200.25)
+scale = Vector2(10.8906, 7.45313)
+sprite_frames = SubResource("SpriteFrames_udfuc")
+frame_progress = 0.707878
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0

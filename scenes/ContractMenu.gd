@@ -15,8 +15,9 @@ var rng = RandomNumberGenerator.new()
 signal should_spawn_corpse(person_name, weight, reward)
 signal contract_menu_opened
 
-func _onready():
+func _ready() -> void:
 	self.visible = false
+	$Spokesman.play()
 
 func _on_new_contract_timer_timeout() -> void:
 	# empty contract list
