@@ -25,3 +25,6 @@ func _on_close_creature_menu_pressed() -> void:
 
 func _on_close_plant_menu_pressed() -> void:
 	$PlantMenu.visible = false
+
+func _on_plants_button_pressed() -> void:
+	$PlantMenu.visible = ! $PlantMenu.visible

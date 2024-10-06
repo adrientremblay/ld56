@@ -3,6 +3,7 @@ extends Node2D
 @export var landCreatureScene: PackedScene
 @export var corpse_scene: PackedScene
 @export var waterCreatureScene: PackedScene
+@export var plantScene: PackedScene
 
 @onready var contract_menu = $UI/ContractMenu
 @onready var corpse_spawn1 = $Aquarium/CorpseSpawn1
@@ -12,7 +13,7 @@ extends Node2D
 
 var game_over = false
 
-var money = 15
+var money = 150
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
@@ -152,3 +153,9 @@ func tick_aquarium_health(delta: float, biomass_usage: float):
 		$UI/CreatureMenu.visible = false
 		$EndScreen.open(corpses_eaten_count)
 		self.game_over = true
+
+
+func _on_buy_stem_plant_pressed() -> void:
+	var new_plant = plantScene.instantiate()
+	new_plant.global_position = Vector2(137 + (randf() * 966), 507 + (randf()*31))
+	$Aquarium/Plants.add_child(new_plant)
