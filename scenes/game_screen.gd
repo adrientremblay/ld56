@@ -92,7 +92,6 @@ func compile_corpse_list():
 	
 func creatures_find_corpses():
 	var corpse_list = compile_corpse_list()
-	print("creatures find corpses: " + str(corpse_list.size()))
 	
 	for creature in $Aquarium/Creatures.get_children():
 		#find closet corpse
