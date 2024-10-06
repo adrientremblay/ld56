@@ -123,7 +123,9 @@ func calculate_biomass_capacity_percent():
 		actual_biomass += corpse.weight
 	
 	# TODO: Vary the creature weight
-	actual_biomass += $Aquarium/Creatures.get_child_count() * 5
+	#print($Aquarium/Creatures.get_child_count())
+	actual_biomass += $Aquarium/Creatures.get_child_count() * 5.0
 	biomass_usage = snappedf(actual_biomass / biomass_capacity, 0.001)
+	print(str(biomass_usage*100))
 	
 	$UI/BiomassBar.value = biomass_usage * 100
