@@ -32,6 +32,8 @@ func _on_new_contract_timer_timeout() -> void:
 	$NewContractTimer.stop()
 	$NewContractTimer.wait_time = 30
 	
+	$SpokesmanSpeechNormal.play()
+	
 	contract_menu_opened.emit()
 	
 func generateNewContract():
