@@ -19,6 +19,8 @@ var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
 var corpses_eaten_count = 0
 
+var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
+
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
@@ -147,6 +149,10 @@ func tick_aquarium_health(delta: float, biomass_usage: float):
 	aquarium_health += snappedf(health_difference, 0.0001)
 	aquarium_health = clamp(aquarium_health, 0.0, 1.0)
 	$UI/HealthBar.value = aquarium_health * 100
+	
+	var new_color = default_aquarium_color
+	new_color.g += (0.5 * (1.0-aquarium_health))
+	$Lighting/WaterRect.color = new_color
 	
 	if aquarium_health == 0.0:
 		set_game_over()
