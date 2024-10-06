@@ -2,6 +2,7 @@ extends Node2D
 
 @export var landCreatureScene: PackedScene
 @export var corpse_scene: PackedScene
+@export var waterCreatureScene: PackedScene
 
 @onready var contract_menu = $UI/ContractMenu
 @onready var corpse_spawn1 = $Aquarium/CorpseSpawn1
@@ -85,3 +86,13 @@ func creatures_find_corpses():
 
 func set_money_label():
 	$UI/MoneyLabel.text = "Money: " + str(snappedf(money, 0.01)) + "$"
+
+func _on_buy_fish_pressed() -> void:
+	if money < 10:
+		return
+	money -= 10
+	set_money_label()
+	
+	var creature = waterCreatureScene.instantiate()
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
