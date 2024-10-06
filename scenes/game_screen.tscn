@@ -309,6 +309,7 @@ texture = ExtResource("14_6p0uj")
 
 [node name="CloseContractMenu" type="TextureButton" parent="UI/ContractMenu"]
 light_mask = 0
+layout_mode = 0
 offset_left = 1023.0
 offset_top = 14.0
 offset_right = 1063.0

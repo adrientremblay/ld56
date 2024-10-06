@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv7787vivgr0t"]
+[gd_scene load_steps=6 format=3 uid="uid://bv7787vivgr0t"]
 
 [ext_resource type="Texture2D" uid="uid://cxjlc3drjj8sk" path="res://assets/art/snail.png" id="1_ovnut"]
 [ext_resource type="Script" path="res://scripts/land_creature.gd" id="1_x0mip"]
+[ext_resource type="AudioStream" uid="uid://bj1bvrslaqhv4" path="res://assets/audio/bite2.wav" id="3_8gn7c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71wsm"]
 radius = 4.0
@@ -28,4 +29,10 @@ wait_time = 10.0
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_0v3rf")
 
+[node name="BiteSoundTimer" type="Timer" parent="."]
+
+[node name="BiteSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8gn7c")
+
 [connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
+[connection signal="timeout" from="BiteSoundTimer" to="." method="_on_bite_sound_timer_timeout"]

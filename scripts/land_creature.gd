@@ -65,3 +65,11 @@ func set_target(corpse):
 	self.target_corpse = corpse
 	set_movement_target(corpse.position)
 	
+func toggle_bite_sound_timer():
+	if $BiteSoundTimer.is_stopped():
+		$BiteSoundTimer.start()
+	else:
+		$BiteSoundTimer.stop()
+
+func _on_bite_sound_timer_timeout() -> void:
+	$BiteSound.play()
