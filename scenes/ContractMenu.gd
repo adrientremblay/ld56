@@ -7,6 +7,12 @@ var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 25.0
 var MAX_REWARD = 100.0
 
+var FIRST_CONTRACT_TEXT = "Greetings. I am the spokesman for Nautilus. Your abilities for disposing bodies are well known to us. Please select among the following contracts..."
+var NORMAL_CONTRACT_TEXT = "Please select among the following contracts..."
+var NO_CONTRACTS_AVAILABLE_TEXT = "It seems you have no space for more bodies. Do not dissapoint us again."
+
+var first_time_opening = true
+
 @onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ContractVBox
 @export var contract_scene: PackedScene
 
@@ -29,12 +35,21 @@ func _on_new_contract_timer_timeout() -> void:
 	generateNewContract()
 	# make the menu visible
 	self.visible = true
-	$NewContractTimer.stop()
-	$NewContractTimer.wait_time = 30
 	
+	$NewContractTimer.stop()
+	$NewContractTimer.wait_time = 3
 	$SpokesmanSpeechNormal.play()
 	
+	if (first_time_opening):
+		$Label.text = FIRST_CONTRACT_TEXT
+	else:
+		$Label.text = NORMAL_CONTRACT_TEXT
+	
+	$X.visible = false
+	
 	contract_menu_opened.emit()
+	
+	first_time_opening = false
 	
 func generateNewContract():
 	var weight = snapped(rng.randf_range(LOWER_WEIGHT_BOUND, UPPER_WEIGHT_BOUND), 0.01)
@@ -51,3 +66,7 @@ func contract_accepted(person_name, weight, reward):
 	should_spawn_corpse.emit(person_name, weight, reward)
 	self.visible = false
 	$NewContractTimer.start()
+	
+func no_contracts_available():
+	$X.visible = true
+	$Label.text = NO_CONTRACTS_AVAILABLE_TEXT

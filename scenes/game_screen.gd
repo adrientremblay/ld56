@@ -59,11 +59,11 @@ func compile_corpse_list():
 	var corpse_list = []
 	if (corpse_spawn1.get_child_count() != 0):
 		corpse_list.push_back(corpse_spawn1.get_child(0))
-	elif (corpse_spawn2.get_child_count() != 0):
+	if (corpse_spawn2.get_child_count() != 0):
 		corpse_list.push_back(corpse_spawn2.get_child(0))
-	elif (corpse_spawn3.get_child_count() != 0):
+	if (corpse_spawn3.get_child_count() != 0):
 		corpse_list.push_back(corpse_spawn3.get_child(0))
-	elif (corpse_spawn4.get_child_count() != 0):
+	if (corpse_spawn4.get_child_count() != 0):
 		corpse_list.push_back(corpse_spawn4.get_child(0))
 	return corpse_list
 	
@@ -96,3 +96,10 @@ func _on_buy_fish_pressed() -> void:
 	var creature = waterCreatureScene.instantiate()
 	$Aquarium/Creatures.add_child(creature)
 	creatures_find_corpses()
+
+
+func _on_ui_contract_menu_opened() -> void:
+	var corpse_list = compile_corpse_list()
+	print(corpse_list.size())
+	if corpse_list.size() == 4: # full
+		$UI/ContractMenu.no_contracts_available()
