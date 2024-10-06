@@ -1,7 +1,7 @@
 extends Panel
 
-var LOWER_WEIGHT_BOUND = 120.0
-var UPPER_WEIGHT_BOUND = 200.0
+var LOWER_WEIGHT_BOUND = 100.0
+var UPPER_WEIGHT_BOUND = 250.0
 var FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal", "Mary", "Angela"]
 var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 25.0
@@ -19,7 +19,12 @@ func _onready():
 	self.visible = false
 
 func _on_new_contract_timer_timeout() -> void:
+	# empty contract list
+	for child in contract_vbox.get_children():
+		child.queue_free()
 	# add a new contract to the list
+	generateNewContract()
+	generateNewContract()
 	generateNewContract()
 	# make the menu visible
 	self.visible = true

@@ -84,4 +84,4 @@ func creatures_find_corpses():
 			creature.change_idle_position()
 
 func set_money_label():
-	$UI/MoneyLabel.text = "Money: " + str(money) + "$"
+	$UI/MoneyLabel.text = "Money: " + str(snappedf(money, 0.01)) + "$"

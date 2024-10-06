@@ -71,8 +71,6 @@ sprite_frames = SubResource("SpriteFrames_ul3v6")
 script = ExtResource("2_8vtmh")
 
 [node name="FeedingArea" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedingArea"]
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_280um")
