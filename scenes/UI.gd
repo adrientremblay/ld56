@@ -1,6 +1,6 @@
 extends Control
 
-@onready var creature_menu: PanelContainer = $CreatureMenu
+@onready var creature_menu: Panel = $CreatureMenu
 
 signal contract_menu_opened
 
@@ -19,3 +19,6 @@ func _process(delta: float) -> void:
 	var time_left = floor($ContractMenu/NewContractTimer.time_left)
 
 	$NextContractLabel.text = "Next Contract: " + str(time_left)
+
+func _on_close_creature_menu_pressed() -> void:
+	creature_menu.visible = false

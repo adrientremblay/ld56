@@ -167,8 +167,7 @@ text = "Buy Creatures"
 icon_alignment = 1
 expand_icon = true
 
-[node name="CreatureMenu" type="PanelContainer" parent="UI"]
-visible = false
+[node name="CreatureMenu" type="Panel" parent="UI"]
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -180,6 +179,8 @@ theme = ExtResource("4_gs2f0")
 [node name="BoxContainer" type="BoxContainer" parent="UI/CreatureMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
 layout_mode = 2
+offset_right = 768.0
+offset_bottom = 504.0
 theme_override_constants/separation = 10
 vertical = true
 
@@ -205,7 +206,18 @@ layout_mode = 2
 theme = ExtResource("4_gs2f0")
 text = "Buy Fish"
 
+[node name="CloseCreatureMenu" type="TextureButton" parent="UI/CreatureMenu"]
+light_mask = 0
+layout_mode = 2
+offset_left = 729.0
+offset_top = 5.0
+offset_right = 755.0
+offset_bottom = 30.0
+texture_normal = ExtResource("15_purco")
+stretch_mode = 0
+
 [node name="ContractMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 96.0
@@ -233,7 +245,7 @@ light_mask = 0
 position = Vector2(799, 216.5)
 scale = Vector2(11.4375, 8.46875)
 sprite_frames = SubResource("SpriteFrames_udfuc")
-frame_progress = 0.0525825
+frame_progress = 0.277139
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
@@ -333,6 +345,7 @@ position = Vector2(26, -131)
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuyFish" to="." method="_on_buy_fish_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
 [connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_opened"]
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
