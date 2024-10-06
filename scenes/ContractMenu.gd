@@ -23,7 +23,9 @@ func _on_new_contract_timer_timeout() -> void:
 	generateNewContract()
 	# make the menu visible
 	self.visible = true
-	$NewContractTimer.stop() # TODO: remove
+	$NewContractTimer.stop()
+	$NewContractTimer.wait_time = 30
+	$NewContractTimer.start()
 	
 	contract_menu_opened.emit()
 	
