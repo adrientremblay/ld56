@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=26 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="13_ot42n"]
 [ext_resource type="Texture2D" uid="uid://cmo0dcfot7kj0" path="res://assets/art/x.png" id="14_6p0uj"]
+[ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1043, 610, 1080, 378, 1143, 582, 436, 593, 476, 369, 551, 604, 741, 607, 783, 375, 858, 609, 178, 397, 159, 404, 186, 372, 192, 388, 1175, 578, 1181, 622, 223, 393, 226, 396, 209, 414, 91, 622, 96, 577, 156, 577, 260, 586, 171, 333, 186, 324, 199, 335, 194, 362, 174, 497, 208, 444, 219, 464, 219, 541, 175, 537, 238, 570, 257, 431, 255, 432, 236, 408)
@@ -231,7 +232,7 @@ light_mask = 0
 position = Vector2(799, 216.5)
 scale = Vector2(11.4375, 8.46875)
 sprite_frames = SubResource("SpriteFrames_udfuc")
-frame_progress = 0.0780874
+frame_progress = 0.609306
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
@@ -282,10 +283,19 @@ visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 28.0
-offset_top = 74.0
+offset_top = 70.0
 offset_right = 553.0
 offset_bottom = 544.0
 texture = ExtResource("14_6p0uj")
+
+[node name="CloseContractMenu" type="TextureButton" parent="UI/ContractMenu"]
+light_mask = 0
+offset_left = 1023.0
+offset_top = 14.0
+offset_right = 1063.0
+offset_bottom = 54.0
+texture_normal = ExtResource("15_purco")
+stretch_mode = 0
 
 [node name="MoneyLabel" type="Label" parent="UI"]
 layout_mode = 0
@@ -322,3 +332,4 @@ position = Vector2(26, -131)
 [connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_opened"]
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
+[connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]

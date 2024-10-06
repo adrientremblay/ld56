@@ -100,6 +100,5 @@ func _on_buy_fish_pressed() -> void:
 
 func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
-	print(corpse_list.size())
 	if corpse_list.size() == 4: # full
 		$UI/ContractMenu.no_contracts_available()

@@ -66,7 +66,13 @@ func contract_accepted(person_name, weight, reward):
 	should_spawn_corpse.emit(person_name, weight, reward)
 	self.visible = false
 	$NewContractTimer.start()
+	$SpokesmanSpeechNormal.stop()
 	
 func no_contracts_available():
 	$X.visible = true
 	$Label.text = NO_CONTRACTS_AVAILABLE_TEXT
+
+func _on_close_contract_menu_pressed() -> void:
+	self.visible = false
+	$NewContractTimer.start()
+	$SpokesmanSpeechNormal.stop()
