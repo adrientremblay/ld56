@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://ci2ny2web0sxe"]
+
+[ext_resource type="Script" path="res://end_screen.gd" id="1_5w7t6"]
+[ext_resource type="Texture2D" uid="uid://d1q7qualbgshl" path="res://assets/art/spokesman-Sheet.png" id="2_8ppqd"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="3_thup0"]
+[ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="4_apmwg"]
+[ext_resource type="AudioStream" uid="uid://c0ydxjdbxpo7p" path="res://assets/audio/spokesman_no.mp3" id="5_t22vs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eslt3"]
+atlas = ExtResource("2_8ppqd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1qic"]
+atlas = ExtResource("2_8ppqd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_48ib8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eslt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1qic")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5w7t6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 1288.0
+offset_bottom = 744.0
+color = Color(0, 0, 0, 1)
+
+[node name="Spokesman" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(616, 272)
+scale = Vector2(11.4375, 8.46875)
+sprite_frames = SubResource("SpriteFrames_48ib8")
+frame_progress = 0.236295
+
+[node name="Label" type="Label" parent="."]
+light_mask = 0
+layout_mode = 0
+offset_left = 216.0
+offset_top = 440.0
+offset_right = 1008.0
+offset_bottom = 688.0
+theme = ExtResource("3_thup0")
+theme_override_font_sizes/font_size = 27
+text = "Well done, you havehaveha vehavehavehavehavehavehaveh avehave havehave have have have have have have have have have have have have"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SpokesmanSpeechNormal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_apmwg")
+
+[node name="SpokesmanSpeechNo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_t22vs")

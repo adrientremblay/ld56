@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=35 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
+[ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1043, 610, 1080, 378, 1143, 582, 436, 593, 476, 369, 551, 604, 741, 607, 783, 375, 858, 609, 178, 397, 159, 404, 186, 372, 192, 388, 1175, 578, 1181, 622, 223, 393, 226, 396, 209, 414, 91, 622, 96, 577, 156, 577, 260, 586, 171, 333, 186, 324, 199, 335, 194, 362, 174, 497, 208, 444, 219, 464, 219, 541, 175, 537, 238, 570, 257, 431, 255, 432, 236, 408)
@@ -387,6 +388,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6tb4g")
 allow_greater = true
 
 [node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
 offset_left = 520.0
 offset_top = 680.0
 offset_right = 752.0
@@ -412,6 +414,10 @@ stream = ExtResource("19_d1s5n")
 
 [node name="CorpseEaten" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_oegt5")
+
+[node name="EndScreen" parent="." instance=ExtResource("21_yuerb")]
+visible = false
+light_mask = 0
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]

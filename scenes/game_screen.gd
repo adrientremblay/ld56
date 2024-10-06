@@ -10,16 +10,22 @@ extends Node2D
 @onready var corpse_spawn3 = $Aquarium/CorpseSpawn3
 @onready var corpse_spawn4 = $Aquarium/CorpseSpawn4
 
+var game_over = false
+
 var money = 15
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
+var corpses_eaten_count = 0
 
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
 
 func _process(delta: float) -> void:
+	if game_over:
+		return
+		
 	calculate_biomass_capacity_percent(delta)
 
 func _on_buy_snail_pressed() -> void:
@@ -65,6 +71,8 @@ func corpse_was_eaten(reward):
 	creatures_find_corpses()
 	
 	$CorpseEaten.play()
+	
+	corpses_eaten_count+=1
 
 func compile_corpse_list():
 	var corpse_list = []
@@ -137,5 +145,9 @@ func tick_aquarium_health(delta: float, biomass_usage: float):
 	aquarium_health = clamp(aquarium_health, 0.0, 1.0)
 	$UI/HealthBar.value = aquarium_health * 100
 	
-	#if aquarium_health == 0.0:
-		# TODO: do something
+	if aquarium_health == 0.0:
+		$UI/ContractMenu/NewContractTimer.stop()
+		$UI/ContractMenu.visible = false
+		$UI/CreatureMenu.visible = false
+		$EndScreen.open(corpses_eaten_count)
+		self.game_over = true
