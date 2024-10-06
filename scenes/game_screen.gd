@@ -11,16 +11,16 @@ extends Node2D
 @onready var corpse_spawn4 = $Aquarium/CorpseSpawn4
 
 var money = 15
-
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
+var aquarium_health = 1.0 #decimal %
 
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
 
 func _process(delta: float) -> void:
-	calculate_biomass_capacity_percent()
+	calculate_biomass_capacity_percent(delta)
 
 func _on_buy_snail_pressed() -> void:
 	if money < 5:
@@ -115,7 +115,7 @@ func _on_ui_contract_menu_opened() -> void:
 	if corpse_list.size() == 4: # full
 		$UI/ContractMenu.no_contracts_available()
 
-func calculate_biomass_capacity_percent():
+func calculate_biomass_capacity_percent(delta: float):
 	var actual_biomass = 0
 	
 	var corpse_list = compile_corpse_list()
@@ -123,9 +123,19 @@ func calculate_biomass_capacity_percent():
 		actual_biomass += corpse.weight
 	
 	# TODO: Vary the creature weight
-	#print($Aquarium/Creatures.get_child_count())
 	actual_biomass += $Aquarium/Creatures.get_child_count() * 5.0
-	biomass_usage = snappedf(actual_biomass / biomass_capacity, 0.001)
-	print(str(biomass_usage*100))
+	biomass_usage = snappedf(actual_biomass / biomass_capacity, 0.0001)
 	
 	$UI/BiomassBar.value = biomass_usage * 100
+	
+	# tick aquarium health
+	tick_aquarium_health(delta, biomass_usage)
+	
+func tick_aquarium_health(delta: float, biomass_usage: float):
+	var health_difference = (1.0 - biomass_usage) * 2 * delta
+	aquarium_health += snappedf(health_difference, 0.0001)
+	aquarium_health = clamp(aquarium_health, 0.0, 1.0)
+	$UI/HealthBar.value = aquarium_health * 100
+	
+	#if aquarium_health == 0.0:
+		# TODO: do something

@@ -386,6 +386,15 @@ theme_override_styles/background = SubResource("StyleBoxFlat_1o5xs")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6tb4g")
 allow_greater = true
 
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+offset_left = 520.0
+offset_top = 680.0
+offset_right = 752.0
+offset_bottom = 704.0
+theme_override_styles/background = SubResource("StyleBoxFlat_m1nmy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1uxjt")
+value = 100.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_x36kj")
 volume_db = -15.974
@@ -403,15 +412,6 @@ stream = ExtResource("19_d1s5n")
 
 [node name="CorpseEaten" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_oegt5")
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 520.0
-offset_top = 680.0
-offset_right = 752.0
-offset_bottom = 704.0
-theme_override_styles/background = SubResource("StyleBoxFlat_m1nmy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_1uxjt")
-value = 100.0
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
