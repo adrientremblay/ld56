@@ -22,3 +22,6 @@ func _process(delta: float) -> void:
 
 func _on_close_creature_menu_pressed() -> void:
 	creature_menu.visible = false
+
+func _on_close_plant_menu_pressed() -> void:
+	$PlantMenu.visible = false

@@ -181,7 +181,7 @@ text = "Buy Creatures"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Button" type="Button" parent="UI"]
+[node name="PlantsButton" type="Button" parent="UI"]
 light_mask = 0
 layout_mode = 0
 offset_left = 362.0
@@ -192,6 +192,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy Plants"
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -213,11 +214,6 @@ layout_mode = 2
 text = "Buy Creatures"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/CreatureMenu/BoxContainer"]
-layout_mode = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
 [node name="BuySnail" type="Button" parent="UI/CreatureMenu/BoxContainer"]
 light_mask = 0
 layout_mode = 2
@@ -231,6 +227,44 @@ theme = ExtResource("4_gs2f0")
 text = "Buy Fish (10$)"
 
 [node name="CloseCreatureMenu" type="TextureButton" parent="UI/CreatureMenu"]
+light_mask = 0
+layout_mode = 2
+offset_left = 729.0
+offset_top = 5.0
+offset_right = 755.0
+offset_bottom = 30.0
+texture_normal = ExtResource("15_purco")
+stretch_mode = 0
+
+[node name="PlantMenu" type="Panel" parent="UI"]
+visible = false
+light_mask = 0
+offset_left = 264.0
+offset_top = 88.0
+offset_right = 1032.0
+offset_bottom = 592.0
+theme = ExtResource("4_gs2f0")
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
+material = SubResource("CanvasItemMaterial_r6l3h")
+layout_mode = 2
+offset_right = 768.0
+offset_bottom = 504.0
+theme_override_constants/separation = 10
+vertical = true
+
+[node name="Label" type="Label" parent="UI/PlantMenu/BoxContainer"]
+layout_mode = 2
+text = "Buy Plants"
+horizontal_alignment = 1
+
+[node name="BuySnail" type="Button" parent="UI/PlantMenu/BoxContainer"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+text = "Buy Stem Plant (15$)"
+
+[node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
 light_mask = 0
 layout_mode = 2
 offset_left = 729.0
@@ -406,6 +440,15 @@ offset_bottom = 36.0
 theme = ExtResource("4_gs2f0")
 text = "Corpses Disposed: 0"
 
+[node name="Button" type="Button" parent="UI"]
+light_mask = 0
+offset_left = 9.0
+offset_top = 663.0
+offset_right = 156.0
+offset_bottom = 711.0
+theme = ExtResource("4_gs2f0")
+text = "Buy Items"
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_x36kj")
 volume_db = -15.974
@@ -433,6 +476,7 @@ light_mask = 0
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuySnail" to="." method="_on_buy_snail_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuyFish" to="." method="_on_buy_fish_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
+[connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]
 [connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_opened"]
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
