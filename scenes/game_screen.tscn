@@ -42,22 +42,22 @@ fill_to = Vector2(0.570776, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eslt3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_irdac"]
 atlas = ExtResource("12_u5qvl")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_i1qic"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1urfw"]
 atlas = ExtResource("12_u5qvl")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_udfuc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eslt3")
+"texture": SubResource("AtlasTexture_irdac")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i1qic")
+"texture": SubResource("AtlasTexture_1urfw")
 }],
 "loop": true,
 "name": &"default",
@@ -284,7 +284,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ContractMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 96.0
@@ -309,8 +308,8 @@ horizontal_alignment = 1
 
 [node name="Spokesman" type="AnimatedSprite2D" parent="UI/ContractMenu"]
 light_mask = 0
-position = Vector2(799, 216.5)
-scale = Vector2(11.4375, 8.46875)
+position = Vector2(804, 235)
+scale = Vector2(3.99219, 2.95996)
 sprite_frames = SubResource("SpriteFrames_udfuc")
 frame_progress = 0.865856
 
