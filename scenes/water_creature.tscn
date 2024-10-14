@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bx2cxds4tduly"]
 
 [ext_resource type="Script" path="res://scripts/water_creature.gd" id="1_rfnfv"]
-[ext_resource type="Texture2D" uid="uid://dh2ngqgk7mh32" path="res://assets/art/goblin_shark.png" id="2_678jb"]
+[ext_resource type="Texture2D" uid="uid://c78y0dwon21xy" path="res://assets/art/anglerfish.png" id="2_2q3tb"]
 [ext_resource type="AudioStream" uid="uid://bj1bvrslaqhv4" path="res://assets/audio/bite2.wav" id="3_7o33l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3b2hi"]
@@ -15,7 +15,7 @@ script = ExtResource("1_rfnfv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_678jb")
+texture = ExtResource("2_2q3tb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, 4)
