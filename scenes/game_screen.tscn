@@ -247,6 +247,7 @@ stretch_mode = 0
 [node name="PlantMenu" type="Panel" parent="UI"]
 visible = false
 light_mask = 0
+layout_mode = 0
 offset_left = 264.0
 offset_top = 88.0
 offset_right = 1032.0
@@ -450,6 +451,7 @@ text = "Corpses Disposed: 0"
 
 [node name="Button" type="Button" parent="UI"]
 light_mask = 0
+layout_mode = 0
 offset_left = 9.0
 offset_top = 663.0
 offset_right = 156.0
