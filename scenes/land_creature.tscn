@@ -14,6 +14,7 @@ polygon = PackedVector2Array(8, -5, -8, -6, -16, 2, -15, 11, -10, 16, 16, 16)
 script = ExtResource("1_x0mip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_ks0n6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
