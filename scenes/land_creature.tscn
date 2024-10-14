@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bv7787vivgr0t"]
 
 [ext_resource type="Script" path="res://scripts/land_creature.gd" id="1_x0mip"]
-[ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="2_ks0n6"]
+[ext_resource type="Texture2D" uid="uid://cmqoa2bhwo22b" path="res://assets/art/crab.png" id="2_8yxhf"]
 [ext_resource type="AudioStream" uid="uid://bj1bvrslaqhv4" path="res://assets/audio/bite2.wav" id="3_8gn7c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71wsm"]
@@ -15,7 +15,7 @@ script = ExtResource("1_x0mip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_ks0n6")
+texture = ExtResource("2_8yxhf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)
