@@ -311,8 +311,7 @@ light_mask = 0
 position = Vector2(810, 253)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_udfuc")
-frame = 1
-frame_progress = 0.142362
+frame_progress = 0.528335
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
