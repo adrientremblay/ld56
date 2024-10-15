@@ -308,18 +308,19 @@ horizontal_alignment = 1
 
 [node name="Spokesman" type="AnimatedSprite2D" parent="UI/ContractMenu"]
 light_mask = 0
-position = Vector2(804, 235)
-scale = Vector2(3.99219, 2.95996)
+position = Vector2(810, 253)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_udfuc")
-frame_progress = 0.865856
+frame = 1
+frame_progress = 0.142362
 
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
 layout_mode = 0
-offset_left = 584.0
-offset_top = 387.0
-offset_right = 1024.0
-offset_bottom = 550.0
+offset_left = 494.0
+offset_top = 447.0
+offset_right = 1077.0
+offset_bottom = 579.0
 theme = ExtResource("4_gs2f0")
 theme_override_font_sizes/font_size = 18
 text = "Greetings. I am the spokesman for nautilus. Your abilities for disposing bodies are well known to us. Please select among the following contracts"
