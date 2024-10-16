@@ -1,59 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://f3722j5e8eqm"]
+[gd_scene load_steps=5 format=3 uid="uid://f3722j5e8eqm"]
 
 [ext_resource type="Texture2D" uid="uid://cvtp1gm4svyei" path="res://assets/art/dead_body-Sheet.png" id="1_6cqjt"]
 [ext_resource type="Script" path="res://scripts/corpse.gd" id="2_8vtmh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w1yqe"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t8m7b"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6al0s"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(64, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4owjw"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(96, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_poycy"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(128, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhx26"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(160, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6jutx"]
-atlas = ExtResource("1_6cqjt")
-region = Rect2(192, 0, 32, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ul3v6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w1yqe")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t8m7b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6al0s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4owjw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_poycy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nhx26")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6jutx")
+"texture": ExtResource("1_6cqjt")
 }],
 "loop": true,
 "name": &"default",
@@ -66,7 +20,7 @@ height = 52.8
 
 [node name="Corpse" type="AnimatedSprite2D"]
 position = Vector2(26, -165)
-scale = Vector2(5, 5)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ul3v6")
 script = ExtResource("2_8vtmh")
 
