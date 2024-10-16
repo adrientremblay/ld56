@@ -6,7 +6,7 @@ void vertex() {
 
 void fragment() {
     vec4 light_color = texture(TEXTURE, UV);
-    
+
     // Limit the brightness of the light (or apply a custom blending rule)
     light_color.rgb = min(light_color.rgb, vec3(0.2));  // Clamp the brightness
 
