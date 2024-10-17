@@ -37,8 +37,9 @@ func _on_buy_snail_pressed() -> void:
 	money -= 5
 	set_money_label()
 	
-	var creature = landCreatureScene.instantiate()
-	$Aquarium/Creatures.add_child(creature)
+	var snail = landCreatureScene.instantiate()
+	snail.set_species(Creature.Species.SNAIL)
+	$Aquarium/Creatures.add_child(snail)
 	creatures_find_corpses()
 	
 	$SpawnCreature.play()

@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Creature
 
 var movement_speed: float = 50.0
 
