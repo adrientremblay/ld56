@@ -79,7 +79,7 @@ func corpse_was_eaten(reward):
 	corpses_eaten_count+=1
 	$UI/CorpsesDisposedLabel.text = "Corpses Disposed: " + str(corpses_eaten_count)
 
-func compile_corpse_list():
+func compile_corpse_list(): 
 	var corpse_list = []
 	if (corpse_spawn1.get_child_count() != 0):
 		corpse_list.push_back(corpse_spawn1.get_child(0))
@@ -180,3 +180,17 @@ func set_game_over():
 	$UI/CreatureMenu.visible = false
 	$EndScreen.open(corpses_eaten_count)
 	self.game_over = true
+
+
+func _on_buy_crab_pressed() -> void:
+	if money < 10:
+		return
+	money -= 10
+	set_money_label()
+	
+	var creature = landCreatureScene.instantiate()
+	creature.set_species(Creature.Species.CRAB)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()
