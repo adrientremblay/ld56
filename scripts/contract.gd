@@ -11,7 +11,7 @@ var reward
 @onready var weight_label = $MarginContainer/HBoxContainer/VBoxContainer/WeightLabel
 @onready var reward_label = $MarginContainer/HBoxContainer/VBoxContainer/RewardLabel
 
-signal contract_accepted(person_name, weight, reward)
+signal contract_accepted(person_name, weight, reward, appearance)
 
 func construct(person_name, weight, reward):
 	self.person_name = person_name
@@ -31,7 +31,7 @@ func construct(person_name, weight, reward):
 	$MarginContainer/HBoxContainer/VBoxContainer/RewardLabel.text = "Reward: " + str(reward) + "$"
 
 func _on_button_pressed() -> void:
-	contract_accepted.emit(self.person_name, self.weight, self.reward)
+	contract_accepted.emit(self.person_name, self.weight, self.reward, self.appearance)
 	self.queue_free()
 
 func set_icon_according_to_appearance():
@@ -40,5 +40,5 @@ func set_icon_according_to_appearance():
 			$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_thin_icon.png")
 		Appearance.MEDIUM:
 			$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_medium_icon.png")
-		Appearance.MEDIUM:
+		Appearance.OBESE:
 			$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_medium_icon.png")

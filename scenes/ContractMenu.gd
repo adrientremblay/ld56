@@ -18,7 +18,7 @@ var first_time_opening = true
 
 var rng = RandomNumberGenerator.new()
 
-signal should_spawn_corpse(person_name, weight, reward)
+signal should_spawn_corpse(person_name, weight, reward, apperance)
 signal contract_menu_opened
 
 func _ready() -> void:
@@ -62,8 +62,8 @@ func generateNewContract():
 	new_contract.connect("contract_accepted", self.contract_accepted)
 	contract_vbox.add_child(new_contract)
 	
-func contract_accepted(person_name, weight, reward):
-	should_spawn_corpse.emit(person_name, weight, reward)
+func contract_accepted(person_name, weight, reward, appearance):
+	should_spawn_corpse.emit(person_name, weight, reward, appearance)
 	contract_menu_opened.emit()
 	
 func no_contracts_available():
