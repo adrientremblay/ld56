@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://f3722j5e8eqm"]
+[gd_scene load_steps=26 format=3 uid="uid://f3722j5e8eqm"]
 
 [ext_resource type="Texture2D" uid="uid://cvtp1gm4svyei" path="res://assets/art/dead_body-Sheet.png" id="1_6cqjt"]
 [ext_resource type="Script" path="res://scripts/corpse.gd" id="2_8vtmh"]
+[ext_resource type="Texture2D" uid="uid://dvillw65spu3i" path="res://assets/art/male_corse_medium-Sheet.png" id="2_ftbi4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3mh1"]
 atlas = ExtResource("1_6cqjt")
@@ -43,6 +44,46 @@ region = Rect2(512, 0, 64, 128)
 atlas = ExtResource("1_6cqjt")
 region = Rect2(576, 0, 64, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xr10"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(0, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08hgc"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(64, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bno3y"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(128, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2oup"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(192, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkk4g"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(256, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvbne"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(320, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xksrb"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(384, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02kph"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(448, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0hqw"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(512, 0, 64, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgfkn"]
+atlas = ExtResource("2_ftbi4")
+region = Rect2(576, 0, 64, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ul3v6"]
 animations = [{
 "frames": [{
@@ -79,16 +120,52 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xr10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08hgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bno3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2oup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkk4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvbne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xksrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02kph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0hqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgfkn")
+}],
+"loop": true,
+"name": &"medium",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_280um"]
-radius = 13.8
-height = 52.8
+radius = 25.2
+height = 96.8
 
 [node name="Corpse" type="AnimatedSprite2D"]
 position = Vector2(26, -165)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ul3v6")
+animation = &"medium"
 script = ExtResource("2_8vtmh")
 
 [node name="FeedingArea" type="Area2D" parent="."]
