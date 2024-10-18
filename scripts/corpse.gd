@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 func set_decomposition_frame():
 	var decomposition_decimal = 1 - (weight / original_weight)
-	var frame_float = 6.9999 * decomposition_decimal
+	var frame_float = 9.9999 * decomposition_decimal
 	var frame_number = floor(frame_float)
 	self.frame = frame_number
 
