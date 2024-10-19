@@ -41,4 +41,4 @@ func set_icon_according_to_appearance():
 		Appearance.MEDIUM:
 			$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_medium_icon.png")
 		Appearance.OBESE:
-			$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_medium_icon.png")
+			$MarginContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_obese_icon.png")

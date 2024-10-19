@@ -24,7 +24,7 @@ func construct(person_name, weight, reward, appearance: Contract.Appearance):
 		Contract.Appearance.MEDIUM:
 			self.animation = "medium"
 		Contract.Appearance.OBESE:
-			self.animation = "medium"
+			self.animation = "obese"
 
 func _process(delta: float) -> void:
 	for creature in feeding_area.get_overlapping_bodies():
