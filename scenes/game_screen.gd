@@ -44,7 +44,7 @@ func _on_buy_snail_pressed() -> void:
 	
 	$SpawnCreature.play()
 
-func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant, appearance: Contract.Appearance) -> void:
+func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant, appearance: Contract.Appearance, female: bool) -> void:
 	# find available spawn
 	var spawn_point = null
 	if (corpse_spawn1.get_child_count() == 0):
@@ -60,7 +60,7 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	
 	# spawn corpse
 	var new_corpse = corpse_scene.instantiate()
-	new_corpse.construct(person_name, weight, reward, appearance)
+	new_corpse.construct(person_name, weight, reward, appearance, female)
 	new_corpse.connect("corpse_eaten", self.corpse_was_eaten)
 	spawn_point.add_child(new_corpse)
 	$Splash.play()

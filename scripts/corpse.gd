@@ -4,6 +4,7 @@ var person_name
 var original_weight
 var weight
 var reward
+var female
 
 var eaten = false
 var appearance: Contract.Appearance
@@ -11,20 +12,30 @@ var appearance: Contract.Appearance
 @onready var feeding_area: Area2D = $FeedingArea
 signal corpse_eaten(reward)
 
-func construct(person_name, weight, reward, appearance: Contract.Appearance):
+func construct(person_name, weight, reward, appearance: Contract.Appearance, female: bool):
 	self.person_name = person_name
 	self.weight = weight
 	self.original_weight = weight
 	self.reward = reward
 	self.appearance = appearance
+	self.female = female
 	
 	match self.appearance:
 		Contract.Appearance.THIN:
-			self.animation = "thin"
+			if self.female:
+				self.animation = "female thin"
+			else:
+				self.animation = "male thin"
 		Contract.Appearance.MEDIUM:
-			self.animation = "medium"
+			if self.female:
+				self.animation = "female medium"
+			else:
+				self.animation = "male medium"
 		Contract.Appearance.OBESE:
-			self.animation = "obese"
+			if self.female:
+				self.animation = "female obese"
+			else:
+				self.animation = "male obese"
 
 func _process(delta: float) -> void:
 	for creature in feeding_area.get_overlapping_bodies():
