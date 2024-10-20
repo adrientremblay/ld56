@@ -12,13 +12,13 @@
 [ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://d1q7qualbgshl" path="res://assets/art/spokesman-Sheet.png" id="12_u5qvl"]
-[ext_resource type="AudioStream" uid="uid://b1ff8obdl5xsk" path="res://assets/audio/theme_song.mp3" id="12_x36kj"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="13_ot42n"]
 [ext_resource type="Texture2D" uid="uid://cmo0dcfot7kj0" path="res://assets/art/x.png" id="14_6p0uj"]
 [ext_resource type="AudioStream" uid="uid://c0ydxjdbxpo7p" path="res://assets/audio/spokesman_no.mp3" id="14_n11fc"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
+[ext_resource type="AudioStream" uid="uid://64cds4d6ylg6" path="res://assets/audio/cca_theme_2.mp3" id="18_j1a8h"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
@@ -478,8 +478,9 @@ theme = ExtResource("4_gs2f0")
 text = "Retire"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_x36kj")
-volume_db = -15.974
+stream = ExtResource("18_j1a8h")
+volume_db = -6.026
+autoplay = true
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(26, -131)
