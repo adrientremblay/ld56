@@ -70,10 +70,10 @@ script = ExtResource("1_poq0k")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 light_mask = 0
-position = Vector2(240, 198)
+position = Vector2(2.38419e-07, -196)
 scale = Vector2(5, 4.08333)
 sprite_frames = SubResource("SpriteFrames_j1djc")
 animation = &"smiling"
-frame_progress = 0.684736
+frame_progress = 0.15788
 
 [connection signal="animation_finished" from="Sprite" to="." method="_on_animated_sprite_2d_animation_finished"]
