@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://by6waso0mjpjp"]
+[gd_scene load_steps=7 format=3 uid="uid://by6waso0mjpjp"]
 
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="1_4jxq7"]
 [ext_resource type="Script" path="res://TextboxWithPortrait/speaker_portrait_textbox_layer.gd" id="1_7jt4d"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="2_y0h34"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="3_11puy"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="3_r1idv"]
 [ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_type_sound.gd" id="5_sr2qw"]
 
 [node name="TextboxWithSpeakerPortrait" type="Control"]
@@ -15,6 +16,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_7jt4d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.634449, 0, 0.208203, 1)
 
 [node name="DialogicNode_NameLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -30,17 +40,19 @@ script = ExtResource("2_y0h34")
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="." node_paths=PackedStringArray("textbox_root")]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 516.0
-offset_top = 536.0
-offset_right = 890.0
-offset_bottom = 670.0
+offset_left = 128.0
+offset_top = 512.0
+offset_right = 1088.0
+offset_bottom = 632.0
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 6
+theme = ExtResource("3_r1idv")
+theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "Some text"
 scroll_following = true
 visible_characters_behavior = 1
 script = ExtResource("3_11puy")
+alignment = 1
 textbox_root = NodePath("")
 
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="DialogicNode_DialogText"]
@@ -51,9 +63,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 256.0
-offset_top = 128.0
-offset_right = -336.0
+offset_top = 64.0
 offset_bottom = -260.0
 grow_horizontal = 2
 grow_vertical = 2
