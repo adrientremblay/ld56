@@ -1,4 +1,4 @@
 [wait time="0.1"]
-spokesman (Smiling): [mood=happy]Hello I am the spokes man
-spokesman (Frowning): [mood=happy]You have dissapointed us!!!!
+spokesman (Deadfaced): Welcome to NAUTILUS. We are an international organization renowned for our ability to make people *disappear without a trace*. You wouldn't have heard of us though...
+spokesman (Deadfaced): You have been selected to operate one of our unique aquarium corpse disposal units.
 [signal arg="start_game"]

@@ -6,13 +6,33 @@
 "custom_info": {
 "sound_mood_default": "",
 "sound_moods": {
+"angry": {
+"mode": 2,
+"name": "angry",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://assets/audio/spokesman_no.mp3",
+"volume_base": 0.0,
+"volume_variance": 0.0
+},
 "happy": {
-"mode": 0,
+"mode": 2,
 "name": "happy",
 "pitch_base": 1.0,
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
-"sound_path": "res://assets/audio/spokesman_syllable.mp3",
+"sound_path": "res://assets/audio/spokesman_speech_normal.mp3",
+"volume_base": 0.0,
+"volume_variance": 0.0
+},
+"neutral": {
+"mode": 2,
+"name": "neutral",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"skip_characters": 0.0,
+"sound_path": "res://assets/audio/spokesman_speech_normal.mp3",
 "volume_base": 0.0,
 "volume_variance": 0.0
 }
@@ -33,7 +53,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": "res://scenes/spokesman_portrait.tscn"
+"scene": "res://scenes/spokesman_portrait.tscn",
+"sound_mood": "neutral"
 },
 "Frowning": {
 "export_overrides": {
@@ -42,7 +63,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": "res://scenes/spokesman_portrait.tscn"
+"scene": "res://scenes/spokesman_portrait.tscn",
+"sound_mood": "angry"
 },
 "Smiling": {
 "export_overrides": {
@@ -51,7 +73,8 @@
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": "res://scenes/spokesman_portrait.tscn"
+"scene": "res://scenes/spokesman_portrait.tscn",
+"sound_mood": "happy"
 }
 },
 "scale": 1.0
