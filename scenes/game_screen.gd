@@ -24,6 +24,8 @@ var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
+	Dialogic.start('intro')
+	Dialogic.signal_event.connect(_on_dialogic_signal)
 
 func _process(delta: float) -> void:
 	if game_over:
@@ -195,12 +197,5 @@ func _on_buy_crab_pressed() -> void:
 
 	$SpawnCreature.play()
 
-func _input(event: InputEvent):
-	# check if a dialog is already running
-	if Dialogic.current_timeline != null:
-		return
-
-	if event is InputEventKey and event.keycode == KEY_ENTER and event.pressed:
-		print("intro")
-		Dialogic.start('intro')
-		get_viewport().set_input_as_handled()
+func _on_dialogic_signal(action: String):
+	print("start game!")
