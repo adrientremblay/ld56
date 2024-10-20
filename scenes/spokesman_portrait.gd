@@ -1,6 +1,6 @@
 extends DialogicPortrait
+
 func _update_portrait(passed_character:DialogicCharacter, passed_portrait:String) -> void:
-	print (passed_portrait)
 	if (passed_portrait == "Frowning"):
 		$Sprite.play("frowning")
 	elif (passed_portrait == "Smiling"):
