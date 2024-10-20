@@ -183,7 +183,6 @@ func set_game_over():
 	$EndScreen.open(corpses_eaten_count)
 	self.game_over = true
 
-
 func _on_buy_crab_pressed() -> void:
 	if money < 10:
 		return
@@ -198,4 +197,4 @@ func _on_buy_crab_pressed() -> void:
 	$SpawnCreature.play()
 
 func _on_dialogic_signal(action: String):
-	print("start game!")
+	$UI/ContractMenu/NewContractTimer.start()

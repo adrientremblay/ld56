@@ -28,7 +28,7 @@ directories/dtl_directory={
 "intro": "res://timelines/intro.dtl"
 }
 variables={}
-layout/style_list=["res://Spokesman_Style.tres"]
+layout/style_list=["res://Spokesman_Style.tres", "res://assets/audio/New_File.tres"]
 layout/default_style="res://Spokesman_Style.tres"
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
