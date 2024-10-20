@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://2o82agl4u147"]
+
+[ext_resource type="Texture2D" uid="uid://cv8875mdap1a0" path="res://assets/art/nautilus_logo.png" id="1_1m27j"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_0c5bl"]
+[ext_resource type="Texture2D" uid="uid://d1q7qualbgshl" path="res://assets/art/spokesman-Sheet.png" id="3_x6pjj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtm27"]
+atlas = ExtResource("3_x6pjj")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8va5o"]
+atlas = ExtResource("3_x6pjj")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqn7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtm27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8va5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="IntroScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -160.0
+offset_right = 64.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_1m27j")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 440.0
+offset_right = 1216.0
+offset_bottom = 536.0
+theme = ExtResource("2_0c5bl")
+theme_override_font_sizes/font_size = 20
+text = "Welcome to NAUTILUS. We are an international organization renowned for our ability to make people *disappear without a trace*. You wouldn't have heard of us though.."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(624, 220)
+scale = Vector2(5, 4.08333)
+sprite_frames = SubResource("SpriteFrames_sqn7a")
