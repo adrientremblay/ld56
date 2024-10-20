@@ -8,21 +8,39 @@
 "sound_moods": {},
 "style": "Spokesman_Style"
 },
-"default_portrait": "Spokesman Custom Scene",
+"default_portrait": "Deadfaced",
 "description": "",
 "display_name": "spokesman",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"Spokesman Custom Scene": {
+"Deadfaced": {
 "export_overrides": {
 "image": "\"res://assets/art/female_corpse_obese_icon.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),
 "scale": 1,
-"scene": ""
+"scene": "res://scenes/spokesman_portrait.tscn"
+},
+"Frowning": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://scenes/spokesman_portrait.tscn"
+},
+"Smiling": {
+"export_overrides": {
+"image": ""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "res://scenes/spokesman_portrait.tscn"
 }
 },
 "scale": 1.0
