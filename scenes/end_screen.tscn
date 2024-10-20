@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ci2ny2web0sxe"]
 
-[ext_resource type="Script" path="res://end_screen.gd" id="1_5w7t6"]
+[ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_5w7t6"]
 [ext_resource type="Texture2D" uid="uid://d1q7qualbgshl" path="res://assets/art/spokesman-Sheet.png" id="2_8ppqd"]
 [ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="3_thup0"]
 [ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="4_apmwg"]
