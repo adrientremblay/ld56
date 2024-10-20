@@ -194,3 +194,13 @@ func _on_buy_crab_pressed() -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+
+func _input(event: InputEvent):
+	# check if a dialog is already running
+	if Dialogic.current_timeline != null:
+		return
+
+	if event is InputEventKey and event.keycode == KEY_ENTER and event.pressed:
+		print("intro")
+		Dialogic.start('intro')
+		get_viewport().set_input_as_handled()

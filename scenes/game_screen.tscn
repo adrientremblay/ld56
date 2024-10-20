@@ -84,11 +84,13 @@ waterCreatureScene = ExtResource("13_kriy5")
 plantScene = ExtResource("6_ol3g8")
 
 [node name="AquariumBackdrop" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(640, 360)
 scale = Vector2(5, 5)
 texture = ExtResource("1_sqbh1")
 
 [node name="Aquarium" type="Node2D" parent="."]
+visible = false
 
 [node name="Plants" type="Node2D" parent="Aquarium"]
 
@@ -110,10 +112,12 @@ position = Vector2(1070, 634)
 [node name="Creatures" type="Node2D" parent="Aquarium"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(1, 9)
 navigation_polygon = SubResource("NavigationPolygon_w865j")
 
 [node name="Lighting" type="Node2D" parent="."]
+visible = false
 
 [node name="DarknessFilter" type="ColorRect" parent="Lighting"]
 offset_right = 1280.0
@@ -170,6 +174,7 @@ energy = 0.25
 texture = SubResource("GradientTexture2D_oemwg")
 
 [node name="UI" type="Control" parent="."]
+visible = false
 light_mask = 0
 layout_mode = 3
 anchors_preset = 15

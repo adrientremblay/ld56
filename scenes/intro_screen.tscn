@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://2o82agl4u147"]
+
+[ext_resource type="Script" path="res://scripts/intro_screen.gd" id="1_knwk3"]
+[ext_resource type="Texture2D" uid="uid://cv8875mdap1a0" path="res://assets/art/nautilus_logo.png" id="2_a2m61"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="3_ul5ff"]
+[ext_resource type="Texture2D" uid="uid://b366oqwics0go" path="res://assets/art/spokesman-deadfaced-Sheet.png" id="4_hgtf8"]
+[ext_resource type="Texture2D" uid="uid://cm216aali64ou" path="res://assets/art/spokesman-frowning-Sheet.png" id="5_xmbls"]
+[ext_resource type="Texture2D" uid="uid://da8pexsxpvrbs" path="res://assets/art/spokesman-smiling-Sheet.png" id="6_yufs4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u46tk"]
+atlas = ExtResource("4_hgtf8")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aigm5"]
+atlas = ExtResource("4_hgtf8")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waveg"]
+atlas = ExtResource("5_xmbls")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpqee"]
+atlas = ExtResource("5_xmbls")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqdx5"]
+atlas = ExtResource("6_yufs4")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wwdp"]
+atlas = ExtResource("6_yufs4")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqn7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u46tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aigm5")
+}],
+"loop": true,
+"name": &"deadfaced",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waveg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpqee")
+}],
+"loop": true,
+"name": &"frowning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqdx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wwdp")
+}],
+"loop": true,
+"name": &"smiling",
+"speed": 5.0
+}]
+
+[node name="IntroScreen" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_knwk3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -160.0
+offset_right = 64.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_a2m61")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 440.0
+offset_right = 1216.0
+offset_bottom = 536.0
+theme = ExtResource("3_ul5ff")
+theme_override_font_sizes/font_size = 20
+text = "Welcome to NAUTILUS. We are an international organization renowned for our ability to make people *disappear without a trace*. You wouldn't have heard of us though.."
+horizontal_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Spokesman" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(624, 220)
+scale = Vector2(5, 4.08333)
+sprite_frames = SubResource("SpriteFrames_sqn7a")
+animation = &"deadfaced"

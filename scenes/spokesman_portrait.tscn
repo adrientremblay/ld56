@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://br7dpbfx6uxc1"]
+
+[ext_resource type="Script" path="res://scenes/spokesman_portrait.gd" id="1_poq0k"]
+[ext_resource type="Texture2D" uid="uid://b366oqwics0go" path="res://assets/art/spokesman-deadfaced-Sheet.png" id="2_nuwkb"]
+[ext_resource type="Texture2D" uid="uid://cm216aali64ou" path="res://assets/art/spokesman-frowning-Sheet.png" id="3_5yv02"]
+[ext_resource type="Texture2D" uid="uid://da8pexsxpvrbs" path="res://assets/art/spokesman-smiling-Sheet.png" id="4_u3l5d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u46tk"]
+atlas = ExtResource("2_nuwkb")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aigm5"]
+atlas = ExtResource("2_nuwkb")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_waveg"]
+atlas = ExtResource("3_5yv02")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpqee"]
+atlas = ExtResource("3_5yv02")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqdx5"]
+atlas = ExtResource("4_u3l5d")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wwdp"]
+atlas = ExtResource("4_u3l5d")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1djc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u46tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aigm5")
+}],
+"loop": true,
+"name": &"deadfaced",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_waveg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpqee")
+}],
+"loop": true,
+"name": &"frowning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqdx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wwdp")
+}],
+"loop": true,
+"name": &"smiling",
+"speed": 5.0
+}]
+
+[node name="SpokesmanPortrait" type="Node2D"]
+script = ExtResource("1_poq0k")
+
+[node name="Spokesman" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(624, 220)
+scale = Vector2(5, 4.08333)
+sprite_frames = SubResource("SpriteFrames_j1djc")
+animation = &"deadfaced"
+frame = 1
+frame_progress = 0.222662
