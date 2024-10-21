@@ -8,7 +8,7 @@ var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 25.0
 var MAX_REWARD = 100.0
 
-var FIRST_CONTRACT_TEXT = "Greetings. I am the spokesman for Nautilus. Your abilities for disposing bodies are well known to us. Please select among the following contracts..."
+var FIRST_CONTRACT_TEXT = "Please select among the following contracts..."
 var NORMAL_CONTRACT_TEXT = "Please select among the following contracts..."
 var NO_CONTRACTS_AVAILABLE_TEXT = "It seems you have no space for more bodies. Do not dissapoint us again."
 

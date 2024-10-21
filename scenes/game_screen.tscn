@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://wwsrmx3owm5" path="res://scenes/plant.tscn" id="6_ol3g8"]
 [ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
-[ext_resource type="Texture2D" uid="uid://d1q7qualbgshl" path="res://assets/art/spokesman-Sheet.png" id="12_u5qvl"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="13_ot42n"]
+[ext_resource type="Texture2D" uid="uid://b366oqwics0go" path="res://assets/art/spokesman-deadfaced-Sheet.png" id="14_0elli"]
 [ext_resource type="Texture2D" uid="uid://cmo0dcfot7kj0" path="res://assets/art/x.png" id="14_6p0uj"]
 [ext_resource type="AudioStream" uid="uid://c0ydxjdbxpo7p" path="res://assets/audio/spokesman_no.mp3" id="14_n11fc"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
@@ -42,22 +42,22 @@ fill_to = Vector2(0.570776, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_irdac"]
-atlas = ExtResource("12_u5qvl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7x63"]
+atlas = ExtResource("14_0elli")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1urfw"]
-atlas = ExtResource("12_u5qvl")
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3wn5"]
+atlas = ExtResource("14_0elli")
 region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_udfuc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_irdac")
+"texture": SubResource("AtlasTexture_h7x63")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1urfw")
+"texture": SubResource("AtlasTexture_g3wn5")
 }],
 "loop": true,
 "name": &"default",
@@ -294,7 +294,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ContractMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 96.0
@@ -327,13 +326,13 @@ frame_progress = 0.528335
 [node name="Label" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
 layout_mode = 0
-offset_left = 494.0
-offset_top = 447.0
-offset_right = 1077.0
-offset_bottom = 579.0
+offset_left = 623.0
+offset_top = 469.0
+offset_right = 1001.0
+offset_bottom = 554.0
 theme = ExtResource("4_gs2f0")
 theme_override_font_sizes/font_size = 18
-text = "Greetings. I am the spokesman for nautilus. Your abilities for disposing bodies are well known to us. Please select among the following contracts"
+text = "Please select among the following contracts"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -458,6 +457,15 @@ offset_bottom = 36.0
 theme = ExtResource("4_gs2f0")
 text = "Corpses Disposed: 0"
 
+[node name="DateLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 13.0
+offset_right = 752.0
+offset_bottom = 36.0
+theme = ExtResource("4_gs2f0")
+text = "Oct 20, 2024 - 12:00PM"
+
 [node name="Button" type="Button" parent="UI"]
 light_mask = 0
 layout_mode = 0
@@ -482,9 +490,6 @@ stream = ExtResource("18_j1a8h")
 volume_db = -6.026
 autoplay = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(26, -131)
-
 [node name="Splash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_8f42f")
 volume_db = -10.0
@@ -495,12 +500,14 @@ stream = ExtResource("19_d1s5n")
 [node name="CorpseEaten" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_oegt5")
 
+[node name="SpawnPlant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_u3qn2")
+
 [node name="EndScreen" parent="." instance=ExtResource("21_yuerb")]
 visible = false
 light_mask = 0
 
-[node name="SpawnPlant" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("23_u3qn2")
+[node name="DateTimer" type="Timer" parent="."]
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
@@ -516,3 +523,4 @@ stream = ExtResource("23_u3qn2")
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
+[connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]

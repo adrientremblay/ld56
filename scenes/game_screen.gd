@@ -21,11 +21,14 @@ var corpses_eaten_count = 0
 
 var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
 
+var current_datetime: int # unix time
+
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
 	Dialogic.start('intro')
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	set_starting_game_datetime()
 
 func _process(delta: float) -> void:
 	if game_over:
@@ -197,4 +200,77 @@ func _on_buy_crab_pressed() -> void:
 	$SpawnCreature.play()
 
 func _on_dialogic_signal(action: String):
+	start_game()
+
+func start_game():
 	$UI/ContractMenu/NewContractTimer.start()
+	$DateTimer.start()
+
+func set_starting_game_datetime():
+	var current_date_dict = Time.get_date_dict_from_system()
+	current_date_dict.hour = 11
+	current_date_dict.minute = 0
+	current_date_dict.second = 0
+	current_datetime = Time.get_unix_time_from_datetime_dict(current_date_dict)
+	
+func get_my_formatted_datetime_from_dict(datetime_unix : int):
+	var datetime = Time.get_datetime_dict_from_unix_time(datetime_unix)
+	
+	var year_num = datetime.year
+	var month_num = datetime.month
+	var day_num = datetime.day
+	var hour_num = datetime.hour
+	var minute_num = datetime.minute
+	
+	if !year_num || !month_num || !day_num || !hour_num || !minute_num:
+		return "ERROR"
+		
+	var year_string = str(year_num)
+	
+	var month_string
+	match month_num:
+		1:
+			month_string = "Jan"
+		2:
+			month_string = "Feb"
+		3:
+			month_string = "Mar"
+		4:
+			month_string = "Apr"
+		5:
+			month_string = "May"
+		6:
+			month_string = "Jun"
+		7:
+			month_string = "Jul"
+		8:
+			month_string = "Aug"
+		9:
+			month_string = "Sep"
+		10:
+			month_string = "Oct"
+		11:
+			month_string = "Nov"
+		12:
+			month_string = "Dec"
+	
+	var day_string = str(day_num)
+	
+	var hour_postfix = ""
+	if hour_num >= 12:
+		hour_postfix = "PM"
+	else:
+		hour_postfix = "AM"
+	if hour_num > 12:
+		hour_num -= 12
+	var hour_string = str(hour_num)
+	
+	var minute_string = ("0" if minute_num < 10 else "") + str(minute_num)
+	
+	return month_string + " " + day_string + ", " + year_string + " - " + hour_string + ":" + minute_string + hour_postfix
+
+func _on_date_timer_timeout_advance_time_one_minute() -> void:
+	current_datetime += 60
+	
+	var new_date_string = get_my_formatted_datetime_from_dict(current_datetime)
+	$UI/DateLabel.text = new_date_string
