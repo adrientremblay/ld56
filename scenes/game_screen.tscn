@@ -464,7 +464,7 @@ offset_top = 13.0
 offset_right = 752.0
 offset_bottom = 36.0
 theme = ExtResource("4_gs2f0")
-text = "Oct 20, 2024 - 12:00PM"
+text = "Oct 20, 2024 - 11:00PM"
 
 [node name="Button" type="Button" parent="UI"]
 light_mask = 0

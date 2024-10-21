@@ -208,7 +208,7 @@ func start_game():
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()
-	current_date_dict.hour = 11
+	current_date_dict.hour = 23
 	current_date_dict.minute = 0
 	current_date_dict.second = 0
 	current_datetime = Time.get_unix_time_from_datetime_dict(current_date_dict)
