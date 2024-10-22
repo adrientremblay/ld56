@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=38 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="AudioStream" uid="uid://64cds4d6ylg6" path="res://assets/audio/cca_theme_2.mp3" id="18_j1a8h"]
+[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="18_vxnfe"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
@@ -484,6 +485,12 @@ offset_right = 1264.0
 offset_bottom = 45.0
 theme = ExtResource("4_gs2f0")
 text = "Retire"
+
+[node name="PauseMenu" type="Panel" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("18_vxnfe")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_j1a8h")

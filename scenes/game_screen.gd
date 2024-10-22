@@ -37,7 +37,7 @@ func _ready() -> void:
 	update_corpse_eaten_label()
 
 func _process(delta: float) -> void:
-	if game_over:
+	if game_over || get_tree().paused:
 		return
 		
 	calculate_biomass_capacity_percent(delta)
