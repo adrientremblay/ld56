@@ -91,7 +91,13 @@ func corpse_was_eaten(reward):
 	update_corpse_eaten_label()
 
 func update_corpse_eaten_label():
-	$UI/CorpsesDisposedLabel.text = "Corpses Disposed: " + str(corpses_eaten_count) + "/" + str(CORPSE_QUOTA_PER_LEVEL[level])
+	var quota = CORPSE_QUOTA_PER_LEVEL[level]
+	if corpses_eaten_count < quota:
+		$UI/CorpsesDisposedLabel.add_theme_color_override("font_color", Color(1, 0, 0))
+	else:
+		$UI/CorpsesDisposedLabel.add_theme_color_override("font_color", Color(0, 1, 0))
+	
+	$UI/CorpsesDisposedLabel.text = "Corpses Disposed: " + str(corpses_eaten_count) + "/" + str(quota)
 
 func compile_corpse_list(): 
 	var corpse_list = []
