@@ -13,14 +13,19 @@ extends Node2D
 
 var game_over = false
 
+# GAMEPLAY VARIABLES
 var money = 20
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
 var corpses_eaten_count = 0
 
-var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
+# LEVEL VARIABLES
+var level = 1
+var CORPSE_QUOTA_PER_LEVEL = [0, 3, 5, 7, 10, 15, 20] # index = level, value = quota
 
+# MISC
+var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
 var current_datetime: int # unix time
 
 func _ready() -> void:
@@ -29,6 +34,7 @@ func _ready() -> void:
 	Dialogic.start('intro')
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	set_starting_game_datetime()
+	update_corpse_eaten_label()
 
 func _process(delta: float) -> void:
 	if game_over:
@@ -82,7 +88,10 @@ func corpse_was_eaten(reward):
 	$CorpseEaten.play()
 	
 	corpses_eaten_count+=1
-	$UI/CorpsesDisposedLabel.text = "Corpses Disposed: " + str(corpses_eaten_count)
+	update_corpse_eaten_label()
+
+func update_corpse_eaten_label():
+	$UI/CorpsesDisposedLabel.text = "Corpses Disposed: " + str(corpses_eaten_count) + "/" + str(CORPSE_QUOTA_PER_LEVEL[level])
 
 func compile_corpse_list(): 
 	var corpse_list = []
