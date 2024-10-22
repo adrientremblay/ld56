@@ -25,6 +25,7 @@ signal contract_menu_opened
 func _ready() -> void:
 	self.visible = false
 	$Spokesman.play()
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_new_contract_timer_timeout() -> void:
 	# empty contract list
@@ -51,6 +52,8 @@ func _on_new_contract_timer_timeout() -> void:
 	contract_menu_opened.emit()
 	
 	first_time_opening = false
+	
+	get_tree().paused = true
 	
 func generateNewContract():
 	var weight = snapped(rng.randf_range(LOWER_WEIGHT_BOUND, UPPER_WEIGHT_BOUND), 0.01)
@@ -85,3 +88,4 @@ func _on_close_contract_menu_pressed() -> void:
 	$NewContractTimer.start()
 	$SpokesmanSpeechNormal.stop()
 	$SpokesmanSpeechNo.stop()
+	get_tree().paused = false
