@@ -21,11 +21,13 @@ var rng = RandomNumberGenerator.new()
 
 signal should_spawn_corpse(person_name, weight, reward, apperance)
 signal contract_menu_opened
+signal contract_menu_closed
 
 func _ready() -> void:
 	self.visible = false
 	$Spokesman.play()
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
+	$NewContractTimer.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func _on_new_contract_timer_timeout() -> void:
 	# empty contract list
@@ -89,3 +91,4 @@ func _on_close_contract_menu_pressed() -> void:
 	$SpokesmanSpeechNormal.stop()
 	$SpokesmanSpeechNo.stop()
 	get_tree().paused = false
+	contract_menu_closed.emit()
