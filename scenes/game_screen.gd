@@ -33,6 +33,8 @@ func _ready() -> void:
 	set_money_label()
 	Dialogic.start('intro')
 	Dialogic.signal_event.connect(_on_dialogic_signal)
+	Dialogic.timeline_started.connect(_on_timeline_started)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	set_starting_game_datetime()
 	update_corpse_eaten_label()
 
@@ -289,3 +291,10 @@ func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	
 	var new_date_string = get_my_formatted_datetime_from_dict(current_datetime)
 	$UI/DateLabel.text = new_date_string
+
+func _on_timeline_started():
+	print("Timeline started")
+
+func _on_timeline_ended():
+	print("Timeline ended")
+	
