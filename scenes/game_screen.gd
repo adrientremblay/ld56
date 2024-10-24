@@ -241,7 +241,7 @@ func get_my_formatted_datetime_from_dict(datetime_unix : int):
 	var hour_num = datetime.hour
 	var minute_num = datetime.minute
 	
-	if !year_num || !month_num || !day_num || !hour_num || !minute_num:
+	if year_num == null || month_num == null || day_num == null || hour_num == null || minute_num == null:
 		return "ERROR"
 		
 	var year_string = str(year_num)
@@ -284,18 +284,19 @@ func get_my_formatted_datetime_from_dict(datetime_unix : int):
 		hour_num -= 12
 	var hour_string = str(hour_num)
 	if hour_num == 0:
-		hour_string = 12
+		hour_string = "12"
 	
 	var minute_string = ("0" if minute_num < 10 else "") + str(minute_num)
 	
-	return month_string + " " + day_string + ", " + year_string + " - " + hour_string + ":" + minute_string + hour_postfix
+	var date_str =  month_string + " " + day_string + ", " + year_string + " - " + hour_string + ":" + minute_string + hour_postfix
+	print(date_str)
+	return date_str
 
 func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	current_datetime += 60
 	
 	var datetime = Time.get_datetime_dict_from_unix_time(current_datetime)
-	print(datetime.hour)
-	if datetime.hour == 1:
+	if datetime.hour == 7:
 		next_level()
 		return
 	
