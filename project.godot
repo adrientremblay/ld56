@@ -25,7 +25,8 @@ directories/dch_directory={
 "spokesman": "res://timelines/spokesman.dch"
 }
 directories/dtl_directory={
-"intro": "res://timelines/intro.dtl"
+"intro": "res://timelines/intro.dtl",
+"level2": "res://timelines/level2.dtl"
 }
 variables={}
 layout/style_list=["res://Spokesman_Style.tres", "res://assets/audio/New_File.tres"]
@@ -76,6 +77,11 @@ pause={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
+next_level={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":78,"key_label":0,"unicode":110,"location":0,"echo":false,"script":null)
 ]
 }
 

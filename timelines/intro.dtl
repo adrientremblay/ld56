@@ -8,4 +8,3 @@ spokesman (Smiling): And you are in need of money. You need 50,000$ to pay for a
 spokesman (Deadfaced): You will be provided with an aquarium. But all the creatures, plants and other equipment will need to be purchased by you.
 spokesman (Frowning): Every day you will have a quota of corpses to dispose of. Our only requirement is that you fulfill this quota. Corpses you decline will be disposed otherwise.
 spokesman (Smiling): These corpses are done being people. Don't let your feelings get in the way of your job. This is where I leave you. Good Luck.
-[signal arg="start_game"]

@@ -34,7 +34,7 @@ func _ready() -> void:
 	set_starting_game_datetime()
 	update_corpse_eaten_label()
 	dialogic_setup()
-	launch_level_dialog()
+	next_level()
 
 func _process(delta: float) -> void:
 	if game_over || get_tree().paused:
@@ -218,7 +218,7 @@ func _on_dialogic_signal(action: String):
 	if action == "pause":
 		get_tree().paused = true
 
-func start_new_level():
+func setup_new_level():
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
 	update_corpse_eaten_label()
@@ -299,7 +299,6 @@ func _on_timeline_started():
 func _on_timeline_ended():
 	print("Timeline ended")
 	get_tree().paused = false
-	level+=1
 	launch_level()
 
 func dialogic_setup():
@@ -308,20 +307,27 @@ func dialogic_setup():
 	Dialogic.timeline_started.connect(_on_timeline_started)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
 
-func launch_level_dialog():
+func next_level():
+	level+=1
 	var timeline_name = ""
 	match level:
-		0:
-			timeline_name = "intro"
 		1:
-			timeline_name = "level1"
+			timeline_name = "intro"
 		2:
 			timeline_name = "level2"
+		2:
+			timeline_name = "level3"
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func launch_level():
+	setup_new_level()
 	match level:
 		1:
-			start_new_level()
+			pass
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("next_level"):
+		next_level()
+	
