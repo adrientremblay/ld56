@@ -31,7 +31,9 @@ var current_datetime: int # unix time
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
-	Dialogic.start('intro')
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	var dialogicRootNode = Dialogic.start('intro')
+	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 	Dialogic.signal_event.connect(_on_dialogic_signal)
 	Dialogic.timeline_started.connect(_on_timeline_started)
 	Dialogic.timeline_ended.connect(_on_timeline_ended)
@@ -218,6 +220,8 @@ func _on_buy_crab_pressed() -> void:
 
 func _on_dialogic_signal(action: String):
 	start_game()
+	if action == "pause":
+		get_tree().paused = true
 
 func start_game():
 	$UI/ContractMenu/NewContractTimer.start()
@@ -294,7 +298,9 @@ func _on_date_timer_timeout_advance_time_one_minute() -> void:
 
 func _on_timeline_started():
 	print("Timeline started")
+	#get_tree().paused = true
 
 func _on_timeline_ended():
 	print("Timeline ended")
+	get_tree().paused = false
 	
