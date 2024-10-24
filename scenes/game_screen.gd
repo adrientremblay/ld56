@@ -192,7 +192,7 @@ func _on_buy_stem_plant_pressed() -> void:
 	$Aquarium/Plants.add_child(new_plant)
 
 func _on_retire_pressed() -> void:
-	set_game_over()
+	next_level()
 
 func set_game_over():
 	$UI/ContractMenu/NewContractTimer.stop()
