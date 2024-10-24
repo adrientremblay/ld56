@@ -222,9 +222,11 @@ func setup_new_level():
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
 	update_corpse_eaten_label()
+	set_starting_game_datetime()
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()
+	current_date_dict.day += (level-1)
 	current_date_dict.hour = 23
 	current_date_dict.minute = 0
 	current_date_dict.second = 0
@@ -293,7 +295,7 @@ func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	
 	var datetime = Time.get_datetime_dict_from_unix_time(current_datetime)
 	print(datetime.hour)
-	if datetime.hour == 0:
+	if datetime.hour == 1:
 		next_level()
 		return
 	
