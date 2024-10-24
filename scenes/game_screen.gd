@@ -281,6 +281,8 @@ func get_my_formatted_datetime_from_dict(datetime_unix : int):
 	if hour_num > 12:
 		hour_num -= 12
 	var hour_string = str(hour_num)
+	if hour_num == 0:
+		hour_string = 12
 	
 	var minute_string = ("0" if minute_num < 10 else "") + str(minute_num)
 	
@@ -288,6 +290,12 @@ func get_my_formatted_datetime_from_dict(datetime_unix : int):
 
 func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	current_datetime += 60
+	
+	var datetime = Time.get_datetime_dict_from_unix_time(current_datetime)
+	print(datetime.hour)
+	if datetime.hour == 0:
+		next_level()
+		return
 	
 	var new_date_string = get_my_formatted_datetime_from_dict(current_datetime)
 	$UI/DateLabel.text = new_date_string

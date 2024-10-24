@@ -527,6 +527,7 @@ visible = false
 light_mask = 0
 
 [node name="DateTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
