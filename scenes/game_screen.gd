@@ -21,7 +21,7 @@ var aquarium_health = 1.0 #decimal %
 var corpses_eaten_count = 0
 
 # LEVEL VARIABLES
-var level = 1
+var level = 0
 var CORPSE_QUOTA_PER_LEVEL = [0, 3, 5, 7, 10, 15, 20] # index = level, value = quota
 
 # MISC
@@ -31,14 +31,10 @@ var current_datetime: int # unix time
 func _ready() -> void:
 	contract_menu.visible = false
 	set_money_label()
-	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
-	var dialogicRootNode = Dialogic.start('intro')
-	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
-	Dialogic.signal_event.connect(_on_dialogic_signal)
-	Dialogic.timeline_started.connect(_on_timeline_started)
-	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	set_starting_game_datetime()
 	update_corpse_eaten_label()
+	dialogic_setup()
+	launch_level_dialog()
 
 func _process(delta: float) -> void:
 	if game_over || get_tree().paused:
@@ -219,13 +215,13 @@ func _on_buy_crab_pressed() -> void:
 	$SpawnCreature.play()
 
 func _on_dialogic_signal(action: String):
-	start_game()
 	if action == "pause":
 		get_tree().paused = true
 
-func start_game():
+func start_new_level():
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
+	update_corpse_eaten_label()
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()
@@ -303,4 +299,29 @@ func _on_timeline_started():
 func _on_timeline_ended():
 	print("Timeline ended")
 	get_tree().paused = false
+	level+=1
+	launch_level()
+
+func dialogic_setup():
+	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
+	Dialogic.signal_event.connect(_on_dialogic_signal)
+	Dialogic.timeline_started.connect(_on_timeline_started)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
+
+func launch_level_dialog():
+	var timeline_name = ""
+	match level:
+		0:
+			timeline_name = "intro"
+		1:
+			timeline_name = "level1"
+		2:
+			timeline_name = "level2"
 	
+	var dialogicRootNode = Dialogic.start(timeline_name)
+	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
+
+func launch_level():
+	match level:
+		1:
+			start_new_level()
