@@ -1,0 +1,5 @@
+[wait time="0.1"]
+[signal arg="pause"]
+spokesman (Frowning): you did not make the quota...
+spokesman (Frowning): Time to die bitch. Get in the aquarium.
+[signal arg="end_game"]

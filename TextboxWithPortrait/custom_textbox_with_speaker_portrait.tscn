@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cv8875mdap1a0" path="res://assets/art/nautilus_logo.png" id="7_088qv"]
 
 [node name="TextboxWithSpeakerPortrait" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -217,6 +217,8 @@ func _on_buy_crab_pressed() -> void:
 func _on_dialogic_signal(action: String):
 	if action == "pause":
 		get_tree().paused = true
+	if action == "end_game":
+		set_game_over()
 
 func setup_new_level():
 	$UI/ContractMenu/NewContractTimer.start()
@@ -289,7 +291,6 @@ func get_my_formatted_datetime_from_dict(datetime_unix : int):
 	var minute_string = ("0" if minute_num < 10 else "") + str(minute_num)
 	
 	var date_str =  month_string + " " + day_string + ", " + year_string + " - " + hour_string + ":" + minute_string + hour_postfix
-	print(date_str)
 	return date_str
 
 func _on_date_timer_timeout_advance_time_one_minute() -> void:
@@ -321,13 +322,16 @@ func dialogic_setup():
 func next_level():
 	level+=1
 	var timeline_name = ""
-	match level:
-		1:
-			timeline_name = "intro"
-		2:
-			timeline_name = "level2"
-		2:
-			timeline_name = "level3"
+	if corpses_eaten_count < CORPSE_QUOTA_PER_LEVEL[level-1]:
+		timeline_name = "fail"
+	else:
+		match level:
+			1:
+				timeline_name = "intro"
+			2:
+				timeline_name = "level2"
+			2:
+				timeline_name = "level3"
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS

@@ -25,6 +25,7 @@ directories/dch_directory={
 "spokesman": "res://timelines/spokesman.dch"
 }
 directories/dtl_directory={
+"fail": "res://timelines/fail.dtl",
 "intro": "res://timelines/intro.dtl",
 "level2": "res://timelines/level2.dtl"
 }
