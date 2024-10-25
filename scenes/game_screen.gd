@@ -199,7 +199,6 @@ func set_game_over():
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
 	get_tree().paused = true
-	print(get_tree().paused)
 	$EndScreen.open(corpses_eaten_count)
 	self.game_over = true
 
