@@ -523,7 +523,6 @@ stream = ExtResource("20_oegt5")
 stream = ExtResource("23_u3qn2")
 
 [node name="EndScreen" parent="." instance=ExtResource("21_yuerb")]
-visible = false
 light_mask = 0
 
 [node name="DateTimer" type="Timer" parent="."]
