@@ -20,30 +20,43 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 136.0
+offset_right = 848.0
+offset_bottom = 552.0
+texture = ExtResource("2_256st")
+
 [node name="LevelLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 32.0
+offset_top = 64.0
 offset_right = 1280.0
-offset_bottom = 176.0
+offset_bottom = 208.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 100
 text = "LEVEL 1"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 432.0
-offset_top = 192.0
-offset_right = 848.0
-offset_bottom = 608.0
-texture = ExtResource("2_256st")
-
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 648.0
+offset_top = 576.0
 offset_right = 1280.0
-offset_bottom = 682.0
+offset_bottom = 610.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Quota: 10 Bodies"
 horizontal_alignment = 1
+
+[node name="BonusLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 616.0
+offset_right = 848.0
+offset_bottom = 673.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 16
+text = "You received a bonus of 123$ for closing up shop early"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
