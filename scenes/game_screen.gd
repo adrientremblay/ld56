@@ -37,7 +37,7 @@ func _ready() -> void:
 	next_level()
 
 func _process(delta: float) -> void:
-	if game_over || get_tree().paused:
+	if game_over:
 		return
 		
 	calculate_biomass_capacity_percent(delta)
@@ -198,6 +198,8 @@ func set_game_over():
 	$UI/ContractMenu/NewContractTimer.stop()
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
+	get_tree().paused = true
+	print(get_tree().paused)
 	$EndScreen.open(corpses_eaten_count)
 	self.game_over = true
 
@@ -310,8 +312,9 @@ func _on_timeline_started():
 
 func _on_timeline_ended():
 	print("Timeline ended")
-	get_tree().paused = false
-	launch_level()
+	if !game_over:
+		get_tree().paused = false
+		launch_level()
 
 func dialogic_setup():
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
