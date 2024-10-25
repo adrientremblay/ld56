@@ -25,9 +25,18 @@ directories/dch_directory={
 "spokesman": "res://timelines/spokesman.dch"
 }
 directories/dtl_directory={
+"ending": "res://timelines/ending.dtl",
 "fail": "res://timelines/fail.dtl",
 "intro": "res://timelines/intro.dtl",
-"level2": "res://timelines/level2.dtl"
+"level10": "res://timelines/level10.dtl",
+"level2": "res://timelines/level2.dtl",
+"level3": "res://timelines/level3.dtl",
+"level4": "res://timelines/level4.dtl",
+"level5": "res://timelines/level5.dtl",
+"level6": "res://timelines/level6.dtl",
+"level7": "res://timelines/level7.dtl",
+"level8": "res://timelines/level8.dtl",
+"level9": "res://timelines/level9.dtl"
 }
 variables={}
 layout/style_list=["res://Spokesman_Style.tres", "res://assets/audio/New_File.tres"]

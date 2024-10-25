@@ -22,7 +22,7 @@ var corpses_eaten_count = 0
 
 # LEVEL VARIABLES
 var level = 0
-var CORPSE_QUOTA_PER_LEVEL = [0, 3, 5, 7, 10, 15, 20] # index = level, value = quota
+var CORPSE_QUOTA_PER_LEVEL = [0, 3, 5, 7, 10, 15, 20, 25, 30, 35, 40] # index = level, value = quota
 
 # MISC
 var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
@@ -327,23 +327,19 @@ func next_level():
 	var timeline_name = ""
 	if corpses_eaten_count < CORPSE_QUOTA_PER_LEVEL[level-1]:
 		timeline_name = "fail"
+	elif level == 1:
+		timeline_name = "intro"
 	else:
-		match level:
-			1:
-				timeline_name = "intro"
-			2:
-				timeline_name = "level2"
-			2:
-				timeline_name = "level3"
+		timeline_name = "level" + str(level)
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func launch_level():
 	setup_new_level()
-	match level:
-		1:
-			pass
+	#match level:
+		#1:
+			#pass
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_level"):
