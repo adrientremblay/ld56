@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=40 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="18_vxnfe"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
+[ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
+[ext_resource type="Script" path="res://scenes/level_screen.gd" id="21_kqpbh"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
 [ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
 
@@ -504,6 +506,14 @@ theme = ExtResource("4_gs2f0")
 theme_override_font_sizes/font_size = 63
 text = "Paused"
 
+[node name="EndScreen" parent="UI" instance=ExtResource("21_yuerb")]
+light_mask = 0
+layout_mode = 1
+
+[node name="LevelScreen" parent="UI" instance=ExtResource("20_ss8nm")]
+layout_mode = 1
+script = ExtResource("21_kqpbh")
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_j1a8h")
 volume_db = -6.026
@@ -521,9 +531,6 @@ stream = ExtResource("20_oegt5")
 
 [node name="SpawnPlant" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_u3qn2")
-
-[node name="EndScreen" parent="." instance=ExtResource("21_yuerb")]
-light_mask = 0
 
 [node name="DateTimer" type="Timer" parent="."]
 wait_time = 0.5
