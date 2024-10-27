@@ -1,14 +1,22 @@
 extends Control
 
+signal level_screen_closed() 
+
 func _ready() -> void:
 	self.visible = false
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
-func open(level_number: String, tagline: String, quota: String, bonus: String):
-	$LevelLabel.text = "Level " + level_number
+func open(level_number: int, tagline: String, quota: int, bonus: int):
+	self.visible = true
+	$LevelLabel.text = "Level " + str(level_number)
 	$TaglineLabel.text = tagline
-	$QuotaLabel.text = "Quota: " + quota + " bodies"
-	if bonus != "":
-		$BonusLabel.text = "You received a bonus of " + bonus + "$ for closing early."
+	$QuotaLabel.text = "Quota: " + str(quota) + " bodies"
+	if bonus != 0:
+		$BonusLabel.text = "You received a bonus of " + str(bonus) + "$ for closing early."
 	else:
 		$BonusLabel.text = "You did not receive a bonus."
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("dialogic_default_action") && self.visible && !Dialogic.current_state == Dialogic.States.REVEALING_TEXT:
+		level_screen_closed.emit()
+		self.visible = false

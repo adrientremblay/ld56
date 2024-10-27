@@ -551,4 +551,5 @@ wait_time = 0.5
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
+[connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]

@@ -312,8 +312,7 @@ func _on_timeline_started():
 func _on_timeline_ended():
 	print("Timeline ended")
 	if !game_over:
-		get_tree().paused = false
-		launch_level()
+		launch_level_screen()
 
 func dialogic_setup():
 	Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -334,13 +333,19 @@ func next_level():
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
-func launch_level():
-	setup_new_level()
+func launch_level_screen():
 	#match level:
-		#1:
-			#pass
+	#1:
+		#pass
+	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", CORPSE_QUOTA_PER_LEVEL[level], 12)
+
+func launch_level():
+	get_tree().paused = false
+	setup_new_level()
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_level"):
 		next_level()
-	
+
+func _on_level_screen_level_screen_closed() -> void:
+	launch_level()
