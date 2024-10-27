@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://6pnb4a2d57d3"]
+[gd_scene load_steps=4 format=3 uid="uid://6pnb4a2d57d3"]
 
+[ext_resource type="Script" path="res://scenes/level_screen.gd" id="1_g2x70"]
 [ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="1_hclw6"]
 [ext_resource type="Texture2D" uid="uid://cb3qyoyqdmwaw" path="res://assets/art/level_screen.png" id="2_256st"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g2x70")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -51,9 +53,9 @@ horizontal_alignment = 1
 
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 584.0
+offset_top = 478.0
 offset_right = 1280.0
-offset_bottom = 618.0
+offset_bottom = 512.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Quota: 10 Bodies"
@@ -62,12 +64,24 @@ horizontal_alignment = 1
 [node name="BonusLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 432.0
-offset_top = 624.0
+offset_top = 518.0
 offset_right = 848.0
-offset_bottom = 681.0
+offset_bottom = 575.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 16
 text = "You received a bonus of 123$ for closing up shop early"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="ContinueButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 608.0
+offset_right = 832.0
+offset_bottom = 693.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 34
+text = "CONTINUE"
+
+[connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

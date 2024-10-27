@@ -16,7 +16,6 @@ func open(level_number: int, tagline: String, quota: int, bonus: int):
 	else:
 		$BonusLabel.text = "You did not receive a bonus."
 
-func _input(event: InputEvent) -> void:
-	if event.is_action("dialogic_default_action") && self.visible && !Dialogic.current_state == Dialogic.States.REVEALING_TEXT:
-		level_screen_closed.emit()
-		self.visible = false
+func _on_continue_button_pressed() -> void:
+	level_screen_closed.emit()
+	self.visible = false

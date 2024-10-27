@@ -511,6 +511,7 @@ light_mask = 0
 layout_mode = 1
 
 [node name="LevelScreen" parent="UI" instance=ExtResource("20_ss8nm")]
+light_mask = 0
 layout_mode = 1
 script = ExtResource("21_kqpbh")
 

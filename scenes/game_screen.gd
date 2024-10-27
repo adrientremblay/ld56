@@ -333,11 +333,22 @@ func next_level():
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
+func calculate_level_finish_bonus():
+	var datetime = Time.get_datetime_dict_from_unix_time(current_datetime)
+	var hour = datetime.hour
+	if hour == 23:
+		hour = -1
+	var hours_to_7am = 7 - hour
+	
+	return hours_to_7am * 10
+
 func launch_level_screen():
 	#match level:
 	#1:
 		#pass
-	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", CORPSE_QUOTA_PER_LEVEL[level], 12)
+	var bonus = calculate_level_finish_bonus()
+	money += bonus
+	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", CORPSE_QUOTA_PER_LEVEL[level], bonus)
 
 func launch_level():
 	get_tree().paused = false
