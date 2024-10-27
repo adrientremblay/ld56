@@ -120,7 +120,7 @@ func creatures_find_corpses():
 		for corpse in corpse_list:
 			if corpse.eaten:
 				continue
-			if closet_corpse == null || closet_corpse.position.distance_to(creature.position) > corpse.position.distance_to(creature.position):
+			if closet_corpse == null || closet_corpse.global_position.distance_to(creature.global_position) > corpse.global_position.distance_to(creature.global_position):
 				closet_corpse = corpse
 		
 		if closet_corpse != null:
