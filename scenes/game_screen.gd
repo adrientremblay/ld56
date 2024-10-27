@@ -14,7 +14,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var money = 20
+var money = 2000
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
@@ -222,6 +222,7 @@ func _on_dialogic_signal(action: String):
 		set_game_over()
 
 func setup_new_level():
+	corpses_eaten_count = 0
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
 	update_corpse_eaten_label()
@@ -332,6 +333,7 @@ func next_level():
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
+	delete_all_corpses()
 
 func calculate_level_finish_bonus():
 	if level == 1:
@@ -363,3 +365,14 @@ func _input(event: InputEvent) -> void:
 
 func _on_level_screen_level_screen_closed() -> void:
 	launch_level()
+
+func delete_all_corpses():
+	if (corpse_spawn1.get_child_count() != 0):
+		corpse_spawn1.get_child(0).queue_free()
+	if (corpse_spawn2.get_child_count() != 0):
+		corpse_spawn2.get_child(0).queue_free()
+	if (corpse_spawn3.get_child_count() != 0):
+		corpse_spawn3.get_child(0).queue_free()
+	if (corpse_spawn4.get_child_count() != 0):
+		corpse_spawn4.get_child(0).queue_free()
+	creatures_find_corpses()
