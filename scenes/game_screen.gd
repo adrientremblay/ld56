@@ -223,10 +223,12 @@ func _on_dialogic_signal(action: String):
 
 func setup_new_level():
 	corpses_eaten_count = 0
+	delete_all_corpses()
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
 	update_corpse_eaten_label()
 	set_starting_game_datetime()
+	set_money_label()
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()
@@ -333,7 +335,6 @@ func next_level():
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
-	delete_all_corpses()
 
 func calculate_level_finish_bonus():
 	if level == 1:
@@ -347,13 +348,22 @@ func calculate_level_finish_bonus():
 	
 	return hours_to_7am * 10
 
+func calculate_penalty():
+	if level == 1:
+		return 0
+	
+	var corpse_count = compile_corpse_list().size()
+	return corpse_count * 50
+
 func launch_level_screen():
 	#match level:
 	#1:
 		#pass
 	var bonus = calculate_level_finish_bonus()
 	money += bonus
-	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", CORPSE_QUOTA_PER_LEVEL[level], bonus)
+	var penalty = calculate_penalty()
+	money -= penalty
+	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", CORPSE_QUOTA_PER_LEVEL[level], bonus, penalty)
 
 func launch_level():
 	get_tree().paused = false
@@ -368,11 +378,15 @@ func _on_level_screen_level_screen_closed() -> void:
 
 func delete_all_corpses():
 	if (corpse_spawn1.get_child_count() != 0):
+		corpse_spawn1.get_child(0).eaten = true
 		corpse_spawn1.get_child(0).queue_free()
 	if (corpse_spawn2.get_child_count() != 0):
+		corpse_spawn2.get_child(0).eaten = true
 		corpse_spawn2.get_child(0).queue_free()
 	if (corpse_spawn3.get_child_count() != 0):
+		corpse_spawn3.get_child(0).eaten = true
 		corpse_spawn3.get_child(0).queue_free()
 	if (corpse_spawn4.get_child_count() != 0):
+		corpse_spawn4.get_child(0).eaten = true
 		corpse_spawn4.get_child(0).queue_free()
 	creatures_find_corpses()
