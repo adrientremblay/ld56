@@ -15,38 +15,64 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(130, 100)
 layout_mode = 2
 texture = ExtResource("2_c071y")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 light_mask = 0
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
 text = "Name: Steve Martin"
 
-[node name="WeightLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="WeightLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
 text = "Weight: 156lbs"
 
-[node name="RewardLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="RewardLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
 text = "Reward: 50$"
 
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="SourceLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Source: Evil Corp"
+
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Consequence: +Rep w/ Evil Corp"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DescriptionTitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Description:"
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "From a young age Steve Martin believed he was the best dancer ever to grace the earth. He was assassinated for being too good of a dancer"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
 text = "Accept"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

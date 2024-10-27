@@ -199,7 +199,7 @@ func set_game_over():
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
 	get_tree().paused = true
-	$EndScreen.open(corpses_eaten_count)
+	$UI/EndScreen.open(corpses_eaten_count)
 	self.game_over = true
 
 func _on_buy_crab_pressed() -> void:
@@ -334,6 +334,9 @@ func next_level():
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func calculate_level_finish_bonus():
+	if level == 1:
+		return 0
+	
 	var datetime = Time.get_datetime_dict_from_unix_time(current_datetime)
 	var hour = datetime.hour
 	if hour == 23:

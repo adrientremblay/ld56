@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=33 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -12,10 +12,7 @@
 [ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
-[ext_resource type="AudioStream" uid="uid://dya7wqs5vnaxf" path="res://assets/audio/spokesman_speech_normal.mp3" id="13_ot42n"]
-[ext_resource type="Texture2D" uid="uid://b366oqwics0go" path="res://assets/art/spokesman-deadfaced-Sheet.png" id="14_0elli"]
 [ext_resource type="Texture2D" uid="uid://cmo0dcfot7kj0" path="res://assets/art/x.png" id="14_6p0uj"]
-[ext_resource type="AudioStream" uid="uid://c0ydxjdbxpo7p" path="res://assets/audio/spokesman_no.mp3" id="14_n11fc"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="AudioStream" uid="uid://64cds4d6ylg6" path="res://assets/audio/cca_theme_2.mp3" id="18_j1a8h"]
@@ -23,7 +20,6 @@
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 [ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
-[ext_resource type="Script" path="res://scenes/level_screen.gd" id="21_kqpbh"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
 [ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
 
@@ -44,28 +40,6 @@ fill_from = Vector2(0.599119, 1)
 fill_to = Vector2(0.570776, 0)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7x63"]
-atlas = ExtResource("14_0elli")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3wn5"]
-atlas = ExtResource("14_0elli")
-region = Rect2(96, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_udfuc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h7x63")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g3wn5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnyj0"]
 
@@ -297,13 +271,12 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ContractMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
-offset_left = 96.0
-offset_top = 53.0
-offset_right = 1176.0
-offset_bottom = 630.0
+offset_left = 19.0
+offset_top = 58.0
+offset_right = 1269.0
+offset_bottom = 653.0
 theme = ExtResource("4_gs2f0")
 script = ExtResource("8_u3xyv")
 contract_scene = ExtResource("10_j63wu")
@@ -311,41 +284,21 @@ contract_scene = ExtResource("10_j63wu")
 [node name="Title" type="Label" parent="UI/ContractMenu"]
 light_mask = 0
 layout_mode = 0
-offset_left = 296.0
-offset_top = 24.0
-offset_right = 840.0
-offset_bottom = 64.0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 1245.0
+offset_bottom = 53.0
 theme = ExtResource("4_gs2f0")
 theme_override_font_sizes/font_size = 25
 text = "Select Contracts"
 horizontal_alignment = 1
 
-[node name="Spokesman" type="AnimatedSprite2D" parent="UI/ContractMenu"]
-light_mask = 0
-position = Vector2(810, 253)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_udfuc")
-frame_progress = 0.528335
-
-[node name="Label" type="Label" parent="UI/ContractMenu"]
-light_mask = 0
-layout_mode = 0
-offset_left = 623.0
-offset_top = 469.0
-offset_right = 1001.0
-offset_bottom = 554.0
-theme = ExtResource("4_gs2f0")
-theme_override_font_sizes/font_size = 18
-text = "Please select among the following contracts"
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/ContractMenu"]
 light_mask = 0
 layout_mode = 0
-offset_left = 32.0
+offset_left = 18.0
 offset_top = 72.0
-offset_right = 552.0
+offset_right = 1229.0
 offset_bottom = 456.0
 
 [node name="CorpsePanelContainer" type="PanelContainer" parent="UI/ContractMenu/VBoxContainer"]
@@ -354,24 +307,26 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vnyj0")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer"]
+custom_minimum_size = Vector2(0, 500)
 layout_mode = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="ContractVBox" type="VBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer"]
 layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="ContractVBox" type="VBoxContainer" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 10
 
 [node name="NewContractTimer" type="Timer" parent="UI/ContractMenu"]
 wait_time = 3.0
-
-[node name="SpokesmanSpeechNormal" type="AudioStreamPlayer" parent="UI/ContractMenu"]
-stream = ExtResource("13_ot42n")
-
-[node name="SpokesmanSpeechNo" type="AudioStreamPlayer" parent="UI/ContractMenu"]
-stream = ExtResource("14_n11fc")
 
 [node name="X" type="TextureRect" parent="UI/ContractMenu"]
 visible = false
@@ -386,10 +341,10 @@ texture = ExtResource("14_6p0uj")
 [node name="CloseContractMenu" type="TextureButton" parent="UI/ContractMenu"]
 light_mask = 0
 layout_mode = 0
-offset_left = 1023.0
-offset_top = 14.0
-offset_right = 1063.0
-offset_bottom = 54.0
+offset_left = 1193.0
+offset_top = 12.0
+offset_right = 1233.0
+offset_bottom = 52.0
 texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
@@ -507,13 +462,13 @@ theme_override_font_sizes/font_size = 63
 text = "Paused"
 
 [node name="EndScreen" parent="UI" instance=ExtResource("21_yuerb")]
+visible = false
 light_mask = 0
 layout_mode = 1
 
 [node name="LevelScreen" parent="UI" instance=ExtResource("20_ss8nm")]
-light_mask = 0
+visible = false
 layout_mode = 1
-script = ExtResource("21_kqpbh")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_j1a8h")

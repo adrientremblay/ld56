@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cb3qyoyqdmwaw" path="res://assets/art/level_screen.png" id="2_256st"]
 
 [node name="LevelScreen" type="Control"]
+light_mask = 0
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_g2x70")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

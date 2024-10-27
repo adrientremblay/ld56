@@ -8,13 +8,7 @@ var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 25.0
 var MAX_REWARD = 100.0
 
-var FIRST_CONTRACT_TEXT = "Please select among the following contracts..."
-var NORMAL_CONTRACT_TEXT = "Please select among the following contracts..."
-var NO_CONTRACTS_AVAILABLE_TEXT = "It seems you have no space for more bodies. Do not dissapoint us again."
-
-var first_time_opening = true
-
-@onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ContractVBox
+@onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer/ContractVBox
 @export var contract_scene: PackedScene
 
 var rng = RandomNumberGenerator.new()
@@ -25,7 +19,6 @@ signal contract_menu_closed
 
 func _ready() -> void:
 	self.visible = false
-	$Spokesman.play()
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	$NewContractTimer.process_mode = Node.PROCESS_MODE_PAUSABLE
 
@@ -42,18 +35,10 @@ func _on_new_contract_timer_timeout() -> void:
 	
 	$NewContractTimer.stop()
 	$NewContractTimer.wait_time = 30
-	$SpokesmanSpeechNormal.play()
-	
-	if (first_time_opening):
-		$Label.text = FIRST_CONTRACT_TEXT
-	else:
-		$Label.text = NORMAL_CONTRACT_TEXT
 	
 	$X.visible = false
 	
 	contract_menu_opened.emit()
-	
-	first_time_opening = false
 	
 	get_tree().paused = true
 	
@@ -80,15 +65,9 @@ func contract_accepted(person_name, weight, reward, appearance, female):
 	
 func no_contracts_available():
 	$X.visible = true
-	$Label.text = NO_CONTRACTS_AVAILABLE_TEXT
-	
-	$SpokesmanSpeechNormal.stop()
-	$SpokesmanSpeechNo.play()
 
 func _on_close_contract_menu_pressed() -> void:
 	self.visible = false
 	$NewContractTimer.start()
-	$SpokesmanSpeechNormal.stop()
-	$SpokesmanSpeechNo.stop()
 	get_tree().paused = false
 	contract_menu_closed.emit()
