@@ -60,10 +60,14 @@ func change_idle_position() -> void:
 	var target_pos = (TARGET_POSITION_VECTOR * r) + IDLE_LAND_LEFT_VECTOR
 	
 	set_movement_target(target_pos)
+	
+	sprite.play("moving")
 
 func set_target(corpse):
 	self.target_corpse = corpse
 	set_movement_target(corpse.global_position)
+	
+	sprite.play("moving")
 	
 func toggle_bite_sound_timer():
 	if $BiteSoundTimer.is_stopped():
@@ -73,3 +77,6 @@ func toggle_bite_sound_timer():
 
 func _on_bite_sound_timer_timeout() -> void:
 	$BiteSound.play()
+
+func _on_navigation_agent_2d_navigation_finished() -> void:
+	sprite.play("idle")

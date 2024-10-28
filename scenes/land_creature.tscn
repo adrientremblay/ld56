@@ -30,5 +30,6 @@ occluder = SubResource("OccluderPolygon2D_0v3rf")
 stream = ExtResource("3_8gn7c")
 volume_db = -15.0
 
+[connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_navigation_finished"]
 [connection signal="timeout" from="IdlePositionTimer" to="." method="_on_idle_position_timer_timeout"]
 [connection signal="timeout" from="BiteSoundTimer" to="." method="_on_bite_sound_timer_timeout"]
