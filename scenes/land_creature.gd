@@ -79,4 +79,11 @@ func _on_bite_sound_timer_timeout() -> void:
 	$BiteSound.play()
 
 func _on_navigation_agent_2d_navigation_finished() -> void:
-	sprite.play("idle")
+	sprite.play("eating")
+
+func _on_nearby_corpse_area_area_entered(area: Area2D) -> void:
+	print("eating!")
+	sprite.play("eating")
+
+func _on_nearby_corpse_area_area_exited(area: Area2D) -> void:
+	sprite.play("moving")

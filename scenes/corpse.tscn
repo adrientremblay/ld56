@@ -474,7 +474,7 @@ script = ExtResource("2_8vtmh")
 
 [node name="FeedingArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedingArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedingArea" groups=["corpses"]]
 shape = SubResource("CapsuleShape2D_280um")
 
 [connection signal="body_entered" from="FeedingArea" to="." method="_on_feeding_area_body_entered"]
