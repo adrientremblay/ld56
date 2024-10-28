@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3v5qoqbt06e"]
+
+[ext_resource type="Texture2D" uid="uid://dr2t8j15yvrgq" path="res://assets/art/crab-Sheet.png" id="1_gt28l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kgqd"]
+atlas = ExtResource("1_gt28l")
+region = Rect2(66, 0, 33, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jprbn"]
+atlas = ExtResource("1_gt28l")
+region = Rect2(99, 0, 33, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf1mb"]
+atlas = ExtResource("1_gt28l")
+region = Rect2(0, 0, 33, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6mx4"]
+atlas = ExtResource("1_gt28l")
+region = Rect2(33, 0, 33, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qnm3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kgqd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jprbn")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf1mb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf1mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6mx4")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_qnm3b")
+animation = &"eating"
+frame = 1
+frame_progress = 0.463745

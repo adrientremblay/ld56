@@ -7,7 +7,7 @@ var IDLE_LAND_RIGHT_VECTOR: Vector2 = Vector2(1152.0, 608.0);
 var TARGET_POSITION_VECTOR = IDLE_LAND_RIGHT_VECTOR - IDLE_LAND_LEFT_VECTOR;
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var target_corpse
 

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://ed4fejvn41y6"]
+
+[ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="1_jvfax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khlul"]
+atlas = ExtResource("1_jvfax")
+region = Rect2(0, 0, 12, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shahp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khlul")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khlul")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khlul")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_shahp")
+animation = &"eating"
