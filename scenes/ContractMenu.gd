@@ -123,4 +123,4 @@ func calculate_reward_for_contract(weight: float, karma: float) -> float:
 	var weight_percentage = (weight - LOWER_WEIGHT_BOUND) / (UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
 	var reward = MIN_REWARD + (MAX_REWARD-MIN_REWARD) * weight_percentage
 	reward = (1-karma)*reward
-	return reward
+	return snappedf(reward, 0.01)
