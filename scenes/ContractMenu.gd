@@ -7,6 +7,48 @@ var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah"]
 var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 25.0
 var MAX_REWARD = 100.0
+var ORGANIZATIONS = [
+	{
+		"name" : "PureGenus",
+		"description1" : "They believe that the average human genetic composition has become inferior",
+		"description2" : "Kidnap people they believe have inferior genes and forcefully sterilise them. There are often fatalities in the struggle",
+		"description3" : "There is a heavy racial bias in determining if an individual is 'inferior' or not",
+		"karma" : -0.3,
+		"backstories" : [
+			"Sadly, [Name] wore glasses. He was unlucky enough to bump into a member of PureGenus at a club. A week later he was kidnapped and perished during the attempted back-alley castration."
+		]
+	},
+	{
+		"name" : "Blackstone Pharma",
+		"description1" : "Performs human experiments on people",
+		"description2" : "Sells drugs at exorbitant markups",
+		"description3" : "Markets unnecessary drugs to vulnerable groups of people",
+		"karma" : -0.2,
+		"backstories" : [
+			"[Name] was a successful lawyer before alcoholism and undiagnosed schizophrenia got the best of him. He has been homeless for the last 20 years. Blackstone abducted him one fateful night. No one noticed his dissapearance."
+		]
+	},
+	{
+		"name" : "The Reclamation Network",
+		"description1" : "Anonymously donate organs to hospitals around the globe ultimately saving lives",
+		"description2" : "Secretly sources their organs from proven rapists and pedophiles both in and out of prison",
+		"description3" : "Comprised primarily by ex law enforcement",
+		"karma" : 0.2,
+		"backstories" : [
+			"[Name] was a guidance councellor for underprivileged youth at a high school. They abused their position to molest students for 3 years. Video proof was presented to the reclamation network and the rest is history."
+		]
+	},
+	{
+		"name" : "Project Horizon",
+		"description1" : "Performs experimental treatments on willing volunteers who are infected with fatal diseases",
+		"description2" : "Their activity is illegal",
+		"description3" : "Wish to dispose of bodies to avoid detection and public scrutiny",
+		"karma" : 0.3,
+		"backstories" : [
+			"Facing the advanced stages of Multiple Sclerosis, [Name] resorted to Project Horizon's risky gene therapy treatement. Unfortunately, he succumbed to his condition. His body needs to be disposed of avoid connecting him to the organization."
+		]
+	},
+]
 
 @onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer/ContractVBox
 @export var contract_scene: PackedScene
@@ -54,8 +96,11 @@ func generateNewContract():
 	var last_name = LAST_NAMES[rng.randi_range(0, LAST_NAMES.size()-1)]
 	var reward = snapped(rng.randf_range(MIN_REWARD, MAX_REWARD), 0.01)
 	
+	var organization = ORGANIZATIONS[rng.randi_range(0, ORGANIZATIONS.size()-1)]
+	
+	
 	var new_contract: Contract = contract_scene.instantiate()
-	new_contract.construct(first_name + " " + last_name, weight, reward, female)
+	new_contract.construct(first_name + " " + last_name, weight, reward, female, organization.name)
 	new_contract.connect("contract_accepted", self.contract_accepted)
 	contract_vbox.add_child(new_contract)
 	
