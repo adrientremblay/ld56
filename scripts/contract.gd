@@ -9,19 +9,21 @@ var weight
 var reward
 var female
 var source
+var description
 
 @onready var name_label : Label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NameLabel
 @onready var weight_label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeightLabel
 @onready var reward_label = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RewardLabel
 
-signal contract_accepted(person_name, weight, reward, appearance, female)
+signal contract_accepted(person_name, weight, reward, appearance, female, description)
 
-func construct(person_name, weight, reward, female, source):
+func construct(person_name, weight, reward, female, source, description):
 	self.person_name = person_name
 	self.weight = weight
 	self.reward = reward
 	self.female = female
 	self.source = source
+	self.description = description
 	
 	if (weight < 140):
 		self.appearance = Appearance.THIN
@@ -34,7 +36,8 @@ func construct(person_name, weight, reward, female, source):
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NameLabel.text = "Name: " + person_name
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeightLabel.text = "Weight: " + str(weight) + "lbs"
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RewardLabel.text = "Reward: " + str(reward) + "$"
-	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SourceLabel.text = "Source: " + source 
+	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SourceLabel.text = "Source: " + source
+	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/DescriptionLabel.text = description
 
 func _on_button_pressed() -> void:
 	contract_accepted.emit(self.person_name, self.weight, self.reward, self.appearance, self.female)

@@ -25,7 +25,7 @@ var ORGANIZATIONS = [
 		"description3" : "Markets unnecessary drugs to vulnerable groups of people",
 		"karma" : -0.2,
 		"backstories" : [
-			"[Name] was a successful lawyer before alcoholism and undiagnosed schizophrenia got the best of him. He has been homeless for the last 20 years. Blackstone abducted him one fateful night. No one noticed his dissapearance."
+			"[Name] was a successful lawyer before alcoholism and undiagnosed schizophrenia got the best of him. He has been homeless for the last 20 years. Blackstone abducted him one fateful night. No one noticed his disappearance."
 		]
 	},
 	{
@@ -97,10 +97,11 @@ func generateNewContract():
 	var reward = snapped(rng.randf_range(MIN_REWARD, MAX_REWARD), 0.01)
 	
 	var organization = ORGANIZATIONS[rng.randi_range(0, ORGANIZATIONS.size()-1)]
-	
+	var backstory: String = organization.backstories[rng.randi_range(0, organization.backstories.size()-1)]
+	backstory = backstory.replace("[Name]", first_name)
 	
 	var new_contract: Contract = contract_scene.instantiate()
-	new_contract.construct(first_name + " " + last_name, weight, reward, female, organization.name)
+	new_contract.construct(first_name + " " + last_name, weight, reward, female, organization.name, backstory)
 	new_contract.connect("contract_accepted", self.contract_accepted)
 	contract_vbox.add_child(new_contract)
 	
