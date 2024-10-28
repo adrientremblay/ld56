@@ -94,11 +94,12 @@ func generateNewContract():
 		first_names = MALE_FIRST_NAMES
 	var first_name = first_names[rng.randi_range(0, first_names.size()-1)]
 	var last_name = LAST_NAMES[rng.randi_range(0, LAST_NAMES.size()-1)]
-	var reward = snapped(rng.randf_range(MIN_REWARD, MAX_REWARD), 0.01)
 	
 	var organization = ORGANIZATIONS[rng.randi_range(0, ORGANIZATIONS.size()-1)]
 	var backstory: String = organization.backstories[rng.randi_range(0, organization.backstories.size()-1)]
 	backstory = backstory.replace("[Name]", first_name)
+	
+	var reward = calculate_reward_for_contract(weight, organization.karma)
 	
 	var new_contract: Contract = contract_scene.instantiate()
 	new_contract.construct(first_name + " " + last_name, weight, reward, female, organization.name, backstory)
@@ -117,3 +118,9 @@ func _on_close_contract_menu_pressed() -> void:
 	$NewContractTimer.start()
 	get_tree().paused = false
 	contract_menu_closed.emit()
+
+func calculate_reward_for_contract(weight: float, karma: float) -> float:
+	var weight_percentage = (weight - LOWER_WEIGHT_BOUND) / (UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
+	var reward = MIN_REWARD + (MAX_REWARD-MIN_REWARD) * weight_percentage
+	reward = (1-karma)*reward
+	return reward

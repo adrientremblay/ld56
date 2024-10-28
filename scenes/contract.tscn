@@ -56,7 +56,6 @@ text = "Source: Evil Corp"
 
 [node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Consequence: +Rep w/ Evil Corp"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 clip_contents = true
