@@ -472,7 +472,7 @@ sprite_frames = SubResource("SpriteFrames_ul3v6")
 animation = &"female obese"
 script = ExtResource("2_8vtmh")
 
-[node name="FeedingArea" type="Area2D" parent="."]
+[node name="FeedingArea" type="Area2D" parent="." groups=["corpses"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedingArea" groups=["corpses"]]
 shape = SubResource("CapsuleShape2D_280um")
