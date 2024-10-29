@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://carx1vdx2qwrs"]
+
+[ext_resource type="Texture2D" uid="uid://chowoe476psys" path="res://assets/art/piranha-Sheet.png" id="1_mn1cn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rv3n"]
+atlas = ExtResource("1_mn1cn")
+region = Rect2(66, 0, 33, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqmfn"]
+atlas = ExtResource("1_mn1cn")
+region = Rect2(99, 0, 33, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjc23"]
+atlas = ExtResource("1_mn1cn")
+region = Rect2(0, 0, 33, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wysxx"]
+atlas = ExtResource("1_mn1cn")
+region = Rect2(33, 0, 33, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i8pui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rv3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqmfn")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjc23")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjc23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wysxx")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_i8pui")
+animation = &"idle"

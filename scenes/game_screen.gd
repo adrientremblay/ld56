@@ -144,6 +144,19 @@ func _on_buy_fish_pressed() -> void:
 
 	$SpawnCreature.play()
 
+func _on_buy_piranha_pressed() -> void:
+	if money < 15:
+		return
+	money -= 15
+	set_money_label()
+	
+	var creature = waterCreatureScene.instantiate()
+	creature.set_species(Creature.Species.PIRANHA)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()
+
 func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
 	if corpse_list.size() == 4: # full
