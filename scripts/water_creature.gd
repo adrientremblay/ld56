@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Creature
 
 var WATER_TOP_LEFT_POS :Vector2 = Vector2(81, 106)
 var AQUARIUM_Y_VECTOR : Vector2 = Vector2(81, 471)
@@ -39,9 +39,9 @@ func set_movement_target(target_pos: Vector2):
 	self.target_position = target_pos
 	var dir = target_position - self.position
 	if (dir.x > 0):
-		$Sprite2D.flip_h = true
+		$AnimatedSprite2D.flip_h = true
 	else:
-		$Sprite2D.flip_h = false
+		$AnimatedSprite2D.flip_h = false
 		
 func toggle_bite_sound_timer():
 	if $BiteSoundTimer.is_stopped():

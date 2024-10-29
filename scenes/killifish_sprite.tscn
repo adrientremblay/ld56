@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8suetpq17fgu"]
+
+[ext_resource type="Texture2D" uid="uid://iktm1jvkvo6g" path="res://assets/art/killifish.png" id="1_4d5sy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xti4q"]
+atlas = ExtResource("1_4d5sy")
+region = Rect2(0, 0, 12, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lnndd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xti4q")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xti4q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xti4q")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_lnndd")
+animation = &"moving"

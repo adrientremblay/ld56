@@ -138,6 +138,7 @@ func _on_buy_fish_pressed() -> void:
 	set_money_label()
 	
 	var creature = waterCreatureScene.instantiate()
+	creature.set_species(Creature.Species.KILLIFISH)
 	$Aquarium/Creatures.add_child(creature)
 	creatures_find_corpses()
 
