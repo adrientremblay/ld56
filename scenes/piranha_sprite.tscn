@@ -52,6 +52,6 @@ animations = [{
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_i8pui")
 animation = &"idle"

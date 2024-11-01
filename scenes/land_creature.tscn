@@ -25,6 +25,7 @@ shape = SubResource("CircleShape2D_71wsm")
 wait_time = 10.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
 occluder = SubResource("OccluderPolygon2D_0v3rf")
 
 [node name="BiteSoundTimer" type="Timer" parent="."]

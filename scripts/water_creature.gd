@@ -55,7 +55,6 @@ func _on_bite_sound_timer_timeout() -> void:
 
 func _on_nearby_corpse_area_area_entered(area: Area2D) -> void:
 	$AnimatedSprite2D.play("eating")
-	print("asdf")
 
 func _on_nearby_corpse_area_area_exited(area: Area2D) -> void:
 	$AnimatedSprite2D.play("moving")
