@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy2ey7tsa758a"]
+
+[ext_resource type="Texture2D" uid="uid://cl2les7r05ryl" path="res://assets/art/anglerfish-Sheet.png" id="1_gbqsf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7xe7"]
+atlas = ExtResource("1_gbqsf")
+region = Rect2(0, 0, 54, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmv0x"]
+atlas = ExtResource("1_gbqsf")
+region = Rect2(54, 0, 54, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wect1"]
+atlas = ExtResource("1_gbqsf")
+region = Rect2(108, 0, 54, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjdn3"]
+atlas = ExtResource("1_gbqsf")
+region = Rect2(162, 0, 54, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v17q4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7xe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmv0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wect1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjdn3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wect1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjdn3")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7xe7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7xe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmv0x")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_v17q4")
+animation = &"moving"

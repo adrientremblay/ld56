@@ -226,6 +226,12 @@ layout_mode = 2
 theme = ExtResource("4_gs2f0")
 text = "Buy Pirahna (15$)"
 
+[node name="BuyAnglerfish" type="Button" parent="UI/CreatureMenu/BoxContainer"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+text = "Buy Anglerfish (20$)"
+
 [node name="CloseCreatureMenu" type="TextureButton" parent="UI/CreatureMenu"]
 light_mask = 0
 layout_mode = 2
@@ -504,6 +510,7 @@ wait_time = 0.5
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuyCrab" to="." method="_on_buy_crab_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuyFish" to="." method="_on_buy_fish_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuyPiranha" to="." method="_on_buy_piranha_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/BuyAnglerfish" to="." method="_on_buy_anglerfish_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/BuyStemPlant" to="." method="_on_buy_stem_plant_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]

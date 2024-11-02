@@ -404,3 +404,16 @@ func delete_all_corpses():
 		corpse_spawn4.get_child(0).eaten = true
 		corpse_spawn4.get_child(0).queue_free()
 	creatures_find_corpses()
+
+func _on_buy_anglerfish_pressed() -> void:
+	if money < 20:
+		return
+	money -= 20
+	set_money_label()
+	
+	var creature = waterCreatureScene.instantiate()
+	creature.set_species(Creature.Species.ANGLERFISH)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()
