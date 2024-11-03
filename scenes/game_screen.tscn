@@ -214,6 +214,7 @@ layout_mode = 2
 [node name="LandCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 12
 
 [node name="CategoryLabel" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
 layout_mode = 2
@@ -227,7 +228,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox"]
 light_mask = 0
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("11_m7v65")
 
@@ -244,7 +245,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox"]
 light_mask = 0
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("12_m0ecb")
 
@@ -258,6 +259,7 @@ text = "Buy Crab (10$)"
 [node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 12
 
 [node name="CategoryLabel" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
 layout_mode = 2
@@ -278,7 +280,7 @@ text = "Buy Killifish (10$)"
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox"]
 light_mask = 0
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("13_glwx0")
 
@@ -295,7 +297,7 @@ text = "Buy Pirahna (15$)"
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox"]
 light_mask = 0
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("14_duugw")
 
@@ -312,7 +314,7 @@ text = "Buy Anglerfish (20$)"
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox2"]
 light_mask = 0
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("15_xpy36")
 

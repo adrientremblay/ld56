@@ -36,5 +36,6 @@ Button/styles/focus = null
 Button/styles/hover = null
 Button/styles/normal = SubResource("StyleBoxFlat_fwgg8")
 Button/styles/pressed = null
+HBoxContainer/constants/separation = 10
 Panel/styles/panel = SubResource("StyleBoxFlat_idw7a")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_likyw")
