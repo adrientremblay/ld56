@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://do2stskbkhxtg"]
+
+[ext_resource type="Texture2D" uid="uid://b3tw2ehs7s11n" path="res://assets/art/goblin_shark-Sheet.png" id="1_wtbac"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgiv0"]
+atlas = ExtResource("1_wtbac")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6dxp"]
+atlas = ExtResource("1_wtbac")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vo2h"]
+atlas = ExtResource("1_wtbac")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbb20"]
+atlas = ExtResource("1_wtbac")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr6q3"]
+atlas = ExtResource("1_wtbac")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nenuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgiv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6dxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vo2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbb20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr6q3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vo2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbb20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr6q3")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgiv0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgiv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6dxp")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nenuk")
+animation = &"eating"

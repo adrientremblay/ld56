@@ -430,3 +430,16 @@ func _on_buy_dragonfish_pressed() -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+
+func _on_buy_goblinshark_pressed() -> void:
+	if money < 25:
+		return
+	money -= 25
+	set_money_label()
+	
+	var creature = waterCreatureScene.instantiate()
+	creature.set_species(Creature.Species.GOBLINSHARK)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()
