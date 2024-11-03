@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=39 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://d3qeei58n0n85" path="res://assets/art/piranha.png" id="14_duugw"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="Texture2D" uid="uid://c78y0dwon21xy" path="res://assets/art/anglerfish.png" id="15_xpy36"]
+[ext_resource type="Texture2D" uid="uid://bfxx18pim7bth" path="res://assets/art/arowana.png" id="16_737qq"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="AudioStream" uid="uid://64cds4d6ylg6" path="res://assets/audio/cca_theme_2.mp3" id="18_j1a8h"]
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="18_vxnfe"]
@@ -301,22 +302,40 @@ custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("14_duugw")
 
-[node name="PirahnaHBox2" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
+[node name="AnglerfishHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
 light_mask = 0
 layout_mode = 2
 
-[node name="BuyAnglerfish" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox2"]
+[node name="BuyAnglerfish" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox"]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "Buy Anglerfish (20$)"
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox2"]
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox"]
 light_mask = 0
 custom_minimum_size = Vector2(54, 36)
 layout_mode = 2
 texture = ExtResource("15_xpy36")
+
+[node name="DragpnfishHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
+light_mask = 0
+layout_mode = 2
+
+[node name="BuyDragonfish" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragpnfishHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy Dragonfish (25$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragpnfishHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+texture = ExtResource("16_737qq")
+expand_mode = 2
 
 [node name="CloseCreatureMenu" type="TextureButton" parent="UI/CreatureMenu"]
 light_mask = 0
@@ -596,7 +615,8 @@ wait_time = 0.5
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="." method="_on_buy_crab_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="." method="_on_buy_fish_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="." method="_on_buy_piranha_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox2/BuyAnglerfish" to="." method="_on_buy_anglerfish_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="." method="_on_buy_anglerfish_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragpnfishHBox/BuyDragonfish" to="." method="_on_buy_dragonfish_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/BuyStemPlant" to="." method="_on_buy_stem_plant_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://br0ckbihqglhl"]
+
+[ext_resource type="Texture2D" uid="uid://c1hoe2g4jip5e" path="res://assets/art/arowana-Sheet.png" id="1_mlcu2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnu0"]
+atlas = ExtResource("1_mlcu2")
+region = Rect2(0, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1m5o"]
+atlas = ExtResource("1_mlcu2")
+region = Rect2(75, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aryhn"]
+atlas = ExtResource("1_mlcu2")
+region = Rect2(150, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql5bm"]
+atlas = ExtResource("1_mlcu2")
+region = Rect2(225, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o5kt"]
+atlas = ExtResource("1_mlcu2")
+region = Rect2(300, 0, 75, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg6fh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1m5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aryhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql5bm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o5kt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o5kt")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnu0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1m5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aryhn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql5bm")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mg6fh")
+animation = &"eating"
