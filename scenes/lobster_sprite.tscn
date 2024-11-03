@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://c27snim5wlnuy"]
+
+[ext_resource type="Texture2D" uid="uid://bn4qab6wpvaq4" path="res://assets/art/lobster-Sheet.png" id="1_uk3fe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgxlx"]
+atlas = ExtResource("1_uk3fe")
+region = Rect2(0, 0, 54, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyiur"]
+atlas = ExtResource("1_uk3fe")
+region = Rect2(54, 0, 54, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq248"]
+atlas = ExtResource("1_uk3fe")
+region = Rect2(108, 0, 54, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yih0"]
+atlas = ExtResource("1_uk3fe")
+region = Rect2(162, 0, 54, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lx61q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgxlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyiur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq248")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yih0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq248")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yih0")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgxlx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgxlx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyiur")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lx61q")
+animation = &"moving"

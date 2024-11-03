@@ -443,3 +443,16 @@ func _on_buy_goblinshark_pressed() -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+
+func _on_buy_lobster_pressed() -> void:
+	if money < 15:
+		return
+	money -= 15
+	set_money_label()
+	
+	var creature = landCreatureScene.instantiate()
+	creature.set_species(Creature.Species.LOBSTER)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()
