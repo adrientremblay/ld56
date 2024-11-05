@@ -456,3 +456,17 @@ func _on_buy_lobster_pressed() -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+
+
+func _on_buy_octopus_pressed() -> void:
+	if money < 20:
+		return
+	money -= 20
+	set_money_label()
+	
+	var creature = landCreatureScene.instantiate()
+	creature.set_species(Creature.Species.OCTOPUS)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()

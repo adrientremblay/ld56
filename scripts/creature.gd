@@ -1,6 +1,6 @@
 class_name Creature extends CharacterBody2D
 
-enum Species {SNAIL, CRAB, KILLIFISH, PIRANHA, ANGLERFISH, DRAGONFISH, GOBLINSHARK, LOBSTER}
+enum Species {SNAIL, CRAB, KILLIFISH, PIRANHA, ANGLERFISH, DRAGONFISH, GOBLINSHARK, LOBSTER, OCTOPUS}
 
 var snail_sprite_scene : PackedScene = load("res://scenes/snail_sprite.tscn")
 var crab_sprite_scene : PackedScene = load("res://scenes/crab_sprite.tscn")
@@ -10,6 +10,7 @@ var anglerfish_sprite_scene : PackedScene = load("res://scenes/anglerfish_sprite
 var dragonfish_sprite_scene : PackedScene = load("res://scenes/dragonfish_sprite.tscn")
 var goblinshark_sprite_scene : PackedScene = load("res://scenes/goblinshark_sprite.tscn")
 var lobster_sprite_scene : PackedScene = load("res://scenes/lobster_sprite.tscn")
+var octopus_sprite_scene : PackedScene = load("res://scenes/octopus_sprite.tscn")
 
 var damage
 var speed
@@ -41,4 +42,7 @@ func set_species(species: Species):
 		Species.LOBSTER:
 			sprite = lobster_sprite_scene.instantiate()
 			self.damage = 10
+		Species.OCTOPUS:
+			sprite = octopus_sprite_scene.instantiate()
+			self.damage = 15
 	add_child(sprite)

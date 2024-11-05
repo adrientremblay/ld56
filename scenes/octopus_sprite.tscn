@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dos5a46x334dj"]
+
+[ext_resource type="Texture2D" uid="uid://benxfjpd4f3y0" path="res://assets/art/octopus-Sheet.png" id="1_uyv6q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3g3a"]
+atlas = ExtResource("1_uyv6q")
+region = Rect2(0, 0, 75, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njyxq"]
+atlas = ExtResource("1_uyv6q")
+region = Rect2(75, 0, 75, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jl7u4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3g3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njyxq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3g3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njyxq")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3g3a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3g3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njyxq")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jl7u4")
+animation = &"moving"
