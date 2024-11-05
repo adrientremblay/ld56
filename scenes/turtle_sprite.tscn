@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmk1bmojaemgo"]
+
+[ext_resource type="Texture2D" uid="uid://bvgjgpm4ut63b" path="res://assets/art/turtle-Sheet.png" id="1_yanpl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeell"]
+atlas = ExtResource("1_yanpl")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rdn8"]
+atlas = ExtResource("1_yanpl")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uob0"]
+atlas = ExtResource("1_yanpl")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx3tp"]
+atlas = ExtResource("1_yanpl")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7gke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeell")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rdn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uob0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx3tp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeell")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx3tp")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeell")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rdn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uob0")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o7gke")
+animation = &"moving"

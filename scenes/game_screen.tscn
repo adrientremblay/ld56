@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=43 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://chebefbf1wosp" path="res://assets/art/octopus.png" id="14_1jwsp"]
 [ext_resource type="Texture2D" uid="uid://cmo0dcfot7kj0" path="res://assets/art/x.png" id="14_6p0uj"]
 [ext_resource type="Texture2D" uid="uid://d3qeei58n0n85" path="res://assets/art/piranha.png" id="14_duugw"]
+[ext_resource type="Texture2D" uid="uid://ba60208sr07o3" path="res://assets/art/turtle.png" id="15_hunx6"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="Texture2D" uid="uid://c78y0dwon21xy" path="res://assets/art/anglerfish.png" id="15_xpy36"]
 [ext_resource type="Texture2D" uid="uid://bfxx18pim7bth" path="res://assets/art/arowana.png" id="16_737qq"]
@@ -294,6 +295,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "Buy Octopus (20$)"
+
+[node name="TurtleHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+light_mask = 0
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+texture = ExtResource("15_hunx6")
+expand_mode = 2
+
+[node name="BuyTurtle" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy Turtle (100$)"
 
 [node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -671,6 +690,7 @@ wait_time = 0.5
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="." method="_on_buy_crab_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" to="." method="_on_buy_lobster_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" to="." method="_on_buy_octopus_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" to="." method="_on_buy_turtle_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="." method="_on_buy_fish_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="." method="_on_buy_piranha_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="." method="_on_buy_anglerfish_pressed"]
