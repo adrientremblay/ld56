@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://br7dpbfx6uxc1"]
 
-[ext_resource type="Script" path="res://scenes/spokesman_portrait.gd" id="1_poq0k"]
+[ext_resource type="Script" path="res://scripts/spokesman_portrait.gd" id="1_poq0k"]
 [ext_resource type="Texture2D" uid="uid://b366oqwics0go" path="res://assets/art/spokesman-deadfaced-Sheet.png" id="2_nuwkb"]
 [ext_resource type="Texture2D" uid="uid://cm216aali64ou" path="res://assets/art/spokesman-frowning-Sheet.png" id="3_5yv02"]
 [ext_resource type="Texture2D" uid="uid://da8pexsxpvrbs" path="res://assets/art/spokesman-smiling-Sheet.png" id="4_u3l5d"]

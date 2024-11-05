@@ -1,18 +1,19 @@
-[gd_scene load_steps=43 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=44 format=3 uid="uid://bafqsokbf17by"]
 
-[ext_resource type="Script" path="res://scenes/game_screen.gd" id="1_ka8qc"]
+[ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
 [ext_resource type="PackedScene" uid="uid://bv7787vivgr0t" path="res://scenes/land_creature.tscn" id="2_nfyws"]
 [ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="4_gs2f0"]
 [ext_resource type="Shader" path="res://scenes/light_limit_shader.gdshader" id="4_l7kro"]
 [ext_resource type="Texture2D" uid="uid://by5yr2j6yd8xi" path="res://assets/art/light_texture.png" id="4_lrlsq"]
-[ext_resource type="Script" path="res://scenes/UI.gd" id="4_sfu83"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="4_sfu83"]
 [ext_resource type="PackedScene" uid="uid://f3722j5e8eqm" path="res://scenes/corpse.tscn" id="4_tr83u"]
 [ext_resource type="PackedScene" uid="uid://wwsrmx3owm5" path="res://scenes/plant.tscn" id="6_ol3g8"]
-[ext_resource type="Script" path="res://scenes/ContractMenu.gd" id="8_u3xyv"]
+[ext_resource type="Script" path="res://scripts/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
 [ext_resource type="Texture2D" uid="uid://cmqoa2bhwo22b" path="res://assets/art/crab.png" id="12_m0ecb"]
+[ext_resource type="Script" path="res://scripts/buy_creature_button.gd" id="12_mmhuv"]
 [ext_resource type="Texture2D" uid="uid://iktm1jvkvo6g" path="res://assets/art/killifish.png" id="13_glwx0"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="Texture2D" uid="uid://b1vr7yqrn483p" path="res://assets/art/lobster.png" id="13_onbyo"]
@@ -26,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dh2ngqgk7mh32" path="res://assets/art/goblin_shark.png" id="17_nwp0c"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="AudioStream" uid="uid://64cds4d6ylg6" path="res://assets/audio/cca_theme_2.mp3" id="18_j1a8h"]
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="18_vxnfe"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="18_vxnfe"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 [ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
@@ -97,6 +98,7 @@ position = Vector2(1070, 634)
 [node name="Creatures" type="Node2D" parent="Aquarium"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(1, 9)
 navigation_polygon = SubResource("NavigationPolygon_w865j")
 
@@ -243,6 +245,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "buy snail (5$)"
+script = ExtResource("12_mmhuv")
 
 [node name="CrabHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
 light_mask = 0
@@ -259,7 +262,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Crab (10$)"
+text = "Buy Crab (25$)"
+script = ExtResource("12_mmhuv")
+species = 1
 
 [node name="LobsterHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
 light_mask = 0
@@ -276,7 +281,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Lobster (15$)"
+text = "Buy Lobster (50$)"
+script = ExtResource("12_mmhuv")
+species = 7
 
 [node name="OctopusHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
 light_mask = 0
@@ -294,7 +301,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Octopus (20$)"
+text = "Buy Octopus (300$)"
+script = ExtResource("12_mmhuv")
+species = 8
 
 [node name="TurtleHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
 light_mask = 0
@@ -312,7 +321,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Turtle (100$)"
+text = "Buy Turtle (500$)"
+script = ExtResource("12_mmhuv")
+species = 9
 
 [node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -334,7 +345,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy fish (10$)"
+text = "Buy fish (5$)"
+script = ExtResource("12_mmhuv")
+species = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox"]
 light_mask = 0
@@ -351,7 +364,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Pirahna (15$)"
+text = "Buy Pirahna (25$)"
+script = ExtResource("12_mmhuv")
+species = 3
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox"]
 light_mask = 0
@@ -368,7 +383,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Anglerfish (20$)"
+text = "Buy Anglerfish (50$)"
+script = ExtResource("12_mmhuv")
+species = 4
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox"]
 light_mask = 0
@@ -385,7 +402,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Dragonfish (25$)"
+text = "Buy Dragonfish (300$)"
+script = ExtResource("12_mmhuv")
+species = 5
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox"]
 light_mask = 0
@@ -403,7 +422,9 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Goblinshark (100$)"
+text = "Buy Goblinshark (500$)"
+script = ExtResource("12_mmhuv")
+species = 6
 
 [node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox"]
 light_mask = 0
@@ -686,16 +707,26 @@ wait_time = 0.5
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="." method="_on_buy_snail_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="." method="_on_buy_crab_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" to="." method="_on_buy_lobster_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" to="." method="_on_buy_octopus_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" to="." method="_on_buy_turtle_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="." method="_on_buy_fish_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="." method="_on_buy_piranha_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="." method="_on_buy_anglerfish_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" to="." method="_on_buy_dragonfish_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="." method="_on_buy_goblinshark_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/BuyStemPlant" to="." method="_on_buy_stem_plant_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]

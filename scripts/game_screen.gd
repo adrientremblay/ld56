@@ -483,3 +483,21 @@ func _on_buy_turtle_pressed() -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+
+func _on_spawn_species(species: Creature.Species) -> void:
+	if money < Creature.species_stats[species].price:
+		return
+	money -= Creature.species_stats[species].price
+	set_money_label()
+	
+	var creature: Creature
+	if Creature.is_species_land_based(species):
+		creature = landCreatureScene.instantiate()
+	else:
+		creature = waterCreatureScene.instantiate()
+		
+	creature.set_species(species)
+	$Aquarium/Creatures.add_child(creature)
+	creatures_find_corpses()
+
+	$SpawnCreature.play()
