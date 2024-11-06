@@ -1,5 +1,55 @@
-[gd_scene format=3 uid="uid://ldru7xxb2u2h"]
+[gd_scene load_steps=5 format=3 uid="uid://ldru7xxb2u2h"]
 
-[node name="Panel" type="Panel"]
+[ext_resource type="Script" path="res://scripts/win_screen.gd" id="1_oamm3"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="1_qal4o"]
+[ext_resource type="Texture2D" uid="uid://dp1g2te56ojoh" path="res://assets/art/win_screen.png" id="2_lp2ys"]
+[ext_resource type="AudioStream" uid="uid://7n3hh43av8qp" path="res://assets/audio/win.mp3" id="4_3ehah"]
+
+[node name="WinScreen" type="Panel"]
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("1_oamm3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -8.0
+offset_right = 1288.0
+offset_bottom = 744.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+light_mask = 0
+layout_mode = 0
+offset_left = 64.0
+offset_top = 536.0
+offset_right = 1216.0
+offset_bottom = 723.0
+theme = ExtResource("1_qal4o")
+theme_override_font_sizes/font_size = 27
+text = "You walk away from the corpse aquarium unscathed with your money. Your hands are dirty but you wore gloves the whole time. After all, they were already dead."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="FinalScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 48.0
+offset_right = 816.0
+offset_bottom = 71.0
+theme = ExtResource("1_qal4o")
+text = "Corpses Disposed: 0"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+light_mask = 0
+layout_mode = 0
+offset_left = 448.0
+offset_top = 128.0
+offset_right = 832.0
+offset_bottom = 512.0
+texture = ExtResource("2_lp2ys")
+
+[node name="WinGameSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3ehah")

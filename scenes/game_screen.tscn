@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=45 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
 [ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
+[ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1174.18, 570.109, 1180.68, 622, 91.3203, 622, 942.383, 577.023, 1043.6, 358.523, 1107.78, 353.578, 929.547, 576.977, 97.7969, 570.188, 169.273, 350, 199.242, 350, 325.281, 567.07, 755.297, 347.852, 824.633, 346.156, 644.359, 574.758, 632.406, 575.219, 336.938, 566.93, 499.398, 349.203, 456.031, 350.781)
@@ -694,6 +695,10 @@ text = "Paused"
 visible = false
 light_mask = 0
 layout_mode = 1
+
+[node name="WinScreen" parent="UI" instance=ExtResource("28_mwnjj")]
+visible = false
+layout_mode = 0
 
 [node name="LevelScreen" parent="UI" instance=ExtResource("20_ss8nm")]
 visible = false
