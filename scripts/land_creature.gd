@@ -61,6 +61,9 @@ func change_idle_position() -> void:
 	sprite.play("moving")
 
 func set_target(corpse):
+	if (self.target_corpse == corpse):
+		return # do nothing if the target is already targetted
+	
 	self.target_corpse = corpse
 	
 	#finding random spot on the body
