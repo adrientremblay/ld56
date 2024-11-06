@@ -68,10 +68,9 @@ func _on_new_contract_timer_timeout() -> void:
 	# empty contract list
 	for child in contract_vbox.get_children():
 		child.queue_free()
-	# add a new contract to the list
-	generateNewContract()
-	generateNewContract()
-	generateNewContract()
+	# add 7 new contracts to the list
+	for i in range(7):
+		generateNewContract()
 	# make the menu visible
 	self.visible = true
 	

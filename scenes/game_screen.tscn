@@ -80,22 +80,28 @@ texture = ExtResource("1_sqbh1")
 
 [node name="Plants" type="Node2D" parent="Aquarium"]
 
-[node name="Plant" parent="Aquarium/Plants" instance=ExtResource("6_ol3g8")]
-position = Vector2(941, 500)
-
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
-position = Vector2(172, 619)
+position = Vector2(145, 631)
 
 [node name="CorpseSpawn2" type="Node2D" parent="Aquarium"]
-position = Vector2(464, 632)
+position = Vector2(302, 621)
 
 [node name="CorpseSpawn3" type="Node2D" parent="Aquarium"]
-position = Vector2(771, 636)
+position = Vector2(460, 642)
 
 [node name="CorpseSpawn4" type="Node2D" parent="Aquarium"]
-position = Vector2(1070, 634)
+position = Vector2(618, 629)
+
+[node name="CorpseSpawn5" type="Node2D" parent="Aquarium"]
+position = Vector2(784, 634)
+
+[node name="CorpseSpawn6" type="Node2D" parent="Aquarium"]
+position = Vector2(955, 639)
 
 [node name="Creatures" type="Node2D" parent="Aquarium"]
+
+[node name="CorpseSpawn7" type="Node2D" parent="Aquarium"]
+position = Vector2(1104, 626)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

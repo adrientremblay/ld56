@@ -10,6 +10,11 @@ extends Node2D
 @onready var corpse_spawn2 = $Aquarium/CorpseSpawn2
 @onready var corpse_spawn3 = $Aquarium/CorpseSpawn3
 @onready var corpse_spawn4 = $Aquarium/CorpseSpawn4
+@onready var corpse_spawn5 = $Aquarium/CorpseSpawn5
+@onready var corpse_spawn6 = $Aquarium/CorpseSpawn6
+@onready var corpse_spawn7 = $Aquarium/CorpseSpawn7
+
+@onready var corpse_spawn_list = [corpse_spawn1, corpse_spawn2, corpse_spawn3, corpse_spawn4, corpse_spawn5, corpse_spawn6, corpse_spawn7]
 
 var game_over = false
 
@@ -30,6 +35,7 @@ var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549
 var current_datetime: int # unix time
 
 func _ready() -> void:
+	randomize() # ensures randomness for randi() and randf()
 	contract_menu.visible = false
 	set_money_label()
 	set_starting_game_datetime()
@@ -58,17 +64,14 @@ func _on_buy_snail_pressed() -> void:
 	$SpawnCreature.play()
 
 func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant, appearance: Contract.Appearance, female: bool) -> void:
-	# find available spawn
+	# find a random available spawn
+	var spawn_indexes_to_try = [0, 1, 2, 3, 4, 5, 6]
+	spawn_indexes_to_try.shuffle()
 	var spawn_point = null
-	if (corpse_spawn1.get_child_count() == 0):
-		spawn_point = corpse_spawn1
-	elif (corpse_spawn2.get_child_count() == 0):
-		spawn_point = corpse_spawn2
-	elif (corpse_spawn3.get_child_count() == 0):
-		spawn_point = corpse_spawn3
-	elif (corpse_spawn4.get_child_count() == 0):
-		spawn_point = corpse_spawn4
-	if (spawn_point == null):
+	for spawn_index in spawn_indexes_to_try:
+		if corpse_spawn_list[spawn_index].get_child_count() == 0:
+			spawn_point = corpse_spawn_list[spawn_index]
+	if spawn_point == null:
 		return
 	
 	# spawn corpse
@@ -105,14 +108,9 @@ func update_corpse_eaten_label():
 
 func compile_corpse_list(): 
 	var corpse_list = []
-	if (corpse_spawn1.get_child_count() != 0):
-		corpse_list.push_back(corpse_spawn1.get_child(0))
-	if (corpse_spawn2.get_child_count() != 0):
-		corpse_list.push_back(corpse_spawn2.get_child(0))
-	if (corpse_spawn3.get_child_count() != 0):
-		corpse_list.push_back(corpse_spawn3.get_child(0))
-	if (corpse_spawn4.get_child_count() != 0):
-		corpse_list.push_back(corpse_spawn4.get_child(0))
+	for corpse_spawn in corpse_spawn_list:
+		if corpse_spawn.get_child_count() != 0:
+			corpse_list.push_back(corpse_spawn.get_child(0))
 	return corpse_list
 	
 func creatures_find_corpses():
@@ -163,7 +161,7 @@ func _on_buy_piranha_pressed() -> void:
 
 func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
-	if corpse_list.size() == 4: # full
+	if corpse_list.size() == 7:# full
 		$UI/ContractMenu.no_contracts_available()
 
 func calculate_biomass_capacity_percent():
