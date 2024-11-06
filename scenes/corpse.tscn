@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://f3722j5e8eqm"]
+[gd_scene load_steps=71 format=3 uid="uid://f3722j5e8eqm"]
 
 [ext_resource type="Texture2D" uid="uid://cvtp1gm4svyei" path="res://assets/art/dead_body-Sheet.png" id="1_6cqjt"]
 [ext_resource type="Texture2D" uid="uid://c83rb2swcv2sb" path="res://assets/art/female_corpse_medium-Sheet.png" id="1_jqix5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dvillw65spu3i" path="res://assets/art/male_corse_medium-Sheet.png" id="2_ftbi4"]
 [ext_resource type="Texture2D" uid="uid://bgcliyyidx8wi" path="res://assets/art/male_corpse_obese-Sheet.png" id="2_gv3p2"]
 [ext_resource type="Texture2D" uid="uid://xs0t4nowo7fl" path="res://assets/art/female_corpse_thin-Sheet.png" id="3_1dv0o"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="8_frda0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qp24"]
 atlas = ExtResource("1_jqix5")
@@ -471,6 +472,15 @@ scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ul3v6")
 animation = &"female obese"
 script = ExtResource("2_8vtmh")
+
+[node name="DecompositionBar" type="ProgressBar" parent="."]
+offset_left = -26.0
+offset_top = -52.0
+offset_right = 18.0
+offset_bottom = -48.0
+theme = ExtResource("8_frda0")
+value = 100.0
+show_percentage = false
 
 [node name="FeedingArea" type="Area2D" parent="." groups=["corpses"]]
 

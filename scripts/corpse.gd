@@ -53,9 +53,12 @@ func set_decomposition_frame():
 	var frame_float = 9.9999 * decomposition_decimal
 	var frame_number = floor(frame_float)
 	self.frame = frame_number
+	
+	$DecompositionBar.value = (weight / original_weight) * 100.0
 
 func _on_feeding_area_body_entered(body: Node2D) -> void:
 	body.toggle_bite_sound_timer()
 
 func _on_feeding_area_body_exited(body: Node2D) -> void:
 	body.toggle_bite_sound_timer()
+	
