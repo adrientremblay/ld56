@@ -4,8 +4,6 @@ var WATER_TOP_LEFT_POS :Vector2 = Vector2(81, 106)
 var AQUARIUM_Y_VECTOR : Vector2 = Vector2(81, 471)
 var AQUARIUM_X_VECTOR : Vector2 = Vector2(1119, 106)
 
-var movement_speed: float = 150.0
-
 var target_position: Vector2
 var target_corpse: Corpse
 
@@ -19,7 +17,7 @@ func _physics_process(delta):
 	if target_position.distance_to(self.position) < 5:
 		return
 
-	velocity = self.position.direction_to(target_position) * movement_speed
+	velocity = self.position.direction_to(target_position) * self.speed
 	move_and_slide()
 
 func change_idle_position() -> void:
