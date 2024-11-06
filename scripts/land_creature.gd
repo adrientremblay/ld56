@@ -43,7 +43,7 @@ func _physics_process(delta):
 	var current_agent_position: Vector2 = global_position
 	var next_path_position: Vector2 = navigation_agent.get_next_path_position()
 
-	velocity = current_agent_position.direction_to(next_path_position) * self.speed * 20.0
+	velocity = current_agent_position.direction_to(next_path_position) * self.speed * 15.0
 	move_and_slide()
 
 func _on_idle_position_timer_timeout() -> void:

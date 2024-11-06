@@ -14,7 +14,8 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var money = 2000
+var debug = false
+var money = 2000 if debug else 50
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
@@ -22,7 +23,7 @@ var corpses_eaten_count = 0
 
 # LEVEL VARIABLES
 var level = 0
-var CORPSE_QUOTA_PER_LEVEL = [0, 3, 5, 7, 10, 15, 20, 25, 30, 35, 40] # index = level, value = quota
+var CORPSE_QUOTA_PER_LEVEL = [0, 1, 2, 3, 5, 7, 10, 15, 30, 50, 100] # index = level, value = quota
 
 # MISC
 var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
@@ -323,11 +324,12 @@ func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	$UI/DateLabel.text = new_date_string
 
 func _on_timeline_started():
-	print("Timeline started")
+	#print("Timeline started")
 	#get_tree().paused = true
+	pass
 
 func _on_timeline_ended():
-	print("Timeline ended")
+	#print("Timeline ended")
 	if !game_over:
 		launch_level_screen()
 
