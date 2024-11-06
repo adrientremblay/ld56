@@ -627,12 +627,21 @@ theme_override_styles/background = SubResource("StyleBoxFlat_m1nmy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1uxjt")
 value = 100.0
 
+[node name="LevelLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 4.0
+offset_right = 241.0
+offset_bottom = 27.0
+theme = ExtResource("4_gs2f0")
+text = "Level: 1"
+
 [node name="CorpsesDisposedLabel" type="Label" parent="UI"]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 13.0
-offset_right = 245.0
-offset_bottom = 36.0
+offset_left = 9.0
+offset_top = 28.0
+offset_right = 241.0
+offset_bottom = 51.0
 theme = ExtResource("4_gs2f0")
 text = "Corpses Disposed: 0"
 

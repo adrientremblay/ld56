@@ -215,6 +215,14 @@ func set_game_over():
 	$UI/EndScreen.open(corpses_eaten_count)
 	self.game_over = true
 
+func open_win_screen():
+	$UI/ContractMenu/NewContractTimer.stop()
+	$UI/ContractMenu.visible = false
+	$UI/CreatureMenu.visible = false
+	get_tree().paused = true
+	$UI/WinScreen.open(corpses_eaten_count)
+	self.game_over = true
+
 func _on_buy_crab_pressed() -> void:
 	if money < 10:
 		return
@@ -233,6 +241,8 @@ func _on_dialogic_signal(action: String):
 		get_tree().paused = true
 	if action == "end_game":
 		set_game_over()
+	if action == "win_game":
+		open_win_screen()
 
 func setup_new_level():
 	corpses_eaten_count = 0
@@ -243,6 +253,7 @@ func setup_new_level():
 	update_corpse_eaten_label()
 	set_starting_game_datetime()
 	set_money_label()
+	$UI/LevelLabel.text = "Level: " + str(level)
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()
@@ -329,7 +340,7 @@ func _on_timeline_started():
 
 func _on_timeline_ended():
 	#print("Timeline ended")
-	if !game_over:
+	if !game_over && level < 11:
 		launch_level_screen()
 
 func dialogic_setup():
@@ -343,6 +354,8 @@ func next_level():
 	var timeline_name = ""
 	if corpses_eaten_count < CORPSE_QUOTA_PER_LEVEL[level-1]:
 		timeline_name = "fail"
+	elif level == 11:
+		timeline_name = "ending"
 	elif level == 1:
 		timeline_name = "intro"
 	else:
