@@ -6,6 +6,7 @@ signal contract_menu_opened
 
 func _ready() -> void:
 	creature_menu.visible = false
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _on_creature_button_pressed() -> void:
 	creature_menu.visible = !creature_menu.visible

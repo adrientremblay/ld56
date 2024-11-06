@@ -14,7 +14,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = false
+var debug = true
 var money = 2000 if debug else 50
 var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
@@ -41,7 +41,8 @@ func _process(delta: float) -> void:
 	if game_over:
 		return
 		
-	calculate_biomass_capacity_percent(delta)
+	calculate_biomass_capacity_percent()
+	tick_aquarium_health(delta, biomass_usage)
 
 func _on_buy_snail_pressed() -> void:
 	if money < 5:
@@ -79,6 +80,8 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	
 	# make creatures search for target
 	creatures_find_corpses()
+	
+	calculate_biomass_capacity_percent()
 
 func corpse_was_eaten(reward):
 	money += reward
@@ -163,7 +166,7 @@ func _on_ui_contract_menu_opened() -> void:
 	if corpse_list.size() == 4: # full
 		$UI/ContractMenu.no_contracts_available()
 
-func calculate_biomass_capacity_percent(delta: float):
+func calculate_biomass_capacity_percent():
 	var actual_biomass = 0
 	
 	var corpse_list = compile_corpse_list()
@@ -175,9 +178,6 @@ func calculate_biomass_capacity_percent(delta: float):
 	biomass_usage = snappedf(actual_biomass / biomass_capacity, 0.0001)
 	
 	$UI/BiomassBar.value = biomass_usage * 100
-	
-	# tick aquarium health
-	tick_aquarium_health(delta, biomass_usage)
 	
 func tick_aquarium_health(delta: float, biomass_usage: float):
 	var health_difference = (1.0 - biomass_usage) * 0.5 * delta
