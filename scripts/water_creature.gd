@@ -30,8 +30,17 @@ func _on_idle_position_timer_timeout() -> void:
 	change_idle_position()
 
 func set_target(corpse):
+	if self.target_corpse == corpse:
+		return # do nothing if the target is already targetted
+	
 	self.target_corpse = corpse
-	set_movement_target(corpse.global_position)
+	
+	#finding random spot on the body
+	var corpse_body_position = corpse.global_position 
+	corpse_body_position.x += (randf() * 2 - 1) * 56
+	corpse_body_position.y += (randf() * 2 - 1) * 120
+	
+	set_movement_target(corpse_body_position)
 	
 func set_movement_target(target_pos: Vector2):
 	self.target_position = target_pos
