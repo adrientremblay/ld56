@@ -193,6 +193,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy Plants"
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0

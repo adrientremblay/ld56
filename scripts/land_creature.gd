@@ -62,7 +62,13 @@ func change_idle_position() -> void:
 
 func set_target(corpse):
 	self.target_corpse = corpse
-	set_movement_target(corpse.global_position)
+	
+	#finding random spot on the body
+	var corpse_body_position = corpse.global_position 
+	corpse_body_position.x += (randf() * 2 - 1) * 56
+	corpse_body_position.y += (randf() * 2 - 1) * 120
+	
+	set_movement_target(corpse_body_position)
 	
 	sprite.play("moving")
 	
