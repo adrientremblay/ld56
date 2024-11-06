@@ -237,6 +237,7 @@ func _on_dialogic_signal(action: String):
 func setup_new_level():
 	corpses_eaten_count = 0
 	delete_all_corpses()
+	$UI/ContractMenu/NewContractTimer.wait_time = 1
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
 	update_corpse_eaten_label()
@@ -469,7 +470,6 @@ func _on_buy_octopus_pressed() -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
-
 
 func _on_buy_turtle_pressed() -> void:
 	if money < 100:
