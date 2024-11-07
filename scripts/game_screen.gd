@@ -41,6 +41,10 @@ func _ready() -> void:
 	set_starting_game_datetime()
 	update_corpse_eaten_label()
 	dialogic_setup()
+	$UI/TitleScreen.open()
+
+func start_game():
+	$Music.play()
 	next_level()
 
 func _process(delta: float) -> void:
@@ -400,6 +404,9 @@ func launch_level():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("next_level"):
 		next_level()
+	elif $UI/TitleScreen.visible && event.is_action_pressed("dialogic_default_action"):
+		$UI/TitleScreen.close()
+		start_game()
 
 func _on_level_screen_level_screen_closed() -> void:
 	launch_level()
