@@ -56,15 +56,15 @@ fill_to = Vector2(0.570776, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnyj0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o5xs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tb4g"]
-bg_color = Color(0, 0.788235, 0.305882, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1nmy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxjt"]
-bg_color = Color(0.890196, 0, 0.227451, 1)
+bg_color = Color(0.89, 0.5785, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o5xs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tb4g"]
+bg_color = Color(0, 0.474, 0.79, 1)
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_ka8qc")
@@ -589,7 +589,7 @@ offset_bottom = 700.0
 theme = ExtResource("4_gs2f0")
 text = "Next Contract: 12s"
 
-[node name="AquariumHealthLabel" type="Label" parent="UI"]
+[node name="AmmoniaLevelLabel" type="Label" parent="UI"]
 light_mask = 0
 layout_mode = 0
 offset_left = 536.0
@@ -597,29 +597,10 @@ offset_top = 656.0
 offset_right = 735.0
 offset_bottom = 679.0
 theme = ExtResource("4_gs2f0")
-text = "Aquarium Health"
+text = "Ammonia"
+horizontal_alignment = 1
 
-[node name="SafeMassLabel" type="Label" parent="UI"]
-light_mask = 0
-layout_mode = 0
-offset_left = 792.0
-offset_top = 656.0
-offset_right = 1001.0
-offset_bottom = 679.0
-theme = ExtResource("4_gs2f0")
-text = "Biomass Capacity"
-
-[node name="BiomassBar" type="ProgressBar" parent="UI"]
-layout_mode = 0
-offset_left = 776.0
-offset_top = 680.0
-offset_right = 1016.0
-offset_bottom = 704.0
-theme_override_styles/background = SubResource("StyleBoxFlat_1o5xs")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6tb4g")
-allow_greater = true
-
-[node name="HealthBar" type="ProgressBar" parent="UI"]
+[node name="AmmoniaLevelBar" type="ProgressBar" parent="UI"]
 layout_mode = 0
 offset_left = 520.0
 offset_top = 680.0
@@ -627,7 +608,29 @@ offset_right = 752.0
 offset_bottom = 704.0
 theme_override_styles/background = SubResource("StyleBoxFlat_m1nmy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1uxjt")
-value = 100.0
+value = 50.0
+
+[node name="NitrogenLevelLabel" type="Label" parent="UI"]
+light_mask = 0
+layout_mode = 0
+offset_left = 792.0
+offset_top = 656.0
+offset_right = 1001.0
+offset_bottom = 679.0
+theme = ExtResource("4_gs2f0")
+text = "Nitrogen"
+horizontal_alignment = 1
+
+[node name="NitrogenLevelBar" type="ProgressBar" parent="UI"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 680.0
+offset_right = 1016.0
+offset_bottom = 704.0
+theme_override_styles/background = SubResource("StyleBoxFlat_1o5xs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6tb4g")
+value = 50.0
+allow_greater = true
 
 [node name="LevelLabel" type="Label" parent="UI"]
 layout_mode = 0
@@ -706,6 +709,7 @@ visible = false
 layout_mode = 1
 
 [node name="TitleScreen" parent="UI" instance=ExtResource("30_spg6t")]
+visible = false
 light_mask = 0
 layout_mode = 0
 
