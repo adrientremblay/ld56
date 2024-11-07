@@ -15,6 +15,8 @@ func _physics_process(delta):
 	if target_position == null:
 		return
 	if target_position.distance_to(self.position) < 5:
+		if target_corpse == null || target_corpse.eaten:
+			$AnimatedSprite2D.play("idle")
 		return
 
 	velocity = self.position.direction_to(target_position) * self.speed * 15.0

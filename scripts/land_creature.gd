@@ -6,7 +6,7 @@ var TARGET_POSITION_VECTOR = IDLE_LAND_RIGHT_VECTOR - IDLE_LAND_LEFT_VECTOR;
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
 
-var target_corpse
+var target_corpse: Corpse
 
 func _ready():
 	# These values need to be adjusted for the actor's speed
@@ -89,3 +89,7 @@ func _on_nearby_corpse_area_area_entered(area: Area2D) -> void:
 
 func _on_nearby_corpse_area_area_exited(area: Area2D) -> void:
 	sprite.play("moving")
+
+func _on_navigation_agent_2d_navigation_finished() -> void:
+	if target_corpse == null || target_corpse.eaten:
+		sprite.play("idle")
