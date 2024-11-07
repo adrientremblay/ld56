@@ -25,6 +25,7 @@ var biomass_capacity = 200 # pounds
 var biomass_usage = 0.0 # decimal %
 var aquarium_health = 1.0 #decimal %
 var corpses_eaten_count = 0
+var total_corpses_eaten = 0
 
 # LEVEL VARIABLES
 var level = 0
@@ -99,6 +100,7 @@ func corpse_was_eaten(reward):
 	$CorpseEaten.play()
 	
 	corpses_eaten_count+=1
+	total_corpses_eaten+=1
 	update_corpse_eaten_label()
 
 func update_corpse_eaten_label():
@@ -216,7 +218,7 @@ func set_game_over():
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
 	get_tree().paused = true
-	$UI/EndScreen.open(corpses_eaten_count)
+	$UI/EndScreen.open(total_corpses_eaten)
 	self.game_over = true
 
 func open_win_screen():
@@ -224,7 +226,7 @@ func open_win_screen():
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
 	get_tree().paused = true
-	$UI/WinScreen.open(corpses_eaten_count)
+	$UI/WinScreen.open(total_corpses_eaten)
 	self.game_over = true
 
 func _on_buy_crab_pressed() -> void:
