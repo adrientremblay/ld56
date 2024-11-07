@@ -77,6 +77,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PenaltyLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 552.0
 offset_right = 1024.0

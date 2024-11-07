@@ -28,6 +28,53 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="."]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -208.0
+offset_right = -448.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_088qv")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = -208.0
+offset_right = 640.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_088qv")
+
+[node name="DialogicNode_PortraitContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 136.0
+offset_bottom = -188.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4jxq7")
+mode = 1
+container_ids = PackedStringArray("1")
+debug_character_portrait = "speaker"
+
 [node name="DialogicNode_NameLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
@@ -42,10 +89,10 @@ script = ExtResource("2_y0h34")
 [node name="DialogicNode_DialogText" type="RichTextLabel" parent="." node_paths=PackedStringArray("textbox_root")]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 264.0
-offset_top = 456.0
-offset_right = 1016.0
-offset_bottom = 640.0
+offset_left = 192.0
+offset_top = 576.0
+offset_right = 1088.0
+offset_bottom = 704.0
 size_flags_vertical = 3
 theme = ExtResource("3_r1idv")
 theme_override_font_sizes/normal_font_size = 22
@@ -61,33 +108,14 @@ textbox_root = NodePath("..")
 [node name="DialogicNode_TypeSounds" type="AudioStreamPlayer" parent="DialogicNode_DialogText"]
 script = ExtResource("5_sr2qw")
 
-[node name="DialogicNode_PortraitContainer" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 40.0
-offset_bottom = -284.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_4jxq7")
-mode = 1
-container_ids = PackedStringArray("1")
-debug_character_portrait = "speaker"
-
-[node name="TextureRect" type="TextureRect" parent="."]
-light_mask = 0
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -80.0
-offset_right = 32.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("7_088qv")
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 64.0
+offset_right = 832.0
+offset_bottom = 127.0
+theme = ExtResource("3_r1idv")
+theme_override_font_sizes/font_size = 33
+text = "The 'Spokesman'"
+horizontal_alignment = 1
+vertical_alignment = 1
