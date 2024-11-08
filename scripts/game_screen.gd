@@ -51,8 +51,6 @@ func start_game():
 func _process(delta: float) -> void:
 	if game_over:
 		return
-		
-	tick_nitrogen_levels(delta)
 
 func _on_buy_snail_pressed() -> void:
 	if money < 5:
@@ -167,8 +165,10 @@ func _on_ui_contract_menu_opened() -> void:
 	if corpse_list.size() == 7:# full
 		$UI/ContractMenu.no_contracts_available()
 	
-func tick_nitrogen_levels(delta: float):
-	# TODO: add stuff
+func tick_nitrogen_levels():
+	# Ammonia
+	for creature in $Aquarium/Creatures.get_children():
+		self.ammonia_level += creature.bioload
 	
 	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
 	$UI/NitrateLevelBar.value = nitrate_level * 100.0
@@ -236,6 +236,7 @@ func setup_new_level():
 	$UI/ContractMenu/NewContractTimer.wait_time = 1
 	$UI/ContractMenu/NewContractTimer.start()
 	$DateTimer.start()
+	$NitrogenTimer.start()
 	update_corpse_eaten_label()
 	set_starting_game_datetime()
 	set_money_label()

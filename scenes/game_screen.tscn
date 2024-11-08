@@ -761,6 +761,8 @@ stream = ExtResource("23_u3qn2")
 [node name="DateTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="NitrogenTimer" type="Timer" parent="."]
+
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
@@ -796,3 +798,4 @@ wait_time = 0.5
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
+[connection signal="timeout" from="NitrogenTimer" to="." method="tick_nitrogen_levels"]
