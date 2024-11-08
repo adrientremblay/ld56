@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy2ey7tsa758a"]
+[gd_scene load_steps=8 format=3 uid="uid://cy2ey7tsa758a"]
 
 [ext_resource type="Texture2D" uid="uid://cl2les7r05ryl" path="res://assets/art/anglerfish-Sheet.png" id="1_gbqsf"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_silw1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7xe7"]
 atlas = ExtResource("1_gbqsf")
@@ -72,3 +73,13 @@ animations = [{
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_v17q4")
 animation = &"moving"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -22.0
+offset_top = -19.3333
+offset_right = 188.0
+offset_bottom = 7.66666
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_silw1")
+value = 100.0
+show_percentage = false

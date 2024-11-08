@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://carx1vdx2qwrs"]
+[gd_scene load_steps=8 format=3 uid="uid://carx1vdx2qwrs"]
 
 [ext_resource type="Texture2D" uid="uid://chowoe476psys" path="res://assets/art/piranha-Sheet.png" id="1_mn1cn"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_f3fdb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rv3n"]
 atlas = ExtResource("1_mn1cn")
@@ -54,3 +55,13 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_i8pui")
 animation = &"idle"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 135.0
+offset_bottom = 10.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_f3fdb")
+value = 100.0
+show_percentage = false

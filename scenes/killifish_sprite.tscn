@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8suetpq17fgu"]
+[gd_scene load_steps=5 format=3 uid="uid://b8suetpq17fgu"]
 
 [ext_resource type="Texture2D" uid="uid://iktm1jvkvo6g" path="res://assets/art/killifish.png" id="1_4d5sy"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_75nq4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xti4q"]
 atlas = ExtResource("1_4d5sy")
@@ -36,3 +37,13 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_lnndd")
 animation = &"moving"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -10.0
+offset_right = 189.0
+offset_bottom = 17.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_75nq4")
+value = 100.0
+show_percentage = false

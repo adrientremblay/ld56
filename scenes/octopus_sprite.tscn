@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dos5a46x334dj"]
+[gd_scene load_steps=6 format=3 uid="uid://dos5a46x334dj"]
 
 [ext_resource type="Texture2D" uid="uid://benxfjpd4f3y0" path="res://assets/art/octopus-Sheet.png" id="1_uyv6q"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_5iage"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3g3a"]
 atlas = ExtResource("1_uyv6q")
@@ -57,3 +58,13 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_jl7u4")
 animation = &"moving"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -28.0
+offset_right = 81.0
+offset_bottom = -0.999998
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_5iage")
+value = 100.0
+show_percentage = false

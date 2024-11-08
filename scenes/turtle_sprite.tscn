@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmk1bmojaemgo"]
+[gd_scene load_steps=8 format=3 uid="uid://cmk1bmojaemgo"]
 
 [ext_resource type="Texture2D" uid="uid://bvgjgpm4ut63b" path="res://assets/art/turtle-Sheet.png" id="1_yanpl"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_uvebf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aeell"]
 atlas = ExtResource("1_yanpl")
@@ -71,3 +72,13 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_o7gke")
 animation = &"moving"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -31.0
+offset_right = 195.0
+offset_bottom = -4.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_uvebf")
+value = 100.0
+show_percentage = false

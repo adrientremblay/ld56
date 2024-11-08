@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://do2stskbkhxtg"]
+[gd_scene load_steps=9 format=3 uid="uid://do2stskbkhxtg"]
 
 [ext_resource type="Texture2D" uid="uid://b3tw2ehs7s11n" path="res://assets/art/goblin_shark-Sheet.png" id="1_wtbac"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_w2fl5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgiv0"]
 atlas = ExtResource("1_wtbac")
@@ -82,3 +83,13 @@ animations = [{
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_nenuk")
 animation = &"eating"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -27.5
+offset_right = 81.0
+offset_bottom = -0.499998
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_w2fl5")
+value = 100.0
+show_percentage = false
