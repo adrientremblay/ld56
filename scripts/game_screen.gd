@@ -173,7 +173,12 @@ func tick_nitrogen_levels():
 	#	- Based on the nitrogen tolerance of each fish
 	# 	- Threshold for ammonia poisoning is 25%
 	if ammonia_level >= 0.25:
-		pass
+		var base_damage = ammonia_level * 5.0
+		
+		for creature in $Aquarium/Creatures.get_children():
+			var creature_damage = base_damage * creature.nitrogen_coefficient
+			creature.health -= creature_damage
+			creature.update_health_bar()
 	
 	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
 	$UI/NitrateLevelBar.value = nitrate_level * 100.0

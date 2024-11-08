@@ -107,6 +107,7 @@ var damage
 var speed
 var bioload
 var sprite
+var nitrogen_coefficient 
 var health = 100.0
 
 func set_species(species: Species):
@@ -115,8 +116,21 @@ func set_species(species: Species):
 	self.damage = species_stats[species].damage
 	self.speed = species_stats[species].speed
 	self.bioload = species_stats[species].bioload
+	
+	match species_stats[species].nitrogen_tolerance:
+		NitrogenTolerance.LOW:
+			self.nitrogen_coefficient = 1.0
+		NitrogenTolerance.MODERATE:
+			self.nitrogen_coefficient = 0.7
+		NitrogenTolerance.HIGH:
+			self.nitrogen_coefficient = 0.5
+			
 	self.sprite = species_stats[species].sprite_scene.instantiate()
 	add_child(self.sprite)
+
+func update_health_bar() -> void:
+	var healthbar: ProgressBar = $AnimatedSprite2D/HealthBar
+	healthbar.value = health
 
 static func is_species_land_based(species: Creature.Species) -> bool:
 	if species == Creature.Species.SNAIL || species == Creature.Species.CRAB || species == Creature.Species.LOBSTER || species == Creature.Species.OCTOPUS || species == Creature.Species.TURTLE:
