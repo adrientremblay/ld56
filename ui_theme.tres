@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c2g25n7qed5wq"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c2g25n7qed5wq"]
 
 [ext_resource type="FontFile" uid="uid://by24cqyfhmq4a" path="res://assets/fonts/retro_computer_personal_use.ttf" id="2_jhybk"]
 
@@ -10,6 +10,9 @@ bg_color = Color(0.0509804, 0.192157, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_likyw"]
 bg_color = Color(0.164706, 0.160784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ms3va"]
+bg_color = Color(0.86, 0.2236, 0.2236, 1)
 
 [resource]
 default_font = ExtResource("2_jhybk")
@@ -39,3 +42,4 @@ Button/styles/pressed = null
 HBoxContainer/constants/separation = 10
 Panel/styles/panel = SubResource("StyleBoxFlat_idw7a")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_likyw")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_ms3va")

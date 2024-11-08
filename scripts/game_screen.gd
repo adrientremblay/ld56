@@ -166,9 +166,14 @@ func _on_ui_contract_menu_opened() -> void:
 		$UI/ContractMenu.no_contracts_available()
 	
 func tick_nitrogen_levels():
-	# Ammonia
+	# Ammonia production from creatures
 	for creature in $Aquarium/Creatures.get_children():
 		self.ammonia_level += creature.bioload
+	# Damage to fish based on ammonia level
+	#	- Based on the nitrogen tolerance of each fish
+	# 	- Threshold for ammonia poisoning is 25%
+	if ammonia_level >= 0.25:
+		pass
 	
 	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
 	$UI/NitrateLevelBar.value = nitrate_level * 100.0

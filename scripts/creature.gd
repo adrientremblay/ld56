@@ -13,6 +13,8 @@ static var turtle_sprite_scene : PackedScene = load("res://scenes/turtle_sprite.
 
 enum Species {SNAIL, CRAB, KILLIFISH, PIRANHA, ANGLERFISH, DRAGONFISH, GOBLINSHARK, LOBSTER, OCTOPUS, TURTLE}
 
+enum NitrogenTolerance {LOW, MODERATE, HIGH}
+
 # The value per dollar (VPD) of a creature it it's (damange * speed) / price
 static var species_stats = {
 	Species.SNAIL: { #vpd=0.5
@@ -20,56 +22,64 @@ static var species_stats = {
 		"price": 5,
 		"damage": 2.5,
 		"speed": 1,
-		"bioload": 0.001
+		"bioload": 0.001,
+		"nitrogen_tolerance": NitrogenTolerance.LOW
 	},
 	Species.CRAB: { #vpd=0.8
 		"sprite_scene": crab_sprite_scene,
 		"price": 25,
 		"damage": 8,
 		"speed": 2.5,
-		"bioload": 0.005
+		"bioload": 0.005,
+		"nitrogen_tolerance": NitrogenTolerance.MODERATE
 	},
 	Species.LOBSTER: { #vpd=1.0
 		"sprite_scene": lobster_sprite_scene,
 		"price": 50,
 		"damage": 25,
 		"speed": 2,
-		"bioload": 0.01
+		"bioload": 0.01,
+		"nitrogen_tolerance": NitrogenTolerance.HIGH
 	},
 	Species.OCTOPUS: { #vpd=1.75
 		"sprite_scene": octopus_sprite_scene,
 		"price": 300,
 		"damage": 150,
 		"speed": 3.5,
-		"bioload": 0.06
+		"bioload": 0.06,
+		"nitrogen_tolerance": NitrogenTolerance.LOW
 	},
 	Species.TURTLE: { #vpd=2.8
 		"sprite_scene": turtle_sprite_scene,
 		"price": 500,
 		"damage": 700,
 		"speed": 2,
-		"bioload": 0.12
+		"bioload": 0.12,
+		"nitrogen_tolerance": NitrogenTolerance.HIGH
 	},
 	Species.KILLIFISH: { # vpd=0.5
 		"sprite_scene": killifish_sprite_scene,
 		"price": 5,
 		"damage": 1,
 		"speed": 2.5,
-		"bioload": 0.001
+		"bioload": 0.001,
+		"nitrogen_tolerance": NitrogenTolerance.HIGH
 	},
 	Species.PIRANHA: { #vpd=0.8
 		"sprite_scene": piranha_sprite_scene,
 		"price": 25,
 		"damage": 4,
 		"speed": 5,
-		"bioload": 0.005
+		"bioload": 0.005,
+		"nitrogen_tolerance": NitrogenTolerance.MODERATE
 	},
 	Species.ANGLERFISH: { #vpd=1.0
 		"sprite_scene": anglerfish_sprite_scene,
 		"price": 50,
 		"damage": 12.5,
 		"speed": 4,
-		"bioload": 0.01
+		"bioload": 0.01,
+		"nitrogen_tolerance": NitrogenTolerance.HIGH
 	},
 	Species.DRAGONFISH: { #vpd=1.75
 		"vpd": 1.75,
@@ -77,7 +87,8 @@ static var species_stats = {
 		"price": 300,
 		"damage": 75,
 		"speed": 7,
-		"bioload": 0.06
+		"bioload": 0.06,
+		"nitrogen_tolerance": NitrogenTolerance.LOW
 	},
 	Species.GOBLINSHARK: { #vpd=2.8
 		"vpd": 2.8,
@@ -85,7 +96,8 @@ static var species_stats = {
 		"price": 500,
 		"damage": 350,
 		"speed": 4,
-		"bioload": 0.12
+		"bioload": 0.12,
+		"nitrogen_tolerance": NitrogenTolerance.LOW
 	}
 }
 
@@ -95,6 +107,7 @@ var damage
 var speed
 var bioload
 var sprite
+var health = 100.0
 
 func set_species(species: Species):
 	self.species = species

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ed4fejvn41y6"]
+[gd_scene load_steps=5 format=3 uid="uid://ed4fejvn41y6"]
 
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="1_jvfax"]
+[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="2_i32v1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khlul"]
 atlas = ExtResource("1_jvfax")
@@ -36,3 +37,13 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_shahp")
 animation = &"eating"
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 81.0
+offset_bottom = 18.0
+scale = Vector2(0.2, 0.2)
+theme = ExtResource("2_i32v1")
+value = 100.0
+show_percentage = false
