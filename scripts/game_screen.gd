@@ -44,6 +44,7 @@ func _ready() -> void:
 	dialogic_setup()
 	$UI/TitleScreen.open()
 	$Aquarium/Filters/SpongeFilter.play()
+	$Aquarium/Filters/HangOnBackFilter.play()
 
 func start_game():
 	$Music.play()
