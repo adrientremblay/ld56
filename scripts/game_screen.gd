@@ -22,8 +22,8 @@ var game_over = false
 var debug = true
 var money = 2000 if debug else 50
 var biomass_capacity = 200 # pounds
-var biomass_usage = 0.0 # decimal %
-var aquarium_health = 1.0 #decimal %
+var ammonia_level = 0.0 # decimal %
+var nitrate_level = 0.0 # decimal %
 var corpses_eaten_count = 0
 var total_corpses_eaten = 0
 
@@ -52,8 +52,7 @@ func _process(delta: float) -> void:
 	if game_over:
 		return
 		
-	calculate_biomass_capacity_percent()
-	tick_aquarium_health(delta, biomass_usage)
+	tick_nitrogen_levels(delta)
 
 func _on_buy_snail_pressed() -> void:
 	if money < 5:
@@ -88,8 +87,6 @@ func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant
 	
 	# make creatures search for target
 	creatures_find_corpses()
-	
-	calculate_biomass_capacity_percent()
 
 func corpse_was_eaten(reward):
 	money += reward
@@ -169,32 +166,15 @@ func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
 	if corpse_list.size() == 7:# full
 		$UI/ContractMenu.no_contracts_available()
-
-func calculate_biomass_capacity_percent():
-	var actual_biomass = 0
 	
-	var corpse_list = compile_corpse_list()
-	for corpse in corpse_list:
-		actual_biomass += corpse.weight
+func tick_nitrogen_levels(delta: float):
+	# TODO: add stuff
 	
-	# TODO: Vary the creature weight
-	actual_biomass += $Aquarium/Creatures.get_child_count() * 5.0
-	biomass_usage = snappedf(actual_biomass / biomass_capacity, 0.0001)
-	
-	$UI/BiomassBar.value = biomass_usage * 100
-	
-func tick_aquarium_health(delta: float, biomass_usage: float):
-	var health_difference = (1.0 - biomass_usage) * 0.5 * delta
-	aquarium_health += snappedf(health_difference, 0.0001)
-	aquarium_health = clamp(aquarium_health, 0.0, 1.0)
-	$UI/HealthBar.value = aquarium_health * 100
-	
-	var new_color = default_aquarium_color
-	new_color.g += (0.5 * (1.0-aquarium_health))
-	$Lighting/WaterRect.color = new_color
-	
-	if aquarium_health == 0.0:
-		set_game_over()
+	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
+	$UI/NitrateLevelBar.value = nitrate_level * 100.0
+	#var new_color = default_aquarium_color
+	#new_color.g += (0.5 * (1.0-aquarium_health))
+	#$Lighting/WaterRect.color = new_color
 
 func _on_buy_stem_plant_pressed() -> void:
 	if money < 15:
