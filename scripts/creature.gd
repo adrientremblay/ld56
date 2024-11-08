@@ -20,56 +20,56 @@ static var species_stats = {
 		"price": 5,
 		"damage": 2.5,
 		"speed": 1,
-		"bioload": 0.0001
+		"bioload": 0.001
 	},
 	Species.CRAB: { #vpd=0.8
 		"sprite_scene": crab_sprite_scene,
 		"price": 25,
 		"damage": 8,
 		"speed": 2.5,
-		"bioload": 0.0001
+		"bioload": 0.005
 	},
 	Species.LOBSTER: { #vpd=1.0
 		"sprite_scene": lobster_sprite_scene,
 		"price": 50,
 		"damage": 25,
 		"speed": 2,
-		"bioload": 0.0001
+		"bioload": 0.01
 	},
 	Species.OCTOPUS: { #vpd=1.75
 		"sprite_scene": octopus_sprite_scene,
 		"price": 300,
 		"damage": 150,
 		"speed": 3.5,
-		"bioload": 0.0001
+		"bioload": 0.06
 	},
 	Species.TURTLE: { #vpd=2.8
 		"sprite_scene": turtle_sprite_scene,
 		"price": 500,
 		"damage": 700,
 		"speed": 2,
-		"bioload": 0.0001
+		"bioload": 0.12
 	},
 	Species.KILLIFISH: { # vpd=0.5
 		"sprite_scene": killifish_sprite_scene,
 		"price": 5,
 		"damage": 1,
 		"speed": 2.5,
-		"bioload": 0.0001
+		"bioload": 0.001
 	},
 	Species.PIRANHA: { #vpd=0.8
 		"sprite_scene": piranha_sprite_scene,
 		"price": 25,
 		"damage": 4,
 		"speed": 5,
-		"bioload": 0.0001
+		"bioload": 0.005
 	},
 	Species.ANGLERFISH: { #vpd=1.0
 		"sprite_scene": anglerfish_sprite_scene,
 		"price": 50,
 		"damage": 12.5,
 		"speed": 4,
-		"bioload": 0.0001
+		"bioload": 0.01
 	},
 	Species.DRAGONFISH: { #vpd=1.75
 		"vpd": 1.75,
@@ -77,7 +77,7 @@ static var species_stats = {
 		"price": 300,
 		"damage": 75,
 		"speed": 7,
-		"bioload": 0.0001
+		"bioload": 0.06
 	},
 	Species.GOBLINSHARK: { #vpd=2.8
 		"vpd": 2.8,
@@ -85,7 +85,7 @@ static var species_stats = {
 		"price": 500,
 		"damage": 350,
 		"speed": 4,
-		"bioload": 0.0001
+		"bioload": 0.12
 	}
 }
 
