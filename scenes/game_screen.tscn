@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=48 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_sfu83"]
 [ext_resource type="PackedScene" uid="uid://f3722j5e8eqm" path="res://scenes/corpse.tscn" id="4_tr83u"]
 [ext_resource type="PackedScene" uid="uid://wwsrmx3owm5" path="res://scenes/plant.tscn" id="6_ol3g8"]
+[ext_resource type="PackedScene" uid="uid://v6g3yws6x3cp" path="res://scenes/sponge_filter.tscn" id="7_yhpkr"]
 [ext_resource type="Script" path="res://scripts/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
@@ -82,6 +83,11 @@ texture = ExtResource("1_sqbh1")
 [node name="Aquarium" type="Node2D" parent="."]
 
 [node name="Plants" type="Node2D" parent="Aquarium"]
+
+[node name="Filters" type="Node2D" parent="Aquarium"]
+
+[node name="SpongeFilter" parent="Aquarium/Filters" instance=ExtResource("7_yhpkr")]
+position = Vector2(205, 306)
 
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
 position = Vector2(145, 631)
