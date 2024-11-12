@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=58 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://v6g3yws6x3cp" path="res://scenes/sponge_filter.tscn" id="7_yhpkr"]
 [ext_resource type="Script" path="res://scripts/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="Texture2D" uid="uid://csjm14d32m14y" path="res://assets/art/hang_on_back_filter-Sheet.png" id="8_yhx5d"]
+[ext_resource type="Texture2D" uid="uid://dnvfg37tkw1tg" path="res://assets/art/canister_filter-Sheet.png" id="9_f38is"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
 [ext_resource type="Texture2D" uid="uid://cmqoa2bhwo22b" path="res://assets/art/crab.png" id="12_m0ecb"]
@@ -66,6 +67,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mv3r"]
+atlas = ExtResource("9_f38is")
+region = Rect2(0, 0, 32, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajtrb"]
+atlas = ExtResource("9_f38is")
+region = Rect2(32, 0, 32, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh224"]
+atlas = ExtResource("9_f38is")
+region = Rect2(64, 0, 32, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwqny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mv3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajtrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh224")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
 }]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
@@ -124,8 +154,14 @@ position = Vector2(396, 304)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_60tpc")
 
+[node name="CanisterFilter" type="AnimatedSprite2D" parent="Aquarium/Filters"]
+position = Vector2(535, 308)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_mwqny")
+frame_progress = 0.613977
+
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
-position = Vector2(145, 631)
+position = Vector2(145, 632)
 
 [node name="CorpseSpawn2" type="Node2D" parent="Aquarium"]
 position = Vector2(302, 621)

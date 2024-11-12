@@ -45,6 +45,7 @@ func _ready() -> void:
 	$UI/TitleScreen.open()
 	$Aquarium/Filters/SpongeFilter.play()
 	$Aquarium/Filters/HangOnBackFilter.play()
+	$Aquarium/Filters/CanisterFilter.play()
 
 func start_game():
 	$Music.play()
