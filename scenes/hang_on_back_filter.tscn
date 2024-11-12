@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://hqn0bat18dah"]
+
+[ext_resource type="Texture2D" uid="uid://csjm14d32m14y" path="res://assets/art/hang_on_back_filter-Sheet.png" id="1_v1ny8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io4n0"]
+atlas = ExtResource("1_v1ny8")
+region = Rect2(0, 0, 32, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihmy2"]
+atlas = ExtResource("1_v1ny8")
+region = Rect2(32, 0, 32, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbnjw"]
+atlas = ExtResource("1_v1ny8")
+region = Rect2(64, 0, 32, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60tpc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io4n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihmy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbnjw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="HangOnBackFilter" type="AnimatedSprite2D"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_60tpc")

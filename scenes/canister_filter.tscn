@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cauugbmc0tuf1"]
+
+[ext_resource type="Texture2D" uid="uid://dnvfg37tkw1tg" path="res://assets/art/canister_filter-Sheet.png" id="1_17578"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mv3r"]
+atlas = ExtResource("1_17578")
+region = Rect2(0, 0, 32, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajtrb"]
+atlas = ExtResource("1_17578")
+region = Rect2(32, 0, 32, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh224"]
+atlas = ExtResource("1_17578")
+region = Rect2(64, 0, 32, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mwqny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mv3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajtrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh224")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CanisterFilter" type="AnimatedSprite2D"]
+position = Vector2(535, 308)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_mwqny")
+frame_progress = 0.920311

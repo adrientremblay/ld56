@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=48 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -9,14 +9,10 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_sfu83"]
 [ext_resource type="PackedScene" uid="uid://f3722j5e8eqm" path="res://scenes/corpse.tscn" id="4_tr83u"]
 [ext_resource type="PackedScene" uid="uid://wwsrmx3owm5" path="res://scenes/plant.tscn" id="6_ol3g8"]
-[ext_resource type="PackedScene" uid="uid://v6g3yws6x3cp" path="res://scenes/sponge_filter.tscn" id="7_yhpkr"]
 [ext_resource type="Script" path="res://scripts/ContractMenu.gd" id="8_u3xyv"]
-[ext_resource type="Texture2D" uid="uid://csjm14d32m14y" path="res://assets/art/hang_on_back_filter-Sheet.png" id="8_yhx5d"]
-[ext_resource type="Texture2D" uid="uid://dnvfg37tkw1tg" path="res://assets/art/canister_filter-Sheet.png" id="9_f38is"]
-[ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="10_eyase"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
-[ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="11_jqxnl"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
+[ext_resource type="PackedScene" uid="uid://by1rqku5j5ack" path="res://scenes/industrial_filter.tscn" id="11_xeka5"]
 [ext_resource type="Texture2D" uid="uid://cmqoa2bhwo22b" path="res://assets/art/crab.png" id="12_m0ecb"]
 [ext_resource type="Script" path="res://scripts/buy_creature_button.gd" id="12_mmhuv"]
 [ext_resource type="Texture2D" uid="uid://iktm1jvkvo6g" path="res://assets/art/killifish.png" id="13_glwx0"]
@@ -41,64 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://db7eyx2mgvcil" path="res://assets/art/nitrogen_cycle_annotated.png" id="27_ofx7h"]
 [ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
 [ext_resource type="PackedScene" uid="uid://qmw0a0d7gpad" path="res://scenes/title_screen.tscn" id="30_spg6t"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_io4n0"]
-atlas = ExtResource("8_yhx5d")
-region = Rect2(0, 0, 32, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihmy2"]
-atlas = ExtResource("8_yhx5d")
-region = Rect2(32, 0, 32, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cbnjw"]
-atlas = ExtResource("8_yhx5d")
-region = Rect2(64, 0, 32, 160)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_60tpc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_io4n0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ihmy2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cbnjw")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6mv3r"]
-atlas = ExtResource("9_f38is")
-region = Rect2(0, 0, 32, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ajtrb"]
-atlas = ExtResource("9_f38is")
-region = Rect2(32, 0, 32, 160)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh224"]
-atlas = ExtResource("9_f38is")
-region = Rect2(64, 0, 32, 160)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mwqny"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6mv3r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ajtrb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hh224")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1174.18, 570.109, 1180.68, 622, 91.3203, 622, 942.383, 577.023, 1043.6, 358.523, 1107.78, 353.578, 929.547, 576.977, 97.7969, 570.188, 169.273, 350, 199.242, 350, 325.281, 567.07, 755.297, 347.852, 824.633, 346.156, 644.359, 574.758, 632.406, 575.219, 336.938, 566.93, 499.398, 349.203, 456.031, 350.781)
@@ -148,29 +86,25 @@ texture = ExtResource("1_sqbh1")
 
 [node name="Filters" type="Node2D" parent="Aquarium"]
 
-[node name="SpongeFilter" parent="Aquarium/Filters" instance=ExtResource("7_yhpkr")]
-position = Vector2(205, 306)
+[node name="FilterSpawn1" type="Node2D" parent="Aquarium/Filters"]
+position = Vector2(182, 304)
 
-[node name="HangOnBackFilter" type="AnimatedSprite2D" parent="Aquarium/Filters"]
-position = Vector2(396, 304)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_60tpc")
+[node name="IndustrialFilter" parent="Aquarium/Filters/FilterSpawn1" instance=ExtResource("11_xeka5")]
 
-[node name="CanisterFilter" type="AnimatedSprite2D" parent="Aquarium/Filters"]
-position = Vector2(535, 308)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_mwqny")
-frame_progress = 0.920311
+[node name="FilterSpawn2" type="Node2D" parent="Aquarium/Filters"]
+position = Vector2(492, 304)
 
-[node name="SampleSump" type="Sprite2D" parent="Aquarium/Filters"]
-position = Vector2(784, 313)
-scale = Vector2(4, 4)
-texture = ExtResource("10_eyase")
+[node name="IndustrialFilter" parent="Aquarium/Filters/FilterSpawn2" instance=ExtResource("11_xeka5")]
 
-[node name="IndustrialFilter" type="Sprite2D" parent="Aquarium/Filters"]
-position = Vector2(1058, 312)
-scale = Vector2(4, 4)
-texture = ExtResource("11_jqxnl")
+[node name="FilterSpawn3" type="Node2D" parent="Aquarium/Filters"]
+position = Vector2(797, 304)
+
+[node name="IndustrialFilter" parent="Aquarium/Filters/FilterSpawn3" instance=ExtResource("11_xeka5")]
+
+[node name="FilterSpawn4" type="Node2D" parent="Aquarium/Filters"]
+position = Vector2(1085, 304)
+
+[node name="IndustrialFilter" parent="Aquarium/Filters/FilterSpawn4" instance=ExtResource("11_xeka5")]
 
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
 position = Vector2(145, 632)
@@ -190,10 +124,10 @@ position = Vector2(784, 634)
 [node name="CorpseSpawn6" type="Node2D" parent="Aquarium"]
 position = Vector2(955, 639)
 
-[node name="Creatures" type="Node2D" parent="Aquarium"]
-
 [node name="CorpseSpawn7" type="Node2D" parent="Aquarium"]
 position = Vector2(1104, 626)
+
+[node name="Creatures" type="Node2D" parent="Aquarium"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false
