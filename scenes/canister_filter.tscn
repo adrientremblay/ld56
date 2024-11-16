@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cauugbmc0tuf1"]
+[gd_scene load_steps=7 format=3 uid="uid://cauugbmc0tuf1"]
 
 [ext_resource type="Texture2D" uid="uid://dnvfg37tkw1tg" path="res://assets/art/canister_filter-Sheet.png" id="1_17578"]
+[ext_resource type="Script" path="res://Filter.gd" id="2_d61cc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6mv3r"]
 atlas = ExtResource("1_17578")
@@ -35,3 +36,4 @@ animations = [{
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_mwqny")
 frame_progress = 0.920311
+script = ExtResource("2_d61cc")

@@ -8,6 +8,8 @@ static var industrial_filter_sprite_scene : PackedScene = load("res://scenes/ind
 
 enum FilterType {SPONGE_FILTER, HANG_ON_BACK_FILTER, CANISTER_FILTER, SUMP_FILTER, INDUSTRIAL_FILTER}
 
+static var PERFORMANCE_GROWTH_PER_SECOND = 0.1
+
 static var filter_stats = {
 	FilterType.SPONGE_FILTER: {
 		"sprite_scene": sponge_filter_sprite_scene,
@@ -35,3 +37,11 @@ static var filter_stats = {
 		"price": 500,
 	},
 }
+
+var current_performance = 0
+var max_performance
+var filter_type
+
+func set_type(type: FilterType):
+	self.filter_type = type
+	self.max_performance = filter_stats[type].max_performance

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://v6g3yws6x3cp"]
+[gd_scene load_steps=8 format=3 uid="uid://v6g3yws6x3cp"]
 
 [ext_resource type="Texture2D" uid="uid://y3troa0c42mq" path="res://assets/art/sponge_filter-Sheett.png" id="1_jct3o"]
+[ext_resource type="Script" path="res://Filter.gd" id="2_y6hip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gwx3"]
 atlas = ExtResource("1_jct3o")
@@ -43,3 +44,4 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_8oxq1")
 frame = 1
 frame_progress = 0.632818
+script = ExtResource("2_y6hip")

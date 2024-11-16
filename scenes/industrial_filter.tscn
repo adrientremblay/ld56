@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://by1rqku5j5ack"]
+[gd_scene load_steps=5 format=3 uid="uid://by1rqku5j5ack"]
 
 [ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="1_pmm8b"]
+[ext_resource type="Script" path="res://Filter.gd" id="2_sltmi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jaw8"]
 atlas = ExtResource("1_pmm8b")
@@ -20,3 +21,4 @@ animations = [{
 [node name="IndustrialFilter" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_n6wh8")
+script = ExtResource("2_sltmi")

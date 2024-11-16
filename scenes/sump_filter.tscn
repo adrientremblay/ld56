@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6nqvnlerv7au"]
+[gd_scene load_steps=5 format=3 uid="uid://b6nqvnlerv7au"]
 
 [ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="1_q0csh"]
+[ext_resource type="Script" path="res://Filter.gd" id="2_xfta1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r2unk"]
 atlas = ExtResource("1_q0csh")
@@ -20,3 +21,4 @@ animations = [{
 [node name="SumpFilter" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_n345s")
+script = ExtResource("2_xfta1")
