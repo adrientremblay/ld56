@@ -42,6 +42,7 @@ var CORPSE_QUOTA_PER_LEVEL = [0, 1, 2, 3, 5, 7, 10, 15, 30, 50, 100] # index = l
 # MISC
 var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
 var current_datetime: int # unix time
+var GLOBAL_NITROGEN_MODIFIER = 0.3
 
 func _ready() -> void:
 	randomize() # ensures randomness for randi() and randf()
@@ -176,7 +177,30 @@ func _on_ui_contract_menu_opened() -> void:
 func tick_nitrogen_levels():
 	# Ammonia production from creatures
 	for creature in $Aquarium/Creatures.get_children():
-		self.ammonia_level += creature.bioload
+		self.ammonia_level += creature.bioload * GLOBAL_NITROGEN_MODIFIER
+	# Ammonia conversion -> Nitrate from filters
+	if ammonia_level > 0:
+		for filter_spawn in $Aquarium/Filters.get_children():
+			if filter_spawn.get_child_count() != 0:
+				var filter: Filter = filter_spawn.get_child(0)
+				# Increase filter performance (bacteria colony grows)
+				if filter.current_performance < filter.max_performance:
+					filter.current_performance += Filter.PERFORMANCE_GROWTH_PER_SECOND
+					filter.current_performance = min(filter.current_performance, filter.max_performance)
+				# Convert Ammonia to Nitrate
+				var ammonia_level_to_consume = min(ammonia_level, filter.current_performance * GLOBAL_NITROGEN_MODIFIER)
+				ammonia_level -= ammonia_level_to_consume
+				nitrate_level += ammonia_level_to_consume
+	# Nitrate uptake by plants
+	if nitrate_level > 0:
+		for plant in $Aquarium/Plants.get_children():
+			var nitrate_level_to_consume = min(nitrate_level, plant.performance * GLOBAL_NITROGEN_MODIFIER)
+			nitrate_level -= nitrate_level_to_consume
+	
+	# Clamp ammonia and nitrate levels
+	ammonia_level = clamp(ammonia_level, 0.0, 1.0)
+	nitrate_level = clamp(nitrate_level, 0.0, 1.0)
+	
 	# Damage to fish based on ammonia level
 	#	- Based on the nitrogen tolerance of each fish
 	# 	- Threshold for ammonia poisoning is 25%
@@ -201,27 +225,6 @@ func tick_nitrogen_levels():
 				creature.queue_free()
 			else:
 				creature.update_health_bar()
-	# Ammonia conversion -> Nitrate from filters
-	if ammonia_level > 0:
-		for filter_spawn in $Aquarium/Filters.get_children():
-			if filter_spawn.get_child_count() != 0:
-				var filter: Filter = filter_spawn.get_child(0)
-				# Increase filter performance (bacteria colony grows)
-				if filter.current_performance != filter.max_performance:
-					filter.current_performance += Filter.PERFORMANCE_GROWTH_PER_SECOND
-				# Convert Ammonia to Nitrate
-				var ammonia_level_to_consume = min(ammonia_level, filter.current_performance)
-				ammonia_level -= ammonia_level_to_consume
-				nitrate_level += ammonia_level_to_consume
-	# Nitrate uptake by plants
-	if nitrate_level > 0:
-		for plant in $Aquarium/Plants.get_children():
-			var nitrate_level_to_consume = min(nitrate_level, plant.performance)
-			nitrate_level -= nitrate_level_to_consume
-	
-	# Clamp ammonia and nitrate levels
-	ammonia_level = clamp(ammonia_level, 0.0, 1.0)
-	nitrate_level = clamp(nitrate_level, 0.0, 1.0)
 	
 	# Update UI
 	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0

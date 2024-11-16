@@ -39,7 +39,7 @@ func construct(person_name, weight, reward, appearance: Contract.Appearance, fem
 
 func _process(delta: float) -> void:
 	for creature in feeding_area.get_overlapping_bodies():
-		weight -= creature.damage * delta * 0.1
+		weight -= creature.damage * delta * 0.2
 	
 	if weight <= 0:
 		self.eaten = true
