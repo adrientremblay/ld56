@@ -32,7 +32,6 @@ animations = [{
 }]
 
 [node name="CanisterFilter" type="AnimatedSprite2D"]
-position = Vector2(535, 308)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_mwqny")
 frame_progress = 0.920311

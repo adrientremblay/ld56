@@ -6,6 +6,7 @@ extends Node2D
 @export var plantScene: PackedScene
 
 @onready var contract_menu = $UI/ContractMenu
+
 @onready var corpse_spawn1 = $Aquarium/CorpseSpawn1
 @onready var corpse_spawn2 = $Aquarium/CorpseSpawn2
 @onready var corpse_spawn3 = $Aquarium/CorpseSpawn3
@@ -13,8 +14,13 @@ extends Node2D
 @onready var corpse_spawn5 = $Aquarium/CorpseSpawn5
 @onready var corpse_spawn6 = $Aquarium/CorpseSpawn6
 @onready var corpse_spawn7 = $Aquarium/CorpseSpawn7
-
 @onready var corpse_spawn_list = [corpse_spawn1, corpse_spawn2, corpse_spawn3, corpse_spawn4, corpse_spawn5, corpse_spawn6, corpse_spawn7]
+
+@onready var filter_spawn1 = $Aquarium/Filters/FilterSpawn1
+@onready var filter_spawn2 = $Aquarium/Filters/FilterSpawn2
+@onready var filter_spawn3 = $Aquarium/Filters/FilterSpawn3
+@onready var filter_spawn4 = $Aquarium/Filters/FilterSpawn4
+@onready var filter_spawn_list = [filter_spawn1, filter_spawn2, filter_spawn3, filter_spawn4]
 
 var game_over = false
 
@@ -408,18 +414,9 @@ func _on_level_screen_level_screen_closed() -> void:
 	launch_level()
 
 func delete_all_corpses():
-	if (corpse_spawn1.get_child_count() != 0):
-		corpse_spawn1.get_child(0).eaten = true
-		corpse_spawn1.get_child(0).queue_free()
-	if (corpse_spawn2.get_child_count() != 0):
-		corpse_spawn2.get_child(0).eaten = true
-		corpse_spawn2.get_child(0).queue_free()
-	if (corpse_spawn3.get_child_count() != 0):
-		corpse_spawn3.get_child(0).eaten = true
-		corpse_spawn3.get_child(0).queue_free()
-	if (corpse_spawn4.get_child_count() != 0):
-		corpse_spawn4.get_child(0).eaten = true
-		corpse_spawn4.get_child(0).queue_free()
+	for spawn in corpse_spawn_list :
+		if spawn.get_child_count() != 0:
+			spawn.get_child(0).queue_free()
 	creatures_find_corpses()
 
 func _on_buy_anglerfish_pressed() -> void:
@@ -519,4 +516,22 @@ func _on_spawn_species(species: Creature.Species) -> void:
 	$SpawnCreature.play()
 
 func _on_spawn_filter(filter: Filter.FilterType) -> void:
-	print(filter)
+	# find a random available spawn
+	var spawn_indexes_to_try = [0, 1, 2, 3]
+	spawn_indexes_to_try.shuffle()
+	var spawn_point = null
+	for spawn_index in spawn_indexes_to_try:
+		if filter_spawn_list[spawn_index].get_child_count() == 0:
+			spawn_point = filter_spawn_list[spawn_index]
+	if spawn_point == null:
+		return
+	
+	# check and do money subtraction
+	if money < Filter.filter_stats[filter].price:
+		return
+	money -= Filter.filter_stats[filter].price
+	set_money_label()
+	
+	var filter_node = Filter.filter_stats[filter].sprite_scene.instantiate()
+	spawn_point.add_child(filter_node)
+	$Splash.play()

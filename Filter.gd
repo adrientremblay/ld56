@@ -15,7 +15,7 @@ static var filter_stats = {
 		"price": 15,
 	},
 	FilterType.HANG_ON_BACK_FILTER: {
-		"sprite_scene": sponge_filter_sprite_scene,
+		"sprite_scene": hang_on_back_filter_sprite_scene,
 		"max_performance": 1,
 		"price": 40,
 	},
