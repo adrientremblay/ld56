@@ -14,3 +14,7 @@ func _on_mouse_exited() -> void:
 func add_filter(filter: Filter):
 	self.filter = filter
 	add_child(filter)
+
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MouseButton.MOUSE_BUTTON_LEFT and event.pressed:
+		print("AnimatedSprite2D clicked!")
