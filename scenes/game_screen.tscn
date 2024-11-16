@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=51 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -33,8 +33,12 @@
 [ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
 [ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
+[ext_resource type="Texture2D" uid="uid://c62iam8kxfgns" path="res://assets/art/sponge_filter.png" id="26_cahwj"]
 [ext_resource type="Texture2D" uid="uid://db7eyx2mgvcil" path="res://assets/art/nitrogen_cycle_annotated.png" id="27_ofx7h"]
+[ext_resource type="Texture2D" uid="uid://n0uchckdn8og" path="res://assets/art/hang_on_back_filter.png" id="27_wxhxw"]
+[ext_resource type="Texture2D" uid="uid://dl822eunvw7sr" path="res://assets/art/canister_filter.png" id="28_67da6"]
 [ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
+[ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="29_s2nwj"]
 [ext_resource type="PackedScene" uid="uid://qmw0a0d7gpad" path="res://scenes/title_screen.tscn" id="30_spg6t"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
@@ -614,6 +618,167 @@ offset_bottom = 52.0
 texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
+[node name="FilterMenu" type="Panel" parent="UI"]
+light_mask = 0
+offset_left = 264.0
+offset_top = 88.0
+offset_right = 1032.0
+offset_bottom = 592.0
+theme = ExtResource("4_gs2f0")
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/FilterMenu"]
+material = SubResource("CanvasItemMaterial_r6l3h")
+offset_right = 768.0
+offset_bottom = 504.0
+theme_override_constants/separation = 10
+vertical = true
+
+[node name="Label" type="Label" parent="UI/FilterMenu/BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Buy Filters"
+horizontal_alignment = 1
+
+[node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox"]
+layout_mode = 2
+
+[node name="SpongeFilterHBox" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+sponge
+ filter 
+(15$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(64, 160)
+layout_mode = 2
+texture = ExtResource("26_cahwj")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="SpongeFilterHBox2" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy Hang
+on Back
+Filter
+(40$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
+light_mask = 0
+custom_minimum_size = Vector2(64, 160)
+layout_mode = 2
+texture = ExtResource("27_wxhxw")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="SpongeFilterHBox3" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy
+Canister
+Filter
+(100$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
+light_mask = 0
+custom_minimum_size = Vector2(64, 160)
+layout_mode = 2
+texture = ExtResource("28_67da6")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox"]
+layout_mode = 2
+
+[node name="SpongeFilterHBox" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy
+SUmp
+Filter
+(200$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(64, 160)
+layout_mode = 2
+texture = ExtResource("29_s2nwj")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="SpongeFilterHBox2" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+Industrial 
+Filter (500$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
+light_mask = 0
+custom_minimum_size = Vector2(64, 160)
+layout_mode = 2
+texture = ExtResource("26_cahwj")
+expand_mode = 4
+stretch_mode = 3
+
+[node name="SpongeFilterHBox3" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseFilterMenu" type="TextureButton" parent="UI/FilterMenu"]
+light_mask = 0
+layout_mode = 2
+offset_left = 729.0
+offset_top = 5.0
+offset_right = 755.0
+offset_bottom = 30.0
+texture_normal = ExtResource("15_purco")
+stretch_mode = 0
+
 [node name="MoneyLabel" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 1043.0
@@ -797,6 +962,7 @@ wait_time = 0.5
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
+[connection signal="pressed" from="UI/FiltersButton" to="UI" method="_on_filters_button_pressed"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" method="_on_pressed"]
 [connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" method="_on_pressed"]
@@ -826,6 +992,7 @@ wait_time = 0.5
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
+[connection signal="pressed" from="UI/FilterMenu/CloseFilterMenu" to="UI" method="_on_close_filter_menu_pressed"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
