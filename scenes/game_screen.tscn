@@ -1110,9 +1110,6 @@ wait_time = 0.5
 
 [node name="NitrogenTimer" type="Timer" parent="."]
 
-[node name="FilterWrapper" parent="." instance=ExtResource("5_rf23r")]
-position = Vector2(231, 329)
-
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="mouse_entered" from="UI" to="UI" method="_on_mouse_entered"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]

@@ -6,7 +6,6 @@ static var MODULATE_COLOR = Color(1, 0.5, 1, 1)
 var filter: Filter
 
 func _on_mouse_entered() -> void:
-	print("enter")
 	filter.modulate = MODULATE_COLOR
 
 func _on_mouse_exited() -> void:
