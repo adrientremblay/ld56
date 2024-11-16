@@ -27,7 +27,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = true
+var debug = false
 var money = 2000 if debug else 50
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
@@ -190,7 +190,17 @@ func tick_nitrogen_levels():
 				creature.queue_free()
 			else:
 				creature.update_health_bar()
-	
+	# Damage to fish based on nitrate level
+	if nitrate_level >= 0.25:
+		var base_damage = nitrate_level * 2.0
+		
+		for creature in $Aquarium/Creatures.get_children():
+			var creature_damage = base_damage * creature.nitrogen_coefficient
+			creature.health -= creature_damage
+			if creature.health <= 0:
+				creature.queue_free()
+			else:
+				creature.update_health_bar()
 	# Ammonia conversion -> Nitrate from filters
 	if ammonia_level > 0:
 		for filter_spawn in $Aquarium/Filters.get_children():
@@ -203,7 +213,6 @@ func tick_nitrogen_levels():
 				var ammonia_level_to_consume = min(ammonia_level, filter.current_performance)
 				ammonia_level -= ammonia_level_to_consume
 				nitrate_level += ammonia_level_to_consume
-	
 	# Nitrate uptake by plants
 	if nitrate_level > 0:
 		for plant in $Aquarium/Plants.get_children():

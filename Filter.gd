@@ -13,27 +13,27 @@ static var PERFORMANCE_GROWTH_PER_SECOND = 0.1
 static var filter_stats = {
 	FilterType.SPONGE_FILTER: {
 		"sprite_scene": sponge_filter_sprite_scene,
-		"max_performance": 0.1,
+		"max_performance": 0.005,
 		"price": 15,
 	},
 	FilterType.HANG_ON_BACK_FILTER: {
 		"sprite_scene": hang_on_back_filter_sprite_scene,
-		"max_performance": 1,
+		"max_performance": 0.01,
 		"price": 40,
 	},
 	FilterType.CANISTER_FILTER: {
 		"sprite_scene": canister_filter_sprite_scene,
-		"max_performance": 2,
+		"max_performance": 0.1,
 		"price": 100,
 	},
 	FilterType.SUMP_FILTER: {
 		"sprite_scene": sump_filter_sprite_scene,
-		"max_performance": 5,
+		"max_performance": 1,
 		"price": 200,
 	},
 	FilterType.INDUSTRIAL_FILTER: {
 		"sprite_scene": industrial_filter_sprite_scene,
-		"max_performance": 10,
+		"max_performance": 2,
 		"price": 500,
 	},
 }
