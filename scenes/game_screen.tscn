@@ -537,7 +537,7 @@ vertical = true
 [node name="Label" type="Label" parent="UI/PlantMenu/BoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Buy Filters"
+text = "Buy Plants"
 horizontal_alignment = 1
 
 [node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer"]

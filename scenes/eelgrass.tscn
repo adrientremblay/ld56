@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4axgeq2wpdnb"]
+
+[ext_resource type="Texture2D" uid="uid://c6485aeghdxlq" path="res://assets/art/eelgrass.png" id="1_cseoy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5n83b"]
+atlas = ExtResource("1_cseoy")
+region = Rect2(0, 0, 36, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g3ehk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5n83b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Eelgrass" type="AnimatedSprite2D"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_g3ehk")
