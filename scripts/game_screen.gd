@@ -43,9 +43,6 @@ func _ready() -> void:
 	update_corpse_eaten_label()
 	dialogic_setup()
 	$UI/TitleScreen.open()
-	$Aquarium/Filters/SpongeFilter.play()
-	$Aquarium/Filters/HangOnBackFilter.play()
-	$Aquarium/Filters/CanisterFilter.play()
 
 func start_game():
 	$Music.play()
