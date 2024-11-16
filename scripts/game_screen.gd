@@ -3,7 +3,7 @@ extends Node2D
 @export var landCreatureScene: PackedScene
 @export var corpse_scene: PackedScene
 @export var waterCreatureScene: PackedScene
-@export var plantScene: PackedScene
+@export var filterWrapperScene: PackedScene
 
 @onready var contract_menu = $UI/ContractMenu
 
@@ -232,20 +232,6 @@ func tick_nitrogen_levels():
 	#var new_color = default_aquarium_color
 	#new_color.g += (0.5 * (1.0-aquarium_health))
 	#$Lighting/WaterRect.color = new_color
-
-func _on_buy_stem_plant_pressed() -> void:
-	if money < 15:
-		return
-	money -= 15
-	set_money_label()
-	
-	$SpawnPlant.play()
-	
-	biomass_capacity += 20
-	
-	var new_plant = plantScene.instantiate()
-	new_plant.global_position = Vector2(137 + (randf() * 966), 507 - (randf()*31))
-	$Aquarium/Plants.add_child(new_plant)
 
 func _on_retire_pressed() -> void:
 	next_level()
@@ -571,10 +557,12 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	set_money_label()
 	
 	# create the filter node
+	var filter_wrapper = filterWrapperScene.instantiate()
 	var filter_node: Filter = Filter.filter_stats[filter].sprite_scene.instantiate()
+	filter_wrapper.add_filter(filter_node)
 	filter_node.set_type(filter)
 	filter_node.play()
-	spawn_point.add_child(filter_node)
+	spawn_point.add_child(filter_wrapper)
 	$Splash.play()
 
 func _on_spawn_plant(type: Plant.PlantType) -> void:

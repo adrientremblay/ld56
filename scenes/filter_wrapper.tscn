@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://sdhxmrbqtwll"]
+
+[ext_resource type="Script" path="res://scenes/filter_wrapper.gd" id="1_iu7d1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_33u3d"]
+radius = 49.0
+height = 644.0
+
+[node name="FilterWrapper" type="Area2D"]
+script = ExtResource("1_iu7d1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_33u3d")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

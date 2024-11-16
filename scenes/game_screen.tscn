@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://by5yr2j6yd8xi" path="res://assets/art/light_texture.png" id="4_lrlsq"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="4_sfu83"]
 [ext_resource type="PackedScene" uid="uid://f3722j5e8eqm" path="res://scenes/corpse.tscn" id="4_tr83u"]
-[ext_resource type="PackedScene" uid="uid://wwsrmx3owm5" path="res://scenes/plant.tscn" id="6_ol3g8"]
+[ext_resource type="PackedScene" uid="uid://sdhxmrbqtwll" path="res://scenes/filter_wrapper.tscn" id="5_rf23r"]
 [ext_resource type="Script" path="res://scripts/ContractMenu.gd" id="8_u3xyv"]
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
@@ -83,7 +83,7 @@ script = ExtResource("1_ka8qc")
 landCreatureScene = ExtResource("2_nfyws")
 corpse_scene = ExtResource("4_tr83u")
 waterCreatureScene = ExtResource("13_kriy5")
-plantScene = ExtResource("6_ol3g8")
+filterWrapperScene = ExtResource("5_rf23r")
 
 [node name="AquariumBackdrop" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -141,6 +141,7 @@ navigation_polygon = SubResource("NavigationPolygon_w865j")
 [node name="DarknessFilter" type="ColorRect" parent="Lighting"]
 offset_right = 1280.0
 offset_bottom = 720.0
+mouse_filter = 2
 color = Color(0, 0, 0, 0.584314)
 
 [node name="WaterRect" type="ColorRect" parent="Lighting"]
@@ -148,6 +149,7 @@ offset_left = 80.0
 offset_top = 100.0
 offset_right = 1200.0
 offset_bottom = 641.0
+mouse_filter = 2
 color = Color(0, 0.3895, 0.57, 0.243137)
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
@@ -521,6 +523,7 @@ theme = ExtResource("4_gs2f0")
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
+layout_mode = 0
 offset_right = 768.0
 offset_bottom = 504.0
 theme_override_constants/separation = 10
@@ -1107,7 +1110,11 @@ wait_time = 0.5
 
 [node name="NitrogenTimer" type="Timer" parent="."]
 
+[node name="FilterWrapper" parent="." instance=ExtResource("5_rf23r")]
+position = Vector2(231, 329)
+
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
+[connection signal="mouse_entered" from="UI" to="UI" method="_on_mouse_entered"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
 [connection signal="pressed" from="UI/FiltersButton" to="UI" method="_on_filters_button_pressed"]
