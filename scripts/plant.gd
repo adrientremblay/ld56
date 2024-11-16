@@ -1,47 +1,51 @@
 class_name Plant extends AnimatedSprite2D
 
-static var sponge_filter_sprite_scene : PackedScene = load("res://scenes/sponge_filter.tscn")
-static var hang_on_back_filter_sprite_scene : PackedScene = load("res://scenes/hang_on_back_filter.tscn")
-static var canister_filter_sprite_scene : PackedScene = load("res://scenes/canister_filter.tscn")
-static var sump_filter_sprite_scene : PackedScene = load("res://scenes/sump_filter.tscn")
-static var industrial_filter_sprite_scene : PackedScene = load("res://scenes/industrial_filter.tscn")
+static var sword_plant_sprite_scene : PackedScene = load("res://scenes/sword_plant.tscn")
+static var stem_plant_sprite_scene : PackedScene = load("res://scenes/stem_plant.tscn")
+static var eelgrass_sprite_scene : PackedScene = load("res://scenes/eelgrass.tscn")
+static var water_lettuce_scene : PackedScene = load("res://scenes/water_lettuce.tscn")
+static var giant_anubias_scene : PackedScene = load("res://scenes/giant_anubias.tscn")
 
-enum FilterType {SPONGE_FILTER, HANG_ON_BACK_FILTER, CANISTER_FILTER, SUMP_FILTER, INDUSTRIAL_FILTER}
+enum PlantType {SWORD_PLANT, STEM_PLANT, EELGRASS, WATER_LETTUCE, GIANT_ANUBIAS}
 
-static var PERFORMANCE_GROWTH_PER_SECOND = 0.1
-
-static var filter_stats = {
-	FilterType.SPONGE_FILTER: {
-		"sprite_scene": sponge_filter_sprite_scene,
-		"max_performance": 0.1,
+static var plant_stats = {
+	PlantType.SWORD_PLANT: {
+		"sprite_scene": sword_plant_sprite_scene,
+		"performance": 0.01,
 		"price": 15,
+		"floating": false,
 	},
-	FilterType.HANG_ON_BACK_FILTER: {
-		"sprite_scene": hang_on_back_filter_sprite_scene,
-		"max_performance": 1,
+	PlantType.STEM_PLANT: {
+		"sprite_scene": sword_plant_sprite_scene,
+		"performance": 0.01,
+		"price": 25,
+		"floating": false,
+	},
+	PlantType.EELGRASS: {
+		"sprite_scene": sword_plant_sprite_scene,
+		"performance": 0.01,
 		"price": 40,
+		"floating": false,
 	},
-	FilterType.CANISTER_FILTER: {
-		"sprite_scene": canister_filter_sprite_scene,
-		"max_performance": 2,
-		"price": 100,
+	PlantType.WATER_LETTUCE: {
+		"sprite_scene": sword_plant_sprite_scene,
+		"performance": 0.01,
+		"price": 60,
+		"floating": true,
 	},
-	FilterType.SUMP_FILTER: {
-		"sprite_scene": sump_filter_sprite_scene,
-		"max_performance": 5,
-		"price": 200,
-	},
-	FilterType.INDUSTRIAL_FILTER: {
-		"sprite_scene": industrial_filter_sprite_scene,
-		"max_performance": 10,
-		"price": 500,
+	PlantType.GIANT_ANUBIAS: {
+		"sprite_scene": sword_plant_sprite_scene,
+		"performance": 0.01,
+		"price": 80,
+		"floating": false,
 	},
 }
 
-var current_performance = 0
-var max_performance
-var filter_type
+var performance
+var type: PlantType
+var floating: bool
 
-func set_type(type: FilterType):
-	self.filter_type = type
-	self.max_performance = filter_stats[type].max_performance
+func set_type(type: PlantType):
+	self.type = type
+	self.performance = plant_stats[type].performance
+	self.floating = plant_stats[type].floating

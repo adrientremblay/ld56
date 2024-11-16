@@ -557,3 +557,6 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	filter_node.play()
 	spawn_point.add_child(filter_node)
 	$Splash.play()
+
+func _on_spawn_plant(type: Plant.PlantType) -> void:
+	pass # Replace with function body.
