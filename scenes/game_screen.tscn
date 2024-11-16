@@ -510,6 +510,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -1105,9 +1106,6 @@ stream = ExtResource("23_u3qn2")
 wait_time = 0.5
 
 [node name="NitrogenTimer" type="Timer" parent="."]
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1174, 614)
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
