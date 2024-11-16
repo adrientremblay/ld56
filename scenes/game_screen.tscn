@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=52 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -33,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
 [ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
+[ext_resource type="Script" path="res://scripts/filter_button.gd" id="26_6coqy"]
 [ext_resource type="Texture2D" uid="uid://c62iam8kxfgns" path="res://assets/art/sponge_filter.png" id="26_cahwj"]
 [ext_resource type="Texture2D" uid="uid://db7eyx2mgvcil" path="res://assets/art/nitrogen_cycle_annotated.png" id="27_ofx7h"]
 [ext_resource type="Texture2D" uid="uid://n0uchckdn8og" path="res://assets/art/hang_on_back_filter.png" id="27_wxhxw"]
@@ -231,6 +232,7 @@ text = "Items"
 
 [node name="FiltersButton" type="Button" parent="UI"]
 light_mask = 0
+layout_mode = 0
 offset_left = 391.0
 offset_top = 686.0
 offset_right = 505.0
@@ -240,6 +242,7 @@ text = "Filters"
 
 [node name="BuyButtonsLabel" type="Label" parent="UI"]
 light_mask = 0
+layout_mode = 0
 offset_left = 17.0
 offset_top = 654.0
 offset_right = 496.0
@@ -620,6 +623,7 @@ stretch_mode = 0
 
 [node name="FilterMenu" type="Panel" parent="UI"]
 light_mask = 0
+layout_mode = 0
 offset_left = 264.0
 offset_top = 88.0
 offset_right = 1032.0
@@ -628,6 +632,7 @@ theme = ExtResource("4_gs2f0")
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/FilterMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
+layout_mode = 0
 offset_right = 768.0
 offset_bottom = 504.0
 theme_override_constants/separation = 10
@@ -661,6 +666,7 @@ text = "Buy
 sponge
  filter 
 (15$)"
+script = ExtResource("26_6coqy")
 
 [node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox"]
 light_mask = 0
@@ -675,7 +681,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
+[node name="BuyHangOnBackFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
@@ -684,6 +690,8 @@ text = "Buy Hang
 on Back
 Filter
 (40$)"
+script = ExtResource("26_6coqy")
+filter_type = 1
 
 [node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
 light_mask = 0
@@ -698,7 +706,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
+[node name="BuyCanisterFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
@@ -707,6 +715,8 @@ text = "Buy
 Canister
 Filter
 (100$)"
+script = ExtResource("26_6coqy")
+filter_type = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
 light_mask = 0
@@ -724,7 +734,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
+[node name="BuySumpFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
@@ -733,6 +743,8 @@ text = "Buy
 SUmp
 Filter
 (200$)"
+script = ExtResource("26_6coqy")
+filter_type = 3
 
 [node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
 light_mask = 0
@@ -747,7 +759,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
+[node name="BuyIndustrialFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
@@ -755,6 +767,8 @@ theme = ExtResource("4_gs2f0")
 text = "Buy 
 Industrial 
 Filter (500$)"
+script = ExtResource("26_6coqy")
+filter_type = 4
 
 [node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
 light_mask = 0
@@ -992,6 +1006,16 @@ wait_time = 0.5
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI/ContractMenu" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3/BuyCanisterFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3/BuyCanisterFilter" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3/BuyCanisterFilter" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" to="." method="_on_spawn_filter"]
 [connection signal="pressed" from="UI/FilterMenu/CloseFilterMenu" to="UI" method="_on_close_filter_menu_pressed"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]

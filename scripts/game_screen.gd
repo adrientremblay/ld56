@@ -517,3 +517,6 @@ func _on_spawn_species(species: Creature.Species) -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+
+func _on_spawn_filter(filter: Filter.FilterType) -> void:
+	print(filter)
