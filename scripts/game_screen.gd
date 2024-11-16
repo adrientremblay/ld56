@@ -203,6 +203,7 @@ func tick_nitrogen_levels():
 	
 	# Nitrate uptake by plants
 	
+	
 	# Clamp ammonia and nitrate levels
 	ammonia_level = clamp(ammonia_level, 0.0, 1.0)
 	nitrate_level = clamp(nitrate_level, 0.0, 1.0)

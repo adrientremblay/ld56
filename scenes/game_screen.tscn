@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=57 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -32,9 +32,14 @@
 [ext_resource type="AudioStream" uid="uid://bolyias633m6m" path="res://assets/audio/corpse_eaten2.wav" id="20_oegt5"]
 [ext_resource type="PackedScene" uid="uid://6pnb4a2d57d3" path="res://scenes/level_screen.tscn" id="20_ss8nm"]
 [ext_resource type="PackedScene" uid="uid://ci2ny2web0sxe" path="res://scenes/end_screen.tscn" id="21_yuerb"]
+[ext_resource type="Texture2D" uid="uid://cwuqc26xusg1b" path="res://assets/art/amazon_sword.png" id="23_bn2gs"]
 [ext_resource type="AudioStream" uid="uid://gh1gi51nt2g" path="res://assets/audio/bubbles.wav" id="23_u3qn2"]
+[ext_resource type="Texture2D" uid="uid://caqlaecv2wool" path="res://assets/art/stem_plant.png" id="24_txa6u"]
+[ext_resource type="Texture2D" uid="uid://c6485aeghdxlq" path="res://assets/art/eelgrass.png" id="25_d7ymb"]
+[ext_resource type="Texture2D" uid="uid://bphbluud8kf6p" path="res://assets/art/water_lettuce.png" id="26_4la7q"]
 [ext_resource type="Script" path="res://scripts/filter_button.gd" id="26_6coqy"]
 [ext_resource type="Texture2D" uid="uid://c62iam8kxfgns" path="res://assets/art/sponge_filter.png" id="26_cahwj"]
+[ext_resource type="Texture2D" uid="uid://d0pgpedhnm2e1" path="res://assets/art/giant_anubias.png" id="27_cw4p5"]
 [ext_resource type="Texture2D" uid="uid://db7eyx2mgvcil" path="res://assets/art/nitrogen_cycle_annotated.png" id="27_ofx7h"]
 [ext_resource type="Texture2D" uid="uid://n0uchckdn8og" path="res://assets/art/hang_on_back_filter.png" id="27_wxhxw"]
 [ext_resource type="Texture2D" uid="uid://dl822eunvw7sr" path="res://assets/art/canister_filter.png" id="28_67da6"]
@@ -504,7 +509,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -512,25 +516,6 @@ offset_top = 88.0
 offset_right = 1032.0
 offset_bottom = 592.0
 theme = ExtResource("4_gs2f0")
-
-[node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
-material = SubResource("CanvasItemMaterial_r6l3h")
-layout_mode = 2
-offset_right = 768.0
-offset_bottom = 504.0
-theme_override_constants/separation = 10
-vertical = true
-
-[node name="Label" type="Label" parent="UI/PlantMenu/BoxContainer"]
-layout_mode = 2
-text = "Buy Plants"
-horizontal_alignment = 1
-
-[node name="BuyStemPlant" type="Button" parent="UI/PlantMenu/BoxContainer"]
-light_mask = 0
-layout_mode = 2
-theme = ExtResource("4_gs2f0")
-text = "Buy Stem Plant (15$)"
 
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
 light_mask = 0
@@ -541,6 +526,143 @@ offset_right = 755.0
 offset_bottom = 30.0
 texture_normal = ExtResource("15_purco")
 stretch_mode = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
+material = SubResource("CanvasItemMaterial_r6l3h")
+offset_right = 768.0
+offset_bottom = 504.0
+theme_override_constants/separation = 10
+vertical = true
+
+[node name="Label" type="Label" parent="UI/PlantMenu/BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Buy Filters"
+horizontal_alignment = 1
+
+[node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox"]
+layout_mode = 2
+
+[node name="SwordPlantHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuySwordPlant" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+Sword Plant
+(15$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(72, 128)
+layout_mode = 2
+texture = ExtResource("23_bn2gs")
+expand_mode = 4
+
+[node name="StemPlantHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyStemPlant" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+Stem Plant
+(25$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(72, 128)
+layout_mode = 2
+texture = ExtResource("24_txa6u")
+expand_mode = 4
+
+[node name="EelGrassHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyEelGrass" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+Eelgrass
+(40$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(72, 128)
+layout_mode = 2
+texture = ExtResource("25_d7ymb")
+expand_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox"]
+layout_mode = 2
+
+[node name="WaterLettuceHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyWaterLettuce" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+Water 
+Lettuce
+(60$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(72, 74)
+layout_mode = 2
+texture = ExtResource("26_4la7q")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="GiantAnubiasHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BuyGiantAnubias" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("4_gs2f0")
+text = "Buy 
+Giant 
+Anubias
+(80$)"
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox"]
+light_mask = 0
+custom_minimum_size = Vector2(72, 128)
+layout_mode = 2
+texture = ExtResource("27_cw4p5")
+expand_mode = 4
+
+[node name="DummyHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ContractMenu" type="Panel" parent="UI"]
 visible = false
@@ -622,6 +744,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="FilterMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -998,7 +1121,6 @@ wait_time = 0.5
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" method="_on_pressed"]
 [connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
-[connection signal="pressed" from="UI/PlantMenu/BoxContainer/BuyStemPlant" to="." method="_on_buy_stem_plant_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]
 [connection signal="contract_menu_closed" from="UI/ContractMenu" to="UI/PauseMenu" method="_on_contract_menu_contract_menu_closed"]
 [connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_opened"]
