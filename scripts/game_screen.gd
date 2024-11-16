@@ -533,5 +533,6 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	set_money_label()
 	
 	var filter_node = Filter.filter_stats[filter].sprite_scene.instantiate()
+	filter_node.play()
 	spawn_point.add_child(filter_node)
 	$Splash.play()
