@@ -518,16 +518,6 @@ offset_right = 1032.0
 offset_bottom = 592.0
 theme = ExtResource("4_gs2f0")
 
-[node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
-light_mask = 0
-layout_mode = 2
-offset_left = 729.0
-offset_top = 5.0
-offset_right = 755.0
-offset_bottom = 30.0
-texture_normal = ExtResource("15_purco")
-stretch_mode = 0
-
 [node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
 offset_right = 768.0
@@ -673,6 +663,16 @@ expand_mode = 4
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
+light_mask = 0
+layout_mode = 2
+offset_left = 729.0
+offset_top = 5.0
+offset_right = 755.0
+offset_bottom = 30.0
+texture_normal = ExtResource("15_purco")
+stretch_mode = 0
 
 [node name="ContractMenu" type="Panel" parent="UI"]
 visible = false
@@ -1106,6 +1106,9 @@ wait_time = 0.5
 
 [node name="NitrogenTimer" type="Timer" parent="."]
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(1174, 614)
+
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
@@ -1131,7 +1134,6 @@ wait_time = 0.5
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" method="_on_pressed"]
 [connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
-[connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" method="_on_pressed"]
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="." method="_on_spawn_plant"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox/BuyStemPlant" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox/BuyStemPlant" method="_on_pressed"]
@@ -1142,6 +1144,7 @@ wait_time = 0.5
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox/BuyWaterLettuce" to="." method="_on_spawn_plant"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" method="_on_pressed"]
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" to="." method="_on_spawn_plant"]
+[connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]
 [connection signal="contract_menu_closed" from="UI/ContractMenu" to="UI/PauseMenu" method="_on_contract_menu_contract_menu_closed"]
 [connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_opened"]
 [connection signal="contract_menu_opened" from="UI/ContractMenu" to="UI/PauseMenu" method="_on_contract_menu_contract_menu_opened"]

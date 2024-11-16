@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://8hwl4ecdx5fc"]
+[gd_scene load_steps=5 format=3 uid="uid://8hwl4ecdx5fc"]
 
 [ext_resource type="Texture2D" uid="uid://bphbluud8kf6p" path="res://assets/art/water_lettuce.png" id="1_lh1e2"]
+[ext_resource type="Script" path="res://scripts/plant.gd" id="2_gates"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_waw3d"]
 atlas = ExtResource("1_lh1e2")
@@ -20,3 +21,5 @@ animations = [{
 [node name="Waterlettuce" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_c84mm")
+offset = Vector2(0, 2)
+script = ExtResource("2_gates")

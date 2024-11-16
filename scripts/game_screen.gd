@@ -22,6 +22,8 @@ extends Node2D
 @onready var filter_spawn4 = $Aquarium/Filters/FilterSpawn4
 @onready var filter_spawn_list = [filter_spawn1, filter_spawn2, filter_spawn3, filter_spawn4]
 
+@onready var plants = $Aquarium/Plants
+
 var game_over = false
 
 # GAMEPLAY VARIABLES
@@ -552,6 +554,7 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	money -= Filter.filter_stats[filter].price
 	set_money_label()
 	
+	# create the filter node
 	var filter_node: Filter = Filter.filter_stats[filter].sprite_scene.instantiate()
 	filter_node.set_type(filter)
 	filter_node.play()
@@ -559,4 +562,16 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	$Splash.play()
 
 func _on_spawn_plant(type: Plant.PlantType) -> void:
-	pass # Replace with function body.
+	# check and do money subtraction
+	if money < Plant.plant_stats[type].price:
+		return
+	money -= Plant.plant_stats[type].price
+	set_money_label()
+	
+	# create the plant node
+	var plant: Plant = Plant.plant_stats[type].sprite_scene.instantiate()
+	plant.set_type(type)
+	plant.play()
+	plants.add_child(plant)
+	plant.random_position()
+	$Splash.play()

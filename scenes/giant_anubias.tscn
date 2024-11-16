@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bifd18301f3oj"]
+[gd_scene load_steps=5 format=3 uid="uid://bifd18301f3oj"]
 
 [ext_resource type="Texture2D" uid="uid://d0pgpedhnm2e1" path="res://assets/art/giant_anubias.png" id="1_eid8e"]
+[ext_resource type="Script" path="res://scripts/plant.gd" id="2_d8ewj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_75gve"]
 atlas = ExtResource("1_eid8e")
@@ -20,3 +21,5 @@ animations = [{
 [node name="GiantAnubias" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_up6bb")
+offset = Vector2(0, -32)
+script = ExtResource("2_d8ewj")

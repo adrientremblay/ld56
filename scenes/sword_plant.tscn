@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvvlxb2qakkye"]
+[gd_scene load_steps=5 format=3 uid="uid://cvvlxb2qakkye"]
 
 [ext_resource type="Texture2D" uid="uid://cwuqc26xusg1b" path="res://assets/art/amazon_sword.png" id="1_cn66i"]
+[ext_resource type="Script" path="res://scripts/plant.gd" id="2_jr6og"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cflk6"]
 atlas = ExtResource("1_cn66i")
@@ -20,3 +21,5 @@ animations = [{
 [node name="SwordPlant" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ma1s0")
+offset = Vector2(0, -16)
+script = ExtResource("2_jr6og")
