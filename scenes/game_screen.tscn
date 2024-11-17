@@ -412,7 +412,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy fish (1000$)"
+text = "Buy fish (100$)"
 script = ExtResource("12_mmhuv")
 species = 2
 
@@ -431,7 +431,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Pirahna (2500$)"
+text = "Buy Pirahna (500$)"
 script = ExtResource("12_mmhuv")
 species = 3
 
@@ -450,7 +450,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Anglerfish (5000$)"
+text = "Buy Anglerfish (1000$)"
 script = ExtResource("12_mmhuv")
 species = 4
 
@@ -469,7 +469,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Dragonfish (7500$)"
+text = "Buy Dragonfish (5000$)"
 script = ExtResource("12_mmhuv")
 species = 5
 
@@ -489,7 +489,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Goblinshark (15000$)"
+text = "Buy Goblinshark (10000$)"
 script = ExtResource("12_mmhuv")
 species = 6
 
