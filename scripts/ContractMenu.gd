@@ -69,6 +69,9 @@ func _ready() -> void:
 	$NewContractTimer.process_mode = Node.PROCESS_MODE_PAUSABLE
 
 func open_contract_menu():
+	if self.visible == true:
+		return
+	
 	# empty contract list
 	for child in contract_vbox.get_children():
 		child.queue_free()
