@@ -182,13 +182,14 @@ func tick_nitrogen_levels():
 	if ammonia_level > 0:
 		for filter_spawn in $Aquarium/Filters.get_children():
 			if filter_spawn.get_child_count() != 0:
-				var filter: Filter = filter_spawn.get_child(0)
+				var filter_wrapper: FilterWrapper = filter_spawn.get_child(0)
+				var filter = filter_wrapper.filter
 				# Increase filter performance (bacteria colony grows)
-				if filter.current_performance < filter.max_performance:
-					filter.current_performance += Filter.PERFORMANCE_GROWTH_PER_SECOND
-					filter.current_performance = min(filter.current_performance, filter.max_performance)
+				#if filter.current_performance < filter.max_performance:
+				#	filter.current_performance += Filter.PERFORMANCE_GROWTH_PER_SECOND
+				#	filter.current_performance = min(filter.current_performance, filter.max_performance)
 				# Convert Ammonia to Nitrate
-				var ammonia_level_to_consume = min(ammonia_level, filter.current_performance * GLOBAL_NITROGEN_MODIFIER)
+				var ammonia_level_to_consume = min(ammonia_level, filter.max_performance * GLOBAL_NITROGEN_MODIFIER)
 				ammonia_level -= ammonia_level_to_consume
 				nitrate_level += ammonia_level_to_consume
 	# Nitrate uptake by plants

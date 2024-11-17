@@ -1,4 +1,4 @@
-extends Area2D
+class_name FilterWrapper extends Area2D
 
 static var REGULAR_COLOR = Color(1, 1, 1, 1)
 static var MODULATE_COLOR = Color(1, 0.5, 1, 1)
