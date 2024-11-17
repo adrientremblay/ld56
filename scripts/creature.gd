@@ -101,6 +101,8 @@ static var species_stats = {
 	}
 }
 
+static var CREATURE_HEALING_RATE = 5.0 # per second
+
 var species
 var price
 var damage

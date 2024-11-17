@@ -27,7 +27,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = false
+var debug = true
 var money = 2000 if debug else 50
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
@@ -226,7 +226,13 @@ func tick_nitrogen_levels():
 				creature.queue_free()
 			else:
 				creature.update_health_bar()
-	
+	# Healing fish when the water conditions are good
+	if nitrate_level < 0.25 && ammonia_level < 0.25:
+		for creature in $Aquarium/Creatures.get_children(): 
+			creature.health += Creature.CREATURE_HEALING_RATE
+			creature.health = min(100.0, creature.health)
+			creature.update_health_bar()
+			
 	# Update UI
 	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
 	$UI/NitrateLevelBar.value = nitrate_level * 100.0
