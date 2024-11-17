@@ -10,7 +10,7 @@ func open(level_number: int, tagline: String, quota: int, bonus: int, penalty: i
 	self.visible = true
 	$LevelLabel.text = "Level " + str(level_number)
 	$TaglineLabel.text = tagline
-	$QuotaLabel.text = "Quota: " + str(quota) + (" bodies" if level_number != 1 else " body")
+	$QuotaLabel.text = "Quota: " + str(quota) + (" bodies" if quota != 1 else " body")
 	if bonus != 0:
 		$BonusLabel.text = "You received a bonus of " + str(bonus) + "$ for closing early."
 	elif level_number == 1:

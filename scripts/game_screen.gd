@@ -37,7 +37,7 @@ var total_corpses_eaten = 0
 
 # LEVEL VARIABLES
 var level = 0
-var CORPSE_QUOTA_PER_LEVEL = [0, 1, 2, 3, 5, 7, 10, 15, 30, 50, 100] # index = level, value = quota
+var quota = 0
 
 # MISC
 var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
@@ -108,7 +108,6 @@ func corpse_was_eaten(reward):
 	update_corpse_eaten_label()
 
 func update_corpse_eaten_label():
-	var quota = CORPSE_QUOTA_PER_LEVEL[level]
 	if corpses_eaten_count < quota:
 		$UI/CorpsesDisposedLabel.add_theme_color_override("font_color", Color(1, 0, 0))
 	else:
@@ -389,14 +388,16 @@ func dialogic_setup():
 func next_level():
 	level+=1
 	var timeline_name = ""
-	if corpses_eaten_count < CORPSE_QUOTA_PER_LEVEL[level-1]:
-		timeline_name = "fail"
-	elif level == 11:
-		timeline_name = "ending"
-	elif level == 1:
+	if level == 1:
 		timeline_name = "intro"
+	elif corpses_eaten_count < quota:
+		timeline_name = "fail"
+	elif level >= 10:
+		timeline_name = "level9"
 	else:
 		timeline_name = "level" + str(level)
+	
+	quota = ((level) * 2)
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -428,7 +429,7 @@ func launch_level_screen():
 	money += bonus
 	var penalty = calculate_penalty()
 	money -= penalty
-	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", CORPSE_QUOTA_PER_LEVEL[level], bonus, penalty)
+	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", quota, bonus, penalty)
 
 func launch_level():
 	get_tree().paused = false
