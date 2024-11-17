@@ -27,8 +27,8 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = false
-var money = 50000 if debug else 5000
+var debug = true
+var money = 90000 if debug else 5000
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
 var nitrate_level = 0.0 # decimal %
@@ -388,7 +388,9 @@ func dialogic_setup():
 func next_level():
 	level+=1
 	var timeline_name = ""
-	if level == 1:
+	if money >= 100000:
+		timeline_name = "ending"
+	elif level == 1:
 		timeline_name = "intro"
 	elif corpses_eaten_count < quota:
 		timeline_name = "fail"
