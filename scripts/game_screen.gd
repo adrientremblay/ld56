@@ -27,8 +27,8 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = true
-var money = 2000 if debug else 50
+var debug = false
+var money = 50000 if debug else 5000
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
 var nitrate_level = 0.0 # decimal %

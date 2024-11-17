@@ -260,7 +260,6 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -312,7 +311,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "buy snail (5$)"
+text = "buy snail (100$)"
 script = ExtResource("12_mmhuv")
 
 [node name="CrabHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
@@ -330,7 +329,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Crab (25$)"
+text = "Buy Crab (500$)"
 script = ExtResource("12_mmhuv")
 species = 1
 
@@ -349,7 +348,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Lobster (50$)"
+text = "Buy Lobster (1000$)"
 script = ExtResource("12_mmhuv")
 species = 7
 
@@ -369,7 +368,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Octopus (300$)"
+text = "Buy Octopus (5000$)"
 script = ExtResource("12_mmhuv")
 species = 8
 
@@ -389,7 +388,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Turtle (500$)"
+text = "Buy Turtle (10000$)"
 script = ExtResource("12_mmhuv")
 species = 9
 
@@ -413,7 +412,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy fish (5$)"
+text = "Buy fish (1000$)"
 script = ExtResource("12_mmhuv")
 species = 2
 
@@ -432,7 +431,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Pirahna (25$)"
+text = "Buy Pirahna (2500$)"
 script = ExtResource("12_mmhuv")
 species = 3
 
@@ -451,7 +450,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Anglerfish (50$)"
+text = "Buy Anglerfish (5000$)"
 script = ExtResource("12_mmhuv")
 species = 4
 
@@ -470,7 +469,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Dragonfish (300$)"
+text = "Buy Dragonfish (7500$)"
 script = ExtResource("12_mmhuv")
 species = 5
 
@@ -490,7 +489,7 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
-text = "Buy Goblinshark (500$)"
+text = "Buy Goblinshark (15000$)"
 script = ExtResource("12_mmhuv")
 species = 6
 

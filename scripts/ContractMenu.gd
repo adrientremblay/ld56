@@ -5,8 +5,8 @@ var UPPER_WEIGHT_BOUND = 250.0
 var MALE_FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal"]
 var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah"]
 var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
-var MIN_REWARD = 25.0
-var MAX_REWARD = 100.0
+var MIN_REWARD = 500.0
+var MAX_REWARD = 2000.0
 var ORGANIZATIONS = [
 	{
 		"name" : "PureGenus",
