@@ -9,7 +9,7 @@ var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah"]
 var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 500.0
 var MAX_REWARD = 2200.0
-var GOLIATH_MIN_REWARD = 3200.0
+var GOLIATH_MIN_REWARD = 2750.0
 var GOLIATH_MAX_REWARD = 5000.0
 var ORGANIZATIONS = [
 	{
@@ -68,7 +68,7 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	$NewContractTimer.process_mode = Node.PROCESS_MODE_PAUSABLE
 
-func _on_new_contract_timer_timeout() -> void:
+func open_contract_menu():
 	# empty contract list
 	for child in contract_vbox.get_children():
 		child.queue_free()
@@ -86,7 +86,6 @@ func _on_new_contract_timer_timeout() -> void:
 	contract_menu_opened.emit()
 	
 	get_tree().paused = true
-	
 func generateNewContract():
 	var upgrade_weight_to_goliath_class = randf() < 0.25
 	var weight
