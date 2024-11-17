@@ -39,9 +39,11 @@ static var filter_stats = {
 }
 
 var current_performance = 0
+var price
 var max_performance
 var filter_type
 
 func set_type(type: FilterType):
 	self.filter_type = type
 	self.max_performance = filter_stats[type].max_performance
+	self.price = filter_stats[type].price

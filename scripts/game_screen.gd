@@ -558,6 +558,8 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	
 	# create the filter node
 	var filter_wrapper = filterWrapperScene.instantiate()
+	filter_wrapper.connect("sell_filter", self.filter_sold)
+	
 	var filter_node: Filter = Filter.filter_stats[filter].sprite_scene.instantiate()
 	filter_wrapper.add_filter(filter_node)
 	filter_node.set_type(filter)
@@ -579,3 +581,9 @@ func _on_spawn_plant(type: Plant.PlantType) -> void:
 	plants.add_child(plant)
 	plant.random_position()
 	$Splash.play()
+
+func filter_sold(value: int):
+	var sell_value = value / 2
+	money += sell_value
+	set_money_label()
+	$CorpseEaten.play()
