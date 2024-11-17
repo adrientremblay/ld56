@@ -25,9 +25,9 @@ func construct(person_name, weight, reward, female, source, description):
 	self.source = source
 	self.description = description
 	
-	if (weight < 140):
+	if (weight < 160):
 		self.appearance = Appearance.THIN
-	elif (weight < 180):
+	elif (weight < 200):
 		self.appearance = Appearance.MEDIUM
 	else:
 		self.appearance = Appearance.OBESE

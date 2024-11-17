@@ -14,27 +14,27 @@ static var filter_stats = {
 	FilterType.SPONGE_FILTER: {
 		"sprite_scene": sponge_filter_sprite_scene,
 		"max_performance": 0.01,
-		"price": 15,
+		"price": 1000,
 	},
 	FilterType.HANG_ON_BACK_FILTER: {
 		"sprite_scene": hang_on_back_filter_sprite_scene,
 		"max_performance": 0.05,
-		"price": 40,
+		"price": 5000,
 	},
 	FilterType.CANISTER_FILTER: {
 		"sprite_scene": canister_filter_sprite_scene,
 		"max_performance": 0.1,
-		"price": 100,
+		"price": 10000,
 	},
 	FilterType.SUMP_FILTER: {
 		"sprite_scene": sump_filter_sprite_scene,
-		"max_performance": 0.3,
-		"price": 200,
+		"max_performance": 0.2,
+		"price": 15000,
 	},
 	FilterType.INDUSTRIAL_FILTER: {
 		"sprite_scene": industrial_filter_sprite_scene,
-		"max_performance": 0.6,
-		"price": 500,
+		"max_performance": 0.3,
+		"price": 20000,
 	},
 }
 

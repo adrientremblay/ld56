@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=59 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
 [ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="29_s2nwj"]
 [ext_resource type="PackedScene" uid="uid://qmw0a0d7gpad" path="res://scenes/title_screen.tscn" id="30_spg6t"]
+[ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="37_2dcd4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1174.18, 570.109, 1180.68, 622, 91.3203, 622, 942.383, 577.023, 1043.6, 358.523, 1107.78, 353.578, 929.547, 576.977, 97.7969, 570.188, 169.273, 350, 199.242, 350, 325.281, 567.07, 755.297, 347.852, 824.633, 346.156, 644.359, 574.758, 632.406, 575.219, 336.938, 566.93, 499.398, 349.203, 456.031, 350.781)
@@ -260,6 +261,7 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -511,7 +513,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -554,7 +555,7 @@ size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "Buy 
 Sword Plant
-(15$)"
+(300$)"
 script = ExtResource("23_savwo")
 
 [node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox"]
@@ -576,7 +577,7 @@ size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "Buy 
 Stem Plant
-(25$)"
+(600$)"
 script = ExtResource("23_savwo")
 plant_type = 1
 
@@ -599,7 +600,7 @@ size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "Buy 
 Eelgrass
-(40$)"
+(900$)"
 script = ExtResource("23_savwo")
 plant_type = 2
 
@@ -626,7 +627,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy 
 Water 
 Lettuce
-(60$)"
+(1200$)"
 script = ExtResource("23_savwo")
 plant_type = 3
 
@@ -651,7 +652,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy 
 Giant 
 Anubias
-(80$)"
+(1500$)"
 script = ExtResource("23_savwo")
 plant_type = 4
 
@@ -801,7 +802,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy 
 sponge
  filter 
-(15$)"
+(1000$)"
 script = ExtResource("26_6coqy")
 
 [node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox"]
@@ -825,7 +826,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy Hang
 on Back
 Filter
-(40$)"
+(5000$)"
 script = ExtResource("26_6coqy")
 filter_type = 1
 
@@ -850,7 +851,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy
 Canister
 Filter
-(100$)"
+(10000$)"
 script = ExtResource("26_6coqy")
 filter_type = 2
 
@@ -878,7 +879,7 @@ theme = ExtResource("4_gs2f0")
 text = "Buy
 SUmp
 Filter
-(200$)"
+(15000$)"
 script = ExtResource("26_6coqy")
 filter_type = 3
 
@@ -902,7 +903,8 @@ size_flags_horizontal = 3
 theme = ExtResource("4_gs2f0")
 text = "Buy 
 Industrial 
-Filter (500$)"
+Filter 
+(20000$)"
 script = ExtResource("26_6coqy")
 filter_type = 4
 
@@ -910,7 +912,7 @@ filter_type = 4
 light_mask = 0
 custom_minimum_size = Vector2(64, 160)
 layout_mode = 2
-texture = ExtResource("26_cahwj")
+texture = ExtResource("37_2dcd4")
 expand_mode = 4
 stretch_mode = 3
 

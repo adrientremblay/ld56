@@ -13,34 +13,34 @@ static var BOTTOM_POSITION_LEFT = Vector2i(160, 615)
 static var AQUARIUM_WIDTH = 960
 
 static var plant_stats = {
-	PlantType.SWORD_PLANT: {
+	PlantType.SWORD_PLANT: { # 0.00003
 		"sprite_scene": sword_plant_sprite_scene,
 		"performance": 0.01,
-		"price": 15,
+		"price": 300,
 		"floating": false,
 	},
-	PlantType.STEM_PLANT: {
+	PlantType.STEM_PLANT: { # 0.00005
 		"sprite_scene": stem_plant_sprite_scene,
 		"performance": 0.03,
-		"price": 25,
+		"price": 600,
 		"floating": false,
 	},
-	PlantType.EELGRASS: {
+	PlantType.EELGRASS: { # 0.00008
 		"sprite_scene": eelgrass_sprite_scene,
 		"performance": 0.08,
-		"price": 40,
+		"price": 900,
 		"floating": false,
 	},
-	PlantType.WATER_LETTUCE: {
+	PlantType.WATER_LETTUCE: { # 0.000125
 		"sprite_scene": water_lettuce_scene,
-		"performance": 0.1,
-		"price": 60,
+		"performance": 0.15,
+		"price": 1200,
 		"floating": true,
 	},
-	PlantType.GIANT_ANUBIAS: {
+	PlantType.GIANT_ANUBIAS: { # 0.00016
 		"sprite_scene": giant_anubias_scene,
-		"performance": 0.2,
-		"price": 80,
+		"performance": 0.25,
+		"price": 1500,
 		"floating": false,
 	},
 }

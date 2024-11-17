@@ -2,11 +2,15 @@ extends Panel
 
 var LOWER_WEIGHT_BOUND = 100.0
 var UPPER_WEIGHT_BOUND = 250.0
+var GOLIATH_LOWER_WEIGHT_BOUND = 250.0
+var GOLIATH_UPPER_WEIGHT_BOUND = 500.0
 var MALE_FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal"]
 var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah"]
 var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
 var MIN_REWARD = 500.0
-var MAX_REWARD = 2000.0
+var MAX_REWARD = 2200.0
+var GOLIATH_MIN_REWARD = 3200.0
+var GOLIATH_MAX_REWARD = 5000.0
 var ORGANIZATIONS = [
 	{
 		"name" : "PureGenus",
@@ -84,7 +88,13 @@ func _on_new_contract_timer_timeout() -> void:
 	get_tree().paused = true
 	
 func generateNewContract():
-	var weight = snapped(rng.randf_range(LOWER_WEIGHT_BOUND, UPPER_WEIGHT_BOUND), 0.01)
+	var upgrade_weight_to_goliath_class = randf() < 0.25
+	var weight
+	if (upgrade_weight_to_goliath_class):
+		weight = snapped(rng.randf_range(GOLIATH_LOWER_WEIGHT_BOUND, GOLIATH_UPPER_WEIGHT_BOUND), 0.01)
+	else:
+		weight = snapped(rng.randf_range(LOWER_WEIGHT_BOUND, UPPER_WEIGHT_BOUND), 0.01)
+	
 	var female = randf() > 0.5
 	var first_names
 	if female:
@@ -119,7 +129,13 @@ func _on_close_contract_menu_pressed() -> void:
 	contract_menu_closed.emit()
 
 func calculate_reward_for_contract(weight: float, karma: float) -> float:
-	var weight_percentage = (weight - LOWER_WEIGHT_BOUND) / (UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
-	var reward = MIN_REWARD + (MAX_REWARD-MIN_REWARD) * weight_percentage
-	reward = (1-karma)*reward
-	return snappedf(reward, 0.01)
+	if weight < GOLIATH_LOWER_WEIGHT_BOUND:
+		var weight_percentage = (weight - LOWER_WEIGHT_BOUND) / (UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
+		var reward = MIN_REWARD + (MAX_REWARD-MIN_REWARD) * weight_percentage
+		reward = (1-karma)*reward
+		return snappedf(reward, 0.01)
+	else:
+		var weight_percentage = (weight - GOLIATH_LOWER_WEIGHT_BOUND) / (GOLIATH_UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
+		var reward = GOLIATH_MIN_REWARD + (GOLIATH_MAX_REWARD-GOLIATH_MIN_REWARD) * weight_percentage
+		reward = (1-karma)*reward
+		return snappedf(reward, 0.01)
