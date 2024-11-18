@@ -76,7 +76,7 @@ func open_contract_menu():
 	for child in contract_vbox.get_children():
 		child.queue_free()
 	# add 7 new contracts to the list
-	for i in range(7):
+	for i in range(12):
 		generateNewContract()
 	# make the menu visible
 	self.visible = true
