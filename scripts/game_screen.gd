@@ -404,19 +404,7 @@ func next_level():
 	# Quota Calculation
 	quota = ((level) * 2)
 	
-	# Change Timeout For Contract Timer
-	var contract_timeout
-	if level <=2 :
-		contract_timeout = 60
-	elif level <= 4:
-		contract_timeout = 30
-	elif level <= 6:
-		contract_timeout = 20
-	elif level <= 8:
-		contract_timeout = 15
-	else:
-		contract_timeout = 10
-	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
+	$UI/ContractMenu/NewContractTimer.wait_time = 3
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -613,3 +601,19 @@ func filter_sold(value: int):
 	money += sell_value
 	set_money_label()
 	$CorpseEaten.play()
+
+
+func _on_contract_menu_contract_menu_closed() -> void:
+	var contract_timeout
+	if level <= 2:
+		contract_timeout = 60
+	elif level <= 4:
+		contract_timeout = 30
+	elif level <= 6:
+		contract_timeout = 20
+	elif level <= 8:
+		contract_timeout = 15
+	else:
+		contract_timeout = 10
+	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
+	$UI/ContractMenu/NewContractTimer.start()

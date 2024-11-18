@@ -82,7 +82,6 @@ func open_contract_menu():
 	self.visible = true
 	
 	$NewContractTimer.stop()
-	$NewContractTimer.wait_time = 30
 	
 	$X.visible = false
 	
@@ -126,7 +125,6 @@ func no_contracts_available():
 
 func _on_close_contract_menu_pressed() -> void:
 	self.visible = false
-	$NewContractTimer.start()
 	get_tree().paused = false
 	contract_menu_closed.emit()
 
