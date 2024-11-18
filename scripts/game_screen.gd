@@ -387,6 +387,8 @@ func dialogic_setup():
 
 func next_level():
 	level+=1
+	
+	# Starting the Dialogic Timeline
 	var timeline_name = ""
 	if money >= 100000:
 		timeline_name = "ending"
@@ -399,8 +401,22 @@ func next_level():
 	else:
 		timeline_name = "level" + str(level)
 	
+	# Quota Calculation
 	quota = ((level) * 2)
 	
+	# Change Timeout For Contract Timer
+	var contract_timeout
+	if level <=2 :
+		contract_timeout = 60
+	elif level <= 4:
+		contract_timeout = 30
+	elif level <= 6:
+		contract_timeout = 20
+	elif level <= 8:
+		contract_timeout = 15
+	else:
+		contract_timeout = 10
+	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -431,7 +447,7 @@ func launch_level_screen():
 	money += bonus
 	var penalty = calculate_penalty()
 	money -= penalty
-	$UI/LevelScreen.open(level, "You sleep pretty soundly for a murderer...", quota, bonus, penalty)
+	$UI/LevelScreen.open(level, quota, bonus, penalty, $UI/ContractMenu/NewContractTimer.wait_time, money)
 
 func launch_level():
 	get_tree().paused = false

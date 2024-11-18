@@ -34,58 +34,64 @@ texture = ExtResource("2_256st")
 
 [node name="LevelLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 256.0
+offset_top = 72.0
 offset_right = 1280.0
-offset_bottom = 400.0
+offset_bottom = 216.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 100
-text = "LEVEL 1"
+text = "Day 1"
 horizontal_alignment = 1
 
-[node name="TaglineLabel" type="Label" parent="."]
+[node name="RemainingMoneyLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 384.0
-offset_right = 1280.0
-offset_bottom = 411.0
+offset_left = 256.0
+offset_top = 216.0
+offset_right = 768.0
+offset_bottom = 250.0
 theme = ExtResource("1_hclw6")
-theme_override_font_sizes/font_size = 20
-text = "You sleep well... For a murderer..."
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 26
+text = "Money Needed for Surgery:"
+
+[node name="TimeoutLabel" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 280.0
+offset_right = 641.0
+offset_bottom = 314.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "Contract Wait Time: "
 
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 0
-offset_top = 478.0
-offset_right = 1280.0
-offset_bottom = 512.0
+offset_left = 256.0
+offset_top = 344.0
+offset_right = 392.0
+offset_bottom = 378.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
-text = "Quota: 10 Bodies"
-horizontal_alignment = 1
+text = "Quota: "
 
 [node name="BonusLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 512.0
-offset_right = 1016.0
-offset_bottom = 544.0
+offset_top = 408.0
+offset_right = 384.0
+offset_bottom = 442.0
 theme = ExtResource("1_hclw6")
-theme_override_font_sizes/font_size = 16
-text = "You received a bonus of 123$ for closing up shop early"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 26
+text = "Bonus: "
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PenaltyLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 552.0
-offset_right = 1024.0
-offset_bottom = 592.0
+offset_top = 472.0
+offset_right = 424.0
+offset_bottom = 506.0
 theme = ExtResource("1_hclw6")
-theme_override_font_sizes/font_size = 16
-text = "You were penalized 30$ for not disposing of all bodies"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 26
+text = "Penalty: "
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -98,5 +104,56 @@ offset_bottom = 693.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 34
 text = "CONTINUE"
+
+[node name="MoneyValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 216.0
+offset_right = 1025.0
+offset_bottom = 250.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "100000$"
+horizontal_alignment = 2
+
+[node name="ContractWaitTimeValue" type="Label" parent="."]
+offset_left = 832.0
+offset_top = 280.0
+offset_right = 1025.0
+offset_bottom = 314.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "30s"
+horizontal_alignment = 2
+
+[node name="QuotaValue" type="Label" parent="."]
+offset_left = 832.0
+offset_top = 344.0
+offset_right = 1025.0
+offset_bottom = 378.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "15"
+horizontal_alignment = 2
+
+[node name="BonusValue" type="Label" parent="."]
+offset_left = 832.0
+offset_top = 408.0
+offset_right = 1025.0
+offset_bottom = 442.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "3000$"
+horizontal_alignment = 2
+
+[node name="PenaltyValue" type="Label" parent="."]
+offset_left = 832.0
+offset_top = 472.0
+offset_right = 1025.0
+offset_bottom = 506.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "1000$"
+horizontal_alignment = 2
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
