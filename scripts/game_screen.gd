@@ -602,7 +602,6 @@ func filter_sold(value: int):
 	set_money_label()
 	$CorpseEaten.play()
 
-
 func _on_contract_menu_contract_menu_closed() -> void:
 	var contract_timeout
 	if level <= 2:
