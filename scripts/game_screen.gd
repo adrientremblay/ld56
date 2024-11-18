@@ -418,14 +418,14 @@ func calculate_level_finish_bonus():
 		hour = -1
 	var hours_to_7am = 7 - hour
 	
-	return hours_to_7am * 10
+	return hours_to_7am * 1000
 
 func calculate_penalty():
 	if level == 1:
 		return 0
 	
 	var corpse_count = compile_corpse_list().size()
-	return corpse_count * 50
+	return corpse_count * 1000
 
 func launch_level_screen():
 	#match level:
