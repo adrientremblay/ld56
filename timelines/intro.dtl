@@ -1,11 +1,12 @@
 [wait time="0.1"]
 [signal arg="pause"]
-spokesman (Deadfaced): Welcome to NAUTILUS. 
+spokesman (Deadfaced): Welcome to NAUTILUS.
 spokesman (Deadfaced): You have been selected to operate one of our unique creature aquarium corpse disposal units.
 spokesman (Smiling): This method of corpse disposal is completely untraceable, efficient, and carbon neutral...
 spokesman (Smiling): I'm told you are in need of money. You need 100,000$ to pay for an operation... Don't worry. You will be paid handsomely.
 spokesman (Deadfaced): The work day is from 11pm until 7am. You will have a daily quota of corpses to dispose of. Our only requirement is that you fulfill this quota.
-spokesman (Deadfaced): You will have to pay for the creatures, filters, and plants for the aquarium yourself. 
+spokesman (Deadfaced): You will have to pay for the creatures, filters, and plants for the aquarium yourself.
 spokesman (Deadfaced): Creatures produce Ammonia. Filters convert Ammonia into Nitrate. And plants eliminate the Nitrate.
 spokesman (Frowning): Make sure to keep Ammonia and Nitrate levels under control as they are both highly toxic.
+spokesman (Frowning): Also note that there is a bonus for closing early, but also a penalty for still having undisposed corpses in the aquarium by 7AM.
 spokesman (Smiling): A last piece of advice... Don't let your feelings get in the way of your job. Corpses are no longer people. Good luck.

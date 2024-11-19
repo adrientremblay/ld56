@@ -53,6 +53,7 @@ theme_override_font_sizes/font_size = 26
 text = "Money Needed for Surgery:"
 
 [node name="TimeoutLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 256.0
 offset_top = 280.0
 offset_right = 641.0
@@ -117,6 +118,7 @@ text = "100000$"
 horizontal_alignment = 2
 
 [node name="ContractWaitTimeValue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 832.0
 offset_top = 280.0
 offset_right = 1025.0
@@ -127,6 +129,7 @@ text = "30s"
 horizontal_alignment = 2
 
 [node name="QuotaValue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 832.0
 offset_top = 344.0
 offset_right = 1025.0
@@ -137,6 +140,7 @@ text = "15"
 horizontal_alignment = 2
 
 [node name="BonusValue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 832.0
 offset_top = 408.0
 offset_right = 1025.0
@@ -147,6 +151,7 @@ text = "3000$"
 horizontal_alignment = 2
 
 [node name="PenaltyValue" type="Label" parent="."]
+layout_mode = 0
 offset_left = 832.0
 offset_top = 472.0
 offset_right = 1025.0

@@ -52,6 +52,7 @@ func _ready() -> void:
 	update_corpse_eaten_label()
 	dialogic_setup()
 	$UI/TitleScreen.open()
+	$SpokesmanMusic.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func start_game():
 	$Music.play()
@@ -370,12 +371,10 @@ func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	$UI/DateLabel.text = new_date_string
 
 func _on_timeline_started():
-	#print("Timeline started")
-	#get_tree().paused = true
-	pass
+	$SpokesmanMusic.play()
 
 func _on_timeline_ended():
-	#print("Timeline ended")
+	$SpokesmanMusic.stop()
 	if !game_over && level < 11:
 		launch_level_screen()
 
@@ -447,6 +446,7 @@ func _input(event: InputEvent) -> void:
 	elif $UI/TitleScreen.visible && event.is_action_pressed("dialogic_default_action"):
 		$UI/TitleScreen.close()
 		start_game()
+		$ThemeMusic.stop()
 
 func _on_level_screen_level_screen_closed() -> void:
 	launch_level()
