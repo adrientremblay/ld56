@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=64 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="37_2dcd4"]
 [ext_resource type="Texture2D" uid="uid://bu8pnchkih1wc" path="res://assets/art/ammonia_neutralizer.png" id="38_vj3ca"]
 [ext_resource type="Texture2D" uid="uid://b5n0ihgvsdrk7" path="res://assets/art/nitrate_neutralizer.png" id="39_6kxq6"]
+[ext_resource type="Texture2D" uid="uid://tjjcowtycqqh" path="res://assets/art/fish_health.png" id="40_447o1"]
 [ext_resource type="AudioStream" uid="uid://hipojf41qtmd" path="res://assets/audio/contracts_available.wav" id="44_fposv"]
 [ext_resource type="AudioStream" uid="uid://dusi4ioo1k4qw" path="res://assets/audio/spokesman.mp3" id="49_67vsc"]
 [ext_resource type="AudioStream" uid="uid://dqk3dok4ye2ee" path="res://assets/audio/dark_theme.mp3" id="50_hapfr"]
@@ -1008,6 +1009,7 @@ stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ItemName" type="Label" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -1020,7 +1022,9 @@ text = "Neutralizes up to 25% of the Ammonia in the water"
 
 [node name="BuyButton" type="Button" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 text = "Buy (100$)"
 
 [node name="NitrateNeutralizer" type="PanelContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1050,6 +1054,7 @@ stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/NitrateNeutralizer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ItemName" type="Label" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/NitrateNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -1062,7 +1067,54 @@ text = "Neutralizes up to 25% of the Nitrate in the water"
 
 [node name="BuyButton" type="Button" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/NitrateNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy (100$)"
+
+[node name="HealthBooster" type="PanelContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("40_447o1")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health Booster"
+
+[node name="Description" type="Label" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Gives all creatures 50% of their total health "
+
+[node name="BuyButton" type="Button" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 text = "Buy (100$)"
 
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/Item Menu"]
