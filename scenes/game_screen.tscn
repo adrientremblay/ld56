@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="37_2dcd4"]
 [ext_resource type="AudioStream" uid="uid://hipojf41qtmd" path="res://assets/audio/contracts_available.wav" id="44_fposv"]
 [ext_resource type="AudioStream" uid="uid://dusi4ioo1k4qw" path="res://assets/audio/spokesman.mp3" id="49_67vsc"]
-[ext_resource type="AudioStream" uid="uid://b5ptw2nxs53kj" path="res://assets/audio/theme.mp3" id="50_xkbo8"]
+[ext_resource type="AudioStream" uid="uid://dqk3dok4ye2ee" path="res://assets/audio/dark_theme.mp3" id="50_hapfr"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1174.18, 570.109, 1180.68, 622, 91.3203, 622, 942.383, 577.023, 1043.6, 358.523, 1107.78, 353.578, 929.547, 576.977, 97.7969, 570.188, 169.273, 350, 199.242, 350, 325.281, 567.07, 755.297, 347.852, 824.633, 346.156, 644.359, 574.758, 632.406, 575.219, 336.938, 566.93, 499.398, 349.203, 456.031, 350.781)
@@ -1132,7 +1132,7 @@ wait_time = 0.5
 stream = ExtResource("49_67vsc")
 
 [node name="ThemeMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("50_xkbo8")
+stream = ExtResource("50_hapfr")
 autoplay = true
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
