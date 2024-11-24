@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnikjbombkjom"
-path="res://.godot/imported/sponge_filter1.png-a3a7d2eaffbbaa3c74ead47cf143dd1c.ctex"
+uid="uid://cj2rsda1qdykq"
+path="res://.godot/imported/canister_filter_icon.png-1d59fac6a94795bbe007a9683b89f487.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/sponge_filter1.png"
-dest_files=["res://.godot/imported/sponge_filter1.png-a3a7d2eaffbbaa3c74ead47cf143dd1c.ctex"]
+source_file="res://assets/art/canister_filter_icon.png"
+dest_files=["res://.godot/imported/canister_filter_icon.png-1d59fac6a94795bbe007a9683b89f487.ctex"]
 
 [params]
 
