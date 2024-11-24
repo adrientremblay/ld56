@@ -67,7 +67,6 @@ func _process(delta: float) -> void:
 	for corpse in compile_corpse_list():
 		for creature in corpse.feeding_area.get_overlapping_bodies():
 			corpse.weight -= creature.damage * delta * 0.2 * feeding_frenzy_boost
-	
 
 func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant, appearance: Contract.Appearance, female: bool) -> void:
 	# find a random available spawn
@@ -181,6 +180,7 @@ func tick_nitrogen_levels():
 			creature.health -= creature_damage
 			if creature.health <= 0:
 				creature.queue_free()
+				$CreatureDeathsound.play()
 			else:
 				creature.update_health_bar()
 	# Damage to fish based on nitrate level
