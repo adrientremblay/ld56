@@ -1,17 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6nqvnlerv7au"]
+[gd_scene load_steps=7 format=3 uid="uid://b6nqvnlerv7au"]
 
-[ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="1_q0csh"]
+[ext_resource type="Texture2D" uid="uid://nhqwpnws2gmp" path="res://assets/art/sump_filter-Sheet.png" id="1_sovsh"]
 [ext_resource type="Script" path="res://Filter.gd" id="2_xfta1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r2unk"]
-atlas = ExtResource("1_q0csh")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbuij"]
+atlas = ExtResource("1_sovsh")
 region = Rect2(0, 0, 64, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phhy0"]
+atlas = ExtResource("1_sovsh")
+region = Rect2(64, 0, 64, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je5hx"]
+atlas = ExtResource("1_sovsh")
+region = Rect2(128, 0, 64, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n345s"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_r2unk")
+"texture": SubResource("AtlasTexture_sbuij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phhy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je5hx")
 }],
 "loop": true,
 "name": &"default",
@@ -21,4 +35,5 @@ animations = [{
 [node name="SumpFilter" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_n345s")
+frame_progress = 0.651295
 script = ExtResource("2_xfta1")
