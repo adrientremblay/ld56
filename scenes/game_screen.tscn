@@ -274,6 +274,7 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -865,7 +866,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 387.0
@@ -1094,6 +1094,7 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("23_savwo")
 
 [node name="StemPlant" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
 light_mask = 0
@@ -1138,6 +1139,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("23_savwo")
+plant_type = 1
 
 [node name="Eelgrass" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
 light_mask = 0
@@ -1182,6 +1185,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("23_savwo")
+plant_type = 2
 
 [node name="WaterLettuce" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
 light_mask = 0
@@ -1226,6 +1231,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("23_savwo")
+plant_type = 3
 
 [node name="GiantAnubias" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
 light_mask = 0
@@ -1270,6 +1277,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("23_savwo")
+plant_type = 4
 
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
 light_mask = 0
@@ -2259,6 +2268,16 @@ autoplay = true
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox/BuyWaterLettuce" to="." method="_on_spawn_plant"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" method="_on_pressed"]
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" to="." method="_on_spawn_plant"]
+[connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_plant"]
+[connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_plant"]
+[connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_plant"]
+[connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_plant"]
+[connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_plant"]
 [connection signal="pressed" from="UI/PlantMenu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]
 [connection signal="contract_menu_closed" from="UI/ContractMenu" to="." method="_on_contract_menu_contract_menu_closed"]
 [connection signal="contract_menu_closed" from="UI/ContractMenu" to="UI" method="_on_contract_menu_contract_menu_closed"]
