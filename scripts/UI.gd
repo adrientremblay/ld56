@@ -4,6 +4,7 @@ extends Control
 @onready var creature_menu: Panel = $CreatureMenu
 @onready var plant_menu: Panel = $PlantMenu
 @onready var filter_menu: Panel = $FilterMenu
+@onready var item_menu: Panel = $ItemMenu
 @onready var contract_button: Button = $ContractMenuButton
 @onready var contract_label: Label = $NextContractLabel
 @onready var contract_timer: Timer = $ContractMenu/NewContractTimer
@@ -69,6 +70,7 @@ func close_all_windows():
 	plant_menu.visible = false
 	contract_menu.visible = false
 	filter_menu.visible = false
+	item_menu.visible = false
 
 func _on_mouse_entered() -> void:
 	print("UI mouse")
@@ -83,3 +85,16 @@ func _on_contract_menu_contract_menu_closed() -> void:
 	contract_label.visible = true
 	contract_button.visible = false
 	contract_timer.paused = false
+
+func _on_items_button_pressed() -> void:
+	if contract_menu.visible:
+		return
+	
+	if item_menu.visible:
+		item_menu.visible = false
+	else:
+		close_all_windows()
+		item_menu.visible = true
+
+func _on_close_item_menu_pressed() -> void:
+	item_menu.visible = false
