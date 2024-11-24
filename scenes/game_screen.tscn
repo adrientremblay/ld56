@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=71 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
 [ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="29_s2nwj"]
 [ext_resource type="PackedScene" uid="uid://qmw0a0d7gpad" path="res://scenes/title_screen.tscn" id="30_spg6t"]
+[ext_resource type="Texture2D" uid="uid://dfl81cdkmdkr4" path="res://assets/art/menu_background.png" id="33_x710q"]
 [ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="37_2dcd4"]
 [ext_resource type="Texture2D" uid="uid://tivgxw86of6s" path="res://assets/art/sponge_filter_icon.png" id="38_h6v2u"]
 [ext_resource type="Texture2D" uid="uid://bu8pnchkih1wc" path="res://assets/art/ammonia_neutralizer.png" id="38_vj3ca"]
@@ -524,7 +525,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -534,6 +534,7 @@ offset_bottom = 592.0
 theme = ExtResource("4_gs2f0")
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
+visible = false
 material = SubResource("CanvasItemMaterial_r6l3h")
 layout_mode = 0
 offset_right = 768.0
@@ -680,6 +681,129 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="BoxContainer2" type="BoxContainer" parent="UI/PlantMenu"]
+material = SubResource("CanvasItemMaterial_r6l3h")
+offset_right = 513.0
+offset_bottom = 504.0
+theme_override_constants/separation = 10
+vertical = true
+
+[node name="Menu Label" type="Label" parent="UI/PlantMenu/BoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Buy Plants"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/PlantMenu/BoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="VboxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ItemsList" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="AmmoniaNeutralizer" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("23_bn2gs")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sword Plant"
+
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Eliminates nitrate from the water."
+
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy (100$)"
+
+[node name="AmmoniaNeutralizer2" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("24_txa6u")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Stem plant"
+
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "2x as efficient as the Sword Plant."
+
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy (100$)"
+
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
 light_mask = 0
 layout_mode = 2
@@ -770,13 +894,23 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="FilterMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 421.0
 offset_top = 65.0
-offset_right = 882.0
+offset_right = 872.0
 offset_bottom = 641.0
 theme = ExtResource("4_gs2f0")
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu"]
+visible = false
+light_mask = 0
+layout_mode = 0
+offset_left = -16.0
+offset_right = 469.0
+offset_bottom = 596.0
+texture = ExtResource("33_x710q")
 
 [node name="CloseFilterMenu" type="TextureButton" parent="UI/FilterMenu"]
 light_mask = 0
@@ -946,6 +1080,7 @@ size_flags_horizontal = 3
 [node name="BoxContainer2" type="BoxContainer" parent="UI/FilterMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
 layout_mode = 0
+offset_top = 4.0
 offset_right = 454.0
 offset_bottom = 596.0
 theme_override_constants/separation = 10
@@ -1012,7 +1147,6 @@ text = "Converts Ammonia to Nitrate."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (1000$)"
 
 [node name="HOBFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
@@ -1056,7 +1190,6 @@ text = "5x as efficient as the sponge filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (5000$)"
 
 [node name="CanisterFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
@@ -1100,7 +1233,6 @@ text = "5x as efficient as the Hang on back filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (10,000$)"
 
 [node name="SumpFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
@@ -1144,7 +1276,6 @@ text = "5x as efficient as the Canister filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (15,000$)"
 
 [node name="IndustrialFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
@@ -1188,23 +1319,22 @@ text = "5x as efficient as the sump filter"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (20,000$)"
 
 [node name="Item Menu" type="Panel" parent="UI"]
 visible = false
 light_mask = 0
 layout_mode = 0
-offset_left = 264.0
+offset_left = 368.0
 offset_top = 88.0
-offset_right = 1032.0
+offset_right = 876.0
 offset_bottom = 592.0
 theme = ExtResource("4_gs2f0")
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/Item Menu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
 layout_mode = 0
-offset_right = 768.0
+offset_right = 513.0
 offset_bottom = 504.0
 theme_override_constants/separation = 10
 vertical = true
@@ -1418,10 +1548,10 @@ text = "Buy (100$)"
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/Item Menu"]
 light_mask = 0
 layout_mode = 2
-offset_left = 729.0
-offset_top = 5.0
-offset_right = 755.0
-offset_bottom = 30.0
+offset_left = 467.0
+offset_top = 9.0
+offset_right = 493.0
+offset_bottom = 34.0
 texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
