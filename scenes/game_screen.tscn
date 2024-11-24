@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=71 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
 [ext_resource type="Texture2D" uid="uid://cmqoa2bhwo22b" path="res://assets/art/crab.png" id="12_m0ecb"]
+[ext_resource type="Script" path="res://scripts/buy_creature_button.gd" id="12_mmhuv"]
 [ext_resource type="Texture2D" uid="uid://iktm1jvkvo6g" path="res://assets/art/killifish.png" id="13_glwx0"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="Texture2D" uid="uid://b1vr7yqrn483p" path="res://assets/art/lobster.png" id="13_onbyo"]
@@ -273,7 +274,6 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -381,6 +381,7 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("12_mmhuv")
 
 [node name="Crab" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -428,6 +429,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (500$)"
+script = ExtResource("12_mmhuv")
+species = 1
 
 [node name="Lobster" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -475,6 +478,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (1,000$)"
+script = ExtResource("12_mmhuv")
+species = 7
 
 [node name="Octopus" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -522,6 +527,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (5,000$)"
+script = ExtResource("12_mmhuv")
+species = 8
 
 [node name="Turtle" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -569,6 +576,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (10,000$)"
+script = ExtResource("12_mmhuv")
+species = 9
 
 [node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(0, 480)
@@ -645,6 +654,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (100$)"
+script = ExtResource("12_mmhuv")
+species = 2
 
 [node name="Pirahna" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -692,6 +703,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (500$)"
+script = ExtResource("12_mmhuv")
+species = 3
 
 [node name="Anglerfish" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -739,6 +752,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (1,000$)"
+script = ExtResource("12_mmhuv")
+species = 4
 
 [node name="Dragonfish" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -786,6 +801,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (5,000$)"
+script = ExtResource("12_mmhuv")
+species = 5
 
 [node name="Goblinshark" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
@@ -833,6 +850,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (10,000$)"
+script = ExtResource("12_mmhuv")
+species = 6
 
 [node name="CloseCreatureMenu" type="TextureButton" parent="UI/CreatureMenu"]
 light_mask = 0
@@ -1343,6 +1362,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="FilterMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 421.0
@@ -1771,6 +1791,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ItemMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 368.0
@@ -2207,6 +2228,26 @@ autoplay = true
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
 [connection signal="pressed" from="UI/ItemsButton" to="UI" method="_on_items_button_pressed"]
 [connection signal="pressed" from="UI/FiltersButton" to="UI" method="_on_filters_button_pressed"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Anglerfish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Anglerfish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Anglerfish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Dragonfish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Dragonfish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Dragonfish/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
+[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Goblinshark/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Goblinshark/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Goblinshark/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" method="_on_pressed"]
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="." method="_on_spawn_plant"]
