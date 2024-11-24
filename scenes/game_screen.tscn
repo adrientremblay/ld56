@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=66 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -38,16 +38,11 @@
 [ext_resource type="Texture2D" uid="uid://c6485aeghdxlq" path="res://assets/art/eelgrass.png" id="25_d7ymb"]
 [ext_resource type="Texture2D" uid="uid://bphbluud8kf6p" path="res://assets/art/water_lettuce.png" id="26_4la7q"]
 [ext_resource type="Script" path="res://scripts/filter_button.gd" id="26_6coqy"]
-[ext_resource type="Texture2D" uid="uid://c62iam8kxfgns" path="res://assets/art/sponge_filter.png" id="26_cahwj"]
 [ext_resource type="Texture2D" uid="uid://d0pgpedhnm2e1" path="res://assets/art/giant_anubias.png" id="27_cw4p5"]
 [ext_resource type="Texture2D" uid="uid://db7eyx2mgvcil" path="res://assets/art/nitrogen_cycle_annotated.png" id="27_ofx7h"]
-[ext_resource type="Texture2D" uid="uid://n0uchckdn8og" path="res://assets/art/hang_on_back_filter.png" id="27_wxhxw"]
-[ext_resource type="Texture2D" uid="uid://dl822eunvw7sr" path="res://assets/art/canister_filter.png" id="28_67da6"]
 [ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
-[ext_resource type="Texture2D" uid="uid://jasu2afglyq0" path="res://assets/art/sump_filter.png" id="29_s2nwj"]
 [ext_resource type="PackedScene" uid="uid://qmw0a0d7gpad" path="res://scenes/title_screen.tscn" id="30_spg6t"]
 [ext_resource type="Texture2D" uid="uid://dfl81cdkmdkr4" path="res://assets/art/menu_background.png" id="33_x710q"]
-[ext_resource type="Texture2D" uid="uid://b4i5myka1nb3p" path="res://assets/art/industrial_filter.png" id="37_2dcd4"]
 [ext_resource type="Texture2D" uid="uid://tivgxw86of6s" path="res://assets/art/sponge_filter_icon.png" id="38_h6v2u"]
 [ext_resource type="Texture2D" uid="uid://bu8pnchkih1wc" path="res://assets/art/ammonia_neutralizer.png" id="38_vj3ca"]
 [ext_resource type="Texture2D" uid="uid://b5n0ihgvsdrk7" path="res://assets/art/nitrate_neutralizer.png" id="39_6kxq6"]
@@ -866,6 +861,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 387.0
@@ -873,154 +869,6 @@ offset_top = 67.0
 offset_right = 903.0
 offset_bottom = 642.0
 theme = ExtResource("4_gs2f0")
-
-[node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
-visible = false
-material = SubResource("CanvasItemMaterial_r6l3h")
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 504.0
-theme_override_constants/separation = 10
-vertical = true
-
-[node name="Label" type="Label" parent="UI/PlantMenu/BoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Buy Plants"
-horizontal_alignment = 1
-
-[node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 12
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox"]
-layout_mode = 2
-
-[node name="SwordPlantHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuySwordPlant" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-Sword Plant
-(300$)"
-script = ExtResource("23_savwo")
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(72, 128)
-layout_mode = 2
-texture = ExtResource("23_bn2gs")
-expand_mode = 4
-
-[node name="StemPlantHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyStemPlant" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-Stem Plant
-(600$)"
-script = ExtResource("23_savwo")
-plant_type = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(72, 128)
-layout_mode = 2
-texture = ExtResource("24_txa6u")
-expand_mode = 4
-
-[node name="EelGrassHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyEelGrass" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-Eelgrass
-(900$)"
-script = ExtResource("23_savwo")
-plant_type = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(72, 128)
-layout_mode = 2
-texture = ExtResource("25_d7ymb")
-expand_mode = 4
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox"]
-layout_mode = 2
-
-[node name="WaterLettuceHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyWaterLettuce" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-Water 
-Lettuce
-(1200$)"
-script = ExtResource("23_savwo")
-plant_type = 3
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(72, 74)
-layout_mode = 2
-texture = ExtResource("26_4la7q")
-expand_mode = 4
-stretch_mode = 4
-
-[node name="GiantAnubiasHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyGiantAnubias" type="Button" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-Giant 
-Anubias
-(1500$)"
-script = ExtResource("23_savwo")
-plant_type = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(72, 128)
-layout_mode = 2
-texture = ExtResource("27_cw4p5")
-expand_mode = 4
-
-[node name="DummyHBox" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="BoxContainer2" type="BoxContainer" parent="UI/PlantMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
@@ -1371,7 +1219,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="FilterMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 421.0
@@ -1388,161 +1235,6 @@ offset_left = -16.0
 offset_right = 469.0
 offset_bottom = 596.0
 texture = ExtResource("33_x710q")
-
-[node name="BoxContainer" type="BoxContainer" parent="UI/FilterMenu"]
-visible = false
-material = SubResource("CanvasItemMaterial_r6l3h")
-layout_mode = 0
-offset_right = 768.0
-offset_bottom = 504.0
-theme_override_constants/separation = 10
-vertical = true
-
-[node name="Label" type="Label" parent="UI/FilterMenu/BoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "Buy Filters"
-horizontal_alignment = 1
-
-[node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 12
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox"]
-layout_mode = 2
-
-[node name="SpongeFilterHBox" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuySpongeFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-sponge
- filter 
-(1000$)"
-script = ExtResource("26_6coqy")
-
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(64, 160)
-layout_mode = 2
-texture = ExtResource("26_cahwj")
-expand_mode = 4
-stretch_mode = 3
-
-[node name="SpongeFilterHBox2" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyHangOnBackFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Hang
-on Back
-Filter
-(5000$)"
-script = ExtResource("26_6coqy")
-filter_type = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2"]
-light_mask = 0
-custom_minimum_size = Vector2(64, 160)
-layout_mode = 2
-texture = ExtResource("27_wxhxw")
-expand_mode = 4
-stretch_mode = 3
-
-[node name="SpongeFilterHBox3" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyCanisterFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy
-Canister
-Filter
-(10000$)"
-script = ExtResource("26_6coqy")
-filter_type = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3"]
-light_mask = 0
-custom_minimum_size = Vector2(64, 160)
-layout_mode = 2
-texture = ExtResource("28_67da6")
-expand_mode = 4
-stretch_mode = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox"]
-layout_mode = 2
-
-[node name="SpongeFilterHBox" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuySumpFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy
-SUmp
-Filter
-(15000$)"
-script = ExtResource("26_6coqy")
-filter_type = 3
-
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(64, 160)
-layout_mode = 2
-texture = ExtResource("29_s2nwj")
-expand_mode = 4
-stretch_mode = 3
-
-[node name="SpongeFilterHBox2" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="BuyIndustrialFilter" type="Button" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy 
-Industrial 
-Filter 
-(20000$)"
-script = ExtResource("26_6coqy")
-filter_type = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2"]
-light_mask = 0
-custom_minimum_size = Vector2(64, 160)
-layout_mode = 2
-texture = ExtResource("37_2dcd4")
-expand_mode = 4
-stretch_mode = 3
-
-[node name="SpongeFilterHBox3" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2"]
-light_mask = 0
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="BoxContainer2" type="BoxContainer" parent="UI/FilterMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
@@ -1615,6 +1307,7 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (1000$)"
+script = ExtResource("26_6coqy")
 
 [node name="HOBFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1658,6 +1351,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (5000$)"
+script = ExtResource("26_6coqy")
+filter_type = 1
 
 [node name="CanisterFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1701,6 +1396,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (10,000$)"
+script = ExtResource("26_6coqy")
+filter_type = 2
 
 [node name="SumpFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1744,6 +1441,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (15,000$)"
+script = ExtResource("26_6coqy")
+filter_type = 3
 
 [node name="IndustrialFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1787,6 +1486,8 @@ light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Buy (20,000$)"
+script = ExtResource("26_6coqy")
+filter_type = 4
 
 [node name="CloseFilterMenu" type="TextureButton" parent="UI/FilterMenu"]
 light_mask = 0
@@ -2258,16 +1959,6 @@ autoplay = true
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Goblinshark/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Goblinshark/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
 [connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Goblinshark/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
-[connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" method="_on_pressed"]
-[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="." method="_on_spawn_plant"]
-[connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox/BuyStemPlant" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox/BuyStemPlant" method="_on_pressed"]
-[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/StemPlantHBox/BuyStemPlant" to="." method="_on_spawn_plant"]
-[connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox/BuyEelGrass" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox/BuyEelGrass" method="_on_pressed"]
-[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/EelGrassHBox/BuyEelGrass" to="." method="_on_spawn_plant"]
-[connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox/BuyWaterLettuce" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox/BuyWaterLettuce" method="_on_pressed"]
-[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/WaterLettuceHBox/BuyWaterLettuce" to="." method="_on_spawn_plant"]
-[connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" method="_on_pressed"]
-[connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/GiantAnubiasHBox/BuyGiantAnubias" to="." method="_on_spawn_plant"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_plant"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
@@ -2287,16 +1978,16 @@ autoplay = true
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
-[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" method="_on_pressed"]
-[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" to="." method="_on_spawn_filter"]
-[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" method="_on_pressed"]
-[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" to="." method="_on_spawn_filter"]
-[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3/BuyCanisterFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3/BuyCanisterFilter" method="_on_pressed"]
-[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox3/BuyCanisterFilter" to="." method="_on_spawn_filter"]
-[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" method="_on_pressed"]
-[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" to="." method="_on_spawn_filter"]
-[connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" method="_on_pressed"]
-[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_filter"]
+[connection signal="pressed" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
+[connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_filter"]
 [connection signal="pressed" from="UI/FilterMenu/CloseFilterMenu" to="UI" method="_on_close_filter_menu_pressed"]
 [connection signal="pressed" from="UI/ItemMenu/CloseItemMenu" to="UI" method="_on_close_item_menu_pressed"]
 [connection signal="pressed" from="UI/ContractMenuButton" to="UI/ContractMenu" method="open_contract_menu"]
