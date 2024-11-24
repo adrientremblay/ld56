@@ -939,6 +939,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="Item Menu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 264.0
@@ -1152,7 +1153,7 @@ text = "Appetite Booster"
 [node name="Description" type="Label" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/Appetite Booster/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Gives all creatures 50% of their total health "
+text = "Creatures eat 50% faster for 10 seconds"
 
 [node name="BuyButton" type="Button" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/Appetite Booster/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
