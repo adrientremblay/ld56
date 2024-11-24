@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dnvfg37tkw1tg" path="res://assets/art/canister_filter-Sheet.png" id="1_17578"]
 [ext_resource type="Script" path="res://Filter.gd" id="2_d61cc"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6mv3r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vef87"]
 atlas = ExtResource("1_17578")
 region = Rect2(0, 0, 32, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ajtrb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ap82"]
 atlas = ExtResource("1_17578")
 region = Rect2(32, 0, 32, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh224"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lodv"]
 atlas = ExtResource("1_17578")
 region = Rect2(64, 0, 32, 160)
 
@@ -19,13 +19,13 @@ region = Rect2(64, 0, 32, 160)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6mv3r")
+"texture": SubResource("AtlasTexture_vef87")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ajtrb")
+"texture": SubResource("AtlasTexture_0ap82")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hh224")
+"texture": SubResource("AtlasTexture_8lodv")
 }],
 "loop": true,
 "name": &"default",
@@ -35,5 +35,6 @@ animations = [{
 [node name="CanisterFilter" type="AnimatedSprite2D"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_mwqny")
-frame_progress = 0.920311
+frame = 2
+frame_progress = 0.856841
 script = ExtResource("2_d61cc")
