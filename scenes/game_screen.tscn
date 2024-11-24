@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=70 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -50,9 +50,12 @@
 [ext_resource type="Texture2D" uid="uid://tivgxw86of6s" path="res://assets/art/sponge_filter_icon.png" id="38_h6v2u"]
 [ext_resource type="Texture2D" uid="uid://bu8pnchkih1wc" path="res://assets/art/ammonia_neutralizer.png" id="38_vj3ca"]
 [ext_resource type="Texture2D" uid="uid://b5n0ihgvsdrk7" path="res://assets/art/nitrate_neutralizer.png" id="39_6kxq6"]
+[ext_resource type="Texture2D" uid="uid://8u8plaom6a14" path="res://assets/art/hob_filter_icon.png" id="39_pnpfn"]
 [ext_resource type="Texture2D" uid="uid://cj2rsda1qdykq" path="res://assets/art/canister_filter_icon.png" id="39_rsnut"]
 [ext_resource type="Texture2D" uid="uid://tjjcowtycqqh" path="res://assets/art/fish_health.png" id="40_447o1"]
 [ext_resource type="Texture2D" uid="uid://c4sryf4gktx2r" path="res://assets/art/increased_appetite.png" id="41_7ic71"]
+[ext_resource type="Texture2D" uid="uid://dkl5h5d8rrhkj" path="res://assets/art/sump_filter_icon.png" id="41_e37a6"]
+[ext_resource type="Texture2D" uid="uid://cyn6g3xyhakg6" path="res://assets/art/industrial_filter_icon.png" id="42_qyorg"]
 [ext_resource type="AudioStream" uid="uid://hipojf41qtmd" path="res://assets/audio/contracts_available.wav" id="44_fposv"]
 [ext_resource type="AudioStream" uid="uid://dusi4ioo1k4qw" path="res://assets/audio/spokesman.mp3" id="49_67vsc"]
 [ext_resource type="AudioStream" uid="uid://dqk3dok4ye2ee" path="res://assets/audio/dark_theme.mp3" id="50_hapfr"]
@@ -769,11 +772,21 @@ stretch_mode = 0
 [node name="FilterMenu" type="Panel" parent="UI"]
 light_mask = 0
 layout_mode = 0
-offset_left = 264.0
-offset_top = 88.0
-offset_right = 1032.0
-offset_bottom = 592.0
+offset_left = 421.0
+offset_top = 65.0
+offset_right = 882.0
+offset_bottom = 641.0
 theme = ExtResource("4_gs2f0")
+
+[node name="CloseFilterMenu" type="TextureButton" parent="UI/FilterMenu"]
+light_mask = 0
+layout_mode = 2
+offset_left = 417.0
+offset_top = 5.0
+offset_right = 443.0
+offset_bottom = 30.0
+texture_normal = ExtResource("15_purco")
+stretch_mode = 0
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/FilterMenu"]
 visible = false
@@ -930,21 +943,11 @@ light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CloseFilterMenu" type="TextureButton" parent="UI/FilterMenu"]
-light_mask = 0
-layout_mode = 2
-offset_left = 729.0
-offset_top = 5.0
-offset_right = 755.0
-offset_bottom = 30.0
-texture_normal = ExtResource("15_purco")
-stretch_mode = 0
-
 [node name="BoxContainer2" type="BoxContainer" parent="UI/FilterMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
 layout_mode = 0
-offset_right = 768.0
-offset_bottom = 504.0
+offset_right = 454.0
+offset_bottom = 596.0
 theme_override_constants/separation = 10
 vertical = true
 
@@ -954,113 +957,239 @@ theme_override_font_sizes/font_size = 26
 text = "Buy Filters"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/FilterMenu/BoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="VboxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer"]
+[node name="VboxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer"]
 light_mask = 0
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="ItemsList" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer"]
+[node name="ItemsList" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 
-[node name="SpongeFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+[node name="SpongeFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer"]
 light_mask = 0
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("38_h6v2u")
 expand_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sponge Filter"
 
-[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Converts Ammonia to Nitrate."
 
-[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SpongeFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Buy (1000$)"
 
-[node name="CanisterFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+[node name="HOBFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer"]
 light_mask = 0
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("39_pnpfn")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Hang on back Filter"
+
+[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "5x as efficient as the sponge filter."
+
+[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/HOBFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy (5000$)"
+
+[node name="CanisterFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("39_rsnut")
 expand_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Canister Filter"
 
-[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Converts Ammonia to Nitrate. 5x as efficient as the sponge filter."
+text = "5x as efficient as the Hang on back filter."
 
-[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/CanisterFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Buy (1000$)"
+text = "Buy (10,000$)"
+
+[node name="SumpFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("41_e37a6")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SUMP Filter"
+
+[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "5x as efficient as the Canister filter."
+
+[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy (15,000$)"
+
+[node name="IndustrialFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("42_qyorg")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Industrial Filter"
+
+[node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "5x as efficient as the sump filter"
+
+[node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Buy (20,000$)"
 
 [node name="Item Menu" type="Panel" parent="UI"]
 visible = false
@@ -1542,6 +1671,7 @@ autoplay = true
 [connection signal="should_spawn_corpse" from="UI/ContractMenu" to="." method="_on_contract_menu_should_spawn_corpse"]
 [connection signal="timeout" from="UI/ContractMenu/NewContractTimer" to="UI" method="_on_new_contract_timer_timeout"]
 [connection signal="pressed" from="UI/ContractMenu/CloseContractMenu" to="UI/ContractMenu" method="_on_close_contract_menu_pressed"]
+[connection signal="pressed" from="UI/FilterMenu/CloseFilterMenu" to="UI" method="_on_close_filter_menu_pressed"]
 [connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" method="_on_pressed"]
 [connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox/BuySpongeFilter" to="." method="_on_spawn_filter"]
 [connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SpongeFilterHBox2/BuyHangOnBackFilter" method="_on_pressed"]
@@ -1552,7 +1682,6 @@ autoplay = true
 [connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox/BuySumpFilter" to="." method="_on_spawn_filter"]
 [connection signal="pressed" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" to="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" method="_on_pressed"]
 [connection signal="spawn_filter" from="UI/FilterMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer2/SpongeFilterHBox2/BuyIndustrialFilter" to="." method="_on_spawn_filter"]
-[connection signal="pressed" from="UI/FilterMenu/CloseFilterMenu" to="UI" method="_on_close_filter_menu_pressed"]
 [connection signal="pressed" from="UI/Item Menu/ClosePlantMenu" to="UI" method="_on_close_plant_menu_pressed"]
 [connection signal="pressed" from="UI/ContractMenuButton" to="UI/ContractMenu" method="open_contract_menu"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
