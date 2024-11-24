@@ -34,6 +34,7 @@ var ammonia_level = 0.0 # decimal %
 var nitrate_level = 0.0 # decimal %
 var corpses_eaten_count = 0
 var total_corpses_eaten = 0
+var feasting_frenzy = false
 
 # LEVEL VARIABLES
 var level = 0
@@ -62,18 +63,11 @@ func _process(delta: float) -> void:
 	if game_over:
 		return
 
-func _on_buy_snail_pressed() -> void:
-	if money < 5:
-		return
-	money -= 5
-	set_money_label()
+	var feeding_frenzy_boost = 1.5 if feasting_frenzy else 1.0
+	for corpse in compile_corpse_list():
+		for creature in corpse.feeding_area.get_overlapping_bodies():
+			corpse.weight -= creature.damage * delta * 0.2 * feeding_frenzy_boost
 	
-	var snail = landCreatureScene.instantiate()
-	snail.set_species(Creature.Species.SNAIL)
-	$Aquarium/Creatures.add_child(snail)
-	creatures_find_corpses()
-	
-	$SpawnCreature.play()
 
 func _on_contract_menu_should_spawn_corpse(person_name: Variant, weight: Variant, reward: Variant, appearance: Contract.Appearance, female: bool) -> void:
 	# find a random available spawn
@@ -142,32 +136,6 @@ func creatures_find_corpses():
 
 func set_money_label():
 	$UI/MoneyLabel.text = "Money: " + str(snappedf(money, 0.01)) + "$"
-
-func _on_buy_fish_pressed() -> void:
-	if money < 10:
-		return
-	money -= 10
-	set_money_label()
-	
-	var creature = waterCreatureScene.instantiate()
-	creature.set_species(Creature.Species.KILLIFISH)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
-func _on_buy_piranha_pressed() -> void:
-	if money < 15:
-		return
-	money -= 15
-	set_money_label()
-	
-	var creature = waterCreatureScene.instantiate()
-	creature.set_species(Creature.Species.PIRANHA)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
 
 func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
@@ -258,19 +226,6 @@ func open_win_screen():
 	get_tree().paused = true
 	$UI/WinScreen.open(total_corpses_eaten)
 	self.game_over = true
-
-func _on_buy_crab_pressed() -> void:
-	if money < 10:
-		return
-	money -= 10
-	set_money_label()
-	
-	var creature = landCreatureScene.instantiate()
-	creature.set_species(Creature.Species.CRAB)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
 
 func _on_dialogic_signal(action: String):
 	if action == "pause":
@@ -457,84 +412,6 @@ func delete_all_corpses():
 			spawn.get_child(0).queue_free()
 	creatures_find_corpses()
 
-func _on_buy_anglerfish_pressed() -> void:
-	if money < 20:
-		return
-	money -= 20
-	set_money_label()
-	
-	var creature = waterCreatureScene.instantiate()
-	creature.set_species(Creature.Species.ANGLERFISH)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
-func _on_buy_dragonfish_pressed() -> void:
-	if money < 25:
-		return
-	money -= 25
-	set_money_label()
-	
-	var creature = waterCreatureScene.instantiate()
-	creature.set_species(Creature.Species.DRAGONFISH)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
-func _on_buy_goblinshark_pressed() -> void:
-	if money < 25:
-		return
-	money -= 25
-	set_money_label()
-	
-	var creature = waterCreatureScene.instantiate()
-	creature.set_species(Creature.Species.GOBLINSHARK)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
-func _on_buy_lobster_pressed() -> void:
-	if money < 15:
-		return
-	money -= 15
-	set_money_label()
-	
-	var creature = landCreatureScene.instantiate()
-	creature.set_species(Creature.Species.LOBSTER)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
-func _on_buy_octopus_pressed() -> void:
-	if money < 20:
-		return
-	money -= 20
-	set_money_label()
-	
-	var creature = landCreatureScene.instantiate()
-	creature.set_species(Creature.Species.OCTOPUS)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
-func _on_buy_turtle_pressed() -> void:
-	if money < 100:
-		return
-	money -= 100
-	set_money_label()
-	
-	var creature = landCreatureScene.instantiate()
-	creature.set_species(Creature.Species.TURTLE)
-	$Aquarium/Creatures.add_child(creature)
-	creatures_find_corpses()
-
-	$SpawnCreature.play()
-
 func _on_spawn_species(species: Creature.Species) -> void:
 	if money < Creature.species_stats[species].price:
 		return
@@ -616,3 +493,49 @@ func _on_contract_menu_contract_menu_closed() -> void:
 		contract_timeout = 10
 	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
 	$UI/ContractMenu/NewContractTimer.start()
+
+func _on_buy_ammonia_neutralizer_button_pressed() -> void:
+	if money < 500:
+		return
+	money -= 500
+	set_money_label()
+	
+	ammonia_level = clamp(ammonia_level - 0.25, 0.0, 1.0)
+	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
+	
+	$ItemSound.play()
+
+func _on_buy_nitrate_neutralizer_button_pressed() -> void:
+	if money < 500:
+		return
+	money -= 500
+	set_money_label()
+	
+	nitrate_level = clamp(nitrate_level - 0.25, 0.0, 1.0)
+	$UI/NitrateLevelBar.value = nitrate_level * 100.0
+
+	$ItemSound.play()
+
+func _on_buy_health_booster_button_pressed() -> void:
+	if money < 250:
+		return
+	money -= 250
+	set_money_label()
+	
+	for creature in $Aquarium/Creatures.get_children():
+		creature.health = clamp(creature.health + 50, 0, 100)
+
+	$ItemSound.play()
+
+func _on_buy_appetite_booster_button_pressed() -> void:
+	if money < 250:
+		return
+	money -= 250
+	set_money_label()
+	
+	feasting_frenzy = true
+	
+	$ItemSound.play()
+
+func _on_appetite_booster_timeout_timeout() -> void:
+	feasting_frenzy = false
