@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://83gh73m2e22b"]
+[gd_scene load_steps=3 format=3 uid="uid://83gh73m2e22b"]
 
 [ext_resource type="Script" path="res://scripts/contract.gd" id="1_dpepd"]
 [ext_resource type="Texture2D" uid="uid://c7x68n7i3oj2q" path="res://assets/art/male_corpse_thin_icon.png" id="2_c071y"]
-[ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="3_e2rq2"]
 
 [node name="Contract" type="PanelContainer"]
 light_mask = 0
+custom_minimum_size = Vector2(1000, 0)
 script = ExtResource("1_dpepd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -27,12 +27,15 @@ theme_override_constants/separation = 20
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(150, 100)
+custom_minimum_size = Vector2(140, 130)
 layout_mode = 2
 texture = ExtResource("2_c071y")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 light_mask = 0
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -50,32 +53,23 @@ light_mask = 0
 layout_mode = 2
 text = "Reward: 50$"
 
-[node name="SourceLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="BonusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
 layout_mode = 2
-text = "Source: Evil Corp"
+text = "Bonus: Yes, due to the bodies large size"
 
-[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-clip_contents = true
-layout_mode = 2
-
-[node name="DescriptionTitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Description:"
-
-[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 2
-theme = ExtResource("3_e2rq2")
-theme_override_font_sizes/font_size = 14
-text = "From a young age Steve Martin believed he was the best dancer ever to grace the earth. He was assassinated for being too good of a dancerFrom a young age Steve Martin believed he was the best dancer ever to grace the earth. He was assassinated for being too good of a dancerFrom a young age Steve Martin believed he was the best dancer ever to grace the earth. He was assassinated for being too good of a dancer"
-autowrap_mode = 1
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
 text = "Accept"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Bio: He was killed because he was black by racist people."
+autowrap_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

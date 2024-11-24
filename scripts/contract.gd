@@ -17,12 +17,11 @@ var description
 
 signal contract_accepted(person_name, weight, reward, appearance, female, description)
 
-func construct(person_name, weight, reward, female, source, description):
+func construct(person_name, weight, reward, female, bonus, description):
 	self.person_name = person_name
 	self.weight = weight
 	self.reward = reward
 	self.female = female
-	self.source = source
 	self.description = description
 	
 	if (weight < 160):
@@ -36,8 +35,8 @@ func construct(person_name, weight, reward, female, source, description):
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NameLabel.text = "Name: " + person_name
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/WeightLabel.text = "Weight: " + str(weight) + "lbs"
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/RewardLabel.text = "Reward: " + str(reward) + "$"
-	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/SourceLabel.text = "Source: " + source
-	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/DescriptionLabel.text = description
+	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/BonusLabel.text = "Bonus: " + bonus
+	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/DescriptionLabel.text = "Description: " + description
 
 func _on_button_pressed() -> void:
 	contract_accepted.emit(self.person_name, self.weight, self.reward, self.appearance, self.female)

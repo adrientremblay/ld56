@@ -11,48 +11,22 @@ var MIN_REWARD = 500.0
 var MAX_REWARD = 2200.0
 var GOLIATH_MIN_REWARD = 2750.0
 var GOLIATH_MAX_REWARD = 5000.0
-var ORGANIZATIONS = [
-	{
-		"name" : "PureGenus",
-		"description1" : "They believe that the average human genetic composition has become inferior",
-		"description2" : "Kidnap people they believe have inferior genes and forcefully sterilise them. There are often fatalities in the struggle",
-		"description3" : "There is a heavy racial bias in determining if an individual is 'inferior' or not",
-		"karma" : -0.3,
-		"backstories" : [
-			"Sadly, [Name] wore glasses. He was unlucky enough to bump into a member of PureGenus at a club. A week later he was kidnapped and perished during the attempted back-alley castration."
-		]
-	},
-	{
-		"name" : "Blackstone Pharma",
-		"description1" : "Performs human experiments on people",
-		"description2" : "Sells drugs at exorbitant markups",
-		"description3" : "Markets unnecessary drugs to vulnerable groups of people",
-		"karma" : -0.2,
-		"backstories" : [
-			"[Name] was a successful lawyer before alcoholism and undiagnosed schizophrenia got the best of him. He has been homeless for the last 20 years. Blackstone abducted him one fateful night. No one noticed his disappearance."
-		]
-	},
-	{
-		"name" : "The Reclamation Network",
-		"description1" : "Anonymously donate organs to hospitals around the globe ultimately saving lives",
-		"description2" : "Secretly sources their organs from proven rapists and pedophiles both in and out of prison",
-		"description3" : "Comprised primarily by ex law enforcement",
-		"karma" : 0.2,
-		"backstories" : [
-			"[Name] was a guidance councellor for underprivileged youth at a high school. They abused their position to molest students for 3 years. Video proof was presented to the reclamation network and the rest is history."
-		]
-	},
-	{
-		"name" : "Project Horizon",
-		"description1" : "Performs experimental treatments on willing volunteers who are infected with fatal diseases",
-		"description2" : "Their activity is illegal",
-		"description3" : "Wish to dispose of bodies to avoid detection and public scrutiny",
-		"karma" : 0.3,
-		"backstories" : [
-			"Facing the advanced stages of Multiple Sclerosis, [Name] resorted to Project Horizon's risky gene therapy treatement. Unfortunately, he succumbed to his condition. His body needs to be disposed of avoid connecting him to the organization."
-		]
-	},
-]
+# The format is [NAME] + backstory
+var POTENTIAL_BACKSTORIES = [
+		" was a guidance councelor at a local high school. They abused their power and abused children. They were reported to a local vigilante group and executed.",
+		" bumped into the wrong person at a club. That person used their criminal connections to contact us.",
+		" was a whistleblower for a large pharmacutical company. They were killed by hitmen hired by the company.",
+		" lived on the streets for 14 years before they were kidnapped by a secretive bio-engineering company for human experiments.",
+		" was in the advanced stages of MS before he resorted to illegal experimental treatement. His body needs to be disposed of so as to not arouse suspicion.",
+		" was a former mob accountant who tried to embezzle money from the organization. They were caught and made an example of.",
+		" was an undercover cop who got too close to uncovering the organization's operations. Their cover was blown, and they had to be eliminated.",
+		" was a journalist investigating a high-profile politician's ties to corporate corruption. They were getting too close to publishing what they had and were killed.",
+		" was a hacker who breached into a server ran by a human trafficking ring. A darkweb assassin was promply sent to hunt him down.",
+		" was a rival gang member caught encroaching on a cartel's drug peddling territory. Their death sends a clear message.",
+		" was a high-profile escort who overheard a conversation they shouldn’t have during a private event for the rich and powerful.",
+		" was a disgruntled former employee of a weapons manufacturer who tried to sell corporate secrets on the black market.",
+		" was an activist organizing protests against a corrupt corporation. The company used its underworld connections to silence them."
+	]
 
 @onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer/ContractVBox
 @export var contract_scene: PackedScene
@@ -105,14 +79,16 @@ func generateNewContract():
 	var first_name = first_names[rng.randi_range(0, first_names.size()-1)]
 	var last_name = LAST_NAMES[rng.randi_range(0, LAST_NAMES.size()-1)]
 	
-	var organization = ORGANIZATIONS[rng.randi_range(0, ORGANIZATIONS.size()-1)]
-	var backstory: String = organization.backstories[rng.randi_range(0, organization.backstories.size()-1)]
-	backstory = backstory.replace("[Name]", first_name)
+	var reward = calculate_reward_for_contract(weight)
 	
-	var reward = calculate_reward_for_contract(weight, organization.karma)
+	var bonus = "None."
+	if upgrade_weight_to_goliath_class:
+		bonus = "Yes, due to it's massive size."
+	
+	var description = first_name + POTENTIAL_BACKSTORIES[rng.randf_range(0, POTENTIAL_BACKSTORIES.size() - 1)]
 	
 	var new_contract: Contract = contract_scene.instantiate()
-	new_contract.construct(first_name + " " + last_name, weight, reward, female, organization.name, backstory)
+	new_contract.construct(first_name + " " + last_name, weight, reward, female, bonus, description)
 	new_contract.connect("contract_accepted", self.contract_accepted)
 	contract_vbox.add_child(new_contract)
 	
@@ -128,14 +104,14 @@ func _on_close_contract_menu_pressed() -> void:
 	get_tree().paused = false
 	contract_menu_closed.emit()
 
-func calculate_reward_for_contract(weight: float, karma: float) -> float:
+func calculate_reward_for_contract(weight: float) -> float:
 	if weight < GOLIATH_LOWER_WEIGHT_BOUND:
 		var weight_percentage = (weight - LOWER_WEIGHT_BOUND) / (UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
 		var reward = MIN_REWARD + (MAX_REWARD-MIN_REWARD) * weight_percentage
-		reward = (1-karma)*reward
+		#reward = (1-karma)*reward
 		return snappedf(reward, 0.01)
 	else:
 		var weight_percentage = (weight - GOLIATH_LOWER_WEIGHT_BOUND) / (GOLIATH_UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
 		var reward = GOLIATH_MIN_REWARD + (GOLIATH_MAX_REWARD-GOLIATH_MIN_REWARD) * weight_percentage
-		reward = (1-karma)*reward
+		#reward = (1-karma)*reward
 		return snappedf(reward, 0.01)

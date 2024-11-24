@@ -874,6 +874,7 @@ theme = ExtResource("4_gs2f0")
 
 [node name="BoxContainer2" type="BoxContainer" parent="UI/PlantMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
+layout_mode = 0
 offset_left = 2.0
 offset_right = 513.0
 offset_bottom = 584.0
@@ -1142,7 +1143,6 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ContractMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 19.0
@@ -1196,6 +1196,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
+
+[node name="Contract" parent="UI/ContractMenu/VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer/ContractVBox" instance=ExtResource("10_j63wu")]
+layout_mode = 2
 
 [node name="NewContractTimer" type="Timer" parent="UI/ContractMenu"]
 wait_time = 3.0
@@ -1504,6 +1507,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ItemMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 368.0
