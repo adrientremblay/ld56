@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=68 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://83gh73m2e22b" path="res://scenes/contract.tscn" id="10_j63wu"]
 [ext_resource type="Texture2D" uid="uid://ups17y2i0mab" path="res://assets/art/assassin_snail.png" id="11_m7v65"]
 [ext_resource type="Texture2D" uid="uid://cmqoa2bhwo22b" path="res://assets/art/crab.png" id="12_m0ecb"]
-[ext_resource type="Script" path="res://scripts/buy_creature_button.gd" id="12_mmhuv"]
 [ext_resource type="Texture2D" uid="uid://iktm1jvkvo6g" path="res://assets/art/killifish.png" id="13_glwx0"]
 [ext_resource type="PackedScene" uid="uid://bx2cxds4tduly" path="res://scenes/water_creature.tscn" id="13_kriy5"]
 [ext_resource type="Texture2D" uid="uid://b1vr7yqrn483p" path="res://assets/art/lobster.png" id="13_onbyo"]
@@ -23,8 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://ba60208sr07o3" path="res://assets/art/turtle.png" id="15_hunx6"]
 [ext_resource type="Texture2D" uid="uid://ussvh757p0jq" path="res://assets/art/close_window.png" id="15_purco"]
 [ext_resource type="Texture2D" uid="uid://c78y0dwon21xy" path="res://assets/art/anglerfish.png" id="15_xpy36"]
-[ext_resource type="Texture2D" uid="uid://bfxx18pim7bth" path="res://assets/art/arowana.png" id="16_737qq"]
-[ext_resource type="Texture2D" uid="uid://dh2ngqgk7mh32" path="res://assets/art/goblin_shark.png" id="17_nwp0c"]
 [ext_resource type="AudioStream" uid="uid://dg68q5hcojote" path="res://assets/audio/splash.wav" id="18_8f42f"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="18_vxnfe"]
 [ext_resource type="AudioStream" uid="uid://bcjnn350s8gqq" path="res://assets/audio/spawn_creature.wav" id="19_d1s5n"]
@@ -262,6 +259,7 @@ theme = ExtResource("4_gs2f0")
 text = "Filters"
 
 [node name="BuyButtonsLabel" type="Label" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 17.0
@@ -273,22 +271,22 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
-offset_left = 264.0
-offset_top = 88.0
-offset_right = 1032.0
-offset_bottom = 592.0
+offset_left = 148.0
+offset_top = 63.0
+offset_right = 1121.0
+offset_bottom = 635.0
 theme = ExtResource("4_gs2f0")
 
-[node name="BoxContainer" type="BoxContainer" parent="UI/CreatureMenu"]
+[node name="BoxContainer" type="VBoxContainer" parent="UI/CreatureMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
 layout_mode = 2
-offset_right = 768.0
-offset_bottom = 504.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 960.0
+offset_bottom = 560.0
 theme_override_constants/separation = 10
-vertical = true
 
 [node name="Label" type="Label" parent="UI/CreatureMenu/BoxContainer"]
 layout_mode = 2
@@ -296,10 +294,17 @@ theme_override_font_sizes/font_size = 26
 text = "Buy Creatures"
 horizontal_alignment = 1
 
+[node name="Tagline" type="Label" parent="UI/CreatureMenu/BoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Creatures eat corpses but produce ammonia."
+horizontal_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer"]
 layout_mode = 2
 
 [node name="LandCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 480)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
@@ -307,106 +312,263 @@ theme_override_constants/separation = 12
 [node name="CategoryLabel" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
-text = "Invertibrates"
+theme_override_font_sizes/font_size = 26
+text = "Benthos"
 horizontal_alignment = 1
 
-[node name="SnailHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+[node name="Tagline" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Eat fast but move slow"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Snail" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+theme = ExtResource("4_gs2f0")
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("11_m7v65")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="BuySnail" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "buy snail (100$)"
-script = ExtResource("12_mmhuv")
 
-[node name="CrabHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Assassin Snail"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 2.5
+Speed: 1
+Bioload: 0.001
+Nitrogen Tolerance: LOW"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (100$)"
+
+[node name="Crab" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+theme = ExtResource("4_gs2f0")
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("12_m0ecb")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="BuyCrab" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Crab (500$)"
-script = ExtResource("12_mmhuv")
-species = 1
 
-[node name="LobsterHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Crab"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 8
+Speed: 2.5
+Bioload: 0.005
+Nitrogen Tolerance: moderate"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (500$)"
+
+[node name="Lobster" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+theme = ExtResource("4_gs2f0")
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("13_onbyo")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="BuyLobster" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Lobster (1000$)"
-script = ExtResource("12_mmhuv")
-species = 7
 
-[node name="OctopusHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOBSTER"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 25
+Speed: 2
+Bioload: 0.01
+Nitrogen Tolerance: HIGH"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Lobster/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (1,000$)"
+
+[node name="Octopus" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+theme = ExtResource("4_gs2f0")
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("14_1jwsp")
-expand_mode = 2
+expand_mode = 5
+stretch_mode = 4
 
-[node name="BuyOctopus" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Octopus (5000$)"
-script = ExtResource("12_mmhuv")
-species = 8
 
-[node name="TurtleHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox"]
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Octopus"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 150
+Speed: 3.5
+Bioload: 0.06
+Nitrogen Tolerance: LOW"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Octopus/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (5,000$)"
+
+[node name="Turtle" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+theme = ExtResource("4_gs2f0")
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("15_hunx6")
-expand_mode = 2
+expand_mode = 5
+stretch_mode = 4
 
-[node name="BuyTurtle" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Turtle (10000$)"
-script = ExtResource("12_mmhuv")
-species = 9
+
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Snapping Turtle"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 700
+Speed: 2
+Bioload: 0.12
+Nitrogen Tolerance: HIGH"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Turtle/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (10,000$)"
 
 [node name="WaterCreaturesVBox" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 480)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
@@ -414,123 +576,186 @@ theme_override_constants/separation = 12
 [node name="CategoryLabel" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
-text = "Fish"
+theme_override_font_sizes/font_size = 26
+text = "FISH"
 horizontal_alignment = 1
 
-[node name="FishHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
-light_mask = 0
+[node name="Tagline" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "move fast but eat slow"
+horizontal_alignment = 1
 
-[node name="BuyFish" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox"]
-light_mask = 0
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy fish (100$)"
-script = ExtResource("12_mmhuv")
-species = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox"]
+[node name="Fish" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
+visible = false
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("13_glwx0")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="PirahnaHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
-light_mask = 0
-layout_mode = 2
-
-[node name="BuyPiranha" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Pirahna (500$)"
-script = ExtResource("12_mmhuv")
-species = 3
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox"]
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Killifish"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 1
+Speed: 2.5
+Bioload: 0.001
+Nitrogen Tolerance: HIGH"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (100$)"
+
+[node name="Pirahna" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("14_duugw")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="AnglerfishHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
-light_mask = 0
-layout_mode = 2
-
-[node name="BuyAnglerfish" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Anglerfish (1000$)"
-script = ExtResource("12_mmhuv")
-species = 4
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox"]
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Piranha"
+
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 4
+Speed: 5
+Bioload: 0.005
+Nitrogen Tolerance: MODERATE"
+
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (500$)"
+
+[node name="Pirahna2" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(150, 50)
 layout_mode = 2
 texture = ExtResource("15_xpy36")
+expand_mode = 5
+stretch_mode = 4
 
-[node name="DragonfishHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
-light_mask = 0
-layout_mode = 2
-
-[node name="BuyDragonfish" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox"]
-light_mask = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Dragonfish (5000$)"
-script = ExtResource("12_mmhuv")
-species = 5
 
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(54, 36)
+[node name="ItemName" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("16_737qq")
-expand_mode = 2
+text = "Anglerfish"
 
-[node name="GoblinsharkHBox" type="HBoxContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox"]
-light_mask = 0
+[node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Damage: 12.5
+Speed: 4
+Bioload: 0.01
+Nitrogen Tolerance: HIGH"
 
-[node name="BuyGoblinshark" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox"]
+[node name="BuyButton" type="Button" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Pirahna2/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("4_gs2f0")
-text = "Buy Goblinshark (10000$)"
-script = ExtResource("12_mmhuv")
-species = 6
-
-[node name="TextureRect" type="TextureRect" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox"]
-light_mask = 0
-custom_minimum_size = Vector2(54, 36)
-layout_mode = 2
-texture = ExtResource("17_nwp0c")
-expand_mode = 2
+text = "Buy (1,000$)"
 
 [node name="CloseCreatureMenu" type="TextureButton" parent="UI/CreatureMenu"]
 light_mask = 0
 layout_mode = 2
-offset_left = 729.0
-offset_top = 5.0
-offset_right = 755.0
-offset_bottom = 30.0
+offset_left = 936.0
+offset_top = 7.0
+offset_right = 962.0
+offset_bottom = 32.0
 texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="PlantMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
-offset_left = 264.0
-offset_top = 88.0
-offset_right = 1032.0
-offset_bottom = 592.0
+offset_left = 387.0
+offset_top = 67.0
+offset_right = 903.0
+offset_bottom = 642.0
 theme = ExtResource("4_gs2f0")
 
 [node name="BoxContainer" type="BoxContainer" parent="UI/PlantMenu"]
@@ -683,8 +908,9 @@ size_flags_horizontal = 3
 
 [node name="BoxContainer2" type="BoxContainer" parent="UI/PlantMenu"]
 material = SubResource("CanvasItemMaterial_r6l3h")
+offset_left = 2.0
 offset_right = 513.0
-offset_bottom = 504.0
+offset_bottom = 584.0
 theme_override_constants/separation = 10
 vertical = true
 
@@ -694,44 +920,39 @@ theme_override_font_sizes/font_size = 26
 text = "Buy Plants"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/PlantMenu/BoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="VboxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer"]
+[node name="VboxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer"]
 light_mask = 0
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="ItemsList" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer"]
+[node name="PlantsList" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 
-[node name="AmmoniaNeutralizer" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+[node name="SwordPlant" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
 light_mask = 0
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer"]
 light_mask = 0
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -739,44 +960,43 @@ texture = ExtResource("23_bn2gs")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sword Plant"
 
-[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Eliminates nitrate from the water."
 
-[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/SwordPlant/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (100$)"
 
-[node name="AmmoniaNeutralizer2" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
+[node name="StemPlant" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
 light_mask = 0
 layout_mode = 2
 theme = ExtResource("4_gs2f0")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer"]
 light_mask = 0
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
@@ -784,24 +1004,155 @@ texture = ExtResource("24_txa6u")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Stem plant"
 
-[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "2x as efficient as the Sword Plant."
 
-[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/ScrollContainer/VboxContainer/MarginContainer/ItemsList/AmmoniaNeutralizer2/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/StemPlant/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+text = "Buy (100$)"
+
+[node name="Eelgrass" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("25_d7ymb")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Eelgrass"
+
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "2x as efficient as the stem plant."
+
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/Eelgrass/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (100$)"
+
+[node name="WaterLettuce" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("26_4la7q")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Water lettuce"
+
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "2x as efficient as eelgrass."
+
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/WaterLettuce/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Buy (100$)"
+
+[node name="GiantAnubias" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
+light_mask = 0
+layout_mode = 2
+theme = ExtResource("4_gs2f0")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer"]
+light_mask = 0
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TextureRect" type="TextureRect" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("27_cw4p5")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemName" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "GIANT ANUBIAS"
+
+[node name="Description" type="Label" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "2x as efficient as water lettuce."
+
+[node name="BuyButton" type="Button" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList/GiantAnubias/MarginContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 text = "Buy (100$)"
 
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/PlantMenu"]
@@ -1407,7 +1758,6 @@ text = "Neutralizes up to 25% of the Ammonia in the water"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (100$)"
 
 [node name="NitrateNeutralizer" type="PanelContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1452,7 +1802,6 @@ text = "Neutralizes up to 25% of the Nitrate in the water"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (100$)"
 
 [node name="HealthBooster" type="PanelContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1497,7 +1846,6 @@ text = "Gives all creatures 50% of their total health "
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (100$)"
 
 [node name="Appetite Booster" type="PanelContainer" parent="UI/Item Menu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1542,7 +1890,6 @@ text = "Creatures eat 50% faster for 10 seconds"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 text = "Buy (100$)"
 
 [node name="ClosePlantMenu" type="TextureButton" parent="UI/Item Menu"]
@@ -1761,26 +2108,6 @@ autoplay = true
 [connection signal="pressed" from="UI/CreatureButton" to="UI" method="_on_creature_button_pressed"]
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
 [connection signal="pressed" from="UI/FiltersButton" to="UI" method="_on_filters_button_pressed"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/SnailHBox/BuySnail" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/CrabHBox/BuyCrab" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/LobsterHBox/BuyLobster" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/OctopusHBox/BuyOctopus" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/TurtleHBox/BuyTurtle" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/FishHBox/BuyFish" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/PirahnaHBox/BuyPiranha" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/AnglerfishHBox/BuyAnglerfish" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/DragonfishHBox/BuyDragonfish" to="." method="_on_spawn_species"]
-[connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" method="_on_pressed"]
-[connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/GoblinsharkHBox/BuyGoblinshark" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/CloseCreatureMenu" to="UI" method="_on_close_creature_menu_pressed"]
 [connection signal="pressed" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" method="_on_pressed"]
 [connection signal="spawn_plant" from="UI/PlantMenu/BoxContainer/WaterCreaturesVBox/HBoxContainer/SwordPlantHBox/BuySwordPlant" to="." method="_on_spawn_plant"]
