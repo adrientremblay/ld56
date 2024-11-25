@@ -25,7 +25,8 @@ var POTENTIAL_BACKSTORIES = [
 		" was a rival gang member caught encroaching on a cartel's drug peddling territory. Their death sends a clear message.",
 		" was a high-profile escort who overheard a conversation they shouldn’t have during a private event for the rich and powerful.",
 		" was a disgruntled former employee of a weapons manufacturer who tried to sell corporate secrets on the black market.",
-		" was an activist organizing protests against a corrupt corporation. The company used its underworld connections to silence them."
+		" was an activist organizing protests against a corrupt corporation. The company used its underworld connections to silence them.",
+		" was a reckless driver who caused a fatal accident. The victims father hired an assassin to retaliate."
 	]
 
 @onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer/ContractVBox
