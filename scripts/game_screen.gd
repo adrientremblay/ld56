@@ -537,6 +537,7 @@ func _on_buy_appetite_booster_button_pressed() -> void:
 	set_money_label()
 	
 	feasting_frenzy = true
+	$AppetiteBoosterTimeout.start()
 	
 	$ItemSound.play()
 
