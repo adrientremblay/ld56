@@ -52,7 +52,7 @@ func _ready() -> void:
 	set_starting_game_datetime()
 	update_corpse_eaten_label()
 	dialogic_setup()
-	$UI/TitleScreen.open()
+	$UI/TitleScreen.visible = true
 	$SpokesmanMusic.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func start_game():
@@ -396,10 +396,13 @@ func launch_level():
 	setup_new_level()
 	
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("next_level"):
+	if debug && event.is_action_pressed("next_level"):
 		next_level()
 	elif $UI/TitleScreen.visible && event.is_action_pressed("dialogic_default_action"):
-		$UI/TitleScreen.close()
+		$UI/TitleScreen.visible = false
+		$UI/InfographicScreen.visible = true
+	elif $UI/InfographicScreen.visible == true && event.is_action_pressed("dialogic_default_action"):
+		$UI/InfographicScreen.visible = false
 		start_game()
 		$ThemeMusic.stop()
 

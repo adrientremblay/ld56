@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=69 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -87,6 +87,9 @@ bg_color = Color(0.89, 0.5785, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tb4g"]
 bg_color = Color(0, 0.474, 0.79, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffe0a"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_ka8qc")
@@ -1846,6 +1849,7 @@ theme = ExtResource("4_gs2f0")
 text = "Sleep"
 
 [node name="PauseMenu" type="Panel" parent="UI"]
+visible = false
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
@@ -1906,6 +1910,54 @@ layout_mode = 1
 visible = false
 light_mask = 0
 layout_mode = 0
+
+[node name="InfographicScreen" type="Panel" parent="UI"]
+visible = false
+light_mask = 0
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ffe0a")
+
+[node name="Label" type="Label" parent="UI/InfographicScreen"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 104.0
+theme = ExtResource("4_gs2f0")
+theme_override_font_sizes/font_size = 40
+text = "The Nitrogen cycle (simplified)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/InfographicScreen"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 217.0
+offset_top = 110.0
+offset_right = -225.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_ofx7h")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="UI/InfographicScreen"]
+light_mask = 0
+layout_mode = 0
+offset_left = 64.0
+offset_top = 623.0
+offset_right = 1216.0
+offset_bottom = 702.0
+theme = ExtResource("4_gs2f0")
+theme_override_font_sizes/font_size = 27
+text = "[ Space to continue]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="NewContractsAvailable" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource("44_fposv")

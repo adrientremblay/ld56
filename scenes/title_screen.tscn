@@ -41,5 +41,3 @@ offset_top = 53.0
 offset_right = 1216.0
 offset_bottom = 437.0
 texture = ExtResource("3_4uwef")
-
-[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
