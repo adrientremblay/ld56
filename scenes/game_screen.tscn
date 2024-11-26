@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=70 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -53,6 +53,7 @@
 [ext_resource type="Texture2D" uid="uid://dkl5h5d8rrhkj" path="res://assets/art/sump_filter_icon.png" id="41_e37a6"]
 [ext_resource type="Texture2D" uid="uid://cyn6g3xyhakg6" path="res://assets/art/industrial_filter_icon.png" id="42_qyorg"]
 [ext_resource type="AudioStream" uid="uid://hipojf41qtmd" path="res://assets/audio/contracts_available.wav" id="44_fposv"]
+[ext_resource type="AudioStream" uid="uid://c1tfxmrp8lcs3" path="res://assets/audio/main_game_Music (1).mp3" id="50_w1im8"]
 [ext_resource type="AudioStream" uid="uid://chwugcxfgnmrx" path="res://assets/audio/spokesman_extended.mp3" id="54_xffih"]
 [ext_resource type="AudioStream" uid="uid://qsuxwtaome3a" path="res://assets/audio/dark_theme (4).mp3" id="55_ex170"]
 [ext_resource type="AudioStream" uid="uid://cvnxbwnkbtljq" path="res://assets/audio/item_sound.wav" id="56_4grmy"]
@@ -1964,6 +1965,7 @@ stream = ExtResource("44_fposv")
 volume_db = -4.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("50_w1im8")
 volume_db = -6.026
 
 [node name="Splash" type="AudioStreamPlayer" parent="."]

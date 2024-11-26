@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_5w7t6"]
 [ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="3_thup0"]
+[ext_resource type="AudioStream" uid="uid://cit0518kwswfj" path="res://assets/audio/losegame_extended.mp3" id="4_slsug"]
 [ext_resource type="Texture2D" uid="uid://bp7rtb00g7v7n" path="res://assets/art/death_screen.png" id="5_0bcq5"]
-[ext_resource type="AudioStream" uid="uid://enttmiisukw6" path="res://assets/audio/endgame.mp3" id="6_8n0ut"]
 
 [node name="EndScreen" type="Panel"]
 anchors_preset = 15
@@ -55,4 +55,4 @@ offset_bottom = 512.0
 texture = ExtResource("5_0bcq5")
 
 [node name="EndGameSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_8n0ut")
+stream = ExtResource("4_slsug")
