@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func open(level_number: int, quota: int, bonus: int, penalty: int, timeout: int, money: int):
 	self.visible = true
+	$CurrentMoneyValue.text = str(money) + "$"
 	$MoneyValue.text = str(100000 - money) + "$"
 	$LevelLabel.text = "Day " + str(level_number)
 	$ContractWaitTimeValue.text = str(timeout) + "s"

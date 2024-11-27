@@ -46,9 +46,9 @@ horizontal_alignment = 1
 [node name="RemainingMoneyLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 216.0
+offset_top = 280.0
 offset_right = 768.0
-offset_bottom = 250.0
+offset_bottom = 314.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Money Needed for Surgery:"
@@ -56,9 +56,9 @@ text = "Money Needed for Surgery:"
 [node name="TimeoutLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 280.0
+offset_top = 344.0
 offset_right = 641.0
-offset_bottom = 314.0
+offset_bottom = 378.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Contract Wait Time: "
@@ -66,9 +66,9 @@ text = "Contract Wait Time: "
 [node name="QuotaLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 344.0
+offset_top = 408.0
 offset_right = 392.0
-offset_bottom = 378.0
+offset_bottom = 442.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Quota: "
@@ -76,9 +76,9 @@ text = "Quota: "
 [node name="BonusLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 408.0
+offset_top = 472.0
 offset_right = 384.0
-offset_bottom = 442.0
+offset_bottom = 506.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Bonus: "
@@ -88,9 +88,9 @@ autowrap_mode = 2
 [node name="PenaltyLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 256.0
-offset_top = 472.0
+offset_top = 536.0
 offset_right = 424.0
-offset_bottom = 506.0
+offset_bottom = 570.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "Penalty: "
@@ -110,9 +110,9 @@ text = "CONTINUE"
 [node name="MoneyValue" type="Label" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 216.0
+offset_top = 280.0
 offset_right = 1025.0
-offset_bottom = 250.0
+offset_bottom = 314.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "100000$"
@@ -121,9 +121,9 @@ horizontal_alignment = 2
 [node name="ContractWaitTimeValue" type="Label" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 280.0
+offset_top = 344.0
 offset_right = 1025.0
-offset_bottom = 314.0
+offset_bottom = 378.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "30s"
@@ -132,9 +132,9 @@ horizontal_alignment = 2
 [node name="QuotaValue" type="Label" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 344.0
+offset_top = 408.0
 offset_right = 1025.0
-offset_bottom = 378.0
+offset_bottom = 442.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "15"
@@ -154,9 +154,9 @@ horizontal_alignment = 2
 [node name="PenaltyValue" type="Label" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 472.0
+offset_top = 536.0
 offset_right = 1025.0
-offset_bottom = 506.0
+offset_bottom = 570.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "1000$"
@@ -164,5 +164,28 @@ horizontal_alignment = 2
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_hlq8n")
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 216.0
+offset_right = 424.0
+offset_bottom = 250.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "Money"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CurrentMoneyValue" type="Label" parent="."]
+offset_left = 856.0
+offset_top = 208.0
+offset_right = 1024.0
+offset_bottom = 242.0
+theme = ExtResource("1_hclw6")
+theme_override_font_sizes/font_size = 26
+text = "2234$"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]
