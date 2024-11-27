@@ -62,6 +62,8 @@ func open_contract_menu():
 	
 	contract_menu_opened.emit()
 	
+	$ContractMusic.play()
+	
 	get_tree().paused = true
 func generateNewContract():
 	var upgrade_weight_to_goliath_class = randf() < 0.25
@@ -104,6 +106,7 @@ func _on_close_contract_menu_pressed() -> void:
 	self.visible = false
 	get_tree().paused = false
 	contract_menu_closed.emit()
+	$ContractMusic.stop()
 
 func calculate_reward_for_contract(weight: float) -> float:
 	if weight < GOLIATH_LOWER_WEIGHT_BOUND:

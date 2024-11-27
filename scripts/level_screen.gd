@@ -14,7 +14,9 @@ func open(level_number: int, quota: int, bonus: int, penalty: int, timeout: int,
 	$QuotaValue.text = str(quota)
 	$BonusValue.text = str(bonus) + "$"
 	$PenaltyValue.text = str(penalty) + "$"
+	$LevelMusic.play()
 
 func _on_continue_button_pressed() -> void:
 	level_screen_closed.emit()
 	self.visible = false
+	$LevelMusic.stop()

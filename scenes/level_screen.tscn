@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6pnb4a2d57d3"]
+[gd_scene load_steps=5 format=3 uid="uid://6pnb4a2d57d3"]
 
 [ext_resource type="Script" path="res://scripts/level_screen.gd" id="1_g2x70"]
 [ext_resource type="Theme" uid="uid://c2g25n7qed5wq" path="res://ui_theme.tres" id="1_hclw6"]
 [ext_resource type="Texture2D" uid="uid://cb3qyoyqdmwaw" path="res://assets/art/level_screen.png" id="2_256st"]
+[ext_resource type="AudioStream" uid="uid://cqki6h18tr33k" path="res://assets/audio/levelMusic.mp3" id="4_hlq8n"]
 
 [node name="LevelScreen" type="Control"]
 light_mask = 0
@@ -160,5 +161,8 @@ theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "1000$"
 horizontal_alignment = 2
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hlq8n")
 
 [connection signal="pressed" from="ContinueButton" to="." method="_on_continue_button_pressed"]

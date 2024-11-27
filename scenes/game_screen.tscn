@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=73 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://db7eyx2mgvcil" path="res://assets/art/nitrogen_cycle_annotated.png" id="27_ofx7h"]
 [ext_resource type="PackedScene" uid="uid://ldru7xxb2u2h" path="res://scenes/win_screen.tscn" id="28_mwnjj"]
 [ext_resource type="PackedScene" uid="uid://qmw0a0d7gpad" path="res://scenes/title_screen.tscn" id="30_spg6t"]
+[ext_resource type="AudioStream" uid="uid://5tm8n6iyt6vd" path="res://assets/audio/contract_music.mp3" id="32_5c8vc"]
 [ext_resource type="Texture2D" uid="uid://dfl81cdkmdkr4" path="res://assets/art/menu_background.png" id="33_x710q"]
 [ext_resource type="Texture2D" uid="uid://tivgxw86of6s" path="res://assets/art/sponge_filter_icon.png" id="38_h6v2u"]
 [ext_resource type="Texture2D" uid="uid://bu8pnchkih1wc" path="res://assets/art/ammonia_neutralizer.png" id="38_vj3ca"]
@@ -58,7 +59,7 @@
 [ext_resource type="AudioStream" uid="uid://qsuxwtaome3a" path="res://assets/audio/dark_theme (4).mp3" id="55_ex170"]
 [ext_resource type="AudioStream" uid="uid://cvnxbwnkbtljq" path="res://assets/audio/item_sound.wav" id="56_4grmy"]
 [ext_resource type="AudioStream" uid="uid://cdjky0gjxgvn7" path="res://assets/audio/creature_death.wav" id="57_eixn0"]
-[ext_resource type="AudioStream" uid="uid://cgq1jroe2awgm" path="res://assets/audio/clickSound.wav" id="59_2qpc4"]
+[ext_resource type="AudioStream" uid="uid://cbjdp0hoed8wb" path="res://assets/audio/click (1).wav" id="59_3175n"]
 [ext_resource type="Script" path="res://scenes/click_sound.gd" id="60_y54gi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
@@ -1230,6 +1231,9 @@ offset_bottom = 52.0
 texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
+[node name="ContractMusic" type="AudioStreamPlayer" parent="UI/ContractMenu"]
+stream = ExtResource("32_5c8vc")
+
 [node name="FilterMenu" type="Panel" parent="UI"]
 visible = false
 light_mask = 0
@@ -2006,7 +2010,8 @@ stream = ExtResource("57_eixn0")
 max_polyphony = 10
 
 [node name="ClickSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("59_2qpc4")
+stream = ExtResource("59_3175n")
+volume_db = -6.0
 script = ExtResource("60_y54gi")
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
