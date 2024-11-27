@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=72 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -58,6 +58,8 @@
 [ext_resource type="AudioStream" uid="uid://qsuxwtaome3a" path="res://assets/audio/dark_theme (4).mp3" id="55_ex170"]
 [ext_resource type="AudioStream" uid="uid://cvnxbwnkbtljq" path="res://assets/audio/item_sound.wav" id="56_4grmy"]
 [ext_resource type="AudioStream" uid="uid://cdjky0gjxgvn7" path="res://assets/audio/creature_death.wav" id="57_eixn0"]
+[ext_resource type="AudioStream" uid="uid://cgq1jroe2awgm" path="res://assets/audio/clickSound.wav" id="59_2qpc4"]
+[ext_resource type="Script" path="res://scenes/click_sound.gd" id="60_y54gi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(1174.18, 570.109, 1180.68, 622, 91.3203, 622, 942.383, 577.023, 1043.6, 358.523, 1107.78, 353.578, 929.547, 576.977, 97.7969, 570.188, 169.273, 350, 199.242, 350, 325.281, 567.07, 755.297, 347.852, 824.633, 346.156, 644.359, 574.758, 632.406, 575.219, 336.938, 566.93, 499.398, 349.203, 456.031, 350.781)
@@ -2002,6 +2004,10 @@ stream = ExtResource("56_4grmy")
 [node name="CreatureDeathsound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("57_eixn0")
 max_polyphony = 10
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("59_2qpc4")
+script = ExtResource("60_y54gi")
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="mouse_entered" from="UI" to="UI" method="_on_mouse_entered"]
