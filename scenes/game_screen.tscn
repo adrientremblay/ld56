@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=78 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -96,6 +96,43 @@ bg_color = Color(0, 0.474, 0.79, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffe0a"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_4m20s"]
+resource_name = "open_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 308), Vector2(1029, 308)]
+}
+
+[sub_resource type="Animation" id="Animation_y3y6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1300, 308)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s81k8"]
+_data = {
+"RESET": SubResource("Animation_y3y6q"),
+"open_animation": SubResource("Animation_4m20s")
+}
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_ka8qc")
@@ -1974,22 +2011,12 @@ volume_db = -4.0
 [node name="Assistant" type="Panel" parent="UI"]
 light_mask = 0
 layout_mode = 0
-offset_left = 1029.0
+offset_left = 1300.0
 offset_top = 308.0
-offset_right = 1281.0
+offset_right = 1552.0
 offset_bottom = 651.0
 theme = ExtResource("4_gs2f0")
 script = ExtResource("51_pcohp")
-
-[node name="Label" type="Label" parent="UI/Assistant"]
-layout_mode = 0
-offset_left = 1072.0
-offset_top = 417.0
-offset_right = 1266.0
-offset_bottom = 489.0
-theme = ExtResource("4_gs2f0")
-text = "You should probably buy a filter!!!"
-autowrap_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/Assistant"]
 layout_mode = 0
@@ -2030,6 +2057,11 @@ layout_mode = 2
 text = "Assistant Angela"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
+libraries = {
+"": SubResource("AnimationLibrary_s81k8")
+}
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_w1im8")
