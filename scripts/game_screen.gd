@@ -6,6 +6,7 @@ extends Node2D
 @export var filterWrapperScene: PackedScene
 
 @onready var contract_menu = $UI/ContractMenu
+@onready var assistant = $UI/Assistant
 
 @onready var corpse_spawn1 = $Aquarium/CorpseSpawn1
 @onready var corpse_spawn2 = $Aquarium/CorpseSpawn2
@@ -27,7 +28,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = false
+var debug = true
 var money = 90000 if debug else 1000
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
@@ -168,6 +169,10 @@ func tick_nitrogen_levels():
 	# Clamp ammonia and nitrate levels
 	ammonia_level = clamp(ammonia_level, 0.0, 1.0)
 	nitrate_level = clamp(nitrate_level, 0.0, 1.0)
+	
+	# Check if assistant should warn player to buy a filter
+	if !assistant.player_has_bought_a_filter && !assistant.filter_warning_given && ammonia_level >= 0.25:
+		assistant.open_ammonia_warning()
 	
 	# Damage to fish based on ammonia level
 	#	- Based on the nitrogen tolerance of each fish
@@ -460,6 +465,8 @@ func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	filter_node.play()
 	spawn_point.add_child(filter_wrapper)
 	$Splash.play()
+	
+	assistant.player_has_bought_a_filter = true
 
 func _on_spawn_plant(type: Plant.PlantType) -> void:
 	# check and do money subtraction

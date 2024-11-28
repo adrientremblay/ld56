@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=75 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://cyn6g3xyhakg6" path="res://assets/art/industrial_filter_icon.png" id="42_qyorg"]
 [ext_resource type="AudioStream" uid="uid://hipojf41qtmd" path="res://assets/audio/contracts_available.wav" id="44_fposv"]
 [ext_resource type="AudioStream" uid="uid://c1tfxmrp8lcs3" path="res://assets/audio/main_game_Music (1).mp3" id="50_w1im8"]
+[ext_resource type="Script" path="res://scenes/assistant_panel.gd" id="51_pcohp"]
 [ext_resource type="Texture2D" uid="uid://d4llput5sla6x" path="res://assets/art/assisstant.png" id="51_tjkwp"]
 [ext_resource type="AudioStream" uid="uid://chwugcxfgnmrx" path="res://assets/audio/spokesman_extended.mp3" id="54_xffih"]
 [ext_resource type="AudioStream" uid="uid://qsuxwtaome3a" path="res://assets/audio/dark_theme (4).mp3" id="55_ex170"]
@@ -279,7 +280,6 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -1971,21 +1971,17 @@ autowrap_mode = 2
 stream = ExtResource("44_fposv")
 volume_db = -4.0
 
-[node name="AssistantPanel" type="Panel" parent="UI"]
+[node name="Assistant" type="Panel" parent="UI"]
+light_mask = 0
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1029.0
+offset_top = 308.0
+offset_right = 1281.0
+offset_bottom = 651.0
+theme = ExtResource("4_gs2f0")
+script = ExtResource("51_pcohp")
 
-[node name="TextureRect" type="TextureRect" parent="UI/AssistantPanel"]
-layout_mode = 0
-offset_left = 1060.0
-offset_top = 478.0
-offset_right = 1224.0
-offset_bottom = 629.0
-texture = ExtResource("51_tjkwp")
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="UI/AssistantPanel"]
+[node name="Label" type="Label" parent="UI/Assistant"]
 layout_mode = 0
 offset_left = 1072.0
 offset_top = 417.0
@@ -1994,6 +1990,46 @@ offset_bottom = 489.0
 theme = ExtResource("4_gs2f0")
 text = "You should probably buy a filter!!!"
 autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Assistant"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 251.0
+offset_bottom = 343.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Assistant/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "The amnibua keveks are crutucak rught now so please do something"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("51_tjkwp")
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Assistant Angela"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_w1im8")
