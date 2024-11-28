@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=79 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -57,6 +57,7 @@
 [ext_resource type="AudioStream" uid="uid://c1tfxmrp8lcs3" path="res://assets/audio/main_game_Music (1).mp3" id="50_w1im8"]
 [ext_resource type="Script" path="res://scenes/assistant_panel.gd" id="51_pcohp"]
 [ext_resource type="Texture2D" uid="uid://d4llput5sla6x" path="res://assets/art/assisstant.png" id="51_tjkwp"]
+[ext_resource type="AudioStream" uid="uid://dq52hdrsm6fqj" path="res://assets/audio/assistant_sound.wav" id="53_juog4"]
 [ext_resource type="AudioStream" uid="uid://chwugcxfgnmrx" path="res://assets/audio/spokesman_extended.mp3" id="54_xffih"]
 [ext_resource type="AudioStream" uid="uid://qsuxwtaome3a" path="res://assets/audio/dark_theme (4).mp3" id="55_ex170"]
 [ext_resource type="AudioStream" uid="uid://cvnxbwnkbtljq" path="res://assets/audio/item_sound.wav" id="56_4grmy"]
@@ -2062,6 +2063,9 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_s81k8")
 }
+
+[node name="AssistantSound" type="AudioStreamPlayer" parent="UI/Assistant"]
+stream = ExtResource("53_juog4")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_w1im8")
