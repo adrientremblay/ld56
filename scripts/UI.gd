@@ -72,7 +72,6 @@ func close_all_windows():
 	contract_menu.visible = false
 	filter_menu.visible = false
 	item_menu.visible = false
-	assistant.visible = false
 
 func _on_mouse_entered() -> void:
 	print("UI mouse")

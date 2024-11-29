@@ -173,6 +173,9 @@ func tick_nitrogen_levels():
 	# Check if assistant should warn player to buy a filter
 	if !assistant.player_has_bought_a_filter && !assistant.filter_warning_given && ammonia_level >= 0.10:
 		assistant.open_ammonia_warning()
+	# Check if we should close the assistant
+	if assistant.filter_warning_active && ammonia_level < 0.10:
+		assistant._on_dismiss_button_pressed()
 	
 	# Damage to fish based on ammonia level
 	#	- Based on the nitrogen tolerance of each fish
