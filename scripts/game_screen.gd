@@ -170,11 +170,16 @@ func tick_nitrogen_levels():
 	ammonia_level = clamp(ammonia_level, 0.0, 1.0)
 	nitrate_level = clamp(nitrate_level, 0.0, 1.0)
 	
-	# Check if assistant should warn player to buy a filter
+	# Check if assistant should warn player
 	if !assistant.player_has_bought_a_filter && !assistant.filter_warning_given && ammonia_level >= 0.10:
 		assistant.open_ammonia_warning()
-	# Check if we should close the assistant
+	elif !assistant.neutralizer_warning_given && ammonia_level >= 0.5:
+		assistant.open_severe_ammonia_warning()
+		
+	# Check if we should dismiss the assistant
 	if assistant.filter_warning_active && ammonia_level < 0.10:
+		assistant._on_dismiss_button_pressed()
+	elif assistant.neutralizer_warning_active && ammonia_level < 0.5:
 		assistant._on_dismiss_button_pressed()
 	
 	# Damage to fish based on ammonia level
