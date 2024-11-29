@@ -175,7 +175,7 @@ func tick_nitrogen_levels():
 		assistant.open_ammonia_warning()
 	elif !assistant.neutralizer_warning_given && ammonia_level >= 0.5:
 		assistant.open_severe_ammonia_warning()
-	elif !assistant.plant_warning_active && !assistant.plant_warning_given && nitrate_level >= 0.10:
+	elif !assistant.player_has_bought_a_plant && !assistant.plant_warning_active && !assistant.plant_warning_given && nitrate_level >= 0.10:
 		assistant.open_nitrate_warning()
 	elif !assistant.nn_warning_active && !assistant.nn_warning_given && nitrate_level > 0.5:
 		assistant.open_severe_nitrate_warning()
@@ -196,14 +196,21 @@ func tick_nitrogen_levels():
 	if ammonia_level >= 0.25:
 		var base_damage = ammonia_level * 5.0
 		
+		var all_creatures_healthy = true
 		for creature in $Aquarium/Creatures.get_children():
 			var creature_damage = base_damage * creature.nitrogen_coefficient
 			creature.health -= creature_damage
+			if all_creatures_healthy && creature.health < 50:
+				all_creatures_healthy = false
 			if creature.health <= 0:
 				creature.queue_free()
 				$CreatureDeathsound.play()
-			else:
-				creature.update_health_bar()
+			elif !assistant.health_warning_given && creature.health <= 50:
+				assistant.open_health_warning()
+			
+			creature.update_health_bar()
+		if assistant.health_warning_active && all_creatures_healthy:
+			assistant._on_dismiss_button_pressed()
 	# Damage to fish based on nitrate level
 	if nitrate_level >= 0.25:
 		var base_damage = nitrate_level * 2.0
@@ -498,6 +505,8 @@ func _on_spawn_plant(type: Plant.PlantType) -> void:
 	plants.add_child(plant)
 	plant.random_position()
 	$Splash.play()
+	
+	assistant.player_has_bought_a_plant = true
 
 func filter_sold(value: int):
 	var sell_value = value / 2

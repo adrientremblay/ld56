@@ -12,12 +12,14 @@ var filter_warning_given = false
 var neutralizer_warning_given = false
 var plant_warning_given = false
 var nn_warning_given = false
+var health_warning_given = false
 
 # Variable determines what warning is active
 var filter_warning_active = false
 var neutralizer_warning_active = false
 var plant_warning_active = false
 var nn_warning_active = false
+var health_warning_active = false
 
 func _ready() -> void:
 	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
@@ -52,7 +54,13 @@ func open_severe_nitrate_warning():
 	self.open("Nitrate levels are critical! You should buy the nitrate neutralizer item!")
 	nn_warning_given = true
 	nn_warning_active = true
-	
+
+func open_health_warning():
+	dismiss()
+	self.open("Your creatures are in poor health! You should buy the health booster item!")
+	health_warning_given = true
+	health_warning_active = true
+
 func _on_dismiss_button_pressed() -> void:
 	dismiss()
 	$DismissSound.play()
@@ -67,3 +75,5 @@ func dismiss():
 		plant_warning_active = false
 	if nn_warning_active:
 		nn_warning_active = false
+	if health_warning_active:
+		health_warning_active = false
