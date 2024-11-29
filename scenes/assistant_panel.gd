@@ -12,6 +12,9 @@ var filter_warning_given = false
 # Variable determines what warning is active
 var filter_warning_active = false
 
+func _ready() -> void:
+	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
+
 func open(message: String):
 	message_label.text = message
 	self.visible = true

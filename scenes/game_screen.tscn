@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=85 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -57,6 +57,7 @@
 [ext_resource type="AudioStream" uid="uid://c1tfxmrp8lcs3" path="res://assets/audio/main_game_Music (1).mp3" id="50_w1im8"]
 [ext_resource type="Script" path="res://scenes/assistant_panel.gd" id="51_pcohp"]
 [ext_resource type="Texture2D" uid="uid://d4llput5sla6x" path="res://assets/art/assisstant.png" id="51_tjkwp"]
+[ext_resource type="Texture2D" uid="uid://d1xtsomi58gl" path="res://assets/art/assistant-Sheet.png" id="53_5ak0c"]
 [ext_resource type="AudioStream" uid="uid://dq52hdrsm6fqj" path="res://assets/audio/assistant_sound.wav" id="53_juog4"]
 [ext_resource type="AudioStream" uid="uid://4dc6r878vb2x" path="res://assets/audio/dismiss.wav" id="54_fw1e7"]
 [ext_resource type="AudioStream" uid="uid://chwugcxfgnmrx" path="res://assets/audio/spokesman_extended.mp3" id="54_xffih"]
@@ -98,6 +99,28 @@ bg_color = Color(0, 0.474, 0.79, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffe0a"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hysie"]
+atlas = ExtResource("53_5ak0c")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvm6b"]
+atlas = ExtResource("53_5ak0c")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jj42d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hysie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvm6b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_y3y6q"]
 length = 0.001
@@ -2084,6 +2107,12 @@ clip_text = true
 [node name="DismissButton" type="Button" parent="UI/Assistant/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Dismiss"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
+position = Vector2(117, 108)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_jj42d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
 libraries = {
