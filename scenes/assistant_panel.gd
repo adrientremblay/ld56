@@ -20,6 +20,10 @@ var neutralizer_warning_active = false
 var plant_warning_active = false
 var nn_warning_active = false
 var health_warning_active = false
+var contract_warning_active = false
+
+# Don't want to launch the noob timers more than once
+var contract_noob_timer_used = false
 
 func _ready() -> void:
 	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
@@ -61,6 +65,11 @@ func open_health_warning():
 	health_warning_given = true
 	health_warning_active = true
 
+func open_contract_warning():
+	dismiss()
+	self.open("Click the Contracts button to add corpses to the aquarium!")
+	contract_warning_active = true
+
 func _on_dismiss_button_pressed() -> void:
 	dismiss()
 	$DismissSound.play()
@@ -77,3 +86,8 @@ func dismiss():
 		nn_warning_active = false
 	if health_warning_active:
 		health_warning_active = false
+	if contract_warning_active:
+		contract_warning_active = false
+
+func _on_noob_timer_has_not_opened_contract_menu_timeout() -> void:
+	open_contract_warning()

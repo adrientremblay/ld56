@@ -141,6 +141,11 @@ func _on_ui_contract_menu_opened() -> void:
 	var corpse_list = compile_corpse_list()
 	if corpse_list.size() == 7:# full
 		$UI/ContractMenu.no_contracts_available()
+	if !assistant.contract_noob_timer_used:
+		if assistant.contract_warning_active:
+			assistant._on_dismiss_button_pressed()
+		assistant.contract_noob_timer_used = true
+		$UI/Assistant/NoobTimerHasNotOpenedContractMenu.stop()
 	
 func tick_nitrogen_levels():
 	# Ammonia production from creatures
@@ -274,6 +279,8 @@ func setup_new_level():
 	set_starting_game_datetime()
 	set_money_label()
 	$UI/LevelLabel.text = "Level: " + str(level)
+	if !assistant.contract_noob_timer_used:
+		$UI/Assistant/NoobTimerHasNotOpenedContractMenu.start()
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()

@@ -2129,6 +2129,9 @@ stream = ExtResource("54_fw1e7")
 [node name="AssistantSpeech" type="AudioStreamPlayer" parent="UI/Assistant"]
 stream = ExtResource("56_ty3ik")
 
+[node name="NoobTimerHasNotOpenedContractMenu" type="Timer" parent="UI/Assistant"]
+wait_time = 5.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_w1im8")
 volume_db = -6.026
@@ -2239,6 +2242,7 @@ script = ExtResource("60_y54gi")
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
 [connection signal="pressed" from="UI/Assistant/MarginContainer/VBoxContainer/DismissButton" to="UI/Assistant" method="_on_dismiss_button_pressed"]
+[connection signal="timeout" from="UI/Assistant/NoobTimerHasNotOpenedContractMenu" to="UI/Assistant" method="_on_noob_timer_has_not_opened_contract_menu_timeout"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
 [connection signal="timeout" from="NitrogenTimer" to="." method="tick_nitrogen_levels"]
 [connection signal="timeout" from="AppetiteBoosterTimeout" to="." method="_on_appetite_booster_timeout_timeout"]
