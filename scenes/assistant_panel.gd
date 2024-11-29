@@ -5,14 +5,17 @@ extends Panel
 
 # Variables used to determine if the assistant should ASSIST the player (noob) or not
 var player_has_bought_a_filter = false
+var player_has_bought_a_plant = false
 
 # Variables to determine what warnings have been triggered
 var filter_warning_given = false
 var neutralizer_warning_given = false
+var plant_warning_given = false
 
 # Variable determines what warning is active
 var filter_warning_active = false
 var neutralizer_warning_active = false
+var plant_warning_active = false
 
 func _ready() -> void:
 	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
@@ -35,6 +38,12 @@ func open_severe_ammonia_warning():
 	self.open("The ammonia levels are critical! You should buy the ammonia neutralizer item!")
 	neutralizer_warning_given = true
 	neutralizer_warning_active = true
+
+func open_nitrate_warning():
+	dismiss()
+	self.open("The nitrate level is getting dangerous! You should buy plants to reduce it!")
+	plant_warning_given = true
+	plant_warning_active = true
 	
 func _on_dismiss_button_pressed() -> void:
 	dismiss()
@@ -46,3 +55,5 @@ func dismiss():
 		filter_warning_active = false
 	if neutralizer_warning_active:
 		neutralizer_warning_active = false
+	if plant_warning_active:
+		plant_warning_active = false
