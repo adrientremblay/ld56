@@ -19,7 +19,8 @@ func open(message: String):
 	message_label.text = message
 	self.visible = true
 	animation_player.play("open_animation")
-	$AssistantSound.play()
+	#$AssistantSound.play()
+	$AssistantSpeech.play()
 
 func open_ammonia_warning():
 	self.open("The ammonia level is getting dangerous! You should probably buy a filter to reduce it!")

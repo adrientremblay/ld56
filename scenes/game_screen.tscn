@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=86 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -63,6 +63,7 @@
 [ext_resource type="AudioStream" uid="uid://chwugcxfgnmrx" path="res://assets/audio/spokesman_extended.mp3" id="54_xffih"]
 [ext_resource type="AudioStream" uid="uid://qsuxwtaome3a" path="res://assets/audio/dark_theme (4).mp3" id="55_ex170"]
 [ext_resource type="AudioStream" uid="uid://cvnxbwnkbtljq" path="res://assets/audio/item_sound.wav" id="56_4grmy"]
+[ext_resource type="AudioStream" uid="uid://b068q8uvb7pqa" path="res://assets/audio/Assistant_speech.mp3" id="56_ty3ik"]
 [ext_resource type="AudioStream" uid="uid://cdjky0gjxgvn7" path="res://assets/audio/creature_death.wav" id="57_eixn0"]
 [ext_resource type="AudioStream" uid="uid://cbjdp0hoed8wb" path="res://assets/audio/click (1).wav" id="59_3175n"]
 [ext_resource type="Script" path="res://scenes/click_sound.gd" id="60_y54gi"]
@@ -2079,7 +2080,7 @@ layout_mode = 2
 
 [node name="NameLabel" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
-text = "Angela"
+text = "Assistant"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2124,6 +2125,9 @@ stream = ExtResource("53_juog4")
 
 [node name="DismissSound" type="AudioStreamPlayer" parent="UI/Assistant"]
 stream = ExtResource("54_fw1e7")
+
+[node name="AssistantSpeech" type="AudioStreamPlayer" parent="UI/Assistant"]
+stream = ExtResource("56_ty3ik")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_w1im8")
