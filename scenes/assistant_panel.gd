@@ -11,11 +11,13 @@ var player_has_bought_a_plant = false
 var filter_warning_given = false
 var neutralizer_warning_given = false
 var plant_warning_given = false
+var nn_warning_given = false
 
 # Variable determines what warning is active
 var filter_warning_active = false
 var neutralizer_warning_active = false
 var plant_warning_active = false
+var nn_warning_active = false
 
 func _ready() -> void:
 	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
@@ -35,7 +37,7 @@ func open_ammonia_warning():
 	
 func open_severe_ammonia_warning():
 	dismiss()
-	self.open("The ammonia levels are critical! You should buy the ammonia neutralizer item!")
+	self.open("Ammonia levels are critical! You should buy the ammonia neutralizer item!")
 	neutralizer_warning_given = true
 	neutralizer_warning_active = true
 
@@ -44,6 +46,12 @@ func open_nitrate_warning():
 	self.open("The nitrate level is getting dangerous! You should buy plants to reduce it!")
 	plant_warning_given = true
 	plant_warning_active = true
+
+func open_severe_nitrate_warning():
+	dismiss()
+	self.open("Nitrate levels are critical! You should buy the nitrate neutralizer item!")
+	nn_warning_given = true
+	nn_warning_active = true
 	
 func _on_dismiss_button_pressed() -> void:
 	dismiss()
@@ -57,3 +65,5 @@ func dismiss():
 		neutralizer_warning_active = false
 	if plant_warning_active:
 		plant_warning_active = false
+	if nn_warning_active:
+		nn_warning_active = false

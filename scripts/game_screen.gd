@@ -177,6 +177,8 @@ func tick_nitrogen_levels():
 		assistant.open_severe_ammonia_warning()
 	elif !assistant.plant_warning_active && !assistant.plant_warning_given && nitrate_level >= 0.10:
 		assistant.open_nitrate_warning()
+	elif !assistant.nn_warning_active && !assistant.nn_warning_given && nitrate_level > 0.5:
+		assistant.open_severe_nitrate_warning()
 		
 	# Check if we should dismiss the assistant
 	if assistant.filter_warning_active && ammonia_level < 0.10:
@@ -184,6 +186,8 @@ func tick_nitrogen_levels():
 	elif assistant.neutralizer_warning_active && ammonia_level < 0.5:
 		assistant._on_dismiss_button_pressed()
 	elif assistant.plant_warning_active && nitrate_level < 0.10:
+		assistant._on_dismiss_button_pressed()
+	elif assistant.nn_warning_active && nitrate_level < 0.5:
 		assistant._on_dismiss_button_pressed()
 	
 	# Damage to fish based on ammonia level
