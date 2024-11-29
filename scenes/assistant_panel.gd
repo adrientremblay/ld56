@@ -27,3 +27,4 @@ func _on_dismiss_button_pressed() -> void:
 	animation_player.play("close_animation")
 	if filter_warning_active:
 		filter_warning_active = false
+	$DismissSound.play()
