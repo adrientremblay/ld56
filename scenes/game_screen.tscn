@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=80 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -98,6 +98,21 @@ bg_color = Color(0, 0.474, 0.79, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffe0a"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_y3y6q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1300, 308)]
+}
+
 [sub_resource type="Animation" id="Animation_4m20s"]
 resource_name = "open_animation"
 length = 0.5
@@ -114,8 +129,9 @@ tracks/0/keys = {
 "values": [Vector2(1280, 308), Vector2(1029, 308)]
 }
 
-[sub_resource type="Animation" id="Animation_y3y6q"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_b4hc6"]
+resource_name = "close_animation"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,15 +139,16 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1300, 308)]
+"values": [Vector2(1029, 308), Vector2(1280, 308)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s81k8"]
 _data = {
 "RESET": SubResource("Animation_y3y6q"),
+"close_animation": SubResource("Animation_b4hc6"),
 "open_animation": SubResource("Animation_4m20s")
 }
 
@@ -318,6 +335,7 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -2032,19 +2050,11 @@ theme_override_constants/margin_bottom = 5
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Assistant/MarginContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
-light_mask = 0
+[node name="NameLabel" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "The amnibua keveks are crutucak rught now so please do something"
+text = "Assistant Angela"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
-clip_text = true
 
 [node name="TextureRect" type="TextureRect" parent="UI/Assistant/MarginContainer/VBoxContainer"]
 light_mask = 0
@@ -2053,11 +2063,23 @@ layout_mode = 2
 texture = ExtResource("51_tjkwp")
 stretch_mode = 5
 
-[node name="NameLabel" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
 layout_mode = 2
-text = "Assistant Angela"
+
+[node name="Label" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "The amnibua keveks are crutucak rught now so please do something"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="DismissButton" type="Button" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dismiss"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
 libraries = {
@@ -2176,6 +2198,7 @@ script = ExtResource("60_y54gi")
 [connection signal="pressed" from="UI/ContractMenuButton" to="UI/ContractMenu" method="open_contract_menu"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
+[connection signal="pressed" from="UI/Assistant/MarginContainer/VBoxContainer/DismissButton" to="UI/Assistant" method="_on_dismiss_button_pressed"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
 [connection signal="timeout" from="NitrogenTimer" to="." method="tick_nitrogen_levels"]
 [connection signal="timeout" from="AppetiteBoosterTimeout" to="." method="_on_appetite_booster_timeout_timeout"]

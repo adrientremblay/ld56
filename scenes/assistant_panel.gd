@@ -19,3 +19,6 @@ func open_ammonia_warning():
 	self.open("The ammonia level is getting dangerous! You should probably buy a filter to reduce it!")
 	filter_warning_given = true
 	
+
+func _on_dismiss_button_pressed() -> void:
+	animation_player.play("close_animation")
