@@ -467,6 +467,8 @@ func _on_spawn_species(species: Creature.Species) -> void:
 	creatures_find_corpses()
 
 	$SpawnCreature.play()
+	
+	assistant.player_has_bought_a_creature = true
 
 func _on_spawn_filter(filter: Filter.FilterType) -> void:
 	# find a random available spawn
@@ -535,6 +537,10 @@ func _on_contract_menu_contract_menu_closed() -> void:
 		contract_timeout = 10
 	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
 	$UI/ContractMenu/NewContractTimer.start()
+	
+	if !assistant.creature_noob_timer_used:
+		assistant.creature_noob_timer_used = true
+		$UI/Assistant/NoobTimerHasNotBoughtCreature.start()
 
 func _on_buy_ammonia_neutralizer_button_pressed() -> void:
 	if money < 500:

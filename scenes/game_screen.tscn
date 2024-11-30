@@ -138,22 +138,6 @@ tracks/0/keys = {
 "values": [Vector2(1300, 308)]
 }
 
-[sub_resource type="Animation" id="Animation_4m20s"]
-resource_name = "open_animation"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.466667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1280, 274), Vector2(1029, 274)]
-}
-
 [sub_resource type="Animation" id="Animation_b4hc6"]
 resource_name = "close_animation"
 length = 0.5
@@ -168,6 +152,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1029, 274), Vector2(1280, 274)]
+}
+
+[sub_resource type="Animation" id="Animation_4m20s"]
+resource_name = "open_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 274), Vector2(1029, 274)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s81k8"]
@@ -2132,6 +2132,9 @@ stream = ExtResource("56_ty3ik")
 [node name="NoobTimerHasNotOpenedContractMenu" type="Timer" parent="UI/Assistant"]
 wait_time = 5.0
 
+[node name="NoobTimerHasNotBoughtCreature" type="Timer" parent="UI/Assistant"]
+wait_time = 5.0
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("50_w1im8")
 volume_db = -6.026
@@ -2243,6 +2246,7 @@ script = ExtResource("60_y54gi")
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
 [connection signal="pressed" from="UI/Assistant/MarginContainer/VBoxContainer/DismissButton" to="UI/Assistant" method="_on_dismiss_button_pressed"]
 [connection signal="timeout" from="UI/Assistant/NoobTimerHasNotOpenedContractMenu" to="UI/Assistant" method="_on_noob_timer_has_not_opened_contract_menu_timeout"]
+[connection signal="timeout" from="UI/Assistant/NoobTimerHasNotBoughtCreature" to="UI/Assistant" method="_on_noob_timer_has_not_bought_creature_timeout"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
 [connection signal="timeout" from="NitrogenTimer" to="." method="tick_nitrogen_levels"]
 [connection signal="timeout" from="AppetiteBoosterTimeout" to="." method="_on_appetite_booster_timeout_timeout"]

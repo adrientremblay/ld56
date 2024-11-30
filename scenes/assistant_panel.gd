@@ -6,6 +6,7 @@ extends Panel
 # Variables used to determine if the assistant should ASSIST the player (noob) or not
 var player_has_bought_a_filter = false
 var player_has_bought_a_plant = false
+var player_has_bought_a_creature = false
 
 # Variables to determine what warnings have been triggered
 var filter_warning_given = false
@@ -21,9 +22,11 @@ var plant_warning_active = false
 var nn_warning_active = false
 var health_warning_active = false
 var contract_warning_active = false
+var creatures_warning_active = false
 
 # Don't want to launch the noob timers more than once
 var contract_noob_timer_used = false
+var creature_noob_timer_used = false
 
 func _ready() -> void:
 	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
@@ -69,6 +72,13 @@ func open_contract_warning():
 	dismiss()
 	self.open("Click the Contracts button to add corpses to the aquarium!")
 	contract_warning_active = true
+	
+func open_creature_warning():
+	if player_has_bought_a_creature:
+		return
+	dismiss()
+	self.open("Click the Creatures button to add creatures to the aquarium!")
+	creatures_warning_active = true
 
 func _on_dismiss_button_pressed() -> void:
 	dismiss()
@@ -88,6 +98,13 @@ func dismiss():
 		health_warning_active = false
 	if contract_warning_active:
 		contract_warning_active = false
+	if creatures_warning_active:
+		creatures_warning_active = false
 
 func _on_noob_timer_has_not_opened_contract_menu_timeout() -> void:
 	open_contract_warning()
+	$NoobTimerHasNotOpenedContractMenu.stop()
+
+func _on_noob_timer_has_not_bought_creature_timeout() -> void:
+	open_creature_warning()
+	$NoobTimerHasNotBoughtCreature.stop()

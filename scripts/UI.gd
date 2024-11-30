@@ -45,6 +45,9 @@ func _on_creature_button_pressed() -> void:
 	else:
 		close_all_windows()
 		creature_menu.visible = !creature_menu.visible
+	
+	if assistant.creatures_warning_active:
+		assistant._on_dismiss_button_pressed()
 
 func _on_plants_button_pressed() -> void:
 	if contract_menu.visible:
