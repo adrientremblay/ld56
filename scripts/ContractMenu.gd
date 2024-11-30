@@ -79,6 +79,7 @@ func open_contract_menu(level: int):
 	var light_corpses: int = WEIGHT_DATA[Contract.Appearance.LIGHT].base_contracts + (level / 5)
 	var medium_corpses: int = WEIGHT_DATA[Contract.Appearance.MEDIUM].base_contracts + (level / 3)
 	var heavy_corpses: int = WEIGHT_DATA[Contract.Appearance.MEDIUM].base_contracts + (level / 2)
+	var obese_corpses: int = WEIGHT_DATA[Contract.Appearance.OBESE].base_contracts + max(level - 3, 0)
 	
 	# generate the corpses per size type
 	for i in range(light_corpses):
@@ -87,6 +88,8 @@ func open_contract_menu(level: int):
 		generateNewContract(Contract.Appearance.MEDIUM)
 	for i in range(heavy_corpses):
 		generateNewContract(Contract.Appearance.HEAVY)
+	for i in range(obese_corpses):
+		generateNewContract(Contract.Appearance.OBESE)
 	# make the menu visible
 	self.visible = true
 	
