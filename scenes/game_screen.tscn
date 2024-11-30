@@ -210,37 +210,23 @@ position = Vector2(1063, 303)
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
 position = Vector2(145, 632)
 
-[node name="Corpse" parent="Aquarium/CorpseSpawn1" instance=ExtResource("4_tr83u")]
-
 [node name="CorpseSpawn2" type="Node2D" parent="Aquarium"]
 position = Vector2(302, 621)
-
-[node name="Corpse" parent="Aquarium/CorpseSpawn2" instance=ExtResource("4_tr83u")]
 
 [node name="CorpseSpawn3" type="Node2D" parent="Aquarium"]
 position = Vector2(460, 642)
 
-[node name="Corpse" parent="Aquarium/CorpseSpawn3" instance=ExtResource("4_tr83u")]
-
 [node name="CorpseSpawn4" type="Node2D" parent="Aquarium"]
 position = Vector2(618, 629)
-
-[node name="Corpse" parent="Aquarium/CorpseSpawn4" instance=ExtResource("4_tr83u")]
 
 [node name="CorpseSpawn5" type="Node2D" parent="Aquarium"]
 position = Vector2(784, 634)
 
-[node name="Corpse" parent="Aquarium/CorpseSpawn5" instance=ExtResource("4_tr83u")]
-
 [node name="CorpseSpawn6" type="Node2D" parent="Aquarium"]
 position = Vector2(955, 639)
 
-[node name="Corpse" parent="Aquarium/CorpseSpawn6" instance=ExtResource("4_tr83u")]
-
 [node name="CorpseSpawn7" type="Node2D" parent="Aquarium"]
 position = Vector2(1104, 626)
-
-[node name="Corpse" parent="Aquarium/CorpseSpawn7" instance=ExtResource("4_tr83u")]
 
 [node name="Creatures" type="Node2D" parent="Aquarium"]
 

@@ -31,7 +31,7 @@ func construct(person_name, weight, reward, appearance: Contract.Appearance, fem
 				self.animation = "female medium"
 			else:
 				self.animation = "male medium"
-		Contract.Appearance.HEAVY || Contract.Appearance.OBESE:
+		Contract.Appearance.HEAVY, Contract.Appearance.OBESE:
 			if self.female:
 				self.animation = "female obese"
 			else:

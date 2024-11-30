@@ -24,7 +24,7 @@ func construct(person_name, weight, reward, female, weight_type: Appearance, des
 	self.female = female
 	self.description = description
 	
-	self.appearance = appearance
+	self.appearance = weight_type
 	set_icon_according_to_appearance()
 	
 	$MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/NameLabel.text = "Name: " + person_name
@@ -49,7 +49,7 @@ func set_icon_according_to_appearance():
 				$MarginContainer/VBoxContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/female_corpse_medium_icon.png")
 			else:
 				$MarginContainer/VBoxContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/male_corpse_medium_icon.png")
-		Appearance.HEAVY || Appearance.OBESE:
+		Appearance.HEAVY, Appearance.OBESE:
 			if female:
 				$MarginContainer/VBoxContainer/HBoxContainer/TextureRect.texture = load("res://assets/art/female_corpse_obese_icon.png")
 			else:

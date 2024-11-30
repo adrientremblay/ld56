@@ -16,7 +16,7 @@ static var plant_stats = {
 	PlantType.SWORD_PLANT: { # 0.00003
 		"sprite_scene": sword_plant_sprite_scene,
 		"performance": 0.005,
-		"price": 100,
+		"price": 10,
 		"floating": false,
 	},
 	PlantType.STEM_PLANT: { # 0.00005
