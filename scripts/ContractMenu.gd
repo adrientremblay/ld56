@@ -5,28 +5,28 @@ var WEIGHT_DATA = {
 		{
 			"lower_bound": 75.0,
 			"upper_bound": 124.9,
-			"reward_per_pound": 1.0,
+			"reward_per_pound": 2.0,
 			"base_contracts": 3
 		},
 	Contract.Appearance.MEDIUM:
 		{
 			"lower_bound": 125.0,
 			"upper_bound": 174.9,
-			"reward_per_pound": 1.5,
+			"reward_per_pound": 2.5,
 			"base_contracts": 0
 		},
 	Contract.Appearance.HEAVY:
 		{
 			"lower_bound": 175.0,
 			"upper_bound": 224.9,
-			"reward_per_pound": 1.5,
+			"reward_per_pound": 3.5,
 			"base_contracts": 0
 		},
 	Contract.Appearance.OBESE:
 		{
 			"lower_bound": 225.0,
 			"upper_bound": 400.9,
-			"reward_per_pound": 3.0,
+			"reward_per_pound": 5.0,
 			"base_contracts": 0
 		}
 }
@@ -37,21 +37,21 @@ var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams", "Sanderson", "Wel
 
 # The format is [NAME] + backstory
 var POTENTIAL_BACKSTORIES = [
-		" was a guidance councelor at a local high school. They abused their power and abused children. They were reported to a local vigilante group and executed.",
-		" bumped into the wrong person at a club. That person used their criminal connections to contact us.",
-		" was a whistleblower for a large pharmacutical company. They were killed by hitmen hired by the company.",
-		" lived on the streets for 14 years before they were kidnapped by a secretive bio-engineering company for human experiments.",
-		" was in the advanced stages of MS before he resorted to illegal experimental treatement. His body needs to be disposed of so as to not arouse suspicion.",
-		" was a former mob accountant who tried to embezzle money from the organization. They were caught and made an example of.",
-		" was an undercover cop who got too close to uncovering the organization's operations. Their cover was blown, and they had to be eliminated.",
-		" was a journalist investigating a high-profile politician's ties to corporate corruption. They were getting too close to publishing what they had and were killed.",
-		" was a hacker who breached into a server ran by a human trafficking ring. A darkweb assassin was promply sent to hunt him down.",
-		" was a rival gang member caught encroaching on a cartel's drug peddling territory. Their death sends a clear message.",
-		" was a high-profile escort who overheard a conversation they shouldn’t have during a private event for the rich and powerful.",
-		" was a disgruntled former employee of a weapons manufacturer who tried to sell corporate secrets on the black market.",
-		" was an activist organizing protests against a corrupt corporation. The company used its underworld connections to silence them.",
-		" was a reckless driver who caused a fatal accident. The victims father hired an assassin to retaliate."
-	]
+	" was a guidance councelor at a local high school. They abused their power and abused children. They were reported to a local vigilante group and executed.",
+	" bumped into the wrong person at a club. That person used their criminal connections to contact us.",
+	" was a whistleblower for a large pharmacutical company. They were killed by hitmen hired by the company.",
+	" lived on the streets for 14 years before they were kidnapped by a secretive bio-engineering company for human experiments.",
+	" was in the advanced stages of MS before he resorted to illegal experimental treatement. His body needs to be disposed of so as to not arouse suspicion.",
+	" was a former mob accountant who tried to embezzle money from the organization. They were caught and made an example of.",
+	" was an undercover cop who got too close to uncovering the organization's operations. Their cover was blown, and they had to be eliminated.",
+	" was a journalist investigating a high-profile politician's ties to corporate corruption. They were getting too close to publishing what they had and were killed.",
+	" was a hacker who breached into a server ran by a human trafficking ring. A darkweb assassin was promply sent to hunt him down.",
+	" was a rival gang member caught encroaching on a cartel's drug peddling territory. Their death sends a clear message.",
+	" was a high-profile escort who overheard a conversation they shouldn’t have during a private event for the rich and powerful.",
+	" was a disgruntled former employee of a weapons manufacturer who tried to sell corporate secrets on the black market.",
+	" was an activist organizing protests against a corrupt corporation. The company used its underworld connections to silence them.",
+	" was a reckless driver who caused a fatal accident. The victims father hired an assassin to retaliate."
+]
 
 @onready var contract_vbox: VBoxContainer = $VBoxContainer/CorpsePanelContainer/MarginContainer/ScrollContainer/ContractVBox
 @export var contract_scene: PackedScene

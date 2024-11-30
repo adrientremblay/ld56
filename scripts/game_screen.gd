@@ -28,8 +28,8 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = true
-var money = 90000 if debug else 1000
+var debug = false
+var money = 90000 if debug else 45
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
 var nitrate_level = 0.0 # decimal %
@@ -176,21 +176,21 @@ func tick_nitrogen_levels():
 	nitrate_level = clamp(nitrate_level, 0.0, 1.0)
 	
 	# Check if assistant should warn player
-	if !assistant.player_has_bought_a_filter && !assistant.filter_warning_given && ammonia_level >= 0.10:
+	if !assistant.player_has_bought_a_filter && !assistant.filter_warning_given && ammonia_level >= 0.25:
 		assistant.open_ammonia_warning()
 	elif !assistant.neutralizer_warning_given && ammonia_level >= 0.5:
 		assistant.open_severe_ammonia_warning()
-	elif !assistant.player_has_bought_a_plant && !assistant.plant_warning_active && !assistant.plant_warning_given && nitrate_level >= 0.10:
+	elif !assistant.player_has_bought_a_plant && !assistant.plant_warning_active && !assistant.plant_warning_given && nitrate_level >= 0.25:
 		assistant.open_nitrate_warning()
 	elif !assistant.nn_warning_active && !assistant.nn_warning_given && nitrate_level > 0.5:
 		assistant.open_severe_nitrate_warning()
 		
 	# Check if we should dismiss the assistant
-	if assistant.filter_warning_active && ammonia_level < 0.10:
+	if assistant.filter_warning_active && ammonia_level < 0.25:
 		assistant._on_dismiss_button_pressed()
 	elif assistant.neutralizer_warning_active && ammonia_level < 0.5:
 		assistant._on_dismiss_button_pressed()
-	elif assistant.plant_warning_active && nitrate_level < 0.10:
+	elif assistant.plant_warning_active && nitrate_level < 0.25:
 		assistant._on_dismiss_button_pressed()
 	elif assistant.nn_warning_active && nitrate_level < 0.5:
 		assistant._on_dismiss_button_pressed()
@@ -543,9 +543,9 @@ func _on_contract_menu_contract_menu_closed() -> void:
 		$UI/Assistant/NoobTimerHasNotBoughtCreature.start()
 
 func _on_buy_ammonia_neutralizer_button_pressed() -> void:
-	if money < 500:
+	if money < 50:
 		return
-	money -= 500
+	money -= 50
 	set_money_label()
 	
 	ammonia_level = clamp(ammonia_level - 0.25, 0.0, 1.0)
@@ -554,9 +554,9 @@ func _on_buy_ammonia_neutralizer_button_pressed() -> void:
 	$ItemSound.play()
 
 func _on_buy_nitrate_neutralizer_button_pressed() -> void:
-	if money < 500:
+	if money < 50:
 		return
-	money -= 500
+	money -= 50
 	set_money_label()
 	
 	nitrate_level = clamp(nitrate_level - 0.25, 0.0, 1.0)
@@ -565,9 +565,9 @@ func _on_buy_nitrate_neutralizer_button_pressed() -> void:
 	$ItemSound.play()
 
 func _on_buy_health_booster_button_pressed() -> void:
-	if money < 250:
+	if money < 50:
 		return
-	money -= 250
+	money -= 50
 	set_money_label()
 	
 	for creature in $Aquarium/Creatures.get_children():
@@ -576,9 +576,9 @@ func _on_buy_health_booster_button_pressed() -> void:
 	$ItemSound.play()
 
 func _on_buy_appetite_booster_button_pressed() -> void:
-	if money < 250:
+	if money < 100:
 		return
-	money -= 250
+	money -= 100
 	set_money_label()
 	
 	feasting_frenzy = true

@@ -19,7 +19,7 @@ enum NitrogenTolerance {LOW, MODERATE, HIGH}
 static var species_stats = {
 	Species.SNAIL: { #vpd=2.5
 		"sprite_scene": snail_sprite_scene,
-		"price": 100,
+		"price": 10,
 		"damage": 2.5,
 		"speed": 1,
 		"bioload": 0.001,
@@ -27,7 +27,7 @@ static var species_stats = {
 	},
 	Species.CRAB: { #vpd=20
 		"sprite_scene": crab_sprite_scene,
-		"price": 500,
+		"price": 50,
 		"damage": 8,
 		"speed": 2.5,
 		"bioload": 0.005,
@@ -35,7 +35,7 @@ static var species_stats = {
 	},
 	Species.LOBSTER: { #vpd=50
 		"sprite_scene": lobster_sprite_scene,
-		"price": 1000,
+		"price": 100,
 		"damage": 25,
 		"speed": 2,
 		"bioload": 0.01,
@@ -43,7 +43,7 @@ static var species_stats = {
 	},
 	Species.OCTOPUS: { #vpd=1.75
 		"sprite_scene": octopus_sprite_scene,
-		"price": 5000,
+		"price": 500,
 		"damage": 150,
 		"speed": 3.5,
 		"bioload": 0.06,
@@ -51,7 +51,7 @@ static var species_stats = {
 	},
 	Species.TURTLE: { #vpd=2.8
 		"sprite_scene": turtle_sprite_scene,
-		"price": 10000,
+		"price": 1000,
 		"damage": 700,
 		"speed": 2,
 		"bioload": 0.12,
@@ -59,7 +59,7 @@ static var species_stats = {
 	},
 	Species.KILLIFISH: { # vpd=0.025
 		"sprite_scene": killifish_sprite_scene,
-		"price": 100,
+		"price": 10,
 		"damage": 1,
 		"speed": 2.5,
 		"bioload": 0.001,
@@ -67,7 +67,7 @@ static var species_stats = {
 	},
 	Species.PIRANHA: { #vpd=0.04
 		"sprite_scene": piranha_sprite_scene,
-		"price": 500,
+		"price": 50,
 		"damage": 4,
 		"speed": 5,
 		"bioload": 0.005,
@@ -75,7 +75,7 @@ static var species_stats = {
 	},
 	Species.ANGLERFISH: { #vpd=0.05
 		"sprite_scene": anglerfish_sprite_scene,
-		"price": 1000,
+		"price": 100,
 		"damage": 12.5,
 		"speed": 4,
 		"bioload": 0.01,
@@ -83,7 +83,7 @@ static var species_stats = {
 	},
 	Species.DRAGONFISH: { #vpd=0.105
 		"sprite_scene": dragonfish_sprite_scene,
-		"price": 5000,
+		"price": 500,
 		"damage": 75,
 		"speed": 7,
 		"bioload": 0.06,
@@ -91,7 +91,7 @@ static var species_stats = {
 	},
 	Species.GOBLINSHARK: { #vpd=0.14
 		"sprite_scene": goblinshark_sprite_scene,
-		"price": 10000,
+		"price": 1000,
 		"damage": 350,
 		"speed": 4,
 		"bioload": 0.12,

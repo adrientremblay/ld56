@@ -69,9 +69,9 @@
 [ext_resource type="Script" path="res://scenes/click_sound.gd" id="60_y54gi"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
-vertices = PackedVector2Array(1174.18, 570.109, 1180.68, 622, 91.3203, 622, 942.383, 577.023, 1043.6, 358.523, 1107.78, 353.578, 929.547, 576.977, 97.7969, 570.188, 169.273, 350, 199.242, 350, 325.281, 567.07, 755.297, 347.852, 824.633, 346.156, 644.359, 574.758, 632.406, 575.219, 336.938, 566.93, 499.398, 349.203, 456.031, 350.781)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 3), PackedInt32Array(6, 3, 2), PackedInt32Array(7, 8, 9, 10, 2), PackedInt32Array(11, 12, 6, 13), PackedInt32Array(13, 6, 2, 14), PackedInt32Array(14, 2, 10, 15), PackedInt32Array(16, 14, 15, 17)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(88, 568, 80, 632, 1192, 632, 1184, 568, 1115, 343, 1037, 349, 936, 567, 831, 336, 749, 338, 638, 565, 505, 339, 450, 341, 331, 557, 205, 340, 162, 340)])
+vertices = PackedVector2Array(928.727, 604.812, 935.703, 354.961, 1001.58, 361.156, 1017.67, 604.492, 279.039, 585, 278.039, 345.867, 339.961, 345.109, 364.891, 593.359, 1075.58, 601.523, 1086.6, 357.93, 1144.41, 351.078, 1174.09, 569.352, 1180.68, 622, 447.617, 363.742, 501.492, 362.258, 513.469, 605.828, 438.594, 598.719, 604.422, 356, 676.273, 356, 683.273, 606.82, 589.406, 607.172, 756.922, 608.188, 758.922, 347.672, 831, 345.289, 858, 606.172, 121.008, 352.703, 196.273, 350.281, 227.227, 585, 97.9297, 569.148, 91.3203, 622)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(17, 18, 19, 20), PackedInt32Array(21, 22, 23, 24), PackedInt32Array(25, 26, 27, 28), PackedInt32Array(29, 28, 27), PackedInt32Array(29, 27, 4, 7), PackedInt32Array(3, 8, 12), PackedInt32Array(24, 0, 3, 12, 29, 21), PackedInt32Array(19, 21, 29, 20), PackedInt32Array(15, 20, 29), PackedInt32Array(15, 29, 7, 16)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(88, 568, 80, 632, 1192, 632, 1184, 568, 1153, 340, 1077, 349, 1066, 592, 1027, 594, 1011, 352, 926, 344, 919, 595, 867, 596, 840, 335, 749, 338, 747, 598, 693, 597, 686, 346, 595, 346, 580, 597, 523, 596, 511, 352, 438, 354, 429, 588, 374, 584, 349, 335, 268, 336, 269, 575, 236, 575, 205, 340, 112, 343)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67wyq"]
@@ -210,28 +210,41 @@ position = Vector2(1063, 303)
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
 position = Vector2(145, 632)
 
+[node name="Corpse" parent="Aquarium/CorpseSpawn1" instance=ExtResource("4_tr83u")]
+
 [node name="CorpseSpawn2" type="Node2D" parent="Aquarium"]
 position = Vector2(302, 621)
+
+[node name="Corpse" parent="Aquarium/CorpseSpawn2" instance=ExtResource("4_tr83u")]
 
 [node name="CorpseSpawn3" type="Node2D" parent="Aquarium"]
 position = Vector2(460, 642)
 
+[node name="Corpse" parent="Aquarium/CorpseSpawn3" instance=ExtResource("4_tr83u")]
+
 [node name="CorpseSpawn4" type="Node2D" parent="Aquarium"]
 position = Vector2(618, 629)
+
+[node name="Corpse" parent="Aquarium/CorpseSpawn4" instance=ExtResource("4_tr83u")]
 
 [node name="CorpseSpawn5" type="Node2D" parent="Aquarium"]
 position = Vector2(784, 634)
 
+[node name="Corpse" parent="Aquarium/CorpseSpawn5" instance=ExtResource("4_tr83u")]
+
 [node name="CorpseSpawn6" type="Node2D" parent="Aquarium"]
 position = Vector2(955, 639)
+
+[node name="Corpse" parent="Aquarium/CorpseSpawn6" instance=ExtResource("4_tr83u")]
 
 [node name="CorpseSpawn7" type="Node2D" parent="Aquarium"]
 position = Vector2(1104, 626)
 
+[node name="Corpse" parent="Aquarium/CorpseSpawn7" instance=ExtResource("4_tr83u")]
+
 [node name="Creatures" type="Node2D" parent="Aquarium"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(1, 9)
 navigation_polygon = SubResource("NavigationPolygon_w865j")
 
@@ -467,7 +480,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (100$)"
+text = "Buy (10$)"
 script = ExtResource("12_mmhuv")
 
 [node name="Crab" type="PanelContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer"]
@@ -515,7 +528,7 @@ Nitrogen Tolerance: moderate"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (500$)"
+text = "Buy (50$)"
 script = ExtResource("12_mmhuv")
 species = 1
 
@@ -564,7 +577,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (1,000$)"
+text = "Buy (100$)"
 script = ExtResource("12_mmhuv")
 species = 7
 
@@ -613,7 +626,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (5,000$)"
+text = "Buy (500$)"
 script = ExtResource("12_mmhuv")
 species = 8
 
@@ -662,7 +675,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (10,000$)"
+text = "Buy (1,000$)"
 script = ExtResource("12_mmhuv")
 species = 9
 
@@ -740,7 +753,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (100$)"
+text = "Buy (10$)"
 script = ExtResource("12_mmhuv")
 species = 2
 
@@ -789,7 +802,7 @@ Nitrogen Tolerance: MODERATE"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (500$)"
+text = "Buy (50$)"
 script = ExtResource("12_mmhuv")
 species = 3
 
@@ -838,7 +851,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (1,000$)"
+text = "Buy (100$)"
 script = ExtResource("12_mmhuv")
 species = 4
 
@@ -848,6 +861,7 @@ layout_mode = 2
 theme = ExtResource("4_gs2f0")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Dragonfish"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
@@ -887,7 +901,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (5,000$)"
+text = "Buy (500$)"
 script = ExtResource("12_mmhuv")
 species = 5
 
@@ -936,7 +950,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (10,000$)"
+text = "Buy (1,000$)"
 script = ExtResource("12_mmhuv")
 species = 6
 
@@ -1033,7 +1047,7 @@ text = "Eliminates nitrate from the water."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (100$)"
+text = "Buy (10$)"
 script = ExtResource("23_savwo")
 
 [node name="StemPlant" type="PanelContainer" parent="UI/PlantMenu/BoxContainer2/VboxContainer/MarginContainer/PlantsList"]
@@ -1078,7 +1092,7 @@ text = "2x as efficient as the Sword Plant."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (100$)"
+text = "Buy (20$)"
 script = ExtResource("23_savwo")
 plant_type = 1
 
@@ -1124,7 +1138,7 @@ text = "2x as efficient as the stem plant."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (100$)"
+text = "Buy (50$)"
 script = ExtResource("23_savwo")
 plant_type = 2
 
@@ -1216,7 +1230,7 @@ text = "2x as efficient as water lettuce."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (100$)"
+text = "Buy (200$)"
 script = ExtResource("23_savwo")
 plant_type = 4
 
@@ -1405,7 +1419,7 @@ text = "Converts Ammonia to Nitrate."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (1000$)"
+text = "Buy (100$)"
 script = ExtResource("26_6coqy")
 
 [node name="HOBFilter" type="PanelContainer" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList"]
@@ -1449,7 +1463,7 @@ text = "5x as efficient as the sponge filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (5000$)"
+text = "Buy (1,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 1
 
@@ -1685,7 +1699,7 @@ text = "Neutralizes up to 25% of the Ammonia in the water"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (500$)"
+text = "Buy (50$)"
 
 [node name="NitrateNeutralizer" type="PanelContainer" parent="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1729,7 +1743,7 @@ text = "Neutralizes up to 25% of the Nitrate in the water"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (500$)"
+text = "Buy (50$)"
 
 [node name="HealthBooster" type="PanelContainer" parent="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1773,7 +1787,7 @@ text = "Gives all creatures 50% of their total health "
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (250$)"
+text = "Buy (50$)"
 
 [node name="Appetite Booster" type="PanelContainer" parent="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
 light_mask = 0
@@ -1817,7 +1831,7 @@ text = "Creatures eat 50% faster for 10 seconds"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (250$)"
+text = "Buy (100$)"
 
 [node name="CloseItemMenu" type="TextureButton" parent="UI/ItemMenu"]
 light_mask = 0
