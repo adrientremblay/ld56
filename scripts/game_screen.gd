@@ -410,7 +410,7 @@ func calculate_level_finish_bonus():
 		hour = -1
 	var hours_to_7am = 7 - hour
 	
-	return hours_to_7am * 1000
+	return hours_to_7am * 100
 
 func calculate_penalty():
 	if level == 1:
