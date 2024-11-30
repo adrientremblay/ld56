@@ -29,6 +29,7 @@ var contract_noob_timer_used = false
 var creature_noob_timer_used = false
 
 func _ready() -> void:
+	self.visible = false
 	$MarginContainer/VBoxContainer/AnimatedSprite2D.play()
 
 func open(message: String):

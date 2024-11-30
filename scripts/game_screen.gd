@@ -396,6 +396,9 @@ func next_level():
 	$UI/ContractMenu/NewContractTimer.wait_time = 3
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	if assistant.visible:
+		assistant.dismiss()
 
 func calculate_level_finish_bonus():
 	if level == 1:
