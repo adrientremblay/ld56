@@ -231,6 +231,7 @@ position = Vector2(1104, 626)
 [node name="Creatures" type="Node2D" parent="Aquarium"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(1, 9)
 navigation_polygon = SubResource("NavigationPolygon_w865j")
 

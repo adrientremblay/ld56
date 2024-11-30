@@ -143,9 +143,9 @@ horizontal_alignment = 2
 [node name="BonusValue" type="Label" parent="."]
 layout_mode = 0
 offset_left = 832.0
-offset_top = 408.0
+offset_top = 472.0
 offset_right = 1025.0
-offset_bottom = 442.0
+offset_bottom = 506.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
 text = "3000$"

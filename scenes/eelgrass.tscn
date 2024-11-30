@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [node name="Eelgrass" type="AnimatedSprite2D"]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_g3ehk")
 offset = Vector2(0, -32)
 script = ExtResource("2_whcmn")

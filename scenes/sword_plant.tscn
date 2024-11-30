@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [node name="SwordPlant" type="AnimatedSprite2D"]
-scale = Vector2(4, 4)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ma1s0")
 offset = Vector2(0, -16)
 script = ExtResource("2_jr6og")

@@ -393,7 +393,6 @@ func next_level():
 	# Quota Calculation
 	quota = ((level) * 2)
 	
-	$UI/ContractMenu/NewContractTimer.wait_time = 3
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 	
@@ -417,7 +416,7 @@ func calculate_penalty():
 		return 0
 	
 	var corpse_count = compile_corpse_list().size()
-	return corpse_count * 1000
+	return corpse_count * 100
 
 func launch_level_screen():
 	#match level:
@@ -427,7 +426,7 @@ func launch_level_screen():
 	money += bonus
 	var penalty = calculate_penalty()
 	money -= penalty
-	$UI/LevelScreen.open(level, quota, bonus, penalty, $UI/ContractMenu/NewContractTimer.wait_time, money)
+	$UI/LevelScreen.open(level, quota, bonus, penalty, determine_contract_timeout_for_level(), money)
 
 func launch_level():
 	get_tree().paused = false
@@ -526,7 +525,7 @@ func filter_sold(value: int):
 	set_money_label()
 	$CorpseEaten.play()
 
-func _on_contract_menu_contract_menu_closed() -> void:
+func determine_contract_timeout_for_level():
 	var contract_timeout
 	if level <= 2:
 		contract_timeout = 60
@@ -538,6 +537,10 @@ func _on_contract_menu_contract_menu_closed() -> void:
 		contract_timeout = 15
 	else:
 		contract_timeout = 10
+	return contract_timeout
+
+func _on_contract_menu_contract_menu_closed() -> void:
+	var contract_timeout = determine_contract_timeout_for_level()
 	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
 	$UI/ContractMenu/NewContractTimer.start()
 	
