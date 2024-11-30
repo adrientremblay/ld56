@@ -2241,7 +2241,7 @@ script = ExtResource("60_y54gi")
 [connection signal="pressed" from="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/HealthBooster/MarginContainer/HBoxContainer/VBoxContainer/BuyHealthBoosterButton" to="." method="_on_buy_health_booster_button_pressed"]
 [connection signal="pressed" from="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList/Appetite Booster/MarginContainer/HBoxContainer/VBoxContainer/BuyAppetiteBoosterButton" to="." method="_on_buy_appetite_booster_button_pressed"]
 [connection signal="pressed" from="UI/ItemMenu/CloseItemMenu" to="UI" method="_on_close_item_menu_pressed"]
-[connection signal="pressed" from="UI/ContractMenuButton" to="UI/ContractMenu" method="open_contract_menu"]
+[connection signal="pressed" from="UI/ContractMenuButton" to="." method="_on_contract_menu_button_pressed"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
 [connection signal="pressed" from="UI/Assistant/MarginContainer/VBoxContainer/DismissButton" to="UI/Assistant" method="_on_dismiss_button_pressed"]

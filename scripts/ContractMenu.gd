@@ -1,16 +1,40 @@
 extends Panel
 
-var LOWER_WEIGHT_BOUND = 100.0
-var UPPER_WEIGHT_BOUND = 250.0
-var GOLIATH_LOWER_WEIGHT_BOUND = 250.0
-var GOLIATH_UPPER_WEIGHT_BOUND = 500.0
-var MALE_FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal"]
-var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah"]
-var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams"]
-var MIN_REWARD = 500.0
-var MAX_REWARD = 2200.0
-var GOLIATH_MIN_REWARD = 2750.0
-var GOLIATH_MAX_REWARD = 5000.0
+var WEIGHT_DATA = {
+	Contract.Appearance.LIGHT:
+		{
+			"lower_bound": 75.0,
+			"upper_bound": 124.9,
+			"reward_per_pound": 1.0,
+			"base_contracts": 3
+		},
+	Contract.Appearance.MEDIUM:
+		{
+			"lower_bound": 125.0,
+			"upper_bound": 174.9,
+			"reward_per_pound": 1.5,
+			"base_contracts": 0
+		},
+	Contract.Appearance.HEAVY:
+		{
+			"lower_bound": 175.0,
+			"upper_bound": 224.9,
+			"reward_per_pound": 1.5,
+			"base_contracts": 0
+		},
+	Contract.Appearance.OBESE:
+		{
+			"lower_bound": 225.0,
+			"upper_bound": 400.9,
+			"reward_per_pound": 3.0,
+			"base_contracts": 0
+		}
+}
+
+var MALE_FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal", "Windhelm", "Adrien", "William", "Guillaume", "Cedric"]
+var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah", "Raidah", "Adrienne"]
+var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams", "Sanderson", "Wells", "Biens", "Martens"]
+
 # The format is [NAME] + backstory
 var POTENTIAL_BACKSTORIES = [
 		" was a guidance councelor at a local high school. They abused their power and abused children. They were reported to a local vigilante group and executed.",
@@ -43,16 +67,26 @@ func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	$NewContractTimer.process_mode = Node.PROCESS_MODE_PAUSABLE
 
-func open_contract_menu():
+func open_contract_menu(level: int):
 	if self.visible == true:
 		return
 	
 	# empty contract list
 	for child in contract_vbox.get_children():
 		child.queue_free()
-	# add 7 new contracts to the list
-	for i in range(12):
-		generateNewContract()
+	
+	# determine how many of each type of contract we should add depending on the level
+	var light_corpses: int = WEIGHT_DATA[Contract.Appearance.LIGHT].base_contracts + (level / 5)
+	var medium_corpses: int = WEIGHT_DATA[Contract.Appearance.MEDIUM].base_contracts + (level / 3)
+	var heavy_corpses: int = WEIGHT_DATA[Contract.Appearance.MEDIUM].base_contracts + (level / 2)
+	
+	# generate the corpses per size type
+	for i in range(light_corpses):
+		generateNewContract(Contract.Appearance.LIGHT)
+	for i in range(medium_corpses):
+		generateNewContract(Contract.Appearance.MEDIUM)
+	for i in range(heavy_corpses):
+		generateNewContract(Contract.Appearance.HEAVY)
 	# make the menu visible
 	self.visible = true
 	
@@ -65,13 +99,11 @@ func open_contract_menu():
 	$ContractMusic.play()
 	
 	get_tree().paused = true
-func generateNewContract():
-	var upgrade_weight_to_goliath_class = randf() < 0.25
-	var weight
-	if (upgrade_weight_to_goliath_class):
-		weight = snapped(rng.randf_range(GOLIATH_LOWER_WEIGHT_BOUND, GOLIATH_UPPER_WEIGHT_BOUND), 0.01)
-	else:
-		weight = snapped(rng.randf_range(LOWER_WEIGHT_BOUND, UPPER_WEIGHT_BOUND), 0.01)
+
+func generateNewContract(corpse_weight: Contract.Appearance):
+	var weight_lower_bound = WEIGHT_DATA[corpse_weight].lower_bound
+	var weight_upper_bound = WEIGHT_DATA[corpse_weight].upper_bound
+	var weight = snapped(rng.randf_range(weight_lower_bound, weight_upper_bound), 0.1)
 	
 	var female = randf() > 0.5
 	var first_names
@@ -82,16 +114,12 @@ func generateNewContract():
 	var first_name = first_names[rng.randi_range(0, first_names.size()-1)]
 	var last_name = LAST_NAMES[rng.randi_range(0, LAST_NAMES.size()-1)]
 	
-	var reward = calculate_reward_for_contract(weight)
-	
-	var bonus = "None."
-	if upgrade_weight_to_goliath_class:
-		bonus = "Yes, due to it's massive size."
+	var reward = snappedf(weight * WEIGHT_DATA[corpse_weight].reward_per_pound, 0.01)
 	
 	var description = first_name + POTENTIAL_BACKSTORIES[rng.randf_range(0, POTENTIAL_BACKSTORIES.size() - 1)]
 	
 	var new_contract: Contract = contract_scene.instantiate()
-	new_contract.construct(first_name + " " + last_name, weight, reward, female, bonus, description)
+	new_contract.construct(first_name + " " + last_name, weight, reward, female, corpse_weight, description)
 	new_contract.connect("contract_accepted", self.contract_accepted)
 	contract_vbox.add_child(new_contract)
 	
@@ -107,15 +135,3 @@ func _on_close_contract_menu_pressed() -> void:
 	get_tree().paused = false
 	contract_menu_closed.emit()
 	$ContractMusic.stop()
-
-func calculate_reward_for_contract(weight: float) -> float:
-	if weight < GOLIATH_LOWER_WEIGHT_BOUND:
-		var weight_percentage = (weight - LOWER_WEIGHT_BOUND) / (UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
-		var reward = MIN_REWARD + (MAX_REWARD-MIN_REWARD) * weight_percentage
-		#reward = (1-karma)*reward
-		return snappedf(reward, 0.01)
-	else:
-		var weight_percentage = (weight - GOLIATH_LOWER_WEIGHT_BOUND) / (GOLIATH_UPPER_WEIGHT_BOUND - LOWER_WEIGHT_BOUND)
-		var reward = GOLIATH_MIN_REWARD + (GOLIATH_MAX_REWARD-GOLIATH_MIN_REWARD) * weight_percentage
-		#reward = (1-karma)*reward
-		return snappedf(reward, 0.01)

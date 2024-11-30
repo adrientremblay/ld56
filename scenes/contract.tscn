@@ -48,15 +48,15 @@ light_mask = 0
 layout_mode = 2
 text = "Weight: 156lbs"
 
+[node name="SizeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+text = "Size: thin"
+
 [node name="RewardLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
 text = "Reward: 50$"
-
-[node name="BonusLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-text = "Bonus: Yes, due to the bodies large size"
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0

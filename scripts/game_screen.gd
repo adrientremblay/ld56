@@ -588,3 +588,6 @@ func _on_buy_appetite_booster_button_pressed() -> void:
 
 func _on_appetite_booster_timeout_timeout() -> void:
 	feasting_frenzy = false
+
+func _on_contract_menu_button_pressed() -> void:
+	$UI/ContractMenu.open_contract_menu(level)
