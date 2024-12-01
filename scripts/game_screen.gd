@@ -398,6 +398,8 @@ func next_level():
 	
 	if assistant.visible:
 		assistant.dismiss()
+	
+	contract_menu.should_refresh_contracts = true
 
 func calculate_level_finish_bonus():
 	if level == 1:
@@ -540,9 +542,10 @@ func determine_contract_timeout_for_level():
 	return contract_timeout
 
 func _on_contract_menu_contract_menu_closed() -> void:
-	var contract_timeout = determine_contract_timeout_for_level()
-	$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
-	$UI/ContractMenu/NewContractTimer.start()
+	if contract_menu.accepted_a_contract:
+		var contract_timeout = determine_contract_timeout_for_level()
+		$UI/ContractMenu/NewContractTimer.wait_time = contract_timeout
+		$UI/ContractMenu/NewContractTimer.start()
 	
 	if !assistant.creature_noob_timer_used:
 		assistant.creature_noob_timer_used = true

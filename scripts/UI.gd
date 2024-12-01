@@ -86,9 +86,10 @@ func _on_new_contract_timer_timeout() -> void:
 	$NewContractsAvailable.play()
 
 func _on_contract_menu_contract_menu_closed() -> void:
-	contract_label.visible = true
-	contract_button.visible = false
-	contract_timer.paused = false
+	if contract_menu.accepted_a_contract:
+		contract_label.visible = true
+		contract_button.visible = false
+		contract_timer.paused = false
 
 func _on_items_button_pressed() -> void:
 	if contract_menu.visible:

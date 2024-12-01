@@ -58,9 +58,13 @@ var POTENTIAL_BACKSTORIES = [
 
 var rng = RandomNumberGenerator.new()
 
+# we dont want to start the timer if the player has not bought a single contract.
+var accepted_a_contract = false
+var should_refresh_contracts = true
+
 signal should_spawn_corpse(person_name, weight, reward, apperance)
 signal contract_menu_opened
-signal contract_menu_closed
+signal contract_menu_closed 
 
 func _ready() -> void:
 	self.visible = false
@@ -71,37 +75,36 @@ func open_contract_menu(level: int):
 	if self.visible == true:
 		return
 	
-	# empty contract list
-	for child in contract_vbox.get_children():
-		child.queue_free()
-	
-	# determine how many of each type of contract we should add depending on the level
-	var light_corpses: int = min(2 + level, 5)
-	var medium_corpses: int = min(max(level, 0), 5) if level >= 2 else 0
-	var heavy_corpses: int = min(max(level-1, 0), 5) if level >= 3 else 0
-	var obese_corpses: int = max(level-2, 0) if level >= 4 else 0
-	
-	# generate the corpses per size type
-	for i in range(light_corpses):
-		generateNewContract(Contract.Appearance.LIGHT)
-	for i in range(medium_corpses):
-		generateNewContract(Contract.Appearance.MEDIUM)
-	for i in range(heavy_corpses):
-		generateNewContract(Contract.Appearance.HEAVY)
-	for i in range(obese_corpses):
-		generateNewContract(Contract.Appearance.OBESE)
+	if should_refresh_contracts:
+		# empty contract list
+		for child in contract_vbox.get_children():
+			child.queue_free()
+		
+		# determine how many of each type of contract we should add depending on the level
+		var light_corpses: int = min(2 + level, 5)
+		var medium_corpses: int = min(max(level, 0), 5) if level >= 2 else 0
+		var heavy_corpses: int = min(max(level-1, 0), 5) if level >= 3 else 0
+		var obese_corpses: int = max(level-2, 0) if level >= 4 else 0
+		
+		# generate the corpses per size type
+		for i in range(light_corpses):
+			generateNewContract(Contract.Appearance.LIGHT)
+		for i in range(medium_corpses):
+			generateNewContract(Contract.Appearance.MEDIUM)
+		for i in range(heavy_corpses):
+			generateNewContract(Contract.Appearance.HEAVY)
+		for i in range(obese_corpses):
+			generateNewContract(Contract.Appearance.OBESE)
+
 	# make the menu visible
-	self.visible = true
-	
+	self.visible = true		
 	$NewContractTimer.stop()
-	
 	$X.visible = false
-	
 	contract_menu_opened.emit()
-	
 	$ContractMusic.play()
-	
 	get_tree().paused = true
+	self.accepted_a_contract = false
+	self.should_refresh_contracts = false
 
 func generateNewContract(corpse_weight: Contract.Appearance):
 	var weight_lower_bound = WEIGHT_DATA[corpse_weight].lower_bound
@@ -131,11 +134,14 @@ func generateNewContract(corpse_weight: Contract.Appearance):
 func contract_accepted(person_name, weight, reward, appearance, female):
 	should_spawn_corpse.emit(person_name, weight, reward, appearance, female)
 	contract_menu_opened.emit()
+	self.accepted_a_contract = true
 	
 func no_contracts_available():
 	$X.visible = true
 
 func _on_close_contract_menu_pressed() -> void:
+	if self.accepted_a_contract:
+		self.should_refresh_contracts = true
 	self.visible = false
 	get_tree().paused = false
 	contract_menu_closed.emit()
