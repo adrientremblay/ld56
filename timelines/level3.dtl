@@ -1,5 +1,7 @@
 [wait time="0.1"]
 [signal arg="pause"]
-spokesman (Smiling): Good job. You met the quota.
-spokesman (Deadfaced): You may have noticed that the creatures and plants we offer for purchase are considerably more expensive than you would expect.
-spokesman (Deadfaced): They have been genetically engineered to be larger and more powerfull than their regular species.
+spokesman (Smiling): Job well done. You're building a beautiful ecosystem in there. Those creatures look to be thriving!
+spokesman (Frowning): Dont buy too many at once. Be cautious and stock your tank with many filters and plants before increasing your bioload.
+spokesman (Deadfaced): You may also have noticed that the creatures and plants we offer you for sale are of a higher caliber than the regular stock.
+spokesman (Smiling): They have been genetically engineered to be larger and more powerfull. Science is a marvelous thing.
+spokesman (Deadfaced): See you tomorrow. Good luck.

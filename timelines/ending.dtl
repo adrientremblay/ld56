@@ -1,5 +1,9 @@
 [wait time="0.1"]
 [signal arg="pause"]
-spokesman (Smiling): You have done well...
-spokesman (Smiling): We are releasing you from your contract...
+spokesman (Deadfaced): So you have your money and wish to leave us?
+spokesman (Deadfaced): Nautilus always respects it's contracts so you are released from yours.
+spokesman (Frowning): But will you be able to forget all that you have done here? Will you forget the mirky, bloody water? ... The "Aquamortis"...
+spokesman (Deadfaced): None that have left the organization have lasted very long. They always come back... The aquarium may hunger, but he who feeds it hungers more.
+spokesman (Smiling): For money? For blood? It depends on the person.
+spokesman (Smiling): We'll meet again.
 [signal arg="win_game"]

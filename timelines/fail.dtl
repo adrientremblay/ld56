@@ -1,5 +1,5 @@
 [wait time="0.1"]
 [signal arg="pause"]
 spokesman (Frowning): you did not make the quota...
-spokesman (Frowning): Time to die bitch. Get in the aquarium.
+spokesman (Frowning): And so you shall feed it one last time! All Hail Nautilus! All Hail the corpse aquarium!
 [signal arg="end_game"]
