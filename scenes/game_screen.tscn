@@ -200,8 +200,6 @@ texture = ExtResource("1_sqbh1")
 
 [node name="Aquarium" type="Node2D" parent="."]
 
-[node name="Plants" type="Node2D" parent="Aquarium"]
-
 [node name="Filters" type="Node2D" parent="Aquarium"]
 
 [node name="FilterSpawn1" type="Node2D" parent="Aquarium/Filters"]
@@ -215,6 +213,8 @@ position = Vector2(789, 304)
 
 [node name="FilterSpawn4" type="Node2D" parent="Aquarium/Filters"]
 position = Vector2(1063, 303)
+
+[node name="Plants" type="Node2D" parent="Aquarium"]
 
 [node name="CorpseSpawn1" type="Node2D" parent="Aquarium"]
 position = Vector2(145, 632)
@@ -2138,7 +2138,7 @@ light_mask = 0
 position = Vector2(117, 108)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_jj42d")
-frame_progress = 0.675611
+frame_progress = 0.908211
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
 libraries = {
