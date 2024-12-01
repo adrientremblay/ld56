@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bafqsokbf17by"]
+[gd_scene load_steps=89 format=3 uid="uid://bafqsokbf17by"]
 
 [ext_resource type="Script" path="res://scripts/game_screen.gd" id="1_ka8qc"]
 [ext_resource type="Texture2D" uid="uid://cyd001a7skpcg" path="res://assets/art/aquarium.png" id="1_sqbh1"]
@@ -67,6 +67,15 @@
 [ext_resource type="AudioStream" uid="uid://cdjky0gjxgvn7" path="res://assets/audio/creature_death.wav" id="57_eixn0"]
 [ext_resource type="AudioStream" uid="uid://cbjdp0hoed8wb" path="res://assets/audio/click (1).wav" id="59_3175n"]
 [ext_resource type="Script" path="res://scenes/click_sound.gd" id="60_y54gi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlmlo"]
+size = Vector2(9, 584)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpg7a"]
+size = Vector2(1137, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ti6"]
+size = Vector2(11, 587)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_w865j"]
 vertices = PackedVector2Array(928.727, 604.812, 935.703, 354.961, 1001.58, 361.156, 1017.67, 604.492, 279.039, 585, 278.039, 345.867, 339.961, 345.109, 364.891, 593.359, 1075.58, 601.523, 1086.6, 357.93, 1144.41, 351.078, 1174.09, 569.352, 1180.68, 622, 447.617, 363.742, 501.492, 362.258, 513.469, 605.828, 438.594, 598.719, 604.422, 356, 676.273, 356, 683.273, 606.82, 589.406, 607.172, 756.922, 608.188, 758.922, 347.672, 831, 345.289, 858, 606.172, 121.008, 352.703, 196.273, 350.281, 227.227, 585, 97.9297, 569.148, 91.3203, 622)
@@ -229,6 +238,21 @@ position = Vector2(955, 639)
 position = Vector2(1104, 626)
 
 [node name="Creatures" type="Node2D" parent="Aquarium"]
+
+[node name="AquariumCollider" type="StaticBody2D" parent="Aquarium"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aquarium/AquariumCollider"]
+position = Vector2(75.5, 352)
+shape = SubResource("RectangleShape2D_wlmlo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Aquarium/AquariumCollider"]
+position = Vector2(642, 646)
+shape = SubResource("RectangleShape2D_rpg7a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Aquarium/AquariumCollider"]
+position = Vector2(1204.5, 351.5)
+shape = SubResource("RectangleShape2D_m7ti6")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

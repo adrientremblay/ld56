@@ -29,7 +29,8 @@ func change_idle_position() -> void:
 	if target_corpse != null && target_corpse.eaten != true:
 		return
 	
-	var random_point = AQUARIUM_TOP_LEFT_POS + Vector2(randf() * AQUARIUM_WIDTH, randf() * AQUARIUM_HEIGHT)
+	#var random_point = AQUARIUM_TOP_LEFT_POS + Vector2(randf() * AQUARIUM_WIDTH, randf() * AQUARIUM_HEIGHT)
+	var random_point = Vector2(3000,3000)
 
 	# Set the movement target to the random point
 	set_movement_target(random_point)

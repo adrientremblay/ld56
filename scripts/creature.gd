@@ -1,5 +1,6 @@
 class_name Creature extends CharacterBody2D
 
+# Sprite Scenes
 static var snail_sprite_scene : PackedScene = load("res://scenes/snail_sprite.tscn")
 static var crab_sprite_scene : PackedScene = load("res://scenes/crab_sprite.tscn")
 static var killifish_sprite_scene : PackedScene = load("res://scenes/killifish_sprite.tscn")
@@ -10,6 +11,9 @@ static var goblinshark_sprite_scene : PackedScene = load("res://scenes/goblinsha
 static var lobster_sprite_scene : PackedScene = load("res://scenes/lobster_sprite.tscn")
 static var octopus_sprite_scene : PackedScene = load("res://scenes/octopus_sprite.tscn")
 static var turtle_sprite_scene : PackedScene = load("res://scenes/turtle_sprite.tscn")
+
+# Collision Shape Scenes
+static var goblinshark_collision_shape_scene : PackedScene = load("res://scenes/goblinshark_collision_shape.tscn")
 
 enum Species {SNAIL, CRAB, KILLIFISH, PIRANHA, ANGLERFISH, DRAGONFISH, GOBLINSHARK, LOBSTER, OCTOPUS, TURTLE}
 
@@ -91,6 +95,7 @@ static var species_stats = {
 	},
 	Species.GOBLINSHARK: { #vpd=0.14
 		"sprite_scene": goblinshark_sprite_scene,
+		"shape_scene" : goblinshark_collision_shape_scene,
 		"price": 1000,
 		"damage": 350,
 		"speed": 4,
@@ -126,6 +131,7 @@ func set_species(species: Species):
 			self.nitrogen_coefficient = 0.5
 			
 	self.sprite = species_stats[species].sprite_scene.instantiate()
+	add_child(species_stats[species].shape_scene.instantiate())
 	add_child(self.sprite)
 
 func update_health_bar() -> void:
