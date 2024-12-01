@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyxeui657gcxx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpvi6"]
+radius = 17.0
+height = 76.0
+
+[node name="DragonfishCollisionShape" type="CollisionShape2D"]
+position = Vector2(0, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gpvi6")

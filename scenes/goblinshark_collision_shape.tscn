@@ -2,9 +2,9 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luatf"]
 radius = 31.0
-height = 220.0
+height = 202.0
 
 [node name="SharkCollisionShape" type="CollisionShape2D"]
-position = Vector2(0, -13)
+position = Vector2(5, -13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_luatf")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk32brh6eht7k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttm52"]
+height = 36.0
+
+[node name="PiranhaCollisionShape" type="CollisionShape2D"]
+position = Vector2(1, 1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ttm52")

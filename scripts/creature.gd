@@ -13,6 +13,10 @@ static var octopus_sprite_scene : PackedScene = load("res://scenes/octopus_sprit
 static var turtle_sprite_scene : PackedScene = load("res://scenes/turtle_sprite.tscn")
 
 # Collision Shape Scenes
+static var killifish_collision_shape_scene : PackedScene = load("res://scenes/killifish_collision_shape.tscn")
+static var piranha_collision_shape_scene : PackedScene = load("res://scenes/piranha_collision_shape.tscn")
+static var anglerfish_collision_shape_scene : PackedScene = load("res://scenes/anglerfish_collision_shape.tscn")
+static var dragonfish_collision_shape_scene : PackedScene = load("res://scenes/dragonfish_collision_shape.tscn")
 static var goblinshark_collision_shape_scene : PackedScene = load("res://scenes/goblinshark_collision_shape.tscn")
 
 enum Species {SNAIL, CRAB, KILLIFISH, PIRANHA, ANGLERFISH, DRAGONFISH, GOBLINSHARK, LOBSTER, OCTOPUS, TURTLE}
@@ -63,6 +67,7 @@ static var species_stats = {
 	},
 	Species.KILLIFISH: { # vpd=0.025
 		"sprite_scene": killifish_sprite_scene,
+		"shape_scene" : killifish_collision_shape_scene,
 		"price": 10,
 		"damage": 1,
 		"speed": 2.5,
@@ -71,6 +76,7 @@ static var species_stats = {
 	},
 	Species.PIRANHA: { #vpd=0.04
 		"sprite_scene": piranha_sprite_scene,
+		"shape_scene" : piranha_collision_shape_scene,
 		"price": 50,
 		"damage": 4,
 		"speed": 5,
@@ -79,6 +85,7 @@ static var species_stats = {
 	},
 	Species.ANGLERFISH: { #vpd=0.05
 		"sprite_scene": anglerfish_sprite_scene,
+		"shape_scene" : anglerfish_collision_shape_scene,
 		"price": 100,
 		"damage": 12.5,
 		"speed": 4,
@@ -87,6 +94,7 @@ static var species_stats = {
 	},
 	Species.DRAGONFISH: { #vpd=0.105
 		"sprite_scene": dragonfish_sprite_scene,
+		"shape_scene" : dragonfish_collision_shape_scene,
 		"price": 500,
 		"damage": 75,
 		"speed": 7,
@@ -130,9 +138,12 @@ func set_species(species: Species):
 		NitrogenTolerance.HIGH:
 			self.nitrogen_coefficient = 0.5
 			
+	# Sprite
 	self.sprite = species_stats[species].sprite_scene.instantiate()
-	add_child(species_stats[species].shape_scene.instantiate())
 	add_child(self.sprite)
+	# Collision Shape
+	if !is_species_land_based(species):
+		add_child(species_stats[species].shape_scene.instantiate())
 
 func update_health_bar() -> void:
 	var healthbar: ProgressBar = $AnimatedSprite2D/HealthBar

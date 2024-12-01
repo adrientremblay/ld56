@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciipprydm6rrs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxi6k"]
+radius = 22.0
+height = 82.0
+
+[node name="AnglerfishCollisionShape" type="CollisionShape2D"]
+position = Vector2(-5, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qxi6k")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1t3tfjdh1hi3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iule3"]
+radius = 3.0
+height = 16.0
+
+[node name="KillifishCollisionShape" type="CollisionShape2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_iule3")
