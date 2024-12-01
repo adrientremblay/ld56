@@ -360,6 +360,7 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -2177,6 +2178,9 @@ max_polyphony = 10
 stream = ExtResource("59_3175n")
 volume_db = -6.0
 script = ExtResource("60_y54gi")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(110, 126)
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="mouse_entered" from="UI" to="UI" method="_on_mouse_entered"]

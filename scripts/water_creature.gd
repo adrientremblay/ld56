@@ -1,15 +1,18 @@
 extends Creature
 
-var WATER_TOP_LEFT_POS :Vector2 = Vector2(81, 106)
-var AQUARIUM_Y_VECTOR : Vector2 = Vector2(81, 471)
-var AQUARIUM_X_VECTOR : Vector2 = Vector2(1119, 106)
+var AQUARIUM_TOP_LEFT_POS : Vector2 = Vector2(101, 124)
+var AQUARIUM_WIDTH : float = 1080
+var AQUARIUM_HEIGHT : float = 433
+var SPAWN_LEFT_VECTOR: Vector2 = Vector2(112.0, 128.0);
+var SPAWN_RIGHT_VECTOR: Vector2 = Vector2(1152.0, 128.0);
 
 var target_position: Vector2
 var target_corpse: Corpse
 
 func _ready() -> void:
 	change_idle_position()
-	self.position = target_position
+	#self.position = target_position
+	self.position = ((SPAWN_RIGHT_VECTOR-SPAWN_LEFT_VECTOR) * randf()) + SPAWN_LEFT_VECTOR
 
 func _physics_process(delta):
 	if target_position == null:
@@ -26,7 +29,10 @@ func change_idle_position() -> void:
 	if target_corpse != null && target_corpse.eaten != true:
 		return
 	
-	set_movement_target(WATER_TOP_LEFT_POS + (randf()*AQUARIUM_Y_VECTOR) + (randf()*AQUARIUM_X_VECTOR))
+	var random_point = AQUARIUM_TOP_LEFT_POS + Vector2(randf() * AQUARIUM_WIDTH, randf() * AQUARIUM_HEIGHT)
+
+	# Set the movement target to the random point
+	set_movement_target(random_point)
 
 func _on_idle_position_timer_timeout() -> void:
 	change_idle_position()
