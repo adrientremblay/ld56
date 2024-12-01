@@ -463,14 +463,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_280um"]
-radius = 25.2
-height = 96.8
+radius = 26.4
+height = 102.4
 
 [node name="Corpse" type="AnimatedSprite2D"]
 position = Vector2(26, -165)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_ul3v6")
-animation = &"female obese"
+animation = &"male obese"
 script = ExtResource("2_8vtmh")
 
 [node name="DecompositionBar" type="ProgressBar" parent="."]
@@ -484,8 +484,10 @@ value = 100.0
 show_percentage = false
 
 [node name="FeedingArea" type="Area2D" parent="." groups=["corpses"]]
+position = Vector2(-2, 0.4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FeedingArea" groups=["corpses"]]
+position = Vector2(0, -3.6)
 shape = SubResource("CapsuleShape2D_280um")
 
 [connection signal="body_entered" from="FeedingArea" to="." method="_on_feeding_area_body_entered"]
