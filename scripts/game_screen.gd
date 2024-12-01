@@ -391,7 +391,7 @@ func next_level():
 		timeline_name = "level" + str(level)
 	
 	# Quota Calculation
-	quota = ((level) * 2)
+	quota = level ** 2
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -528,15 +528,15 @@ func filter_sold(value: int):
 func determine_contract_timeout_for_level():
 	var contract_timeout
 	if level <= 2:
-		contract_timeout = 60
-	elif level <= 4:
 		contract_timeout = 30
-	elif level <= 6:
+	elif level <= 4:
 		contract_timeout = 20
-	elif level <= 8:
-		contract_timeout = 15
-	else:
+	elif level <= 6:
 		contract_timeout = 10
+	elif level <= 8:
+		contract_timeout = 5
+	else:
+		contract_timeout = 5
 	return contract_timeout
 
 func _on_contract_menu_contract_menu_closed() -> void:

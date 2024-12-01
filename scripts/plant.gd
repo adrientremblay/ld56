@@ -15,31 +15,31 @@ static var AQUARIUM_WIDTH = 960
 static var plant_stats = {
 	PlantType.SWORD_PLANT: { # 0.00003
 		"sprite_scene": sword_plant_sprite_scene,
-		"performance": 0.005,
+		"performance": 0.0025,
 		"price": 10,
 		"floating": false,
 	},
 	PlantType.STEM_PLANT: { # 0.00005
 		"sprite_scene": stem_plant_sprite_scene,
-		"performance": 0.015,
+		"performance": 0.005,
 		"price": 20,
 		"floating": false,
 	},
 	PlantType.EELGRASS: { # 0.00008
 		"sprite_scene": eelgrass_sprite_scene,
-		"performance": 0.04,
+		"performance": 0.01,
 		"price": 50,
 		"floating": false,
 	},
 	PlantType.WATER_LETTUCE: { # 0.000125
 		"sprite_scene": water_lettuce_scene,
-		"performance": 0.08,
+		"performance": 0.02,
 		"price": 100,
 		"floating": true,
 	},
 	PlantType.GIANT_ANUBIAS: { # 0.00016
 		"sprite_scene": giant_anubias_scene,
-		"performance": 0.15,
+		"performance": 0.05,
 		"price": 200,
 		"floating": false,
 	},

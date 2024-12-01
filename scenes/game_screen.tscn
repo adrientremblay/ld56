@@ -360,7 +360,6 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -848,7 +847,6 @@ layout_mode = 2
 theme = ExtResource("4_gs2f0")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Dragonfish"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 15
@@ -1495,7 +1493,7 @@ text = "5x as efficient as the Hang on back filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (10,000$)"
+text = "Buy (5,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 2
 
@@ -1534,13 +1532,13 @@ text = "SUMP Filter"
 [node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "5x as efficient as the Canister filter."
+text = "2x as efficient as the Canister filter."
 
 [node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/SumpFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Buy (15,000$)"
+text = "Buy (10,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 3
 
@@ -1579,7 +1577,7 @@ text = "Industrial Filter"
 [node name="Description" type="Label" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "5x as efficient as the sump filter"
+text = "2x as efficient as the sump filter"
 
 [node name="BuyButton" type="Button" parent="UI/FilterMenu/BoxContainer2/VboxContainer/MarginContainer/ItemsList/IndustrialFilter/MarginContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0

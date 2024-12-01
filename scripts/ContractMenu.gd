@@ -76,10 +76,10 @@ func open_contract_menu(level: int):
 		child.queue_free()
 	
 	# determine how many of each type of contract we should add depending on the level
-	var light_corpses: int = WEIGHT_DATA[Contract.Appearance.LIGHT].base_contracts + (level / 5)
-	var medium_corpses: int = WEIGHT_DATA[Contract.Appearance.MEDIUM].base_contracts + (level / 2)
-	var heavy_corpses: int = WEIGHT_DATA[Contract.Appearance.HEAVY].base_contracts + (level / 3)
-	var obese_corpses: int = WEIGHT_DATA[Contract.Appearance.OBESE].base_contracts + max(level - 4, 0)
+	var light_corpses: int = min(2 + level, 5)
+	var medium_corpses: int = min(max(level, 0), 5) if level >= 2 else 0
+	var heavy_corpses: int = min(max(level-1, 0), 5) if level >= 3 else 0
+	var obese_corpses: int = max(level-2, 0) if level >= 4 else 0
 	
 	# generate the corpses per size type
 	for i in range(light_corpses):
@@ -117,7 +117,9 @@ func generateNewContract(corpse_weight: Contract.Appearance):
 	var first_name = first_names[rng.randi_range(0, first_names.size()-1)]
 	var last_name = LAST_NAMES[rng.randi_range(0, LAST_NAMES.size()-1)]
 	
+	# Calculating reward + randomness
 	var reward = snappedf(weight * WEIGHT_DATA[corpse_weight].reward_per_pound, 0.01)
+	reward = reward * randf_range(0.8, 1.2)
 	
 	var description = first_name + POTENTIAL_BACKSTORIES[rng.randf_range(0, POTENTIAL_BACKSTORIES.size() - 1)]
 	

@@ -11,29 +11,29 @@ enum FilterType {SPONGE_FILTER, HANG_ON_BACK_FILTER, CANISTER_FILTER, SUMP_FILTE
 static var PERFORMANCE_GROWTH_PER_SECOND = 0.001
 
 static var filter_stats = {
-	FilterType.SPONGE_FILTER: {
+	FilterType.SPONGE_FILTER: { # 0.001
 		"sprite_scene": sponge_filter_sprite_scene,
 		"max_performance": 0.01,
 		"price": 100,
 	},
-	FilterType.HANG_ON_BACK_FILTER: {
+	FilterType.HANG_ON_BACK_FILTER: { # 0.0005
 		"sprite_scene": hang_on_back_filter_sprite_scene,
 		"max_performance": 0.05,
 		"price": 1000,
 	},
-	FilterType.CANISTER_FILTER: {
+	FilterType.CANISTER_FILTER: { # 0.000025
 		"sprite_scene": canister_filter_sprite_scene,
-		"max_performance": 0.1,
+		"max_performance": 0.125,
+		"price": 5000,
+	},
+	FilterType.SUMP_FILTER: { # 0.000025
+		"sprite_scene": sump_filter_sprite_scene,
+		"max_performance": 0.25,
 		"price": 10000,
 	},
-	FilterType.SUMP_FILTER: {
-		"sprite_scene": sump_filter_sprite_scene,
-		"max_performance": 0.2,
-		"price": 15000,
-	},
-	FilterType.INDUSTRIAL_FILTER: {
+	FilterType.INDUSTRIAL_FILTER: { # 0.000025
 		"sprite_scene": industrial_filter_sprite_scene,
-		"max_performance": 0.3,
+		"max_performance": 0.5,
 		"price": 20000,
 	},
 }
