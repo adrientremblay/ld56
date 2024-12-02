@@ -13,7 +13,7 @@
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://assets/audio/spokesman_no.mp3",
-"volume_base": 0.0,
+"volume_base": -5.0,
 "volume_variance": 0.0
 },
 "happy": {
@@ -23,7 +23,7 @@
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://assets/audio/spokesman_speech_normal.mp3",
-"volume_base": 0.0,
+"volume_base": -5.0,
 "volume_variance": 0.0
 },
 "neutral": {
@@ -33,7 +33,7 @@
 "pitch_variance": 0.0,
 "skip_characters": 0.0,
 "sound_path": "res://assets/audio/spokesman_speech_normal.mp3",
-"volume_base": 0.0,
+"volume_base": -5.0,
 "volume_variance": 0.0
 }
 },

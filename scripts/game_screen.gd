@@ -358,6 +358,9 @@ func _on_date_timer_timeout_advance_time_one_minute() -> void:
 	current_datetime += 60
 	
 	var datetime = Time.get_datetime_dict_from_unix_time(current_datetime)
+	if datetime.hour == 6:
+		$UI/DateLabel.modulate = Color.RED
+	
 	if datetime.hour == 7:
 		next_level()
 		return
@@ -406,6 +409,9 @@ func next_level():
 		assistant.dismiss()
 	
 	contract_menu.should_refresh_contracts = true
+	
+	# Reset the date color
+	$UI/DateLabel.modulate = Color.WHITE
 
 func calculate_level_finish_bonus():
 	if level == 1:
