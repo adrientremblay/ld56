@@ -45,6 +45,7 @@ var quota = 0
 var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
 var current_datetime: int # unix time
 var GLOBAL_NITROGEN_MODIFIER = 0.3
+var FEASTING_FRENZY_COLOR = Color(0.5, 0.5, 1, 1)
 
 func _ready() -> void:
 	randomize() # ensures randomness for randi() and randf()
@@ -390,8 +391,8 @@ func next_level():
 	else:
 		timeline_name = "level" + str(level)
 	
-	# Quota Calculation
-	quota = level ** 2
+	# Quota Calculation (capped at 300)
+	quota = min(level ** 2, 300)
 	
 	var dialogicRootNode = Dialogic.start(timeline_name)
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -595,9 +596,15 @@ func _on_buy_appetite_booster_button_pressed() -> void:
 	$AppetiteBoosterTimeout.start()
 	
 	$ItemSound.play()
+	
+	# turn all the animals orange = POWER
+	for creature: Creature in $Aquarium/Creatures.get_children():
+		creature.modulate = FEASTING_FRENZY_COLOR
 
 func _on_appetite_booster_timeout_timeout() -> void:
 	feasting_frenzy = false
+	for creature: Creature in $Aquarium/Creatures.get_children():
+		creature.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _on_contract_menu_button_pressed() -> void:
 	$UI/ContractMenu.open_contract_menu(level)

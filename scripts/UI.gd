@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 
 func _on_close_creature_menu_pressed() -> void:
 	creature_menu.visible = false
+	if assistant.is_active():
+		assistant.play_open_anim()
 
 func _on_close_plant_menu_pressed() -> void:
 	plant_menu.visible = false
@@ -42,9 +44,13 @@ func _on_creature_button_pressed() -> void:
 	
 	if creature_menu.visible:
 		creature_menu.visible = false
+		if assistant.is_active():
+			assistant.play_open_anim()
 	else:
 		close_all_windows()
-		creature_menu.visible = !creature_menu.visible
+		creature_menu.visible = true
+		if assistant.is_active():
+			assistant.play_close_anim()
 	
 	if assistant.creatures_warning_active:
 		assistant._on_dismiss_button_pressed()

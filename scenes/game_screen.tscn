@@ -93,23 +93,6 @@ gradient = SubResource("Gradient_vk5ej")
 fill_from = Vector2(0.599119, 1)
 fill_to = Vector2(0.570776, 0)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnyj0"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1nmy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxjt"]
-bg_color = Color(0.89, 0.5785, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o5xs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tb4g"]
-bg_color = Color(0, 0.474, 0.79, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffe0a"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ig6j7"]
 atlas = ExtResource("53_onkhl")
 region = Rect2(0, 0, 64, 64)
@@ -185,6 +168,23 @@ _data = {
 "close_animation": SubResource("Animation_b4hc6"),
 "open_animation": SubResource("Animation_4m20s")
 }
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r6l3h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vnyj0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1nmy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1uxjt"]
+bg_color = Color(0.89, 0.5785, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o5xs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6tb4g"]
+bg_color = Color(0, 0.474, 0.79, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffe0a"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource("1_ka8qc")
@@ -371,6 +371,90 @@ offset_right = 506.0
 offset_bottom = 708.0
 theme = ExtResource("4_gs2f0")
 text = "Filters"
+
+[node name="Assistant" type="Panel" parent="UI"]
+light_mask = 0
+layout_mode = 0
+offset_left = 1300.0
+offset_top = 308.0
+offset_right = 1552.0
+offset_bottom = 684.0
+theme = ExtResource("4_gs2f0")
+script = ExtResource("51_pcohp")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Assistant"]
+layout_mode = 0
+offset_right = 251.0
+offset_bottom = 376.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Assistant/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer2" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+text = "Assistant"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("51_tjkwp")
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "The amnibua keveks are crutucak rught now so please do something"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="DismissButton" type="Button" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dismiss"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Assistant/MarginContainer/VBoxContainer"]
+light_mask = 0
+position = Vector2(117, 108)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_jj42d")
+frame_progress = 0.311099
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
+libraries = {
+"": SubResource("AnimationLibrary_s81k8")
+}
+
+[node name="AssistantSound" type="AudioStreamPlayer" parent="UI/Assistant"]
+stream = ExtResource("53_juog4")
+
+[node name="DismissSound" type="AudioStreamPlayer" parent="UI/Assistant"]
+stream = ExtResource("54_fw1e7")
+
+[node name="AssistantSpeech" type="AudioStreamPlayer" parent="UI/Assistant"]
+stream = ExtResource("56_ty3ik")
+
+[node name="NoobTimerHasNotOpenedContractMenu" type="Timer" parent="UI/Assistant"]
+wait_time = 5.0
+
+[node name="NoobTimerHasNotBoughtCreature" type="Timer" parent="UI/Assistant"]
+wait_time = 5.0
 
 [node name="BuyButtonsLabel" type="Label" parent="UI"]
 visible = false
@@ -2032,90 +2116,6 @@ autowrap_mode = 2
 stream = ExtResource("44_fposv")
 volume_db = -4.0
 
-[node name="Assistant" type="Panel" parent="UI"]
-light_mask = 0
-layout_mode = 0
-offset_left = 1300.0
-offset_top = 308.0
-offset_right = 1552.0
-offset_bottom = 684.0
-theme = ExtResource("4_gs2f0")
-script = ExtResource("51_pcohp")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/Assistant"]
-layout_mode = 0
-offset_right = 251.0
-offset_bottom = 376.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Assistant/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="PanelContainer2" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="NameLabel" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-text = "Assistant"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="UI/Assistant/MarginContainer/VBoxContainer"]
-light_mask = 0
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-texture = ExtResource("51_tjkwp")
-stretch_mode = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="UI/Assistant/MarginContainer/VBoxContainer"]
-light_mask = 0
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Assistant/MarginContainer/VBoxContainer/PanelContainer"]
-custom_minimum_size = Vector2(0, 125)
-layout_mode = 2
-theme_override_font_sizes/font_size = 14
-text = "The amnibua keveks are crutucak rught now so please do something"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-clip_text = true
-
-[node name="DismissButton" type="Button" parent="UI/Assistant/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Dismiss"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Assistant/MarginContainer/VBoxContainer"]
-light_mask = 0
-position = Vector2(117, 108)
-scale = Vector2(2.5, 2.5)
-sprite_frames = SubResource("SpriteFrames_jj42d")
-frame_progress = 0.0390563
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
-libraries = {
-"": SubResource("AnimationLibrary_s81k8")
-}
-
-[node name="AssistantSound" type="AudioStreamPlayer" parent="UI/Assistant"]
-stream = ExtResource("53_juog4")
-
-[node name="DismissSound" type="AudioStreamPlayer" parent="UI/Assistant"]
-stream = ExtResource("54_fw1e7")
-
-[node name="AssistantSpeech" type="AudioStreamPlayer" parent="UI/Assistant"]
-stream = ExtResource("56_ty3ik")
-
-[node name="NoobTimerHasNotOpenedContractMenu" type="Timer" parent="UI/Assistant"]
-wait_time = 5.0
-
-[node name="NoobTimerHasNotBoughtCreature" type="Timer" parent="UI/Assistant"]
-wait_time = 5.0
-
 [node name="PauseMenu" type="Panel" parent="UI"]
 visible = false
 layout_mode = 0
@@ -2215,6 +2215,9 @@ position = Vector2(110, 126)
 [connection signal="pressed" from="UI/PlantsButton" to="UI" method="_on_plants_button_pressed"]
 [connection signal="pressed" from="UI/ItemsButton" to="UI" method="_on_items_button_pressed"]
 [connection signal="pressed" from="UI/FiltersButton" to="UI" method="_on_filters_button_pressed"]
+[connection signal="pressed" from="UI/Assistant/MarginContainer/VBoxContainer/DismissButton" to="UI/Assistant" method="_on_dismiss_button_pressed"]
+[connection signal="timeout" from="UI/Assistant/NoobTimerHasNotOpenedContractMenu" to="UI/Assistant" method="_on_noob_timer_has_not_opened_contract_menu_timeout"]
+[connection signal="timeout" from="UI/Assistant/NoobTimerHasNotBoughtCreature" to="UI/Assistant" method="_on_noob_timer_has_not_bought_creature_timeout"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
 [connection signal="spawn_species" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="." method="_on_spawn_species"]
 [connection signal="pressed" from="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" to="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Crab/MarginContainer/HBoxContainer/VBoxContainer/BuyButton" method="_on_pressed"]
@@ -2274,9 +2277,6 @@ position = Vector2(110, 126)
 [connection signal="pressed" from="UI/ContractMenuButton" to="." method="_on_contract_menu_button_pressed"]
 [connection signal="pressed" from="UI/Retire" to="." method="_on_retire_pressed"]
 [connection signal="level_screen_closed" from="UI/LevelScreen" to="." method="_on_level_screen_level_screen_closed"]
-[connection signal="pressed" from="UI/Assistant/MarginContainer/VBoxContainer/DismissButton" to="UI/Assistant" method="_on_dismiss_button_pressed"]
-[connection signal="timeout" from="UI/Assistant/NoobTimerHasNotOpenedContractMenu" to="UI/Assistant" method="_on_noob_timer_has_not_opened_contract_menu_timeout"]
-[connection signal="timeout" from="UI/Assistant/NoobTimerHasNotBoughtCreature" to="UI/Assistant" method="_on_noob_timer_has_not_bought_creature_timeout"]
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
 [connection signal="timeout" from="NitrogenTimer" to="." method="tick_nitrogen_levels"]
 [connection signal="timeout" from="AppetiteBoosterTimeout" to="." method="_on_appetite_booster_timeout_timeout"]

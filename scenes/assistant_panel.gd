@@ -109,3 +109,12 @@ func _on_noob_timer_has_not_opened_contract_menu_timeout() -> void:
 func _on_noob_timer_has_not_bought_creature_timeout() -> void:
 	open_creature_warning()
 	$NoobTimerHasNotBoughtCreature.stop()
+
+func is_active():
+	return filter_warning_active || neutralizer_warning_active || plant_warning_active || nn_warning_active || health_warning_active || contract_warning_active || creatures_warning_active
+
+func play_open_anim():
+	animation_player.play("open_animation")
+
+func play_close_anim():
+	animation_player.play("close_animation")
