@@ -2094,7 +2094,7 @@ light_mask = 0
 position = Vector2(117, 108)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_jj42d")
-frame_progress = 0.582761
+frame_progress = 0.0489044
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
 libraries = {

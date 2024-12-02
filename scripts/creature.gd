@@ -121,7 +121,8 @@ var speed
 var bioload
 var sprite
 var nitrogen_coefficient 
-var health = 100.0
+var health
+var max_health
 
 func set_species(species: Species):
 	self.species = species
@@ -144,10 +145,14 @@ func set_species(species: Species):
 	# Collision Shape
 	if !is_species_land_based(species):
 		add_child(species_stats[species].shape_scene.instantiate())
+	
+	# Health bar with some randomness so they don't all die on same tick
+	self.max_health = 100.0 * randf_range(0.7, 1.3)
+	$AnimatedSprite2D/HealthBar.max_value = self.max_health
+	self.health = max_health
 
 func update_health_bar() -> void:
-	var healthbar: ProgressBar = $AnimatedSprite2D/HealthBar
-	healthbar.value = health
+	$AnimatedSprite2D/HealthBar.value = health
 
 static func is_species_land_based(species: Creature.Species) -> bool:
 	if species == Creature.Species.SNAIL || species == Creature.Species.CRAB || species == Creature.Species.LOBSTER || species == Creature.Species.OCTOPUS || species == Creature.Species.TURTLE:

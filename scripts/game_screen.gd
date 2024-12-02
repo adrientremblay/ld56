@@ -580,7 +580,7 @@ func _on_buy_health_booster_button_pressed() -> void:
 	set_money_label()
 	
 	for creature in $Aquarium/Creatures.get_children():
-		creature.health = clamp(creature.health + 50, 0, 100)
+		creature.health = clamp(creature.health + (creature.max_health/2), 0, 100)
 
 	$ItemSound.play()
 
