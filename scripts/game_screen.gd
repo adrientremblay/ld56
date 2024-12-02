@@ -397,6 +397,7 @@ func next_level():
 	dialogicRootNode.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 	if assistant.visible:
+		assistant.visible = false
 		assistant.dismiss()
 	
 	contract_menu.should_refresh_contracts = true
