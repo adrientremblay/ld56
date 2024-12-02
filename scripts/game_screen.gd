@@ -42,7 +42,7 @@ var level = 0
 var quota = 0
 
 # MISC
-var default_aquarium_color = Color(0, 0.30196078431, 0.43921568627, 0.2431372549)
+var default_aquarium_color 
 var current_datetime: int # unix time
 var GLOBAL_NITROGEN_MODIFIER = 0.3
 var FEASTING_FRENZY_COLOR = Color(0.5, 0.5, 1, 1)
@@ -56,6 +56,7 @@ func _ready() -> void:
 	dialogic_setup()
 	$UI/TitleScreen.visible = true
 	$SpokesmanMusic.process_mode = Node.PROCESS_MODE_ALWAYS
+	default_aquarium_color = $Lighting/WaterRect.color
 
 func start_game():
 	$Music.play()
@@ -238,8 +239,11 @@ func tick_nitrogen_levels():
 	# Update UI
 	$UI/AmmoniaLevelBar.value = ammonia_level * 100.0
 	$UI/NitrateLevelBar.value = nitrate_level * 100.0
+	
+	# Aquarium color
 	#var new_color = default_aquarium_color
-	#new_color.g += (0.5 * (1.0-aquarium_health))
+	#new_color.r *= (1.0 + ammonia_level)
+	#new_color.g *= (1.0 + ammonia_level)
 	#$Lighting/WaterRect.color = new_color
 
 func _on_retire_pressed() -> void:

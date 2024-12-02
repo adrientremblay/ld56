@@ -7,6 +7,8 @@ radius = 49.0
 height = 644.0
 
 [node name="FilterWrapper" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_iu7d1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
