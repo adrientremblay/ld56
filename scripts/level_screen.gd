@@ -11,8 +11,8 @@ func open(level_number: int, quota: int, bonus: int, penalty: int, timeout: int,
 	$CurrentMoneyValue.text = str(money) + "$"
 	$MoneyValue.text = str(100000 - money) + "$"
 	$LevelLabel.text = "Day " + str(level_number)
-	$ContractWaitTimeValue.text = str(timeout) + "s"
-	$QuotaValue.text = str(quota)
+	$ContractWaitTimeValue.text = str(timeout) + " seconds"
+	$QuotaValue.text = str(quota) + (" corpses" if quota > 1 else " corpse")
 	$BonusValue.text = str(bonus) + "$"
 	$PenaltyValue.text = str(penalty) + "$"
 	$LevelMusic.play()

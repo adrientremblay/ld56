@@ -120,24 +120,24 @@ horizontal_alignment = 2
 
 [node name="ContractWaitTimeValue" type="Label" parent="."]
 layout_mode = 0
-offset_left = 832.0
+offset_left = 712.0
 offset_top = 344.0
-offset_right = 1025.0
+offset_right = 1024.0
 offset_bottom = 378.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
-text = "30s"
+text = "30 seconds"
 horizontal_alignment = 2
 
 [node name="QuotaValue" type="Label" parent="."]
 layout_mode = 0
-offset_left = 832.0
+offset_left = 688.0
 offset_top = 408.0
 offset_right = 1025.0
 offset_bottom = 442.0
 theme = ExtResource("1_hclw6")
 theme_override_font_sizes/font_size = 26
-text = "15"
+text = "15 corpses"
 horizontal_alignment = 2
 
 [node name="BonusValue" type="Label" parent="."]
