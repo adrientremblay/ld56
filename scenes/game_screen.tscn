@@ -1869,9 +1869,9 @@ vertical_alignment = 1
 visible = false
 layout_mode = 0
 offset_left = 1042.0
-offset_top = 688.0
+offset_top = 681.0
 offset_right = 1286.0
-offset_bottom = 711.0
+offset_bottom = 704.0
 theme = ExtResource("4_gs2f0")
 text = "Next Contract: 12s"
 
@@ -2094,7 +2094,7 @@ light_mask = 0
 position = Vector2(117, 108)
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_jj42d")
-frame_progress = 0.0489044
+frame_progress = 0.100843
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Assistant"]
 libraries = {

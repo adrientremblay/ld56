@@ -19,6 +19,7 @@ animations = [{
 }]
 
 [node name="Waterlettuce" type="AnimatedSprite2D"]
+light_mask = 0
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_c84mm")
 offset = Vector2(0, 2)
