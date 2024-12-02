@@ -31,9 +31,9 @@ var WEIGHT_DATA = {
 		}
 }
 
-var MALE_FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal", "Windhelm", "Adrien", "William", "Guillaume", "Cedric"]
-var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah", "Raidah", "Adrienne"]
-var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams", "Sanderson", "Wells", "Biens", "Martens"]
+var MALE_FIRST_NAMES = ["Michael", "Bill", "Steve", "Randal", "Windhelm", "Adrien", "William", "Guillaume", "Cedric", "Tim", "David", "Philip", "Darsh", "Joshua"]
+var FEMALE_FIRST_NAMES = ["Mary", "Angela", "Jennifer", "Sarah", "Lydia", "Adrienne", "Joan", "Lucy", "Mei", "Fatima", "Sofia", "Amara", "Olga", "Hannah"]
+var LAST_NAMES = ["Smith", "Tremblay", "Deforges", "Williams", "Sanderson", "Wells", "Biens", "Martens", "Freiman", "Huculak", "Voinea", "Glazer", "Dubois", "Laplante", "Lee", "Nygen", "Singh", "Garcia"]
 
 # The format is [NAME] + backstory
 var POTENTIAL_BACKSTORIES = [

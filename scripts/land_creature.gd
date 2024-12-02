@@ -97,3 +97,4 @@ func _on_navigation_agent_2d_navigation_finished() -> void:
 func teleport_to_idle_position():
 	change_idle_position()
 	position = navigation_agent.target_position
+	change_idle_position()

@@ -28,7 +28,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = true
+var debug = false
 var money = 90000 if debug else 45
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
@@ -291,6 +291,9 @@ func setup_new_level():
 	#Randomize the creature positions
 	for creature in $Aquarium/Creatures.get_children():
 		creature.teleport_to_idle_position()
+	
+	# End feeding frenzy
+	_on_appetite_booster_timeout_timeout()
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()

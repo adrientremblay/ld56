@@ -77,3 +77,4 @@ func _on_nearby_corpse_area_area_exited(area: Area2D) -> void:
 func teleport_to_idle_position():
 	change_idle_position()
 	position = self.target_position
+	change_idle_position()

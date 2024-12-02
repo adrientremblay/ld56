@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://bj1bvrslaqhv4" path="res://assets/audio/bite2.wav" id="3_8gn7c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71wsm"]
-radius = 4.0
+radius = 1.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0v3rf"]
 polygon = PackedVector2Array(3, 3, -1, 1, -5, 4, -6, 6, -3, 11, 3, 10)
