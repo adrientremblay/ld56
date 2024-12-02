@@ -2117,7 +2117,7 @@ stream = ExtResource("44_fposv")
 volume_db = -4.0
 
 [node name="PauseMenu" type="Panel" parent="UI"]
-visible = false
+light_mask = 0
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0

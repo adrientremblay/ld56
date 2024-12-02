@@ -1,13 +1,14 @@
 extends Panel
 
 var contract_menu_open = false
+var game_started = false
 
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 	self.visible = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause") && Dialogic.current_timeline == null && !contract_menu_open:
+	if game_started && event.is_action_pressed("pause") && Dialogic.current_timeline == null && !contract_menu_open:
 		pause_game()
 
 func _on_contract_menu_contract_menu_opened() -> void:

@@ -61,6 +61,7 @@ func _ready() -> void:
 func start_game():
 	$Music.play()
 	next_level()
+	$UI/PauseMenu.game_started = true
 
 func _process(delta: float) -> void:
 	if game_over:
