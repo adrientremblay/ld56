@@ -587,7 +587,7 @@ func _on_buy_health_booster_button_pressed() -> void:
 	$ItemSound.play()
 
 func _on_buy_appetite_booster_button_pressed() -> void:
-	if money < 100:
+	if money < 100 || feasting_frenzy:
 		return
 	money -= 100
 	set_money_label()
