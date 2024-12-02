@@ -233,7 +233,7 @@ func tick_nitrogen_levels():
 	if nitrate_level < 0.25 && ammonia_level < 0.25:
 		for creature in $Aquarium/Creatures.get_children(): 
 			creature.health += Creature.CREATURE_HEALING_RATE
-			creature.health = min(100.0, creature.health)
+			creature.health = min(creature.max_health, creature.health)
 			creature.update_health_bar()
 			
 	# Update UI
@@ -286,6 +286,10 @@ func setup_new_level():
 	$UI/LevelLabel.text = "Level: " + str(level)
 	if !assistant.contract_noob_timer_used:
 		$UI/Assistant/NoobTimerHasNotOpenedContractMenu.start()
+	
+	#Randomize the creature positions
+	for creature in $Aquarium/Creatures.get_children():
+		creature.teleport_to_idle_position()
 
 func set_starting_game_datetime():
 	var current_date_dict = Time.get_date_dict_from_system()

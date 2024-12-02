@@ -73,3 +73,7 @@ func _on_nearby_corpse_area_area_entered(area: Area2D) -> void:
 
 func _on_nearby_corpse_area_area_exited(area: Area2D) -> void:
 	$AnimatedSprite2D.play("moving")
+
+func teleport_to_idle_position():
+	change_idle_position()
+	position = self.target_position

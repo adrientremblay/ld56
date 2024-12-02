@@ -93,3 +93,7 @@ func _on_nearby_corpse_area_area_exited(area: Area2D) -> void:
 func _on_navigation_agent_2d_navigation_finished() -> void:
 	if target_corpse == null || target_corpse.eaten:
 		sprite.play("idle")
+
+func teleport_to_idle_position():
+	change_idle_position()
+	position = navigation_agent.target_position
