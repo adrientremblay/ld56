@@ -41,7 +41,7 @@ var POTENTIAL_BACKSTORIES = [
 	" bumped into the wrong person at a club. That person used their criminal connections to contact us.",
 	" was a whistleblower for a large pharmacutical company. They were killed by hitmen hired by the company.",
 	" lived on the streets for 14 years before they were kidnapped by a secretive bio-engineering company for human experiments.",
-	" was in the advanced stages of MS before he resorted to illegal experimental treatement. His body needs to be disposed of so as to not arouse suspicion.",
+	" was in the advanced stages of MS before he resorted to illegal experimental treatement. Their body needs to be disposed of so as to not arouse suspicion.",
 	" was a former mob accountant who tried to embezzle money from the organization. They were caught and made an example of.",
 	" was an undercover cop who got too close to uncovering the organization's operations. Their cover was blown, and they had to be eliminated.",
 	" was a journalist investigating a high-profile politician's ties to corporate corruption. They were getting too close to publishing what they had and were killed.",
