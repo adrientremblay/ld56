@@ -372,6 +372,15 @@ offset_bottom = 708.0
 theme = ExtResource("4_gs2f0")
 text = "Filters"
 
+[node name="ElapsedTimeLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 29.0
+offset_right = 752.0
+offset_bottom = 52.0
+theme = ExtResource("4_gs2f0")
+horizontal_alignment = 1
+
 [node name="Assistant" type="Panel" parent="UI"]
 light_mask = 0
 layout_mode = 0
@@ -469,7 +478,6 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -1341,6 +1349,7 @@ texture_normal = ExtResource("15_purco")
 stretch_mode = 0
 
 [node name="ContractMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 19.0
@@ -2029,9 +2038,9 @@ text = "Corpses Disposed: 0"
 [node name="DateLabel" type="Label" parent="UI"]
 layout_mode = 0
 offset_left = 520.0
-offset_top = 13.0
+offset_top = 5.0
 offset_right = 752.0
-offset_bottom = 36.0
+offset_bottom = 28.0
 theme = ExtResource("4_gs2f0")
 text = "Oct 20, 2024 - 11:00PM"
 
@@ -2205,8 +2214,7 @@ stream = ExtResource("59_3175n")
 volume_db = -6.0
 script = ExtResource("60_y54gi")
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(110, 126)
+[node name="ElapsedTimeTimer" type="Timer" parent="."]
 
 [connection signal="contract_menu_opened" from="UI" to="." method="_on_ui_contract_menu_opened"]
 [connection signal="mouse_entered" from="UI" to="UI" method="_on_mouse_entered"]
@@ -2279,3 +2287,4 @@ position = Vector2(110, 126)
 [connection signal="timeout" from="DateTimer" to="." method="_on_date_timer_timeout_advance_time_one_minute"]
 [connection signal="timeout" from="NitrogenTimer" to="." method="tick_nitrogen_levels"]
 [connection signal="timeout" from="AppetiteBoosterTimeout" to="." method="_on_appetite_booster_timeout_timeout"]
+[connection signal="timeout" from="ElapsedTimeTimer" to="." method="_on_elapsed_time_timer_timeout"]

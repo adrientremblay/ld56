@@ -28,7 +28,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = false
+var debug = true
 var money = 90000 if debug else 45
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
@@ -36,6 +36,7 @@ var nitrate_level = 0.0 # decimal %
 var corpses_eaten_count = 0
 var total_corpses_eaten = 0
 var feasting_frenzy = false
+var elapsed_time = 0 # seconds
 
 # LEVEL VARIABLES
 var level = 0
@@ -57,11 +58,13 @@ func _ready() -> void:
 	$UI/TitleScreen.visible = true
 	$SpokesmanMusic.process_mode = Node.PROCESS_MODE_ALWAYS
 	default_aquarium_color = $Lighting/WaterRect.color
+	$ElapsedTimeTimer.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func start_game():
 	$Music.play()
 	next_level()
 	$UI/PauseMenu.game_started = true
+	$ElapsedTimeTimer.start()
 
 func _process(delta: float) -> void:
 	if game_over:
@@ -255,7 +258,7 @@ func set_game_over():
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
 	get_tree().paused = true
-	$UI/EndScreen.open(total_corpses_eaten)
+	$UI/EndScreen.open(total_corpses_eaten, determine_time_elapsed())
 	self.game_over = true
 
 func open_win_screen():
@@ -263,7 +266,7 @@ func open_win_screen():
 	$UI/ContractMenu.visible = false
 	$UI/CreatureMenu.visible = false
 	get_tree().paused = true
-	$UI/WinScreen.open(total_corpses_eaten)
+	$UI/WinScreen.open(total_corpses_eaten, determine_time_elapsed())
 	self.game_over = true
 
 func _on_dialogic_signal(action: String):
@@ -626,3 +629,16 @@ func _on_appetite_booster_timeout_timeout() -> void:
 
 func _on_contract_menu_button_pressed() -> void:
 	$UI/ContractMenu.open_contract_menu(level)
+
+func _on_elapsed_time_timer_timeout() -> void:
+	elapsed_time += 1
+	var elapsed_seconds = elapsed_time
+	var elapsed_minutes = elapsed_seconds / 60
+	var elapsed_hours = elapsed_minutes / 60
+	$UI/ElapsedTimeLabel.text = determine_time_elapsed()
+
+func determine_time_elapsed():
+	var elapsed_seconds = elapsed_time
+	var elapsed_minutes = elapsed_seconds / 60
+	var elapsed_hours = elapsed_minutes / 60
+	return "%02d:%02d:%02d" % [elapsed_hours, elapsed_minutes, elapsed_seconds]
