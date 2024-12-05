@@ -61,6 +61,7 @@ text = "Reward: 50$"
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 light_mask = 0
 layout_mode = 2
+focus_mode = 0
 text = "Accept"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]

@@ -336,6 +336,7 @@ offset_left = 134.0
 offset_top = 677.0
 offset_right = 271.0
 offset_bottom = 705.0
+focus_mode = 0
 theme = ExtResource("4_gs2f0")
 theme_override_font_sizes/font_size = 17
 text = "Creatures"
@@ -349,6 +350,7 @@ offset_left = 279.0
 offset_top = 679.0
 offset_right = 384.0
 offset_bottom = 706.0
+focus_mode = 0
 theme = ExtResource("4_gs2f0")
 text = "Plants"
 
@@ -359,6 +361,7 @@ offset_left = 10.0
 offset_top = 675.0
 offset_right = 124.0
 offset_bottom = 704.0
+focus_mode = 0
 theme = ExtResource("4_gs2f0")
 text = "Items"
 
@@ -369,6 +372,7 @@ offset_left = 392.0
 offset_top = 679.0
 offset_right = 506.0
 offset_bottom = 708.0
+focus_mode = 0
 theme = ExtResource("4_gs2f0")
 text = "Filters"
 
@@ -436,6 +440,7 @@ clip_text = true
 
 [node name="DismissButton" type="Button" parent="UI/Assistant/MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Dismiss"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Assistant/MarginContainer/VBoxContainer"]
@@ -478,6 +483,7 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
+visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -584,6 +590,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (10$)"
 script = ExtResource("12_mmhuv")
 
@@ -632,6 +639,7 @@ Nitrogen Tolerance: moderate"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (50$)"
 script = ExtResource("12_mmhuv")
 species = 1
@@ -681,6 +689,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (100$)"
 script = ExtResource("12_mmhuv")
 species = 7
@@ -730,6 +739,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (500$)"
 script = ExtResource("12_mmhuv")
 species = 8
@@ -779,6 +789,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (1,000$)"
 script = ExtResource("12_mmhuv")
 species = 9
@@ -857,6 +868,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (10$)"
 script = ExtResource("12_mmhuv")
 species = 2
@@ -906,6 +918,7 @@ Nitrogen Tolerance: MODERATE"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (50$)"
 script = ExtResource("12_mmhuv")
 species = 3
@@ -955,6 +968,7 @@ Nitrogen Tolerance: HIGH"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (100$)"
 script = ExtResource("12_mmhuv")
 species = 4
@@ -1004,6 +1018,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (500$)"
 script = ExtResource("12_mmhuv")
 species = 5
@@ -1053,6 +1068,7 @@ Nitrogen Tolerance: LOW"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (1,000$)"
 script = ExtResource("12_mmhuv")
 species = 6
@@ -1150,6 +1166,7 @@ text = "Eliminates nitrate from the water."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (10$)"
 script = ExtResource("23_savwo")
 
@@ -1195,6 +1212,7 @@ text = "2x as efficient as the Sword Plant."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (20$)"
 script = ExtResource("23_savwo")
 plant_type = 1
@@ -1241,6 +1259,7 @@ text = "2x as efficient as the stem plant."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (50$)"
 script = ExtResource("23_savwo")
 plant_type = 2
@@ -1287,6 +1306,7 @@ text = "2x as efficient as eelgrass."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (100$)"
 script = ExtResource("23_savwo")
 plant_type = 3
@@ -1333,6 +1353,7 @@ text = "2x as efficient as water lettuce."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (200$)"
 script = ExtResource("23_savwo")
 plant_type = 4
@@ -1521,6 +1542,7 @@ text = "Converts Ammonia to Nitrate."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (100$)"
 script = ExtResource("26_6coqy")
 
@@ -1565,6 +1587,7 @@ text = "5x as efficient as the sponge filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (1,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 1
@@ -1610,6 +1633,7 @@ text = "5x as efficient as the Hang on back filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (5,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 2
@@ -1655,6 +1679,7 @@ text = "2x as efficient as the Canister filter."
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (10,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 3
@@ -1700,6 +1725,7 @@ text = "2x as efficient as the sump filter"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (20,000$)"
 script = ExtResource("26_6coqy")
 filter_type = 4
@@ -1801,6 +1827,7 @@ text = "Neutralizes up to 25% of the Ammonia in the water"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (50$)"
 
 [node name="NitrateNeutralizer" type="PanelContainer" parent="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1845,6 +1872,7 @@ text = "Neutralizes up to 25% of the Nitrate in the water"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (50$)"
 
 [node name="HealthBooster" type="PanelContainer" parent="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1889,6 +1917,7 @@ text = "Gives all creatures 50% of their total health "
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (50$)"
 
 [node name="Appetite Booster" type="PanelContainer" parent="UI/ItemMenu/BoxContainer/ScrollContainer/VboxContainer/MarginContainer/ItemsList"]
@@ -1933,6 +1962,7 @@ text = "Creatures eat 50% faster for 10 seconds"
 light_mask = 0
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+focus_mode = 0
 text = "Buy (100$)"
 
 [node name="CloseItemMenu" type="TextureButton" parent="UI/ItemMenu"]
@@ -1972,6 +2002,7 @@ offset_left = 1041.0
 offset_top = 681.0
 offset_right = 1245.0
 offset_bottom = 703.0
+focus_mode = 0
 theme = ExtResource("4_gs2f0")
 theme_type_variation = &"contract_button"
 text = "See Contracts"
@@ -2050,6 +2081,7 @@ offset_left = 1143.0
 offset_top = 12.0
 offset_right = 1264.0
 offset_bottom = 45.0
+focus_mode = 0
 theme = ExtResource("4_gs2f0")
 text = "Sleep"
 

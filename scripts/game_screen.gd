@@ -251,6 +251,10 @@ func tick_nitrogen_levels():
 	#$Lighting/WaterRect.color = new_color
 
 func _on_retire_pressed() -> void:
+	# close the contract menu if it is open
+	if contract_menu.visible:
+		contract_menu._on_close_contract_menu_pressed()
+	
 	next_level()
 
 func set_game_over():
