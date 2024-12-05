@@ -28,7 +28,7 @@ extends Node2D
 var game_over = false
 
 # GAMEPLAY VARIABLES
-var debug = true
+var debug = false
 var money = 90000 if debug else 45
 var biomass_capacity = 200 # pounds
 var ammonia_level = 0.0 # decimal %
@@ -642,7 +642,7 @@ func _on_elapsed_time_timer_timeout() -> void:
 	$UI/ElapsedTimeLabel.text = determine_time_elapsed()
 
 func determine_time_elapsed():
-	var elapsed_seconds = elapsed_time
-	var elapsed_minutes = elapsed_seconds / 60
-	var elapsed_hours = elapsed_minutes / 60
+	var elapsed_seconds = elapsed_time % 60
+	var elapsed_minutes = elapsed_time/60 % 60
+	var elapsed_hours = elapsed_time/3600
 	return "%02d:%02d:%02d" % [elapsed_hours, elapsed_minutes, elapsed_seconds]
