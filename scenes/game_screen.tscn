@@ -483,7 +483,6 @@ text = "Buy"
 horizontal_alignment = 1
 
 [node name="CreatureMenu" type="Panel" parent="UI"]
-visible = false
 light_mask = 0
 layout_mode = 0
 offset_left = 148.0
@@ -581,7 +580,7 @@ text = "Assassin Snail"
 [node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/LandCreaturesVBox/ScrollContainer/VBoxContainer/Snail/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Damage: 2.5
+text = "Damage: 3.5
 Speed: 1
 Bioload: 0.001
 Nitrogen Tolerance: LOW"
@@ -859,7 +858,7 @@ text = "Killifish"
 [node name="Description" type="Label" parent="UI/CreatureMenu/BoxContainer/HBoxContainer/WaterCreaturesVBox/ScrollContainer/VBoxContainer/Fish/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-text = "Damage: 1
+text = "Damage: 1.4
 Speed: 2.5
 Bioload: 0.001
 Nitrogen Tolerance: HIGH"

@@ -25,15 +25,15 @@ enum NitrogenTolerance {LOW, MODERATE, HIGH}
 
 # The value per dollar (VPD) of a creature it it's (damange * speed) / price
 static var species_stats = {
-	Species.SNAIL: { #vpd=2.5
+	Species.SNAIL: { #vpd=0.35
 		"sprite_scene": snail_sprite_scene,
 		"price": 10,
-		"damage": 2.5,
+		"damage": 3.5,
 		"speed": 1,
 		"bioload": 0.001,
 		"nitrogen_tolerance": NitrogenTolerance.LOW
 	},
-	Species.CRAB: { #vpd=20
+	Species.CRAB: { #vpd=0.4
 		"sprite_scene": crab_sprite_scene,
 		"price": 50,
 		"damage": 8,
@@ -65,16 +65,16 @@ static var species_stats = {
 		"bioload": 0.12,
 		"nitrogen_tolerance": NitrogenTolerance.HIGH
 	},
-	Species.KILLIFISH: { # vpd=0.025
+	Species.KILLIFISH: { # vpd=0.35
 		"sprite_scene": killifish_sprite_scene,
 		"shape_scene" : killifish_collision_shape_scene,
 		"price": 10,
-		"damage": 1,
+		"damage": 1.4,
 		"speed": 2.5,
 		"bioload": 0.001,
 		"nitrogen_tolerance": NitrogenTolerance.HIGH
 	},
-	Species.PIRANHA: { #vpd=0.04
+	Species.PIRANHA: { #vpd=0.4
 		"sprite_scene": piranha_sprite_scene,
 		"shape_scene" : piranha_collision_shape_scene,
 		"price": 50,
